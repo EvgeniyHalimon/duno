@@ -3,26 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { store } from './store/store';
-
-const theme = createTheme({
-  spacing: 5
-})
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Routes>
-            <Route/>
-          </Routes>
-        </BrowserRouter>
-      </Provider>
-    </ThemeProvider>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
