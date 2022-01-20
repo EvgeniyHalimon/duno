@@ -5,7 +5,7 @@ import { Switcher } from './Switcher';
 
 export const Head: React.FC = () => {
     return(
-        <Box>
+        <Box className="header">
             <Switcher/>
             <Search/>
         </Box>

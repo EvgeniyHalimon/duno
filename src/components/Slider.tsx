@@ -2,6 +2,8 @@ import React from "react";
 
 export const Slider: React.FC = () => {
     return(
-        <h2>slider</h2>
+        <div className="slider-section">
+            <h2>slider</h2>
+        </div>
     )
 }

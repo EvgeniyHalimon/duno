@@ -26,11 +26,15 @@ export const Home: React.FC = () => {
     },[])
 
     return (
-        <Box>
-            <Head/>
-            <h1>home</h1>
-            <Slider/>
-            <Titles/>
+        <Box style={{display : 'flex', height: '100vh'}}>
+            <div className='sidebar'>
+                <Navigation/>
+            </div>
+            <div style={{width: '90vw'}}>
+                <Head/>
+                <Slider/>
+                <Titles/>
+            </div>
         </Box>
     )
 }

@@ -7,7 +7,6 @@ import { store } from './store/store';
 import { PopularAnime } from './pages/PopularAnime';
 import { PopularManga } from './pages/PopularManga';
 import { Genres } from './pages/Genres';
-import { Navigation } from './components/Navigation';
 
 const theme = createTheme({
   spacing: 5
@@ -18,7 +17,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <BrowserRouter>
-        <Navigation/>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/popular+anime' element={<PopularAnime/>}/>
