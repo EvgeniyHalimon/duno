@@ -42,3 +42,45 @@ code {
   padding-right: 20px;
   border-right: 1px solid #2496FF;
 }
+
+
+/* Slideshow */
+
+.slide-show{
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.slide-show-slider{
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide{
+  display: inline-block;
+
+  height: 400px;
+  width: 100%;
+  border-radius: 40px;
+}
+
+/* Buttons */
+
+.slide-show-dots{
+  text-align: center;
+}
+
+.slide-show-dot{
+  display: inline-block;
+  height: 13px;
+  width: 63px;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  background-color: #444444;
+}
+
+.slide-show-dot.active{
+  background-color: #2496FF;
+}

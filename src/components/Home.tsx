@@ -17,7 +17,7 @@ export const Home: React.FC = () => {
         const m = await axios.get(`${URL_RANDOM_MANGA}`)
         console.log(data.data);
         console.log(data1.data);
-        console.log(a.data);
+        console.log(a.data.data);
         console.log(m.data);
     }
 
