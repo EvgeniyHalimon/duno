@@ -29,11 +29,6 @@ code {
   width: 100%;
 }
 
-.titles-section{
-  padding-left: 10px;
-  width: 100%;
-}
-
 .sidebar a{
   color: aliceblue;
 }
@@ -84,3 +79,26 @@ code {
 .slide-show-dot.active{
   background-color: #2496FF;
 }
+
+/* titles */
+
+.titles-section{
+  padding-left: 10px;
+  width: 100%;
+}
+
+.titles-list{
+  display: flex;
+  justify-content: center;
+}
+
+.titles-item:last-child{
+  margin-right: 0;
+}
+
+.titles-item{
+  padding: 20px;
+  border: 1px solid #2496FF;
+  margin-right: 10px;
+}
+

@@ -15,4 +15,14 @@ interface IRandomAnime{
     payload: any
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime
+interface IPaginatedAnimes{
+    type: AnimeActionTypes.SET_PAGINATED_ANIMES,
+    payload: any
+}
+
+interface ILastPage{
+    type: AnimeActionTypes.SET_LAST_PAGE,
+    payload: number
+}
+
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastPage
