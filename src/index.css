@@ -49,7 +49,7 @@ code {
 .slide-show{
   margin: 0 auto;
   overflow: hidden;
-  max-width: 500px;
+  width: 80%;
 }
 
 .slide-show-slider{
@@ -59,11 +59,33 @@ code {
 
 .slide{
   display: inline-block;
-
-  height: 400px;
-  width: 100%;
+  width: 99%;
   border-radius: 40px;
+  border: 1px solid #2496FF;
+  overflow: hidden;
+  margin-right: 15px;
 }
+
+.slide-item{
+  display: flex;
+}
+
+.info-wrapper{
+  display: flex;
+}
+
+.slide-poster{
+  height: 100%;
+  padding-right: 10px;
+}
+
+.slider-synopsis{
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+
 
 /* Buttons */
 

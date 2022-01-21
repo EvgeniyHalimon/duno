@@ -19,7 +19,7 @@ export const Slider: React.FC = () => {
 
     return(
         <div className="slider-section">
-            <SlideShow/>
+            <SlideShow randomAnimes={randomAnimes}/>
         </div>
     )
 }
