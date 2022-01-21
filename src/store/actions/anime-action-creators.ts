@@ -42,10 +42,10 @@ export const fetchAnimes = () => {
     }
 }
 
-export const fetchPaginatedAnimes = () => {
+export const fetchPaginatedAnimes = (page: number) => {
     return async(dispatch: Dispatch) => {
         try {
-            const animes = await axios.get(`${URL_TOP_ANIME}?page=1&limit=5&sort=asc`)
+            const animes = await axios.get(`${URL_TOP_ANIME}?page=${page}&limit=5&sort=asc`)
             console.log("🚀 ~ file: anime-action-creators.ts ~ line 42 ~ returnasync ~ animes", animes)
             console.log("🚀", animes.data.pagination.last_visible_page)
             dispatch(setLastPage(animes.data.pagination.last_visible_page))
