@@ -10,4 +10,9 @@ interface IAnimeErrorAction{
     payload: boolean
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction
+interface IRandomAnime{
+    type: AnimeActionTypes.SET_RANDOM_ANIME,
+    payload: any
+}
+
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime
