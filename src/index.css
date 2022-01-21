@@ -27,6 +27,7 @@ code {
   border-bottom: 1px solid #2496FF;
   padding: 20px 0;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .sidebar a{
@@ -132,6 +133,7 @@ code {
 
 .titles-list{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
 }
@@ -149,6 +151,8 @@ code {
   border: 1px solid #2496FF;
   margin-right: 10px;
   width: 250px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #303035, #1D1D28);
 }
 
 .title-genres{
