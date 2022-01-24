@@ -14,7 +14,6 @@ export const Slider: React.FC = () => {
     
     const topic = localStorage.getItem('topic')
     
-
     useEffect(() => {
         dispatch( topic === "anime" ? fetchRandomAnime() : fetchRandomManga())
     },[isAnime, isManga])

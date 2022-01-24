@@ -35,7 +35,7 @@ export const Titles: React.FC = () => {
                             <p className="genres-name" key={item.mal_id}>{item.name}</p>
                         )}
                     </div>
-                    <p>Score : {titles.score}</p>
+                    <p>Score : {titles?.score || titles?.scored}</p>
                     <p>Rank : {titles.rank}</p>
                     
                 </div>

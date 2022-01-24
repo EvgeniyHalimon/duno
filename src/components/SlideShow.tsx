@@ -18,16 +18,17 @@ export const SlideShow: React.FC<any> = ({randomTitles}) => {
             setIndex((prevIndex) => 
                 prevIndex === pages - 1 ? 0 : prevIndex + 1
             )
-        }, 2500);
+        }, 5000);
         return () => {
             resetTimeout()
         }
     },[index])
 
     return(
-        randomTitles ? 
-        <div>
-            <div className="slide-show">
+        
+        <>
+            {randomTitles ? 
+                <div className="slide-show">
                     <div
                         className="slide-show-slider"
                         style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
@@ -59,17 +60,17 @@ export const SlideShow: React.FC<any> = ({randomTitles}) => {
                         </div>
                         )}
                     </div>
-                </div>
+                </div> : <Loading/>}
                 <div className="slide-show-dots">
-                        {randomTitles && randomTitles.map((_: string, idx: number) => (
-                            <div
-                                key={idx}
-                                className={`slide-show-dot${index === idx ? " active" : ""}`}
-                                onClick={() => { setIndex(idx); } }
-                            >
-                            </div>
-                        ))}
+                    {randomTitles && randomTitles.map((_: string, idx: number) => (
+                        <div
+                            key={idx}
+                            className={`slide-show-dot${index === idx ? " active" : ""}`}
+                            onClick={() => { setIndex(idx); } }
+                        >
+                        </div>
+                    ))}
                 </div>
-        </div> : <Loading/>
+        </> 
     )
 }

@@ -68,6 +68,8 @@ code {
 
 .slide-item{
   display: flex;
+  align-items: center;
+  min-height: 360px;
 }
 
 .slide-item p{
@@ -79,7 +81,6 @@ code {
 }
 
 .slide-poster{
-  height: 100%;
   margin: 20px;
 }
 
