@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import {Loading} from "./Loading"
 
-export const SlideShow: React.FC<any> = ({randomAnimes}) => {
+export const SlideShow: React.FC<any> = ({randomTitles}) => {
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
     function resetTimeout(){
@@ -10,7 +10,7 @@ export const SlideShow: React.FC<any> = ({randomAnimes}) => {
         }
     }
 
-    const pages = randomAnimes ? randomAnimes.length : 3
+    const pages = randomTitles ? randomTitles.length : 3
 
     useEffect(() => {
         resetTimeout()
@@ -25,14 +25,14 @@ export const SlideShow: React.FC<any> = ({randomAnimes}) => {
     },[index])
 
     return(
-        randomAnimes ? 
+        randomTitles ? 
         <div>
             <div className="slide-show">
                     <div
                         className="slide-show-slider"
                         style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
                     >
-                        {randomAnimes && randomAnimes.map((titles: any) => <div
+                        {randomTitles && randomTitles.map((titles: any) => <div
                             className="slide"
                             key={titles.url}
                         >
@@ -42,7 +42,7 @@ export const SlideShow: React.FC<any> = ({randomAnimes}) => {
                                     <div>
                                         <div>
                                             <p>{titles.title} / {titles.title_japanese}</p>
-                                            <p>{titles.aired.string}</p>
+                                            <p>{titles.aired?.string || titles.published?.string}</p>
                                             <p>Score: {titles.score}</p>
                                             <p>Rank: {titles.rank}</p>
                                             <div className="slide-genres">
@@ -61,7 +61,7 @@ export const SlideShow: React.FC<any> = ({randomAnimes}) => {
                     </div>
                 </div>
                 <div className="slide-show-dots">
-                        {randomAnimes && randomAnimes.map((_: string, idx: number) => (
+                        {randomTitles && randomTitles.map((_: string, idx: number) => (
                             <div
                                 key={idx}
                                 className={`slide-show-dot${index === idx ? " active" : ""}`}

@@ -6,7 +6,9 @@ const initialState: any = {
     randomAnimes: null,
     animeError: false,
     paginatedAnimes: null,
-    lastPage: 1
+    lastAnimePage: 1,
+    isAnime : true,
+    animeSearchResult: null
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {
@@ -31,10 +33,20 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
                 ...state,
                 paginatedAnimes: action.payload
             }
-        case AnimeActionTypes.SET_LAST_PAGE:
+        case AnimeActionTypes.SET_LAST_ANIME_PAGE:
             return{
                 ...state,
-                lastPage: action.payload
+                lastAnimePage: action.payload
+            }
+        case AnimeActionTypes.SET_IS_ANIME:
+            return{
+                ...state,
+                isAnime: action.payload
+            }
+        case AnimeActionTypes.SET_ANIME_SEARCH_RESULT:
+            return{
+                ...state,
+                animeSearchResult: action.payload
             }
         default:
             return state

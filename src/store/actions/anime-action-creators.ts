@@ -23,9 +23,9 @@ export const setPaginatedAnimes = (data: any) => {
     }
 }
 
-export const setLastPage = (number: number) => {
+export const setLastAnimePage = (number: number) => {
     return{
-        type: AnimeActionTypes.SET_LAST_PAGE,
+        type: AnimeActionTypes.SET_LAST_ANIME_PAGE,
         payload: number
     }
 }
@@ -45,7 +45,7 @@ export const fetchPaginatedAnimes = (page: number) => {
     return async(dispatch: Dispatch) => {
         try {
             const animes = await fetchAnimeData.fetchPaginatedAnimes(page)
-            dispatch(setLastPage(animes.data.pagination.last_visible_page))
+            dispatch(setLastAnimePage(animes.data.pagination.last_visible_page))
             dispatch(setPaginatedAnimes(animes.data.data))
         } catch (error) {
             dispatch(setAnimeError(true))
@@ -65,6 +65,32 @@ export const fetchRandomAnime = () => {
         try {
             const randomAnimes = await fetchAnimeData.fetchRandomAnime()
             dispatch(setRandomAnimes(randomAnimes))
+        } catch (error) {
+            dispatch(setAnimeError(true))
+        }
+    }
+}
+
+export const isAnimeFlag = (bool: boolean) => {
+    return{
+        type: AnimeActionTypes.SET_IS_ANIME,
+        payload: bool
+    }
+}
+
+export const animeSearchResult = (data: any) => {
+    return{
+        type: AnimeActionTypes.SET_ANIME_SEARCH_RESULT,
+        payload: data
+    }
+}
+
+export const fetchAnimeSearch = (inputValue: string) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const searchResult = await fetchAnimeData.fetchAnimeSearch(inputValue)
+            console.log(searchResult.data);
+            dispatch(animeSearchResult(searchResult.data))
         } catch (error) {
             dispatch(setAnimeError(true))
         }
