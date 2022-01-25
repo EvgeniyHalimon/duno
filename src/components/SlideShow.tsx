@@ -44,6 +44,7 @@ export const SlideShow: React.FC<any> = ({randomTitles}) => {
                                         <div>
                                             <p>{titles.title} / {titles.title_japanese}</p>
                                             <p>{titles.aired?.string || titles.published?.string}</p>
+                                            <p>{titles.type}</p>
                                             <p>Score: {titles.score}</p>
                                             <p>Rank: {titles.rank}</p>
                                             <div className="slide-genres">

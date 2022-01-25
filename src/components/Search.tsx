@@ -20,7 +20,7 @@ export const Search: React.FC = () => {
 
     function navigateToList(e: any){
         if(e.key === "Enter"){
-            //navigate('/search+result+list')
+            navigate('/search+result+list')
         }
     }
     
