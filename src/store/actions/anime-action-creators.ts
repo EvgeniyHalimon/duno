@@ -85,12 +85,20 @@ export const animeSearchResult = (data: any) => {
     }
 }
 
-export const fetchAnimeSearch = (inputValue: string) => {
+export const setAnimeSearchValue = (inputValue: string) => {
+    return{
+        type: AnimeActionTypes.SET_ANIME_SEARCH_VALUE,
+        payload: inputValue
+    }
+}
+
+export const fetchAnimeSearch = (inputValue: string, page: number) => {
     return async (dispatch: Dispatch) => {
         try {
-            const searchResult = await fetchAnimeData.fetchAnimeSearch(inputValue)
-            console.log(searchResult.data);
-            dispatch(animeSearchResult(searchResult.data))
+            const searchResult = await fetchAnimeData.fetchAnimeSearch(inputValue, page)
+            dispatch(setLastAnimePage(searchResult.data.pagination.last_visible_page))
+            dispatch(setAnimeSearchValue(inputValue))
+            dispatch(animeSearchResult(searchResult.data.data))
         } catch (error) {
             dispatch(setAnimeError(true))
         }

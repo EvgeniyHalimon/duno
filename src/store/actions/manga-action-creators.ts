@@ -85,12 +85,20 @@ export const mangaSearchResult = (data: any) => {
     }
 }
 
-export const fetchMangaSearch = (inputValue: string) => {
+export const setMangaSearchValue = (inputValue: string) => {
+    return{
+        type: MangaActionTypes.SET_MANGA_SEARCH_VALUE,
+        payload: inputValue
+    }
+}
+
+export const fetchMangaSearch = (inputValue: string, page: number) => {
     return async (dispatch: Dispatch) => {
         try {
-            const searchResult = await fetchMangaData.fetchMangaSearch(inputValue)
-            console.log(searchResult.data);
-            dispatch(mangaSearchResult(searchResult.data))
+            const searchResult = await fetchMangaData.fetchMangaSearch(inputValue, page)
+            dispatch(setLastMangaPage(searchResult.data.pagination.last_visible_page))
+            dispatch(setMangaSearchValue(inputValue))
+            dispatch(mangaSearchResult(searchResult.data.data))
         } catch (error) {
             dispatch(setMangaError(true))
         }

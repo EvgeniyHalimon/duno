@@ -35,4 +35,9 @@ interface ISeacrhMangaResult{
     payload: any
 }
 
-export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | ISeacrhMangaResult
+interface ISearchMangaValue{
+    type: MangaActionTypes.SET_MANGA_SEARCH_VALUE,
+    payload: string
+}
+
+export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | ISeacrhMangaResult | ISearchMangaValue

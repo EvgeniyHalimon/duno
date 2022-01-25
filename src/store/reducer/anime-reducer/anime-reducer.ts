@@ -8,7 +8,8 @@ const initialState: any = {
     paginatedAnimes: null,
     lastAnimePage: 1,
     isAnime : true,
-    animeSearchResult: null
+    animeSearchResult: null,
+    searchAnimeValue: "Berserk"
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {
@@ -47,6 +48,11 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
             return{
                 ...state,
                 animeSearchResult: action.payload
+            }
+        case AnimeActionTypes.SET_ANIME_SEARCH_VALUE:
+            return{
+                ...state,
+                searchAnimeValue: action.payload
             }
         default:
             return state

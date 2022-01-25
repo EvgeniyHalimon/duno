@@ -8,7 +8,8 @@ const inintalState: any = {
     paginatedMangas: null,
     lastMangaPage: 1,
     isManga : false,
-    mangaSearchResult: null
+    mangaSearchResult: null,
+    searchMangaValue: "Berserk"
 }
 
 const updateMangas = (state = inintalState, action: MangaAction) => {
@@ -47,6 +48,11 @@ const updateMangas = (state = inintalState, action: MangaAction) => {
             return{
                 ...state,
                 mangaSearchResult: action.payload
+            }
+        case MangaActionTypes.SET_MANGA_SEARCH_VALUE:
+            return{
+                ...state,
+                searchMangaValue: action.payload
             }
         default:
             return state

@@ -35,4 +35,9 @@ interface ISeacrhAnimeResult{
     payload: any
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult
+interface ISeacrhAnimeValue{
+    type: AnimeActionTypes.SET_ANIME_SEARCH_VALUE,
+    payload: string
+}
+
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | ISeacrhAnimeValue

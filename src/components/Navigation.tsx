@@ -8,10 +8,6 @@ import { useTypesSelector } from '../hooks/useTypesSelector';
 export const Navigation: React.FC = () => {
     const {isAnime} = useTypesSelector(state => state.anime)
 
-    useEffect(() => {
-    
-    },[isAnime])
-
     return(
         <Box sx={{ flexGrow: 1 }}>
             <ul>

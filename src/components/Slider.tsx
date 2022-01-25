@@ -12,15 +12,14 @@ export const Slider: React.FC = () => {
     const {randomAnimes, isAnime} = useTypesSelector(state => state.anime)
     const {randomMangas, isManga} = useTypesSelector(state => state.manga)
     
-    const topic = localStorage.getItem('topic')
-    
     useEffect(() => {
-        dispatch( topic === "anime" ? fetchRandomAnime() : fetchRandomManga())
+        dispatch(fetchRandomAnime())
+        dispatch(fetchRandomManga())
     },[isAnime, isManga])
 
     return(
         <div className="slider-section">
-            <SlideShow randomTitles={topic === "anime" ? randomAnimes : randomMangas}/>
+            <SlideShow randomTitles={isAnime ? randomAnimes : randomMangas}/>
         </div>
     )
 }
