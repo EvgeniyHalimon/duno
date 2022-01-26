@@ -40,4 +40,15 @@ interface ISeacrhAnimeValue{
     payload: string
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | ISeacrhAnimeValue
+interface IAnimeGenres{
+    type: AnimeActionTypes.SET_ANIME_GENRES,
+    payload: any
+}
+
+interface IAnimeByGenres{
+    type: AnimeActionTypes.SET_ANIME_BY_GENRE,
+    payload: any
+}
+
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
+ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres

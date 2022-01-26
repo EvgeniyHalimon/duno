@@ -40,4 +40,15 @@ interface ISearchMangaValue{
     payload: string
 }
 
-export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | ISeacrhMangaResult | ISearchMangaValue
+interface IMangaGenres{
+    type: AnimeActionTypes.SET_MANGA_GENRES,
+    payload: any
+}
+
+interface IMangaByGenres{
+    type: AnimeActionTypes.SET_MANGA_BY_GENRE,
+    payload: any
+}
+
+export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | 
+ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres

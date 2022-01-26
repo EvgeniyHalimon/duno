@@ -9,7 +9,9 @@ const inintalState: any = {
     lastMangaPage: 1,
     isManga : false,
     mangaSearchResult: null,
-    searchMangaValue: "Berserk"
+    searchMangaValue: "Berserk",
+    mangaGenres: null,
+    mangaByGenre: null
 }
 
 const updateMangas = (state = inintalState, action: MangaAction) => {
@@ -53,6 +55,16 @@ const updateMangas = (state = inintalState, action: MangaAction) => {
             return{
                 ...state,
                 searchMangaValue: action.payload
+            }
+        case MangaActionTypes.SET_MANGA_GENRES:
+            return{
+                ...state,
+                mangaGenres: action.payload
+            }
+        case MangaActionTypes.SET_MANGA_BY_GENRE:
+            return{
+                ...state,
+                mangaByGenre: action.payload
             }
         default:
             return state
