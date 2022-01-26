@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(180deg, #1D1D28, #303035);
-  height: 100vh;
+  height: 150vh;
   color: aliceblue;
 }
 
@@ -18,6 +18,7 @@ code {
 .header{
   border-bottom: 1px solid #2496FF;
   display: flex;
+  align-items: center;
   padding-left: 10px;
   width: 100%;
   height: 100px;
@@ -27,11 +28,7 @@ code {
   border-bottom: 1px solid #2496FF;
   padding: 20px 0;
   width: 100%;
-}
-
-.titles-section{
-  padding-left: 10px;
-  width: 100%;
+  margin-bottom: 20px;
 }
 
 .sidebar a{
@@ -41,6 +38,7 @@ code {
 .sidebar{
   padding-right: 20px;
   border-right: 1px solid #2496FF;
+  height: 150vh;
 }
 
 
@@ -70,6 +68,8 @@ code {
 
 .slide-item{
   display: flex;
+  align-items: center;
+  height: 360px;
 }
 
 .slide-item p{
@@ -81,7 +81,6 @@ code {
 }
 
 .slide-poster{
-  height: 100%;
   margin: 20px;
 }
 
@@ -125,4 +124,73 @@ code {
 
 .slide-show-dot.active{
   background-color: #2496FF;
+}
+
+/* titles */
+
+.titles-section{
+  padding-left: 10px;
+  width: 100%;
+}
+
+.titles-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.titles-item:last-child{
+  margin-right: 0;
+}
+
+.titles-item p{
+  word-wrap: break-word;
+}
+
+.titles-item{
+  padding: 20px;
+  border: 1px solid #2496FF;
+  margin-right: 10px;
+  width: 250px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #303035, #1D1D28);
+}
+
+.title-genres{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title-poster{
+  height: 220px;
+  width: 165px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.title-genres p{
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.title-genres p:last-child{
+  margin-right: 0px;
+}
+
+.genres-name{
+  border: 1px solid #2496FF;
+  background-color: rgba(70, 169, 214, 0.5);
+  border-radius: 5px;
+  padding: 0px 6px;
+}
+
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root, .css-1v2lvtn-MuiPaginationItem-root{
+  color: white !important;
+}
+
+.css-wjh20t-MuiPagination-ul {
+  justify-content: center;
 }

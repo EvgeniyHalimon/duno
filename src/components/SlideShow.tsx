@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {Loading} from "./Loading"
 import { SliderInfo } from "./SliderInfo";
 
-export const SlideShow: React.FC<any> = ({randomAnimes}) => {
+export const SlideShow: React.FC<any> = ({randomTitles}) => {
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
 
@@ -12,7 +12,7 @@ export const SlideShow: React.FC<any> = ({randomAnimes}) => {
         }
     }
 
-    const pages = randomAnimes ? randomAnimes.length : 3
+    const pages = randomTitles ? randomTitles.length : 3
 
     useEffect(() => {
         resetTimeout()
@@ -27,7 +27,7 @@ export const SlideShow: React.FC<any> = ({randomAnimes}) => {
     },[index])
 
     return(
-        randomAnimes ? 
+        randomTitles ? 
         <div>
             <div className="slide-show">
                 <div
@@ -38,12 +38,13 @@ export const SlideShow: React.FC<any> = ({randomAnimes}) => {
                 </div>
             </div>
             <div className="slide-show-dots">
-                {randomAnimes && randomAnimes.map((_: string, idx: number) => (
+                {randomTitles && randomTitles.map((_: string, idx: number) => (
                     <div
                         key={idx}
                         className={`slide-show-dot${index === idx ? " active" : ""}`}
                         onClick={() => { setIndex(idx) }}
                     >
+
                     </div>
                 ))}
             </div>

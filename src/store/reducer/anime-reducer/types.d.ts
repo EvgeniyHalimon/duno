@@ -15,4 +15,29 @@ interface IRandomAnime{
     payload: any
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime
+interface IPaginatedAnimes{
+    type: AnimeActionTypes.SET_PAGINATED_ANIMES,
+    payload: any
+}
+
+interface ILastAnimePage{
+    type: AnimeActionTypes.SET_LAST_PAGE,
+    payload: number
+}
+
+interface IIsAnime{
+    type: AnimeActionTypes.SET_IS_ANIME,
+    payload: boolean
+}
+
+interface ISeacrhAnimeResult{
+    type: AnimeActionTypes.SET_ANIME_SEARCH_RESULT,
+    payload: any
+}
+
+interface ISeacrhAnimeValue{
+    type: AnimeActionTypes.SET_ANIME_SEARCH_VALUE,
+    payload: string
+}
+
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | ISeacrhAnimeValue
