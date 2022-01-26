@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Button } from '@mui/material';
 import { useDispatch } from "react-redux";
-import { isAnimeFlag } from '../store/actions/anime-action-creators';
-import { isMangaFlag } from '../store/actions/manga-action-creators';
+import { isMangaFlag } from '../../store/actions/manga-action-creators';
+import { isAnimeFlag } from '../../store/actions/anime-action-creators';
 
 export const Switcher: React.FC = () => {
     const dispatch = useDispatch()

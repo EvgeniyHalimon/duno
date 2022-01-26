@@ -2,9 +2,9 @@ import React,{useState, useEffect} from "react";
 
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router";
-import useDebounce from "../hooks/useDebounce";
-import { animeSearchResult, fetchAnimeSearch, isAnimeFlag } from "../store/actions/anime-action-creators";
-import { fetchMangaSearch } from "../store/actions/manga-action-creators";
+import useDebounce from "../../hooks/useDebounce";
+import { animeSearchResult, fetchAnimeSearch, isAnimeFlag } from "../../store/actions/anime-action-creators";
+import { fetchMangaSearch } from "../../store/actions/manga-action-creators";
 
 
 export const Search: React.FC = () => {
