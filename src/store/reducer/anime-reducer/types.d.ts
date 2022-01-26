@@ -20,9 +20,24 @@ interface IPaginatedAnimes{
     payload: any
 }
 
-interface ILastPage{
+interface ILastAnimePage{
     type: AnimeActionTypes.SET_LAST_PAGE,
     payload: number
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastPage
+interface IIsAnime{
+    type: AnimeActionTypes.SET_IS_ANIME,
+    payload: boolean
+}
+
+interface ISeacrhAnimeResult{
+    type: AnimeActionTypes.SET_ANIME_SEARCH_RESULT,
+    payload: any
+}
+
+interface ISeacrhAnimeValue{
+    type: AnimeActionTypes.SET_ANIME_SEARCH_VALUE,
+    payload: string
+}
+
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | ISeacrhAnimeValue

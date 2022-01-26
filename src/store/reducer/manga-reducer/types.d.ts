@@ -10,4 +10,34 @@ interface IMangaErrorAction{
     payload: boolean
 }
 
-export type MangaAction = IMangaAction | IMangaErrorAction
+interface IRandomManga{
+    type: MangaActionTypes.SET_RANDOM_MANGA,
+    payload: any
+}
+
+interface IPaginatedMangas{
+    type: MangaActionTypes.SET_PAGINATED_MANGAS,
+    payload: any
+}
+
+interface ILastMangaPage{
+    type: MangaActionTypes.SET_LAST_MANGA_PAGE,
+    payload: number
+}
+
+interface IIsManga{
+    type: MangaActionTypes.SET_IS_MANGA,
+    payload: boolean
+}
+
+interface ISeacrhMangaResult{
+    type: MangaActionTypes.SET_MANGA_SEARCH_RESULT,
+    payload: any
+}
+
+interface ISearchMangaValue{
+    type: MangaActionTypes.SET_MANGA_SEARCH_VALUE,
+    payload: string
+}
+
+export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | ISeacrhMangaResult | ISearchMangaValue

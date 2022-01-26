@@ -8,7 +8,7 @@ export const fetchAnimeData = {
         return animes
     },
     async fetchPaginatedAnimes(page: number){
-        const animes = await axios.get(`${URL_TOP_ANIME}?page=${page}&limit=5&sort=asc`)
+        const animes = await axios.get(`${URL_TOP_ANIME}?page=${page}&limit=5`)
         return animes
     },
     async fetchRandomAnime(){
@@ -17,6 +17,10 @@ export const fetchAnimeData = {
         const randomTitle3 = await axios.get(URL_RANDOM_ANIME)
         const randomAnimes = [randomTitle1.data.data, randomTitle2.data.data, randomTitle3.data.data]
         return randomAnimes
+    },
+    async fetchAnimeSearch(inputValue: string, page: number){
+        const animes = await axios.get(`${URL_ANIME_SEARCH}?q=${inputValue}&page=${page}&limit=5&sfw=false&order_by=score&sort=desc`)
+        return animes
     }
 }
 
@@ -26,7 +30,7 @@ export const fetchMangaData = {
         return mangas
     },
     async fetchPaginatedManga(page: number){
-        const mangas = await axios.get(`${URL_TOP_MANGA}?page=${page}&limit=5&sort=asc`)
+        const mangas = await axios.get(`${URL_TOP_MANGA}?page=${page}&limit=5`)
         return mangas
     },
     async fetchRandomManga(){
@@ -35,5 +39,9 @@ export const fetchMangaData = {
         const randomTitle3 = await axios.get(URL_RANDOM_MANGA)
         const randomMangas = [randomTitle1.data.data, randomTitle2.data.data, randomTitle3.data.data]
         return randomMangas
+    },
+    async fetchMangaSearch(inputValue: string, page: number){
+        const mangas = await axios.get(`${URL_MANGA_SEARCH}?q=${inputValue}&page=${page}&limit=5&sfw=false&order_by=&score&sort=asc`)
+        return mangas
     }
 }
