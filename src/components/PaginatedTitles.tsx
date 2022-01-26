@@ -7,7 +7,7 @@ export const PaginatedTitles: React.FC<any> = ({paginatedTitles}) => {
             <div className="titles-list">
                 {paginatedTitles && paginatedTitles.map((titles: any) =>
                 <div className="titles-item" key={titles.url}>
-                    <img className="title-poster" src={titles.images.webp.image_url} alt="poster" />
+                    <img className="title-poster" src={titles.images.webp.image_url} alt={`${titles.title}-Poster`} />
                     <p>{titles.title} / {titles.title_japanese}</p> 
                     <p>{titles.aired?.string  || titles.published?.string}</p>
                     <p>{titles.type}</p>

@@ -14,10 +14,10 @@ export const SliderCardInfo: React.FC<any> = ({titles}) => {
                     <div className="slide-genres">
                         {titles.genres.map((genre: any) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
                     </div>
+                    <p className="slider-synopsis">
+                        {titles.synopsis}
+                    </p>
                 </div>
-                <p className="slider-synopsis">
-                    {titles.synopsis}
-                </p>
             </div>
         </React.Fragment>
     )
