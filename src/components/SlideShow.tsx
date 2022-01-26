@@ -34,7 +34,7 @@ export const SlideShow: React.FC<any> = ({randomTitles}) => {
                     className="slide-show-slider"
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
                 >
-                    <SliderInfo/> 
+                    <SliderInfo randomTitles={randomTitles}/> 
                 </div>
             </div>
             <div className="slide-show-dots">

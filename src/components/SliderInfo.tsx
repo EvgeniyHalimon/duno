@@ -1,13 +1,11 @@
 import React from "react";
 
-import { useTypesSelector } from '../hooks/useTypesSelector';
-
-export const SliderInfo: React.FC = () => {
-    const {randomAnimes} = useTypesSelector(state => state.anime)
+export const SliderInfo: React.FC<any> = ({randomTitles}) => {
+console.log("🚀 ~ file: SliderInfo.tsx ~ line 6 ~ randomTitles", randomTitles)
 
     return(
         <div>
-            {randomAnimes && randomAnimes.map((titles: any) => 
+            {randomTitles && randomTitles.map((titles: any) => 
             <div
                 className="slide"
                 key={titles.url}
@@ -18,8 +16,9 @@ export const SliderInfo: React.FC = () => {
                         <div>
                             <div>
                                 <p>{titles.title} / {titles.title_japanese}</p>
-                                <p>{titles.aired.string}</p>
-                                <p>Score: {titles.score}</p>
+                                <p>{titles.type}</p>
+                                <p>{titles.aired?.string || titles.published?.string}</p>
+                                <p>Score: {titles.score || titles.scored}</p>
                                 <p>Rank: {titles.rank}</p>
                                 <div className="slide-genres">
                                     {titles.genres.map((genre: any) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
