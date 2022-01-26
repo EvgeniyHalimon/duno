@@ -1,6 +1,8 @@
-export const URL_ANIME_SEARCH: string = 'https://api.jikan.moe/v4/anime'
-export const URL_TOP_ANIME: string = 'https://api.jikan.moe/v4/top/anime'
-export const URL_MANGA_SEARCH: string = 'https://api.jikan.moe/v4/manga'
-export const URL_TOP_MANGA: string = 'https://api.jikan.moe/v4/top/manga'
-export const URL_RANDOM_ANIME: string = 'https://api.jikan.moe/v4/random/anime?sfw=false'
-export const URL_RANDOM_MANGA: string = 'https://api.jikan.moe/v4/random/manga?sfw=false'
+export const BASE_URL: string = 'https://api.jikan.moe/v4'
+
+export const URL_ANIME_SEARCH: string = `${BASE_URL}/anime`
+export const URL_TOP_ANIME: string = `${BASE_URL}/top/anime`
+export const URL_MANGA_SEARCH: string = `${BASE_URL}/manga`
+export const URL_TOP_MANGA: string = `${BASE_URL}/top/manga`
+export const URL_RANDOM_ANIME: string = `${BASE_URL}/random/anime?sfw=false`
+export const URL_RANDOM_MANGA: string = `${BASE_URL}/random/manga?sfw=false`
