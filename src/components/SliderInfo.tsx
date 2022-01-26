@@ -1,16 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useDispatch } from "react-redux";
-import { fetchRandomAnime } from "../store/actions/anime-action-creators";
 import { useTypesSelector } from '../hooks/useTypesSelector';
 
 export const SliderInfo: React.FC = () => {
-    const dispatch = useDispatch()
     const {randomAnimes} = useTypesSelector(state => state.anime)
-
-    useEffect(() => {
-        dispatch(fetchRandomAnime())
-    },[])
 
     return(
         <div>
@@ -29,8 +22,7 @@ export const SliderInfo: React.FC = () => {
                                 <p>Score: {titles.score}</p>
                                 <p>Rank: {titles.rank}</p>
                                 <div className="slide-genres">
-                                    {titles.genres.map((genre: any) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>
-                                    )}
+                                    {titles.genres.map((genre: any) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
                                 </div>
                             </div>
                             <p className="slider-synopsis">

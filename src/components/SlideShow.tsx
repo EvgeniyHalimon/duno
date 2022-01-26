@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import {Loading} from "./Loading"
+import { SliderInfo } from "./SliderInfo";
 
-export const SlideShow: React.FC<any> = ({randomAnimes, children}) => {
+export const SlideShow: React.FC<any> = ({randomAnimes}) => {
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
 
@@ -33,7 +34,7 @@ export const SlideShow: React.FC<any> = ({randomAnimes, children}) => {
                     className="slide-show-slider"
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
                 >
-                    {children}
+                    <SliderInfo/> 
                 </div>
             </div>
             <div className="slide-show-dots">
@@ -41,7 +42,7 @@ export const SlideShow: React.FC<any> = ({randomAnimes, children}) => {
                     <div
                         key={idx}
                         className={`slide-show-dot${index === idx ? " active" : ""}`}
-                        onClick={() => { setIndex(idx); } }
+                        onClick={() => { setIndex(idx) }}
                     >
                     </div>
                 ))}

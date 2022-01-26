@@ -7,7 +7,7 @@ import { SlideShow } from './SlideShow';
 import { SliderInfo } from "./SliderInfo";
 
 
-export const Slider: React.FC = () => {
+export const Slider: React.FC = (children) => {
     const dispatch = useDispatch()
     const {randomAnimes} = useTypesSelector(state => state.anime)
     
@@ -18,7 +18,7 @@ export const Slider: React.FC = () => {
     return(
         <div className="slider-section">
             <SlideShow randomAnimes={randomAnimes}>
-                <SliderInfo />
+                {children}
             </SlideShow>
         </div>
     )
