@@ -6,6 +6,7 @@ interface ISliderInfo{
 }
 
 export const SliderCardInfo: React.FC<ISliderInfo> = ({titles}) => {
+console.log("🚀 ~ file: SliderCardInfo.tsx ~ line 9 ~ titles", titles)
     return(
         <>
             <div className="slide-item" key={titles.url}>

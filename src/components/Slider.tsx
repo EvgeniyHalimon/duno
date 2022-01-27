@@ -7,9 +7,6 @@ import { ITitles } from "../types/types";
 import { SliderCardInfo } from "./SliderCardInfo";
 import { SlideShow } from './SlideShow';
 
-
-
-
 export const Slider: React.FC = () => {
     const dispatch = useDispatch()
     const {randomAnimes, isAnime} = useTypesSelector(state => state.anime)
@@ -22,15 +19,15 @@ export const Slider: React.FC = () => {
 
     return(
         <div className="slider-section">
-            <SlideShow sliderPages={isAnime ? randomAnimes?.length : randomMangas?.length}>
-            {randomTitles && randomTitles.map((titles: ITitles) => 
-                <div
-                    className="slide"
-                    key={titles.url}
-                >
-                    <SliderCardInfo titles={randomTitles}/>
-                </div>
-            )}
+            <SlideShow>
+                {randomTitles && randomTitles.map((titles: ITitles) => 
+                    <div
+                        className="slide"
+                        key={titles.url}
+                    >
+                        <SliderCardInfo titles={randomTitles}/>
+                    </div>
+                )}
             </SlideShow>
         </div>
     )

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { ITitles } from "../types/types";
 import {Loading} from "./Loading"
 
 export const SlideShow: React.FC<any> = ({children}) => {
+console.log("🚀 ~ <================", children)
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
-
 
     function resetTimeout(){
         if(timeoutRef.current){
@@ -30,14 +31,15 @@ export const SlideShow: React.FC<any> = ({children}) => {
         sliderPages ? 
         <>
             <div className="slide-show">
-            <div
-                className="slide-show-slider"
-                style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
-            >
-            </div>
+                <div
+                    className="slide-show-slider"
+                    style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
+                >
+                    {children}
+                </div>
             </div>
             <div className="slide-show-dots">
-                {randomTitles && randomTitles.map((_: string, idx: number) => (
+                {Array(sliderPages).fill(sliderPages).map((_: string, idx: number) => (
                     <div
                         key={idx}
                         className={`slide-show-dot${index === idx ? " active" : ""}`}

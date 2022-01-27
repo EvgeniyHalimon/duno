@@ -6,7 +6,6 @@ interface IPaganatedTitles{
 }
 
 export const PaginatedTitles: React.FC<IPaganatedTitles> = ({paginatedTitles}) => {
-    console.log(paginatedTitles);
     return(
         <div className="titles-section">
             <div className="titles-list">
