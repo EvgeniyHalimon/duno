@@ -15,24 +15,24 @@ export interface IGenres{
 }
 
 export interface IInitialStateAnimes{
-    animes: ITitles | null,
-    randomAnimes: ITitles | null,
+    animes: ITitles | [],
+    randomAnimes: ITitles | [],
     animeError: boolean,
-    paginatedAnimes: ITitles | null,
+    paginatedAnimes: ITitles | [],
     lastAnimePage: number,
     isAnime: boolean,
-    animeSearchResult: ITitles[] | null,
+    animeSearchResult: ITitles[] | [],
     searchAnimeValue: string
 }
 
 export interface IInitiaStateMangas{
-    mangas: ITitles | null ,
+    mangas: ITitles | [] ,
     mangaError: boolean,
-    randomMangas: ITitles[] | null,
-    paginatedMangas: ITitles | null,
+    randomMangas: ITitles[] | [],
+    paginatedMangas: ITitles | [],
     lastMangaPage: number,
     isManga: boolean,
-    mangaSearchResult: ITitles | null,
+    mangaSearchResult: ITitles | [],
     searchMangaValue: string,
 }
 

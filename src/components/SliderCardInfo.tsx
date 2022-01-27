@@ -7,7 +7,7 @@ interface ISliderInfo{
 
 export const SliderCardInfo: React.FC<ISliderInfo> = ({titles}) => {
     return(
-        <React.Fragment>
+        <>
             <div className="slide-item" key={titles.url}>
                 <img className="slide-poster" src={titles.images?.webp.image_url} alt={`${titles.title}-Poster`} />
                 <div>
@@ -24,6 +24,6 @@ export const SliderCardInfo: React.FC<ISliderInfo> = ({titles}) => {
                     </p>
                 </div>
             </div>
-        </React.Fragment>
+        </>
     )
 }

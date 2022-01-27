@@ -3,13 +3,13 @@ import { MangaActionTypes } from "../../action-types/manga-action-types"
 import { MangaAction } from "./types"
 
 const inintalState: IInitiaStateMangas = {
-    mangas: null,
+    mangas: [],
     mangaError: false,
-    randomMangas: null,
-    paginatedMangas: null,
+    randomMangas: [],
+    paginatedMangas: [],
     lastMangaPage: 1,
     isManga : false,
-    mangaSearchResult: null,
+    mangaSearchResult: [],
     searchMangaValue: "Berserk"
 }
 

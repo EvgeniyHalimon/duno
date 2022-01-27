@@ -18,8 +18,7 @@ export const Titles: React.FC = () => {
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        dispatch(fetchPaginatedAnimes(currentPage))
-        dispatch(fetchPaginatedMangas(currentPage))
+        isAnime ? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
     },[currentPage, isAnime, isManga])
 
     return(

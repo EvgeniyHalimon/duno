@@ -3,13 +3,13 @@ import { AnimeActionTypes } from "../../action-types/anime-action-types";
 import { AnimeAction } from "./types";
 
 const initialState: IInitialStateAnimes = {
-    animes: null,
-    randomAnimes: null,
+    animes: [],
+    randomAnimes: [],
     animeError: false,
-    paginatedAnimes: null,
+    paginatedAnimes: [],
     lastAnimePage: 1,
     isAnime : true,
-    animeSearchResult: null,
+    animeSearchResult: [],
     searchAnimeValue: "Berserk"
 }
 
