@@ -13,7 +13,7 @@ interface IAnimeErrorAction{
 
 interface IRandomAnime{
     type: AnimeActionTypes.SET_RANDOM_ANIME,
-    payload: ITitles[]
+    payload: ITitles
 }
 
 interface IPaginatedAnimes{
@@ -22,7 +22,7 @@ interface IPaginatedAnimes{
 }
 
 interface ILastAnimePage{
-    type: AnimeActionTypes.SET_LAST_PAGE,
+    type: AnimeActionTypes.SET_LAST_ANIME_PAGE,
     payload: number
 }
 

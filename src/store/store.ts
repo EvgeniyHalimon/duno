@@ -9,6 +9,6 @@ import updateMangas from './reducer/manga-reducer/manga-reducer';
 export const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export type RootState = {
-    anime: ReturnType<typeof updateAnimes>;
-    manga: ReturnType<typeof updateMangas>;
+    anime: ReturnType<typeof updateAnimes>,
+    manga: ReturnType<typeof updateMangas>
 }

@@ -1,8 +1,8 @@
-import { IInitiaStateMangas } from "../../../types/types"
+import { IInitialStateMangas } from "../../../types/types"
 import { MangaActionTypes } from "../../action-types/manga-action-types"
 import { MangaAction } from "./types"
 
-const inintalState: IInitiaStateMangas = {
+const inintalState: IInitialStateMangas = {
     mangas: [],
     mangaError: false,
     randomMangas: [],

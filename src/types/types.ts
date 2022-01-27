@@ -16,7 +16,7 @@ export interface IGenres{
 
 export interface IInitialStateAnimes{
     animes: ITitles | [],
-    randomAnimes: ITitles | [],
+    randomAnimes: ITitles[],
     animeError: boolean,
     paginatedAnimes: ITitles | [],
     lastAnimePage: number,
@@ -25,10 +25,10 @@ export interface IInitialStateAnimes{
     searchAnimeValue: string
 }
 
-export interface IInitiaStateMangas{
+export interface IInitialStateMangas{
     mangas: ITitles | [] ,
     mangaError: boolean,
-    randomMangas: ITitles[] | [],
+    randomMangas: ITitles[],
     paginatedMangas: ITitles | [],
     lastMangaPage: number,
     isManga: boolean,

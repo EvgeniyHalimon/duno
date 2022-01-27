@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ITitles } from "../types/types";
 import {Loading} from "./Loading"
 
 export const SlideShow: React.FC<any> = ({children}) => {
@@ -12,7 +11,6 @@ console.log("🚀 ~ <================", children)
             clearTimeout(timeoutRef.current)
         }
     }
-
     const sliderPages = children ? children.length ? children.length : 1 : 0
 
     useEffect(() => {

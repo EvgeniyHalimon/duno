@@ -11,7 +11,7 @@ export const Slider: React.FC = () => {
     const dispatch = useDispatch()
     const {randomAnimes, isAnime} = useTypesSelector(state => state.anime)
     const {randomMangas, isManga} = useTypesSelector(state => state.manga)
-    const randomTitles:ITitles = isAnime ? randomAnimes : randomMangas
+    const randomTitles = isAnime ? randomAnimes : randomMangas
 
     useEffect(() => {
         isAnime ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
@@ -20,14 +20,9 @@ export const Slider: React.FC = () => {
     return(
         <div className="slider-section">
             <SlideShow>
-                {randomTitles && randomTitles.map((titles: ITitles) => 
-                    <div
-                        className="slide"
-                        key={titles.url}
-                    >
-                        <SliderCardInfo titles={randomTitles}/>
-                    </div>
-                )}
+                
+                <SliderCardInfo titles={randomTitles}/>
+                
             </SlideShow>
         </div>
     )
