@@ -1,7 +1,8 @@
+import { IInitialStateAnimes } from "../../../types/types";
 import { AnimeActionTypes } from "../../action-types/anime-action-types";
 import { AnimeAction } from "./types";
 
-const initialState: any = {
+const initialState: IInitialStateAnimes = {
     animes: null,
     randomAnimes: null,
     animeError: false,

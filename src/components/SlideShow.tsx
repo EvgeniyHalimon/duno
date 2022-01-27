@@ -6,8 +6,9 @@ import { useDispatch } from "react-redux";
 
 import { fetchRandomAnime } from "../store/actions/anime-action-creators";
 import { fetchRandomManga } from "../store/actions/manga-action-creators";
+import { ITitles } from "../types/types";
 
-export const SlideShow: React.FC<any> = () => {
+export const SlideShow: React.FC = () => {
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
 
@@ -25,8 +26,9 @@ export const SlideShow: React.FC<any> = () => {
         isAnime ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
     },[isAnime, isManga])
 
-    const randomTitles = isAnime ? randomAnimes : randomMangas
-    const sliderPages = randomTitles ? randomTitles.length : 3
+    const randomTitles:ITitles = isAnime ? randomAnimes : randomMangas
+    console.log("🚀 ~ file: SlideShow.tsx ~ line 29 ~ randomTitles", randomTitles)
+    const sliderPages = 3
 
     useEffect(() => {
         resetTimeout()
@@ -42,13 +44,13 @@ export const SlideShow: React.FC<any> = () => {
 
     return(
         randomTitles ? 
-        <React.Fragment>
+        <>
             <div className="slide-show">
                 <div
                     className="slide-show-slider"
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
                 >
-                    <SliderInfo randomTitles={isAnime ? randomAnimes : randomMangas}/> 
+                    <SliderInfo randomTitles={randomTitles}/> 
                 </div>
             </div>
             <div className="slide-show-dots">
@@ -61,6 +63,6 @@ export const SlideShow: React.FC<any> = () => {
                     </div>
                 ))}
             </div>
-        </React.Fragment> : <Loading/>
+        </> : <Loading/>
     )
 }

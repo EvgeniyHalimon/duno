@@ -1,19 +1,23 @@
 import React from "react";
+import { ITitles } from "../types/types";
 import { SliderCardInfo } from "./SliderCardInfo";
 
-export const SliderInfo: React.FC<any> = ({randomTitles}) => {
+interface IRandomTitles{
+    randomTitles: ITitles | null | undefined
+}
+
+export const SliderInfo: React.FC<IRandomTitles> = ({randomTitles}) => {
 
     return(
-        <React.Fragment>
-            {randomTitles && randomTitles.map((titles: any) => 
+        <>
+            {randomTitles && randomTitles.map((titles: ITitles) => 
             <div
                 className="slide"
                 key={titles.url}
             >
-                
-                        <SliderCardInfo titles={titles}/>
+                <SliderCardInfo titles={titles}/>
             </div>
             )}
-        </React.Fragment>
+        </>
     )
 }

@@ -1,19 +1,24 @@
 import React from "react";
+import { IGenres, ITitles } from "../types/types";
 
-export const PaginatedTitles: React.FC<any> = ({paginatedTitles}) => {
+interface IPaganatedTitles{
+    paginatedTitles: ITitles
+}
+
+export const PaginatedTitles: React.FC<IPaganatedTitles> = ({paginatedTitles}) => {
     console.log(paginatedTitles);
     return(
         <div className="titles-section">
             <div className="titles-list">
-                {paginatedTitles && paginatedTitles.map((titles: any) =>
+                {paginatedTitles && paginatedTitles.map((titles: ITitles) =>
                 <div className="titles-item" key={titles.url}>
-                    <img className="title-poster" src={titles.images.webp.image_url} alt={`${titles.title}-Poster`} />
+                    <img className="title-poster" src={titles.images?.webp.image_url} alt={`${titles.title}-Poster`} />
                     <p>{titles.title} / {titles.title_japanese}</p> 
                     <p>{titles.aired?.string  || titles.published?.string}</p>
                     <p>{titles.type}</p>
                     <div className="title-genres">
-                        {titles.genres.map((item: any) =>
-                            <p className="genres-name" key={item.mal_id}>{item.name}</p>
+                        {titles.genres?.map((genre: IGenres) =>
+                            <p className="genres-name" key={genre.mal_id}>{genre.name}</p>
                         )}
                     </div>
                     <p>Score : {titles?.score || titles?.scored}</p>

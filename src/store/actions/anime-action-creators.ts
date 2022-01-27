@@ -1,22 +1,23 @@
 import { Dispatch } from "redux"
 import { AnimeActionTypes } from "../action-types/anime-action-types"
 import { fetchAnimeData } from "../../utils/fetch";
+import { ITitles } from "../../types/types";
 
-export const setAnimes = (data: any) => {
+export const setAnimes = (data: ITitles) => {
     return{
         type: AnimeActionTypes.SET_ANIMES,
         payload: data
     }
 }
 
-export const setRandomAnimes = (data: any) => {
+export const setRandomAnimes = (data: ITitles[]) => {
     return{
         type: AnimeActionTypes.SET_RANDOM_ANIME,
         payload: data
     }
 }
 
-export const setPaginatedAnimes = (data: any) => {
+export const setPaginatedAnimes = (data: ITitles) => {
     return{
         type: AnimeActionTypes.SET_PAGINATED_ANIMES,
         payload: data
@@ -78,7 +79,7 @@ export const isAnimeFlag = (bool: boolean) => {
     }
 }
 
-export const animeSearchResult = (data: any) => {
+export const animeSearchResult = (data: ITitles) => {
     return{
         type: AnimeActionTypes.SET_ANIME_SEARCH_RESULT,
         payload: data
