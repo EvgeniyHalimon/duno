@@ -13,7 +13,7 @@ interface IMangaErrorAction{
 
 interface IRandomManga{
     type: MangaActionTypes.SET_RANDOM_MANGA,
-    payload: ITitles[] | undefined
+    payload: ITitles[] | []
 }
 
 interface IPaginatedMangas{
