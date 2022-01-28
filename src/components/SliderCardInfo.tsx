@@ -1,31 +1,31 @@
 import React from "react";
-import { IGenres, ITitles } from "../types/types";
+import { IGenre, ITitle } from "../types/types";
 
 interface ISliderInfo{
-    titles: ITitles | ITitles[]
+    titles: ITitle[]
 }
 
 export const SliderCardInfo: React.FC<ISliderInfo> = ({titles}) => {
     return(
         <>
-            {titles.map((randomTitles: ITitles) => 
+            {titles.map((title: ITitle) => 
                 <div
                     className="slide"
-                    key={randomTitles.url}
+                    key={title.url}
                 >
-                    <div className="slide-item" key={randomTitles.url}>
-                        <img className="slide-poster" src={randomTitles.images?.webp.image_url} alt={`${randomTitles.title}-Poster`} />
+                    <div className="slide-item" key={title.url}>
+                        <img className="slide-poster" src={title.images?.webp.image_url} alt={`${title.title}-Poster`} />
                         <div>
-                            <p>{randomTitles.title} / {randomTitles.title_japanese}</p>
-                            <p>{randomTitles.type}</p>
-                            <p>{randomTitles.aired?.string || randomTitles.published?.string}</p>
-                            <p>Score: {randomTitles.score || randomTitles.scored}</p>
-                            <p>Rank: {randomTitles.rank}</p>
+                            <p>{title.title} / {title.title_japanese}</p>
+                            <p>{title.type}</p>
+                            <p>{title.aired?.string || title.published?.string}</p>
+                            <p>Score: {title.score || title.scored}</p>
+                            <p>Rank: {title.rank}</p>
                             <div className="slide-genres">
-                                {randomTitles.genres?.map((genre: IGenres) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
+                                {title.genres?.map((genre: IGenre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
                             </div>
                             <p className="slider-synopsis">
-                                {randomTitles.synopsis}
+                                {title.synopsis}
                             </p>
                         </div>
                     </div>

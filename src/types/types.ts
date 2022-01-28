@@ -8,35 +8,35 @@ export interface IAiredNPublished{
     string: string
 }
 
-export interface IGenres{
-    map(arg0: (genre: IGenres) => JSX.Element): import("react").ReactNode;
+export interface IGenre{
+    map(arg0: (genre: IGenre) => JSX.Element): import("react").ReactNode;
     mal_id: number
     name: string
 }
 
 export interface IInitialStateAnimes{
-    animes: ITitles | [],
-    randomAnimes: ITitles[],
+    animes: ITitle | [],
+    randomAnimes: ITitle[],
     animeError: boolean,
-    paginatedAnimes: ITitles | [],
+    paginatedAnimes: ITitle | [],
     lastAnimePage: number,
     isAnime: boolean,
-    animeSearchResult: ITitles[] | [],
+    animeSearchResult: ITitle[] | [],
     searchAnimeValue: string
 }
 
 export interface IInitialStateMangas{
-    mangas: ITitles | [] ,
+    mangas: ITitle | [] ,
     mangaError: boolean,
-    randomMangas: ITitles[],
-    paginatedMangas: ITitles | [],
+    randomMangas: ITitle[],
+    paginatedMangas: ITitle | [],
     lastMangaPage: number,
     isManga: boolean,
-    mangaSearchResult: ITitles | [],
+    mangaSearchResult: ITitle | [],
     searchMangaValue: string,
 }
 
-export interface ITitles{
+export interface ITitle{
     [x: string]: any;
     url?: string
     title?: string
@@ -49,7 +49,7 @@ export interface ITitles{
     images?: IImages
     aired?: IAiredNPublished | null
     published?: IAiredNPublished | null
-    genres?: IGenres,
+    genres?: IGenre,
 }
 
 
