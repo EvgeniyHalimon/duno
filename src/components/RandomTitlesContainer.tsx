@@ -21,7 +21,7 @@ export const RandomTitlesContainer: React.FC = () => {
         <div className="slider-section">
             <Slider>
                 {randomTitles.map((title: ITitle) => 
-                    <SliderCardInfo title={title}/>
+                    <SliderCardInfo title={title} key={title.url}/>
                 )}
             </Slider>
         </div>
