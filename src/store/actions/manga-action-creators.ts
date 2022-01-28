@@ -1,5 +1,5 @@
 import { Dispatch } from "redux"
-import { ITitles } from "../../types/types";
+import { ITitle } from "../../types/types";
 import { fetchMangaData } from "../../utils/fetch";
 import { MangaActionTypes } from "../action-types/manga-action-types";
 
@@ -10,14 +10,14 @@ export const setMangas = (data: any) => {
     }
 }
 
-export const setRandomMangas = (data: ITitles[]) => {
+export const setRandomMangas = (data: ITitle[]) => {
     return{
         type: MangaActionTypes.SET_RANDOM_MANGA,
         payload: data
     }
 }
 
-export const setPaginatedMangas = (data: ITitles) => {
+export const setPaginatedMangas = (data: ITitle) => {
     return{
         type: MangaActionTypes.SET_PAGINATED_MANGAS,
         payload: data
@@ -64,8 +64,8 @@ export const setMangaError = (bool: boolean) => {
 export const fetchRandomManga = () => {
     return async (dispatch: Dispatch) => {
         try {
-            const randomAnimes = await fetchMangaData.fetchRandomManga()
-            dispatch(setRandomMangas(randomAnimes))
+            const randomMangas = await fetchMangaData.fetchRandomManga()
+            dispatch(setRandomMangas(randomMangas))
         } catch (error) {
             dispatch(setMangaError(true))
         }
@@ -79,7 +79,7 @@ export const isMangaFlag = (bool: boolean) => {
     }
 }
 
-export const mangaSearchResult = (data: ITitles) => {
+export const mangaSearchResult = (data: ITitle) => {
     return{
         type: MangaActionTypes.SET_MANGA_SEARCH_RESULT,
         payload: data

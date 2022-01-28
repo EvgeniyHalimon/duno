@@ -1,9 +1,9 @@
-import { ITitles } from "../../../types/types";
+import { ITitle } from "../../../types/types";
 import { AnimeActionTypes } from "../../action-types/anime-action-types";
 
 interface IAnimeAction{
     type: AnimeActionTypes.SET_ANIMES,
-    payload: ITitles
+    payload: ITitle
 }
 
 interface IAnimeErrorAction{
@@ -11,14 +11,14 @@ interface IAnimeErrorAction{
     payload: boolean
 }
 
-interface IRandomAnime{
-    type: AnimeActionTypes.SET_RANDOM_ANIME,
-    payload: ITitles
+interface IRandomAnimes{
+    type: AnimeActionTypes.SET_RANDOM_ANIMES,
+    payload: ITitle[]
 }
 
 interface IPaginatedAnimes{
     type: AnimeActionTypes.SET_PAGINATED_ANIMES,
-    payload: ITitles
+    payload: ITitle
 }
 
 interface ILastAnimePage{
@@ -33,7 +33,7 @@ interface IIsAnime{
 
 interface ISeacrhAnimeResult{
     type: AnimeActionTypes.SET_ANIME_SEARCH_RESULT,
-    payload: ITitles
+    payload: ITitle
 }
 
 interface ISeacrhAnimeValue{
@@ -41,4 +41,15 @@ interface ISeacrhAnimeValue{
     payload: string
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | ISeacrhAnimeValue
+interface IAnimeGenres{
+    type: AnimeActionTypes.SET_ANIME_GENRES,
+    payload: any
+}
+
+interface IAnimeByGenres{
+    type: AnimeActionTypes.SET_ANIME_BY_GENRE,
+    payload: any
+}
+
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnimes | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
+ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres

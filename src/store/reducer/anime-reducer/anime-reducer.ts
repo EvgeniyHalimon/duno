@@ -10,7 +10,7 @@ const initialState: IInitialStateAnimes = {
     lastAnimePage: 1,
     isAnime : true,
     animeSearchResult: [],
-    searchAnimeValue: "Berserk"
+    searchAnimeValue: "Berserk",
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {
@@ -25,7 +25,7 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
                 ...state,
                 animeError: action.payload
             }
-        case AnimeActionTypes.SET_RANDOM_ANIME:
+        case AnimeActionTypes.SET_RANDOM_ANIMES:
             return{
                 ...state,
                 randomAnimes: action.payload
@@ -54,6 +54,16 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
             return{
                 ...state,
                 searchAnimeValue: action.payload
+            }
+        case AnimeActionTypes.SET_ANIME_GENRES:
+            return{
+                ...state,
+                animeGenres: action.payload
+            }
+        case AnimeActionTypes.SET_ANIME_BY_GENRE:
+            return{
+                ...state,
+                animeByGenre: action.payload
             }
         default:
             return state
