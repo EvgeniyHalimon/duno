@@ -10,7 +10,7 @@ export const Slider: React.FC = () => {
     const dispatch = useDispatch()
     const {randomAnimes, isAnime} = useTypesSelector(state => state.anime)
     const {randomMangas, isManga} = useTypesSelector(state => state.manga)
-    const randomTitles: any = isAnime ? randomAnimes : randomMangas
+    const randomTitles = isAnime ? randomAnimes : randomMangas
 
     useEffect(() => {
         isAnime ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())

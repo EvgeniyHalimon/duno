@@ -12,7 +12,7 @@ export const setAnimes = (data: ITitle) => {
 
 export const setRandomAnimes = (data: ITitle[]) => {
     return{
-        type: AnimeActionTypes.SET_RANDOM_ANIME,
+        type: AnimeActionTypes.SET_RANDOM_ANIMES,
         payload: data
     }
 }

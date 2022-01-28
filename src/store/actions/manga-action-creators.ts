@@ -64,8 +64,8 @@ export const setMangaError = (bool: boolean) => {
 export const fetchRandomManga = () => {
     return async (dispatch: Dispatch) => {
         try {
-            const randomAnimes = await fetchMangaData.fetchRandomManga()
-            dispatch(setRandomMangas(randomAnimes))
+            const randomMangas = await fetchMangaData.fetchRandomManga()
+            dispatch(setRandomMangas(randomMangas))
         } catch (error) {
             dispatch(setMangaError(true))
         }

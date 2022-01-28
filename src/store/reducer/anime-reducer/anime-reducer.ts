@@ -25,7 +25,7 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
                 ...state,
                 animeError: action.payload
             }
-        case AnimeActionTypes.SET_RANDOM_ANIME:
+        case AnimeActionTypes.SET_RANDOM_ANIMES:
             return{
                 ...state,
                 randomAnimes: action.payload

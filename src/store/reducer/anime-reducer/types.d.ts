@@ -11,9 +11,9 @@ interface IAnimeErrorAction{
     payload: boolean
 }
 
-interface IRandomAnime{
-    type: AnimeActionTypes.SET_RANDOM_ANIME,
-    payload: ITitle
+interface IRandomAnimes{
+    type: AnimeActionTypes.SET_RANDOM_ANIMES,
+    payload: ITitle[]
 }
 
 interface IPaginatedAnimes{
@@ -51,5 +51,5 @@ interface IAnimeByGenres{
     payload: any
 }
 
-export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnime | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
+export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnimes | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
 ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres
