@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+### Commit rules
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Types
+## API relevant changes
 
-In the project directory, you can run:
+### 'feat' Commits, that adds a new feature
+### 'fix' Commits, that fixes a bug
 
-### `npm start`
+### 'refactor' Commits, that rewrite/restructure your code, however does not change any behaviour
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 'perf' Commits are special 'refactor' commits, that improves performance
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 'style' Commits, that do not affect the meaning (white-space, formatting, missing semi-colons, etc)
 
-### `npm test`
+### 'test' Commits, that add missing tests or correcting existing tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 'docs' Commits, that affect documentation only
 
-### `npm run build`
+### 'build' Commits, that affect build components like build tool, ci pipeline, dependencies, project version, ...
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 'ops' Commits, that affect operational components like infrastructure, deployment, backup, recovery, ...
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 'chore' Miscellaneous commits e.g. modifying '.gitignore'
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Scopes
+The 'scope' provides additional contextual information.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Is an optional part of the format
+Allowed Scopes depends on the specific project
+Don't use issue identifiers as scopes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Subject
+The 'subject' contains a succinct description of the change.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Is a mandatory part of the format
+Use the imperative, present tense: "change" not "changed" nor "changes"
+Don't capitalize the first letter
+No dot (.) at the end
 
-## Learn More
+### Body
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The 'body' should include the motivation for the change and contrast this with previous behavior.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Is an optional part of the format
+Use the imperative, present tense: "change" not "changed" nor "changes"
+This is the place to mention issue identifiers and their relations
+
+### Footer
+
+The 'footer' should contain any information about 'Breaking Changes' and is also the place to reference Issues that this commit refers to.
+
+Is an optional part of the format
+optionally reference an issue by its id.
+Breaking Changes should start with the word 'BREAKING CHANGES': followed by space or two newlines. The rest of the commit message is then used for this.
+
+more info (https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#types)
