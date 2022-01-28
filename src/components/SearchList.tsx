@@ -16,13 +16,9 @@ export const  SearchResultList: React.FC = () => {
 
     const paginatedTitles = topic === "anime" ? animeSearchResult : mangaSearchResult
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
-    console.log(animeSearchResult, "<========");
-    console.log(mangaSearchResult, "<========");
-    console.log(currentPage, "23456789");
 
     useEffect(() => {
-        dispatch(fetchAnimeSearch(searchAnimeValue, currentPage))
-        dispatch(fetchMangaSearch(searchMangaValue, currentPage))
+        topic === "anime" ? dispatch(fetchAnimeSearch(searchAnimeValue, currentPage)) : dispatch(fetchMangaSearch(searchMangaValue, currentPage))
     },[currentPage, isAnime, isManga])
 
     return(

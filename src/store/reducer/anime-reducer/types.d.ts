@@ -1,8 +1,9 @@
+import { ITitles } from "../../../types/types";
 import { AnimeActionTypes } from "../../action-types/anime-action-types";
 
 interface IAnimeAction{
     type: AnimeActionTypes.SET_ANIMES,
-    payload: any
+    payload: ITitles
 }
 
 interface IAnimeErrorAction{
@@ -12,16 +13,16 @@ interface IAnimeErrorAction{
 
 interface IRandomAnime{
     type: AnimeActionTypes.SET_RANDOM_ANIME,
-    payload: any
+    payload: ITitles
 }
 
 interface IPaginatedAnimes{
     type: AnimeActionTypes.SET_PAGINATED_ANIMES,
-    payload: any
+    payload: ITitles
 }
 
 interface ILastAnimePage{
-    type: AnimeActionTypes.SET_LAST_PAGE,
+    type: AnimeActionTypes.SET_LAST_ANIME_PAGE,
     payload: number
 }
 
@@ -32,7 +33,7 @@ interface IIsAnime{
 
 interface ISeacrhAnimeResult{
     type: AnimeActionTypes.SET_ANIME_SEARCH_RESULT,
-    payload: any
+    payload: ITitles
 }
 
 interface ISeacrhAnimeValue{

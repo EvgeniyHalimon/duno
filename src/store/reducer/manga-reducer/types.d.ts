@@ -1,8 +1,9 @@
+import { ITitles } from "../../../types/types";
 import { MangaActionTypes } from "../../action-types/manga-action-types";
 
 interface IMangaAction{
     type: MangaActionTypes.SET_MANGAS,
-    payload: any
+    payload: ITitles
 }
 
 interface IMangaErrorAction{
@@ -12,12 +13,12 @@ interface IMangaErrorAction{
 
 interface IRandomManga{
     type: MangaActionTypes.SET_RANDOM_MANGA,
-    payload: any
+    payload: ITitles[] | []
 }
 
 interface IPaginatedMangas{
     type: MangaActionTypes.SET_PAGINATED_MANGAS,
-    payload: any
+    payload: ITitles
 }
 
 interface ILastMangaPage{
@@ -32,7 +33,7 @@ interface IIsManga{
 
 interface ISeacrhMangaResult{
     type: MangaActionTypes.SET_MANGA_SEARCH_RESULT,
-    payload: any
+    payload: ITitles
 }
 
 interface ISearchMangaValue{
@@ -41,12 +42,12 @@ interface ISearchMangaValue{
 }
 
 interface IMangaGenres{
-    type: AnimeActionTypes.SET_MANGA_GENRES,
+    type: MangaActionTypes.SET_MANGA_GENRES,
     payload: any
 }
 
 interface IMangaByGenres{
-    type: AnimeActionTypes.SET_MANGA_BY_GENRE,
+    type: MangaActionTypes.SET_MANGA_BY_GENRE,
     payload: any
 }
 

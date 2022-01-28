@@ -1,17 +1,16 @@
+import { IInitialStateAnimes } from "../../../types/types";
 import { AnimeActionTypes } from "../../action-types/anime-action-types";
 import { AnimeAction } from "./types";
 
-const initialState: any = {
-    animes: null,
-    randomAnimes: null,
+const initialState: IInitialStateAnimes = {
+    animes: [],
+    randomAnimes: [],
     animeError: false,
-    paginatedAnimes: null,
+    paginatedAnimes: [],
     lastAnimePage: 1,
     isAnime : true,
-    animeSearchResult: null,
+    animeSearchResult: [],
     searchAnimeValue: "Berserk",
-    animeGenres: null,
-    animeByGenre: null
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {

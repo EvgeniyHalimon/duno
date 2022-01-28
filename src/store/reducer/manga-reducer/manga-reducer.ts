@@ -1,17 +1,16 @@
+import { IInitialStateMangas } from "../../../types/types"
 import { MangaActionTypes } from "../../action-types/manga-action-types"
 import { MangaAction } from "./types"
 
-const inintalState: any = {
-    mangas: null,
+const inintalState: IInitialStateMangas = {
+    mangas: [],
     mangaError: false,
-    randomMangas: null,
-    paginatedMangas: null,
+    randomMangas: [],
+    paginatedMangas: [],
     lastMangaPage: 1,
     isManga : false,
-    mangaSearchResult: null,
+    mangaSearchResult: [],
     searchMangaValue: "Berserk",
-    mangaGenres: null,
-    mangaByGenre: null
 }
 
 const updateMangas = (state = inintalState, action: MangaAction) => {

@@ -1,32 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import {Loading} from "./Loading"
-import { SliderInfo } from "./SliderInfo";
-import { useTypesSelector } from '../hooks/useTypesSelector';
-import { useDispatch } from "react-redux";
 
-import { fetchRandomAnime } from "../store/actions/anime-action-creators";
-import { fetchRandomManga } from "../store/actions/manga-action-creators";
-
-export const SlideShow: React.FC<any> = () => {
+export const SlideShow: React.FC<any> = ({children}) => {
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
-
-    const dispatch = useDispatch()
-    const {randomAnimes, isAnime} = useTypesSelector(state => state.anime)
-    const {randomMangas, isManga} = useTypesSelector(state => state.manga)
 
     function resetTimeout(){
         if(timeoutRef.current){
             clearTimeout(timeoutRef.current)
         }
     }
-    
-    useEffect(() => {
-        isAnime ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
-    },[isAnime, isManga])
-
-    const randomTitles = isAnime ? randomAnimes : randomMangas
-    const sliderPages = randomTitles ? randomTitles.length : 3
+    const sliderPages = children ? children.length ? children.length : children.props.titles.length : 0
+    console.log("🚀 ~ file: SlideShow.tsx ~ line 15 ~ children.length", children.props.titles)
 
     useEffect(() => {
         resetTimeout()
@@ -41,18 +26,18 @@ export const SlideShow: React.FC<any> = () => {
     },[index])
 
     return(
-        randomTitles ? 
-        <React.Fragment>
+        sliderPages ? 
+        <>
             <div className="slide-show">
                 <div
                     className="slide-show-slider"
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
                 >
-                    <SliderInfo randomTitles={isAnime ? randomAnimes : randomMangas}/> 
+                    {children}
                 </div>
             </div>
             <div className="slide-show-dots">
-                {randomTitles && randomTitles.map((_: string, idx: number) => (
+                {Array(sliderPages).fill(sliderPages).map((_: string, idx: number) => (
                     <div
                         key={idx}
                         className={`slide-show-dot${index === idx ? " active" : ""}`}
@@ -61,6 +46,6 @@ export const SlideShow: React.FC<any> = () => {
                     </div>
                 ))}
             </div>
-        </React.Fragment> : <Loading/>
+        </> : <Loading/>
     )
 }
