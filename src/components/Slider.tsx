@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {Loading} from "./Loading"
 
 export const Slider: React.FC<any> = ({children}) => {
+console.log("🚀 ~ file: Slider.tsx ~ line 5 ~ children", children)
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
 
@@ -10,7 +11,7 @@ export const Slider: React.FC<any> = ({children}) => {
             clearTimeout(timeoutRef.current)
         }
     }
-    const sliderPages = children ? children?.length ? children?.length : children?.props?.titles.length : 0
+    const sliderPages = children ? children?.length ? children?.length : children?.props?.title.length : 0
 
     useEffect(() => {
         resetTimeout()

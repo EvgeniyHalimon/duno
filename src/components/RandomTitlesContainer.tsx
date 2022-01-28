@@ -5,6 +5,7 @@ import { fetchRandomAnime } from "../store/actions/anime-action-creators";
 import { fetchRandomManga } from "../store/actions/manga-action-creators";
 import { SliderCardInfo } from "./SliderCardInfo";
 import { Slider } from './Slider';
+import { ITitle } from "../types/types";
 
 export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()
@@ -19,7 +20,9 @@ export const RandomTitlesContainer: React.FC = () => {
     return(
         <div className="slider-section">
             <Slider>
-                <SliderCardInfo titles={randomTitles}/>
+                {randomTitles.map((title: ITitle) => 
+                    <SliderCardInfo title={title}/>
+                )}
             </Slider>
         </div>
     )
