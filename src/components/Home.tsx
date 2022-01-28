@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigation } from "./Navigation";
 import { Box } from '@mui/material';
-import { Slider } from "./Slider";
+import { RandomTitlesContainer } from "./RandomTitlesContainer";
 import { Titles } from "./Titles";
 import { Head } from "./Header/Head";
 
@@ -13,7 +13,7 @@ export const Home: React.FC = () => {
             </div>
             <div style={{width: '90vw'}}>
                 <Head/>
-                <Slider/>
+                <RandomTitlesContainer/>
                 <Titles/>
             </div>
         </Box>
