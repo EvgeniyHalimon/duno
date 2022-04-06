@@ -5,7 +5,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import updateAnimes from './reducer/anime-reducer/anime-reducer';
 import updateMangas from './reducer/manga-reducer/manga-reducer';
 
-
 export const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export type RootState = {

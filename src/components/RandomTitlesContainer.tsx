@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
+
+import { SliderCardInfo } from "./SliderCardInfo";
+import { Slider } from './Slider';
+import { ITitle } from "../types/types";
+
 import { useDispatch } from "react-redux";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchRandomAnime } from "../store/actions/anime-action-creators";
 import { fetchRandomManga } from "../store/actions/manga-action-creators";
-import { SliderCardInfo } from "./SliderCardInfo";
-import { Slider } from './Slider';
-import { ITitle } from "../types/types";
 
 export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()

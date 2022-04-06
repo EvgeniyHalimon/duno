@@ -1,6 +1,9 @@
 import React from "react";
-import { Box, Button } from '@mui/material';
+
 import { useDispatch } from "react-redux";
+
+import { Box, Button } from '@mui/material';
+
 import { isMangaFlag } from '../../store/actions/manga-action-creators';
 import { isAnimeFlag } from '../../store/actions/anime-action-creators';
 

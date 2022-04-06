@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Pagination } from "@mui/material";
+
+import { PaginatedTitles } from './PaginatedTitles';
+
 import { useDispatch } from "react-redux";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchPaginatedAnimes } from "../store/actions/anime-action-creators";
 import { fetchPaginatedMangas } from "../store/actions/manga-action-creators";
-import { PaginatedTitles } from './PaginatedTitles';
+
+import { Pagination } from "@mui/material";
 
 export const Titles: React.FC = () => {
     const dispatch = useDispatch()

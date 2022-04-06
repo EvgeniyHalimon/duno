@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
-import {Loading} from "./Loading"
+
+import {Loading} from "./Loading";
 
 interface ISlider{
     children: ReactElement[]

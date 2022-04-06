@@ -1,4 +1,5 @@
 import React from "react";
+
 import { IGenre, ITitle } from "../types/types";
 
 interface IPaganatedTitles{

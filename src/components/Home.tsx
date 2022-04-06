@@ -1,9 +1,11 @@
 import React from "react";
+
+import { Head } from "./Header/Head";
 import { Navigation } from "./Navigation";
-import { Box } from '@mui/material';
 import { RandomTitlesContainer } from "./RandomTitlesContainer";
 import { Titles } from "./Titles";
-import { Head } from "./Header/Head";
+
+import { Box } from '@mui/material';
 
 export const Home: React.FC = () => {
     return (
