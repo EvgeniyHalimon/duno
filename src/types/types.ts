@@ -52,5 +52,10 @@ export interface ITitle{
     genres?: IGenre,
 }
 
-
+export interface IGenreData{
+    count: number
+    mal_id: number
+    name: string
+    url: string
+}
 

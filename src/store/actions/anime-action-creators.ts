@@ -54,6 +54,18 @@ export const fetchPaginatedAnimes = (page: number) => {
     }
 }
 
+export const fetchPaginatedAnimesByGenre = (genre: string | undefined, page: number) => {
+    return async(dispatch: Dispatch) => {
+        try {
+            const mangas = await fetchAnimeData.fetchAnimesByGenres(genre, page)
+            dispatch(setLastAnimePage(mangas.data.pagination.last_visible_page))
+            dispatch(setPaginatedAnimes(mangas.data.data))
+        } catch (error) {
+            dispatch(setAnimeError(true))
+        }
+    }
+}
+
 export const setAnimeError = (bool: boolean) => {
     return{
         type: AnimeActionTypes.SET_ANIME_ERROR,

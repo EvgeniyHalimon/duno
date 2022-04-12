@@ -25,11 +25,10 @@ export const Search: React.FC = () => {
         }
     }
     
-    useEffect(
-        () => {
-            if (debouncedSearchTerm) {
-                topic === "anime" ? dispatch(fetchAnimeSearch(searchTerm, 1)) : dispatch(fetchMangaSearch(searchTerm, 1));
-            }
+    useEffect(() => {
+        if (debouncedSearchTerm) {
+            topic === "anime" ? dispatch(fetchAnimeSearch(searchTerm, 1)) : dispatch(fetchMangaSearch(searchTerm, 1));
+        }
     },[debouncedSearchTerm])
     
     return(

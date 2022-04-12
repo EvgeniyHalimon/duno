@@ -7,7 +7,6 @@ interface ISlider{
 }
 
 export const Slider: React.FC<ISlider> = ({children}) => {
-console.log("🚀 ~ file: Slider.tsx ~ line 5 ~ children", children)
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
 

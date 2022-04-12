@@ -54,6 +54,18 @@ export const fetchPaginatedMangas = (page: number) => {
     }
 }
 
+export const fetchPaginatedMangasByGenre = (genre: string | undefined, page: number) => {
+    return async(dispatch: Dispatch) => {
+        try {
+            const mangas = await fetchMangaData.fetchMangasByGenres(genre, page)
+            dispatch(setLastMangaPage(mangas.data.pagination.last_visible_page))
+            dispatch(setPaginatedMangas(mangas.data.data))
+        } catch (error) {
+            dispatch(setMangaError(true))
+        }
+    }
+}
+
 export const setMangaError = (bool: boolean) => {
     return{
         type: MangaActionTypes.SET_MANGA_ERROR,

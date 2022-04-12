@@ -1,3 +1,4 @@
+import { IGenreData } from './../../../types/types';
 import { ITitle } from "../../../types/types";
 import { MangaActionTypes } from "../../action-types/manga-action-types";
 
@@ -43,12 +44,12 @@ interface ISearchMangaValue{
 
 interface IMangaGenres{
     type: MangaActionTypes.SET_MANGA_GENRES,
-    payload: any
+    payload: IGenreData
 }
 
 interface IMangaByGenres{
     type: MangaActionTypes.SET_MANGA_BY_GENRE,
-    payload: any
+    payload: ITitle
 }
 
 export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | 

@@ -26,8 +26,8 @@ export const fetchAnimeData = {
         const animeGenres = await axios.get(URL_ANIME_GENRES)
         return animeGenres
     },
-    async fetchAnimesByGenres(genre: any, page: number){
-        const animesByGenres = await axios.get(`${URL_ANIME_SEARCH}?genres=${genre}&page=${page}&limit=5`)
+    async fetchAnimesByGenres(genre: string | undefined, page: number){
+        const animesByGenres = await axios.get(`${URL_ANIME_SEARCH}?genres=${genre}&page=${page}&limit=5&sfw=false&order_by=score&sort=desc`)
         return animesByGenres
     }
 }
@@ -56,8 +56,8 @@ export const fetchMangaData = {
         const mangaGenres = await axios.get(URL_MANGA_GENRES)
         return mangaGenres
     },
-    async fetchMangasByGenres(genre: string, page: number){
-        const mangaByGenres = await axios.get(`${URL_TOP_MANGA}?genres=${genre}&page=${page}&limit=5`)
+    async fetchMangasByGenres(genre: string | undefined, page: number){
+        const mangaByGenres = await axios.get(`${URL_MANGA_SEARCH}?genres=${genre}&page=${page}&limit=5&sfw=false&order_by=score&sort=desc`)
         return mangaByGenres
     }
 }

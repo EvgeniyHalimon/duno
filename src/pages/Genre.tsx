@@ -1,25 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PaginatedTitles } from "../components/PaginatedTitles";
-import { fetchAnimeData } from "../utils/fetch";
+
+import { Pagination } from "@mui/material";
+import { useTypesSelector } from "../hooks/useTypesSelector";
+import { useDispatch } from "react-redux";
+import { fetchPaginatedAnimesByGenre, isAnimeFlag } from "../store/actions/anime-action-creators";
+import { fetchPaginatedMangasByGenre, isMangaFlag } from "../store/actions/manga-action-creators";
 
 export const Genre: React.FC = () => {
+    const dispatch = useDispatch()
     const {name} = useParams()
+    const [currentPage, setCurrentPage] = useState(1)
 
-    const [genres, setGenres] = useState<any>([])
+    const {paginatedAnimes,lastAnimePage, isAnime} = useTypesSelector(state => state.anime)
+    const {paginatedMangas,lastMangaPage, isManga} = useTypesSelector(state => state.manga)
 
-    const getData = async () => {
-        const fetchedGenres = await fetchAnimeData.fetchAnimesByGenres(name, 1)
-        setGenres(fetchedGenres.data.data)
-    }
+    const topic = localStorage.getItem('topic')
+
+    const paginatedTitles = topic === "anime" ? paginatedAnimes : paginatedMangas
+    const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        getData()
-    },[])
+        topic === "anime" ? dispatch(isAnimeFlag(true)) : "manga" ? dispatch(isMangaFlag(true)) : dispatch(isMangaFlag(false))
+        topic === "anime" ? dispatch(fetchPaginatedAnimesByGenre(name, currentPage)) : dispatch(fetchPaginatedMangasByGenre(name, currentPage)) 
+    },[topic, currentPage])
 
-    console.log(name)
-    console.log(genres)
     return(
-        <PaginatedTitles paginatedTitles={genres}/>
+        <div>
+            <button>back</button>
+            <PaginatedTitles paginatedTitles={paginatedTitles}/>
+            <Pagination 
+                count={lastPage} 
+                color="primary"
+                onChange={(e, value) => setCurrentPage(value)}
+            />
+        </div>
     )
 }

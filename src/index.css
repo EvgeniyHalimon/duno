@@ -8,6 +8,7 @@ body {
   background: linear-gradient(180deg, #1D1D28, #303035);
   height: 150vh;
   color: aliceblue;
+  list-style-type: none;
 }
 
 code {
@@ -193,4 +194,27 @@ code {
 
 .css-wjh20t-MuiPagination-ul {
   justify-content: center;
+}
+
+/* Genres */
+
+.genre-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.genre-name{
+  list-style-type: none;
+  cursor: pointer;
+  margin: 0 5px 5px 0;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid white;
+  background: linear-gradient(180deg, #303035, #1D1D28);
+}
+
+.genre-name:visited{
+  color: inherit;
 }

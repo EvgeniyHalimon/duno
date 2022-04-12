@@ -1,3 +1,4 @@
+import { IGenreData } from './../../../types/types';
 import { ITitle } from "../../../types/types";
 import { AnimeActionTypes } from "../../action-types/anime-action-types";
 
@@ -43,12 +44,12 @@ interface ISeacrhAnimeValue{
 
 interface IAnimeGenres{
     type: AnimeActionTypes.SET_ANIME_GENRES,
-    payload: any
+    payload: IGenreData
 }
 
 interface IAnimeByGenres{
     type: AnimeActionTypes.SET_ANIME_BY_GENRE,
-    payload: any
+    payload: ITitle
 }
 
 export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnimes | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
