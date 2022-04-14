@@ -1,5 +1,5 @@
 import { Dispatch } from "redux"
-import { ITitle } from "../../types/types";
+import { IGenreData, ITitle } from "../../types/types";
 import { fetchMangaData } from "../../utils/fetch";
 import { MangaActionTypes } from "../action-types/manga-action-types";
 
@@ -39,6 +39,31 @@ export const fetchAnimes = () => {
         } catch (error) {
             dispatch(setMangaError(true))
         }
+    }
+}
+
+export const setMangaGenres = (data: IGenreData) => {
+    return{
+        type: MangaActionTypes.SET_MANGA_GENRES,
+        payload: data
+    }
+}
+
+export const fetchMangaGenres = () => {
+    return async(dispatch: Dispatch) => {
+        try {
+            const mangaGenres = await fetchMangaData.fetchMangaGenres()
+            dispatch(setMangaGenres(mangaGenres.data.data))
+        } catch (error) {
+            dispatch(setMangaError(true))
+        }
+    }
+}
+
+export const setMangasByGenre = (data: ITitle) => {
+    return{
+        type: MangaActionTypes.SET_MANGA_BY_GENRE,
+        payload: data
     }
 }
 

@@ -15,7 +15,7 @@ export const Search: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('')
 
     const debouncedSearchTerm = useDebounce(searchTerm, 500)
-    const topic = localStorage.getItem('topic')
+    const topic: string | null = localStorage.getItem('topic')
     
     topic === "anime" ? dispatch(isAnimeFlag(true)) : dispatch(isAnimeFlag(false))
 

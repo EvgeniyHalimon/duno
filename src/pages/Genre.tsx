@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { PaginatedTitles } from "../components/PaginatedTitles";
 
 import { Pagination } from "@mui/material";
+import { Button } from "@mui/material";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { useDispatch } from "react-redux";
 import { fetchPaginatedAnimesByGenre, isAnimeFlag } from "../store/actions/anime-action-creators";
 import { fetchPaginatedMangasByGenre, isMangaFlag } from "../store/actions/manga-action-creators";
 
+
+
 export const Genre: React.FC = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const {name} = useParams()
     const [currentPage, setCurrentPage] = useState(1)
 
-    const {paginatedAnimes,lastAnimePage, isAnime} = useTypesSelector(state => state.anime)
-    const {paginatedMangas,lastMangaPage, isManga} = useTypesSelector(state => state.manga)
+    const {paginatedAnimes, lastAnimePage} = useTypesSelector(state => state.anime)
+    const {paginatedMangas, lastMangaPage} = useTypesSelector(state => state.manga)
 
-    const topic = localStorage.getItem('topic')
+    const topic: string | null = localStorage.getItem('topic')
 
     const paginatedTitles = topic === "anime" ? paginatedAnimes : paginatedMangas
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
@@ -28,7 +32,7 @@ export const Genre: React.FC = () => {
 
     return(
         <div>
-            <button>back</button>
+            <Button onClick={() => navigate('/genres')}>Back to genres page</Button>
             <PaginatedTitles paginatedTitles={paginatedTitles}/>
             <Pagination 
                 count={lastPage} 

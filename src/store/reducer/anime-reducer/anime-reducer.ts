@@ -11,6 +11,8 @@ const initialState: IInitialStateAnimes = {
     isAnime : true,
     animeSearchResult: [],
     searchAnimeValue: "Berserk",
+    animeGenres: [],
+    animeByGenre: [],
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {

@@ -22,7 +22,9 @@ export interface IInitialStateAnimes{
     lastAnimePage: number,
     isAnime: boolean,
     animeSearchResult: ITitle[] | [],
-    searchAnimeValue: string
+    searchAnimeValue: string,
+    animeGenres: IGenreData | [] | boolean,
+    animeByGenre: ITitle | [],
 }
 
 export interface IInitialStateMangas{
@@ -34,6 +36,8 @@ export interface IInitialStateMangas{
     isManga: boolean,
     mangaSearchResult: ITitle | [],
     searchMangaValue: string,
+    mangaGenres: IGenreData | [] | boolean,
+    mangaByGenre: ITitle | [],
 }
 
 export interface ITitle{

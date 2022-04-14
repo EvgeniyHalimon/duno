@@ -11,6 +11,8 @@ const inintalState: IInitialStateMangas = {
     isManga : false,
     mangaSearchResult: [],
     searchMangaValue: "Berserk",
+    mangaGenres: [],
+    mangaByGenre: [],
 }
 
 const updateMangas = (state = inintalState, action: MangaAction) => {

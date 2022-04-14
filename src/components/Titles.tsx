@@ -15,7 +15,7 @@ export const Titles: React.FC = () => {
     const {paginatedAnimes, lastAnimePage, isAnime} = useTypesSelector(state => state.anime)
     const {paginatedMangas, lastMangaPage, isManga} = useTypesSelector(state => state.manga)
 
-    const topic = localStorage.getItem('topic')
+    const topic: string | null = localStorage.getItem('topic')
 
     const paginatedTitles = topic === "anime" ? paginatedAnimes : paginatedMangas
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage

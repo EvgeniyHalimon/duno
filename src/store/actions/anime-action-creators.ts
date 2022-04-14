@@ -1,3 +1,4 @@
+import { IGenreData } from './../../types/types';
 import { Dispatch } from "redux"
 import { AnimeActionTypes } from "../action-types/anime-action-types"
 import { fetchAnimeData } from "../../utils/fetch";
@@ -42,6 +43,31 @@ export const fetchAnimes = () => {
     }
 }
 
+export const setAnimeGenres = (data: IGenreData) => {
+    return{
+        type: AnimeActionTypes.SET_ANIME_GENRES,
+        payload: data
+    }
+}
+
+export const fetchAnimeGenres = () => {
+    return async(dispatch: Dispatch) => {
+        try {
+            const animeGenres = await fetchAnimeData.fetchAnimeGenres()
+            dispatch(setAnimeGenres(animeGenres.data.data))
+        } catch (error) {
+            dispatch(setAnimeError(true))
+        }
+    }
+}
+
+export const setAnimesByGenre = (data: ITitle) => {
+    return{
+        type: AnimeActionTypes.SET_ANIME_BY_GENRE,
+        payload: data
+    }
+}
+
 export const fetchPaginatedAnimes = (page: number) => {
     return async(dispatch: Dispatch) => {
         try {
@@ -57,9 +83,9 @@ export const fetchPaginatedAnimes = (page: number) => {
 export const fetchPaginatedAnimesByGenre = (genre: string | undefined, page: number) => {
     return async(dispatch: Dispatch) => {
         try {
-            const mangas = await fetchAnimeData.fetchAnimesByGenres(genre, page)
-            dispatch(setLastAnimePage(mangas.data.pagination.last_visible_page))
-            dispatch(setPaginatedAnimes(mangas.data.data))
+            const animes = await fetchAnimeData.fetchAnimesByGenres(genre, page)
+            dispatch(setLastAnimePage(animes.data.pagination.last_visible_page))
+            dispatch(setAnimesByGenre(animes.data.data))
         } catch (error) {
             dispatch(setAnimeError(true))
         }
