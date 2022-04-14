@@ -149,6 +149,10 @@ code {
   word-wrap: break-word;
 }
 
+.titles-item:visited{
+  color: inherit;
+}
+
 .titles-item{
   padding: 20px;
   border: 1px solid #2496FF;
@@ -156,6 +160,8 @@ code {
   width: 250px;
   border-radius: 20px;
   background: linear-gradient(180deg, #303035, #1D1D28);
+  text-decoration: none;
+  color: inherit;
 }
 
 .title-genres{

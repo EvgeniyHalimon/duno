@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useTypesSelector } from "../hooks/useTypesSelector";
@@ -51,7 +51,7 @@ export const Genres: React.FC = () => {
                 {
                     uniqueGenres?.map((genre: IGenreData, index: number) => {
                         return( 
-                                <Link to={`/genres/${genre.mal_id}`} key={index} className='genre-name'>
+                                <Link to={`/genres/${genre.mal_id}`} key={genre.mal_id} className='genre-name'>
                                     <li>
                                         <h3 style={{margin: 0}}>{genre.name}<sub>({genre.count})</sub></h3>
                                     </li>
