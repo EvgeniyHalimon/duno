@@ -3,24 +3,23 @@ import { Link } from "react-router-dom";
 import { IGenre, ITitle } from "../types/types";
 
 interface IPaganatedTitle{
-    titles?: ITitle
+    title?: ITitle
 }
 
-export const Title: React.FC<IPaganatedTitle> = ({titles}) => {
-console.log(titles);
+export const Title: React.FC<IPaganatedTitle> = ({title}) => {
     return(
-        <Link className="titles-item" to={`/title/${titles?.mal_id}`} key={titles?.url}>     
-                <img className="title-poster" src={titles?.images?.webp.image_url} alt={`${titles?.title}-Poster`} />
-                <p>{titles?.title} / {titles?.title_japanese}</p> 
-                <p>{titles?.aired?.string  || titles?.published?.string}</p>
-                <p>{titles?.type}</p>
+        <Link className="titles-item" to={`/title/${title?.mal_id}`} key={title?.url}>     
+                <img className="title-poster" src={title?.images?.webp.image_url} alt={`${title?.title}-Poster`} />
+                <p>{title?.title} / {title?.title_japanese}</p> 
+                <p>{title?.aired?.string  || title?.published?.string}</p>
+                <p>{title?.type}</p>
                 <div className="title-genres">
-                    {titles?.genres?.map((genre: IGenre) =>
+                    {title?.genres?.map((genre: IGenre) =>
                         <p className="genres-name" key={genre.mal_id}>{genre.name}</p>
                     )}
                 </div>
-                <p>Score : {titles?.score || titles?.scored}</p>
-                <p>Rank : {titles?.rank}</p>
+                <p>Score : {title?.score || title?.scored}</p>
+                <p>Rank : {title?.rank}</p>
         </Link>
     )
 }

@@ -14,7 +14,7 @@ export const PaginatedTitles: React.FC<IPaganatedTitles> = ({paginatedTitles}) =
         <div className="titles-section">
             <div className="titles-list">
                 {paginatedTitles && paginatedTitles.map((titles: ITitle) => 
-                    <Title titles={titles} key={titles?.url}/>
+                    <Title title={titles} key={titles?.url}/>
                 )}
             </div>
         </div>

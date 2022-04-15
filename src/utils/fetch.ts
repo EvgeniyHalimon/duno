@@ -29,6 +29,10 @@ export const fetchAnimeData = {
     async fetchAnimesByGenres(genre: string | undefined, page: number){
         const animesByGenres = await axios.get(`${URL_ANIME_SEARCH}?genres=${genre}&page=${page}&limit=5&sfw=false&order_by=score&sort=desc`)
         return animesByGenres
+    },
+    async fetchCurrentAnimeTitle(id: string | undefined){
+        const currentAnimeTitle = await axios.get(`${URL_ANIME_SEARCH}/${id}`)
+        return currentAnimeTitle
     }
 }
 
