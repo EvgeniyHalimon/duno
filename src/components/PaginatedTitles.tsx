@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Title } from "../pages/Title";
+import { Title } from "./Title";
 
 import { ITitle } from "../types/types";
 
@@ -9,7 +8,6 @@ interface IPaganatedTitles{
 }
 
 export const PaginatedTitles: React.FC<IPaganatedTitles> = ({paginatedTitles}) => {
-    console.log(paginatedTitles);
     return(
         <div className="titles-section">
             <div className="titles-list">

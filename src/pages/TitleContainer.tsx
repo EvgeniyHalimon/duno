@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchAnimeData } from "../utils/fetch";
-import { Title } from "./Title";
+import { Title } from "../components/Title";
 
 export const TitleContainer: React.FC = () => {
 

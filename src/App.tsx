@@ -9,8 +9,6 @@ import { PopularManga } from './pages/PopularManga';
 import { Genres } from './pages/Genres';
 import { Genre } from './pages/Genre';
 import { SearchResultList } from './components/SearchList';
-import { Title } from './pages/Title';
-import { ITitle } from './types/types';
 import { TitleContainer } from './pages/TitleContainer';
 
 const theme = createTheme({

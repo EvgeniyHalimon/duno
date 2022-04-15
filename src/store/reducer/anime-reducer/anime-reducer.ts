@@ -13,6 +13,7 @@ const initialState: IInitialStateAnimes = {
     searchAnimeValue: "Berserk",
     animeGenres: [],
     animeByGenre: [],
+    currentAnimeTitle: []
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {
@@ -66,6 +67,11 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
             return{
                 ...state,
                 animeByGenre: action.payload
+            }
+        case AnimeActionTypes.SET_CURRENT_ANIME_TITLE:
+            return{
+                ...state,
+                currentAnimeTitle: action.payload
             }
         default:
             return state

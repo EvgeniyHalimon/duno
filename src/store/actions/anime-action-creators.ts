@@ -143,3 +143,21 @@ export const fetchAnimeSearch = (inputValue: string, page: number) => {
         }
     }
 }
+
+export const setCurrentAnimeTitle = (data: ITitle) => {
+    return{
+        type: AnimeActionTypes.SET_CURRENT_ANIME_TITLE,
+        payload: data
+    }
+}
+
+export const fetchCurrentAnimeTitle = (id: string | undefined) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const currentAnimeTitle = await fetchAnimeData.fetchCurrentAnimeTitle(id)
+            dispatch(setCurrentAnimeTitle(currentAnimeTitle.data.data))
+        } catch (error) {
+            dispatch(setAnimeError(true))
+        }
+    }
+}

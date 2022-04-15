@@ -142,3 +142,21 @@ export const fetchMangaSearch = (inputValue: string, page: number) => {
         }
     }
 }
+
+export const setCurrentMangaTitle = (data: ITitle) => {
+    return{
+        type: MangaActionTypes.SET_CURRENT_MANGA_TITLE,
+        payload: data
+    }
+}
+
+export const fetchCurrentMangaTitle = (id: string | undefined) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const currentMangaTitle = await fetchMangaData.fetchCurrentMangaTitle(id)
+            dispatch(setCurrentMangaTitle(currentMangaTitle.data.data))
+        } catch (error) {
+            dispatch(setMangaError(true))
+        }
+    }
+}

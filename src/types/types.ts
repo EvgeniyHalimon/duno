@@ -25,6 +25,7 @@ export interface IInitialStateAnimes{
     searchAnimeValue: string,
     animeGenres: IGenreData | [] | boolean,
     animeByGenre: ITitle | [],
+    currentAnimeTitle: ITitle | [],
 }
 
 export interface IInitialStateMangas{
@@ -38,6 +39,7 @@ export interface IInitialStateMangas{
     searchMangaValue: string,
     mangaGenres: IGenreData | [] | boolean,
     mangaByGenre: ITitle | [],
+    currentMangaTitle: ITitle | [],
 }
 
 export interface ITitle{

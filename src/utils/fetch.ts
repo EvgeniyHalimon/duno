@@ -63,5 +63,9 @@ export const fetchMangaData = {
     async fetchMangasByGenres(genre: string | undefined, page: number){
         const mangaByGenres = await axios.get(`${URL_MANGA_SEARCH}?genres=${genre}&page=${page}&limit=5&sfw=false&order_by=score&sort=desc`)
         return mangaByGenres
+    },
+    async fetchCurrentMangaTitle(id: string | undefined){
+        const currentMangaTitle = await axios.get(`${URL_MANGA_SEARCH}/${id}`)
+        return currentMangaTitle
     }
 }

@@ -52,5 +52,10 @@ interface IMangaByGenres{
     payload: ITitle
 }
 
+interface IMangaCurrentTitle{
+    type: MangaActionTypes.SET_CURRENT_ANIME_TITLE,
+    payload: ITitle
+}
+
 export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | 
-ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres
+ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres | IMangaCurrentTitle

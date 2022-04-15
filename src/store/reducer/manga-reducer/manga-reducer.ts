@@ -13,6 +13,7 @@ const inintalState: IInitialStateMangas = {
     searchMangaValue: "Berserk",
     mangaGenres: [],
     mangaByGenre: [],
+    currentMangaTitle: []
 }
 
 const updateMangas = (state = inintalState, action: MangaAction) => {
@@ -66,6 +67,11 @@ const updateMangas = (state = inintalState, action: MangaAction) => {
             return{
                 ...state,
                 mangaByGenre: action.payload
+            }
+        case MangaActionTypes.SET_CURRENT_MANGA_TITLE:
+            return{
+                ...state,
+                currentMangaTitle: action.payload
             }
         default:
             return state
