@@ -1,6 +1,7 @@
 export interface IImages{
     webp: {
-        image_url: string
+        image_url: string,
+        large_image_url?: string
     }
 }
 
@@ -56,6 +57,12 @@ export interface ITitle{
     aired?: IAiredNPublished | null
     published?: IAiredNPublished | null
     genres?: IGenre,
+    duration?: string,
+    episodes?: number,
+    chapters?: number,
+    scored_by?: number,
+    rating?: string,
+    status?: string,
 }
 
 export interface IGenreData{

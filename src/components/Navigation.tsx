@@ -10,10 +10,28 @@ export const Navigation: React.FC = () => {
 
     return(
         <Box sx={{ flexGrow: 1 }}>
-            <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to={isAnime ? '/popular+anime' : '/popular+manga'}>Popular</Link></li>
-                <li><Link to='/genres'>Genres</Link></li>
+            <ul className="navigation">
+                <li>
+                    <Link 
+                        to='/'
+                        className="navigation-link"
+                    >
+                        HOME</Link>
+                </li>
+                <li>
+                    <Link 
+                        to={isAnime ? '/popular+anime' : '/popular+manga'}
+                        className="navigation-link"
+                    >
+                        POPULAR</Link>
+                </li>
+                <li>
+                    <Link 
+                        to='/genres'
+                        className="navigation-link"
+                    >
+                        GENRES</Link>
+                </li>
             </ul>
         </Box>
     )

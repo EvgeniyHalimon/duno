@@ -53,7 +53,7 @@ interface IMangaByGenres{
 }
 
 interface IMangaCurrentTitle{
-    type: MangaActionTypes.SET_CURRENT_ANIME_TITLE,
+    type: MangaActionTypes.SET_CURRENT_MANGA_TITLE,
     payload: ITitle
 }
 
