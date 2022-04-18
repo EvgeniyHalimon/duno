@@ -57,5 +57,10 @@ interface IMangaCurrentTitle{
     payload: ITitle
 }
 
+interface IMangaCurrentPage{
+    type: MangaActionTypes.SET_CURRENT_MANGA_PAGE,
+    payload: number
+}
+
 export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | 
-ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres | IMangaCurrentTitle
+ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres | IMangaCurrentTitle | IMangaCurrentPage

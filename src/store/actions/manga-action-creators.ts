@@ -42,6 +42,13 @@ export const fetchAnimes = () => {
     }
 }
 
+export const setCurrentMangaPage = (page: number) => {
+    return{
+        type: MangaActionTypes.SET_CURRENT_MANGA_PAGE,
+        payload: page
+    }
+}
+
 export const setMangaGenres = (data: IGenreData) => {
     return{
         type: MangaActionTypes.SET_MANGA_GENRES,

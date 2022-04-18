@@ -43,6 +43,13 @@ export const fetchAnimes = () => {
     }
 }
 
+export const setCurrentAnimePage = (page: number) => {
+    return{
+        type: AnimeActionTypes.SET_CURRENT_ANIME_PAGE,
+        payload: page
+    }
+}
+
 export const setAnimeGenres = (data: IGenreData) => {
     return{
         type: AnimeActionTypes.SET_ANIME_GENRES,

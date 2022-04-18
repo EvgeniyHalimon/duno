@@ -57,5 +57,10 @@ interface IAnimeCurrentTitle{
     payload: ITitle
 }
 
+interface IAnimeCurrentPage{
+    type: AnimeActionTypes.SET_CURRENT_ANIME_PAGE,
+    payload: number
+}
+
 export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnimes | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
-ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle
+ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle | IAnimeCurrentPage

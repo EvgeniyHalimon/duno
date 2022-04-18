@@ -27,6 +27,7 @@ export interface IInitialStateAnimes{
     animeGenres: IGenreData | [] | boolean,
     animeByGenre: ITitle | [],
     currentAnimeTitle: ITitle | [],
+    currentAnimePage: number
 }
 
 export interface IInitialStateMangas{
@@ -41,6 +42,7 @@ export interface IInitialStateMangas{
     mangaGenres: IGenreData | [] | boolean,
     mangaByGenre: ITitle | [],
     currentMangaTitle: ITitle | [],
+    currentMangaPage: number
 }
 
 export interface ITitle{
