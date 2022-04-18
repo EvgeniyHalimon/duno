@@ -73,4 +73,3 @@ export interface IGenreData{
     name: string
     url: string
 }
-
