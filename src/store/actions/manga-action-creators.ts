@@ -91,7 +91,7 @@ export const fetchPaginatedMangasByGenre = (genre: string | undefined, page: num
         try {
             const mangas = await fetchMangaData.fetchMangasByGenres(genre, page)
             dispatch(setLastMangaPage(mangas.data.pagination.last_visible_page))
-            dispatch(setPaginatedMangas(mangas.data.data))
+            dispatch(setMangasByGenre(mangas.data.data))
         } catch (error) {
             dispatch(setMangaError(true))
         }

@@ -17,13 +17,15 @@ export const Genre: React.FC = () => {
     const {name} = useParams()
     const [currentPage, setCurrentPage] = useState(1)
 
-    const {paginatedAnimes, lastAnimePage} = useTypesSelector(state => state.anime)
-    const {paginatedMangas, lastMangaPage} = useTypesSelector(state => state.manga)
+    const {animeByGenre, lastAnimePage} = useTypesSelector(state => state.anime)
+    const {mangaByGenre, lastMangaPage} = useTypesSelector(state => state.manga)
 
     const topic: string | null = localStorage.getItem('topic')
 
-    const paginatedTitles = topic === "anime" ? paginatedAnimes : paginatedMangas
+    const paginatedTitles = topic === "anime" ? animeByGenre : mangaByGenre
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
+
+    console.log(paginatedTitles);
 
     useEffect(() => {
         topic === "anime" ? dispatch(isAnimeFlag(true)) : "manga" ? dispatch(isMangaFlag(true)) : dispatch(isMangaFlag(false))
