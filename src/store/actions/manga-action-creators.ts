@@ -167,3 +167,21 @@ export const fetchCurrentMangaTitle = (id: string | undefined) => {
         }
     }
 }
+
+export const setPopularManga = (data: ITitle) => {
+    return{
+        type: MangaActionTypes.SET_POPULAR_MANGA,
+        payload: data
+    }
+}
+
+export const fetchPopularManga = (page: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const popularAnime = await fetchMangaData.fetchPopularManga(page)
+            dispatch(setPopularManga(popularAnime.data.data))
+        } catch (error) {
+            dispatch(setMangaError(true))
+        }
+    }
+}

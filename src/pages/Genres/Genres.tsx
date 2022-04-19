@@ -48,7 +48,7 @@ export const Genres: React.FC = () => {
 
     return(
         <div>
-            <Button onClick={() => navigate('/')}>Back to main page</Button>
+            <Button className="back-button" onClick={() => navigate('/')}>Back to main page</Button>
             <ul className="genre-list">
                 {
                     uniqueGenres?.map((genre: IGenreData) => {

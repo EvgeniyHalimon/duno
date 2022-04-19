@@ -6,9 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(180deg, #1D1D28, #303035);
-  height: 150vh;
+  height: 151vh;
   color: aliceblue;
   list-style-type: none;
+}
+
+#root{
+  background: linear-gradient(180deg, #1D1D28, #303035);
 }
 
 code {
@@ -22,4 +26,8 @@ code {
 
 .css-wjh20t-MuiPagination-ul {
   justify-content: center;
+}
+
+.back-button{
+  margin: 10px 0 10px 0 !important;
 }

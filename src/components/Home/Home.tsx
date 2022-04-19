@@ -15,7 +15,7 @@ export const Home: React.FC = () => {
             <div className='sidebar'>
                 <Navigation/>
             </div>
-            <div style={{width: '90vw'}}>
+            <div style={{width: '93vw'}}>
                 <Head/>
                 <RandomTitlesContainer/>
                 <Titles/>

@@ -33,6 +33,10 @@ export const fetchAnimeData = {
     async fetchCurrentAnimeTitle(id: string | undefined){
         const currentAnimeTitle = await axios.get(`${URL_ANIME_SEARCH}/${id}`)
         return currentAnimeTitle
+    },
+    async fetchPopularAnime(page: number){
+        const animes = await axios.get(`${URL_TOP_ANIME}?page=${page}&limit=10`)
+        return animes
     }
 }
 
@@ -67,5 +71,9 @@ export const fetchMangaData = {
     async fetchCurrentMangaTitle(id: string | undefined){
         const currentMangaTitle = await axios.get(`${URL_MANGA_SEARCH}/${id}`)
         return currentMangaTitle
+    },
+    async fetchPopularManga(page: number){
+        const mangas = await axios.get(`${URL_TOP_MANGA}?page=${page}&limit=10`)
+        return mangas
     }
 }

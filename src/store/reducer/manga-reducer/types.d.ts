@@ -62,5 +62,10 @@ interface IMangaCurrentPage{
     payload: number
 }
 
+interface IPopularManga{
+    type: MangaActionTypes.SET_POPULAR_MANGA,
+    payload: ITitle
+}
+
 export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | 
-ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres | IMangaCurrentTitle | IMangaCurrentPage
+ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres | IMangaCurrentTitle | IMangaCurrentPage | IPopularManga

@@ -168,3 +168,21 @@ export const fetchCurrentAnimeTitle = (id: string | undefined) => {
         }
     }
 }
+
+export const setPopularAnime = (data: ITitle) => {
+    return{
+        type: AnimeActionTypes.SET_POPULAR_ANIME,
+        payload: data
+    }
+}
+
+export const fetchPopularAnime = (page: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const popularAnime = await fetchAnimeData.fetchPopularAnime(page)
+            dispatch(setPopularAnime(popularAnime.data.data))
+        } catch (error) {
+            dispatch(setAnimeError(true))
+        }
+    }
+}

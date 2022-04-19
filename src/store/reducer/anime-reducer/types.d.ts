@@ -62,5 +62,10 @@ interface IAnimeCurrentPage{
     payload: number
 }
 
+interface IPopularAnime{
+    type: AnimeActionTypes.SET_POPULAR_ANIME,
+    payload: ITitle
+}
+
 export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnimes | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
-ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle | IAnimeCurrentPage
+ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle | IAnimeCurrentPage | IPopularAnime

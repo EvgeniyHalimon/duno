@@ -3,12 +3,10 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 import { Box } from "@mui/material";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
 
 import './Navigation.scss' 
 
 export const Navigation: React.FC = () => {
-    const {isAnime} = useTypesSelector(state => state.anime)
 
     return(
         <Box sx={{ flexGrow: 1 }}>
@@ -22,7 +20,7 @@ export const Navigation: React.FC = () => {
                 </li>
                 <li>
                     <Link 
-                        to={isAnime ? '/popular+anime' : '/popular+manga'}
+                        to={'/popular'}
                         className="navigation-link"
                     >
                         POPULAR</Link>

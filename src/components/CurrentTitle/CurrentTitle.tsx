@@ -17,7 +17,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     
     return(
         <>
-            <Button style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
+            <Button className="back-button" style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
             <div
                 className="title"
             >
