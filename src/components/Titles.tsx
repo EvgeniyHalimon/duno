@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { PaginatedTitles } from './PaginatedTitles';
+import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
 
 import { useDispatch } from "react-redux";
 import { useTypesSelector } from "../hooks/useTypesSelector";
@@ -23,7 +23,6 @@ export const Titles: React.FC = () => {
     useEffect(() => {
         isAnime ? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
     },[currentPage, isAnime, isManga])
-    console.log("🚀 ~ file: Titles.tsx ~ line 26 ~ currentPage", currentPage)
 
     return(
         <>

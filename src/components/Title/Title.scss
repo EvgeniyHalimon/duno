@@ -1,0 +1,45 @@
+.titles-item:last-child{
+  margin-right: 0;
+}
+
+.titles-item p{
+  word-wrap: break-word;
+}
+
+.titles-item:visited{
+  color: inherit;
+}
+
+.titles-item{
+  padding: 20px;
+  border: 1px solid #2496FF;
+  margin-right: 10px;
+  width: 250px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #303035, #1D1D28);
+  text-decoration: none;
+  color: inherit;
+}
+
+.title-genres{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title-poster{
+  height: 220px;
+  width: 165px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.title-genres p{
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.title-genres p:last-child{
+  margin-right: 0px;
+}

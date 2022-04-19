@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { PaginatedTitles } from "../components/PaginatedTitles";
+import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
 
 import { Pagination } from "@mui/material";
 import { Button } from "@mui/material";

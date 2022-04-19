@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from "react";
 
-import { PaginatedTitles } from './PaginatedTitles';
+import { PaginatedTitles } from "./PaginatedTitles/PaginatedTitles";
 
 import { useDispatch } from "react-redux";
 import { useTypesSelector } from "../hooks/useTypesSelector";

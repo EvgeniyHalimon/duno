@@ -1,9 +1,11 @@
-import React,{useEffect} from "react";
+import React from "react";
 
 import { Link } from 'react-router-dom';
 
 import { Box } from "@mui/material";
-import { useTypesSelector } from '../hooks/useTypesSelector';
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+
+import './Navigation.scss' 
 
 export const Navigation: React.FC = () => {
     const {isAnime} = useTypesSelector(state => state.anime)

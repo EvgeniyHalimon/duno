@@ -2,7 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "@mui/material";
-import { IGenre, ITitle } from "../types/types";
+import { IGenre, ITitle } from "../../types/types";
+
+import './CurrentTitle.scss'
 
 interface ISliderInfo{
     title: ITitle
@@ -31,7 +33,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p>{titleScore === null ? null : `Score: ${titleScore}`}</p>
                         <p>{title.scored_by === null ? null : `Scored by: ${title.scored_by} users`} </p>
                         <div className="title-genres">
-                            {title.genres?.map((genre: IGenre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
+                            {title.genres?.map((genre: IGenre) => <p className="title-name" key={genre.mal_id}>{genre.name}</p>)}
                         </div>
                         <p className="title-synopsis">{title.synopsis}</p>
                         <p>{topic === 'anime' ? `Duration: ${title.duration}` : null}</p>

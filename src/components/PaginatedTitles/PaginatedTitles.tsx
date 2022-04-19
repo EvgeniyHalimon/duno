@@ -1,7 +1,9 @@
 import React from "react";
-import { Title } from "./Title";
+import { Title } from "../Title/Title";
 
-import { ITitle } from "../types/types";
+import { ITitle } from "../../types/types";
+
+import './PaginatedTitles.scss'
 
 interface IPaganatedTitles{
     paginatedTitles: ITitle

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IGenre, ITitle } from "../types/types";
+import { IGenre, ITitle } from "../../types/types";
+
+import './Title.scss'
 
 interface IPaganatedTitle{
     title?: ITitle

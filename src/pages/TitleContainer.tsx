@@ -4,7 +4,7 @@ import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchCurrentAnimeTitle } from "../store/actions/anime-action-creators";
 import { fetchCurrentMangaTitle } from "../store/actions/manga-action-creators";
 import { useDispatch } from "react-redux";
-import { CurrentTitle } from "../components/CurrentTitle";
+import { CurrentTitle } from "../components/CurrentTitle/CurrentTitle";
 
 export const TitleContainer: React.FC = () => {
 

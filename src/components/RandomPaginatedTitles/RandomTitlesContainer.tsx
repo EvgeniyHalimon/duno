@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 
-import { SliderCardInfo } from "./SliderCardInfo";
-import { Slider } from './Slider';
-import { ITitle } from "../types/types";
+import { SliderCardInfo } from "../SliderCardInfo/SliderCardInfo";
+import { ITitle } from "../../types/types";
+import { Slider } from "../Slider/Slider";
 
 import { useDispatch } from "react-redux";
-import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchRandomAnime } from "../store/actions/anime-action-creators";
-import { fetchRandomManga } from "../store/actions/manga-action-creators";
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { fetchRandomAnime } from "../../store/actions/anime-action-creators";
+import { fetchRandomManga } from "../../store/actions/manga-action-creators";
+
+import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()
@@ -29,4 +31,3 @@ export const RandomTitlesContainer: React.FC = () => {
         </div>
     )
 }
-

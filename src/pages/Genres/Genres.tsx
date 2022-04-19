@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchAnimeGenres, isAnimeFlag } from "../store/actions/anime-action-creators";
-import { fetchMangaGenres, isMangaFlag } from "../store/actions/manga-action-creators";
-import { IGenreData } from "../types/types";
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { fetchAnimeGenres, isAnimeFlag } from "../../store/actions/anime-action-creators";
+import { fetchMangaGenres, isMangaFlag } from "../../store/actions/manga-action-creators";
+import { IGenreData } from "../../types/types";
 import { Button } from "@mui/material";
+
+import './Genres.scss'
 
 export const Genres: React.FC = () => {
 
@@ -49,7 +51,7 @@ export const Genres: React.FC = () => {
             <Button onClick={() => navigate('/')}>Back to main page</Button>
             <ul className="genre-list">
                 {
-                    uniqueGenres?.map((genre: IGenreData, index: number) => {
+                    uniqueGenres?.map((genre: IGenreData) => {
                         return( 
                                 <Link to={`/genres/${genre.mal_id}`} key={genre.mal_id} className='genre-name'>
                                     <li>

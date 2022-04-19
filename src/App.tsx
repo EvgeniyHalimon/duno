@@ -1,12 +1,12 @@
 import React from 'react';
-import { Home } from './components/Home';
+import { Home } from './components/Home/Home';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { store } from './store/store';
 import { PopularAnime } from './pages/PopularAnime';
 import { PopularManga } from './pages/PopularManga';
-import { Genres } from './pages/Genres';
+import { Genres } from './pages/Genres/Genres';
 import { Genre } from './pages/Genre';
 import { SearchResultList } from './components/SearchList';
 import { TitleContainer } from './pages/TitleContainer';
