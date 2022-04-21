@@ -6,7 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(180deg, #1D1D28, #303035);
-  height: 151vh;
   color: aliceblue;
   list-style-type: none;
 }
@@ -30,4 +29,8 @@ code {
 
 .back-button{
   margin: 10px 0 10px 0 !important;
+}
+
+.wrapper{
+  height: 100vh;
 }

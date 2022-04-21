@@ -2,36 +2,38 @@
   display: inline-block;
   white-space: initial;
   padding: 10px;
+
+  &-item{
+    display: flex;
+    align-items: center;
+  }
+
+  &-title_name{
+    font-size: 30px;
+  }
+  
+  &-item p{
+    margin-right: 5px;
+  }
+  
+  &-genres{
+    display: flex;
+  }
+
+  &-poster-current{
+    margin-right: 20px;
+  }
+
+  &-name{
+    border: 1px solid #2496FF;
+    background-color: rgba(70, 169, 214, 0.5);
+    border-radius: 5px;
+    padding: 0px 6px;
+  }
+
+  &-synopsis{
+    word-wrap: break-word;
+  }
 }
 
-.title-item{
-  display: flex;
-  align-items: center;
-}
 
-.title-title_name{
-  font-size: 30px;
-}
-
-.title-item p{
-  margin-right: 5px;
-}
-
-.title-genres{
-  display: flex;
-}
-
-.title-poster-current{
-  margin-right: 20px;
-}
-
-.slider-synopsis{
-  word-wrap: break-word;
-}
-
-.title-name{
-  border: 1px solid #2496FF;
-  background-color: rgba(70, 169, 214, 0.5);
-  border-radius: 5px;
-  padding: 0px 6px;
-}

@@ -47,7 +47,7 @@ export const Genres: React.FC = () => {
     },[topic])
 
     return(
-        <div>
+        <div className="wrapper">
             <Button className="back-button" onClick={() => navigate('/')}>Back to main page</Button>
             <ul className="genre-list">
                 {

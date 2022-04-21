@@ -11,7 +11,7 @@ import './Home.scss'
 
 export const Home: React.FC = () => {
     return (
-        <Box style={{display : 'flex', height: '100vh'}}>
+        <Box style={{display : 'flex', height: '151vh'}}>
             <div className='sidebar'>
                 <Navigation/>
             </div>

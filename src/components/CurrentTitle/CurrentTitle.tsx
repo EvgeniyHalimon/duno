@@ -13,10 +13,10 @@ interface ISliderInfo{
 export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     const navigate = useNavigate()
     const topic: string | null = localStorage.getItem('topic')
-    const titleScore = topic === 'anime' ? title.score : title.scored_by
+    const titleScore = topic === 'anime' ? title.score : title.scored
     
     return(
-        <>
+        <div className="wrapper">
             <Button className="back-button" style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
             <div
                 className="title"
@@ -41,6 +41,6 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
