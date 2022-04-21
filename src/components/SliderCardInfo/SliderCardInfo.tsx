@@ -27,7 +27,7 @@ export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
                         <div className="slide-genres">
                             {title.genres?.map((genre: IGenre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
                         </div>
-                        <p className="slider-synopsis">
+                        <p className="slide-synopsis">
                             {title.synopsis?.slice(0, 750)}
                             <Link to={`/title/${title?.mal_id}`} style={{fontSize: '10px'}}>...show more</Link>
                         </p>

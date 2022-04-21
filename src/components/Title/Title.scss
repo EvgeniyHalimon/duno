@@ -7,37 +7,37 @@
   background: linear-gradient(180deg, #303035, #1D1D28);
   text-decoration: none;
   color: inherit;
-}
 
-.titles-item:last-child{
-  margin-right: 0;
-}
-
-.titles-item p{
-  word-wrap: break-word;
-}
-
-.titles-item:visited{
-  color: inherit;
+  &:last-child{
+    margin-right: 0;
+  }
+  
+  & p{
+    word-wrap: break-word;
+  }
+  
+  &:visited{
+    color: inherit;
+  }
 }
 
 .title-genres{
   display: flex;
   flex-wrap: wrap;
+
+  & p{
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  
+  & p:last-child{
+    margin-right: 0px;
+  }
 }
 
 .title-poster{
   display: flex;
   margin: 0 auto;
-}
-
-.title-genres p{
-  margin-right: 5px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font-size: 12px;
-}
-
-.title-genres p:last-child{
-  margin-right: 0px;
 }

@@ -1,9 +1,9 @@
 .navigation{
   list-style-type: none;
   padding-left: 10px;
-}
 
-.navigation-link{
-  text-decoration: none;
-  font-size: 20px;
+  &-link{
+    text-decoration: none;
+    font-size: 20px;
+  }
 }

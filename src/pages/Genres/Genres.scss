@@ -14,10 +14,10 @@
   border-radius: 10px;
   border: 1px solid white;
   background: linear-gradient(180deg, #303035, #1D1D28);
-}
 
-.genre-name:visited{
-  color: inherit;
+  &:visited{
+    color: inherit;
+  }
 }
 
 .genres-name{
