@@ -34,7 +34,7 @@ export const Search: React.FC = () => {
     return(
         <input 
             type="text" 
-            style={{height: '30px'}}
+            className="search-input"
             onChange={e => setSearchTerm(e.target.value)}
             onKeyDown={(e) => navigateToList(e)}
         />

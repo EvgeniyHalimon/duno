@@ -13,6 +13,11 @@ interface ISliderInfo{
 export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     const topic: string | null = localStorage.getItem('topic')
     const titleScore = topic === 'anime' ? title.score : title.scored
+
+    const score: any = title.score || title.scored
+    const color = score >= 7.5 ? 'green' : 
+                (score >= 5 && score <= 7.5) ? 'orange' : 
+                (score <= 4.9) ? 'red' : 'white'
     
     return(
         <div className="current-title-wrapper">
@@ -29,7 +34,9 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p>{title.aired?.string || title.published?.string}</p>
                         <p>Rank: {title.rank}</p>
                         <p>Status: {title.status}</p>
-                        <p>{titleScore === null ? null : `Score: ${titleScore}`}</p>
+                        <p
+                            style={{color: color}}
+                        >{titleScore === null ? null : `Score: ${titleScore}`}</p>
                         <p>{title.scored_by === null ? null : `Scored by: ${title.scored_by} users`} </p>
                         <div className="title-genres">
                             {title.genres?.map((genre: IGenre) => <p className="title-name" key={genre.mal_id}>{genre.name}</p>)}

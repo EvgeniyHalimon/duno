@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import { Box } from "@mui/material";
 
@@ -12,25 +12,25 @@ export const Navigation: React.FC<any> = () => {
         <Box sx={{ flexGrow: 1 }} className='sidebar'>
             <ul className="navigation">
                 <li>
-                    <Link 
+                    <NavLink 
                         to='/'
                         className="navigation-link"
                     >
-                        HOME</Link>
+                        HOME</NavLink>
                 </li>
                 <li>
-                    <Link 
+                    <NavLink 
                         to={'/popular'}
                         className="navigation-link"
                     >
-                        POPULAR</Link>
+                        POPULAR</NavLink>
                 </li>
                 <li>
-                    <Link 
+                    <NavLink 
                         to='/genres'
                         className="navigation-link"
                     >
-                        GENRES</Link>
+                        GENRES</NavLink>
                 </li>
             </ul>
         </Box>
