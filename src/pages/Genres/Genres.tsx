@@ -8,6 +8,7 @@ import { IGenreData } from "../../types/types";
 import { Button } from "@mui/material";
 
 import './Genres.scss'
+import { Navigation } from "../../components/Navigation/Navigation";
 
 export const Genres: React.FC = () => {
 
@@ -47,21 +48,23 @@ export const Genres: React.FC = () => {
     },[topic])
 
     return(
-        <div className="wrapper">
-            <Button className="back-button" onClick={() => navigate('/')}>Back to main page</Button>
-            <ul className="genre-list">
-                {
-                    uniqueGenres?.map((genre: IGenreData) => {
-                        return( 
-                                <Link to={`/genres/${genre.mal_id}`} key={genre.mal_id} className='genre-name'>
-                                    <li>
-                                        <h3 style={{margin: 0}}>{genre.name}<sub>({genre.count})</sub></h3>
-                                    </li>
-                                </Link>
-                        )
-                    })
-                }
-            </ul>
+        <div className="wrapper-genres">
+            <Navigation/>
+            <div>
+                <ul className="genre-list">
+                    {
+                        uniqueGenres?.map((genre: IGenreData) => {
+                            return( 
+                                    <Link to={`/genres/${genre.mal_id}`} key={genre.mal_id} className='genre-name'>
+                                        <li>
+                                            <h3 style={{margin: 0}}>{genre.name}<sub>({genre.count})</sub></h3>
+                                        </li>
+                                    </Link>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
         </div>
     )
 }

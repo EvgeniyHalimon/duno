@@ -162,6 +162,7 @@ export const fetchCurrentMangaTitle = (id: string | undefined) => {
         try {
             const currentMangaTitle = await fetchMangaData.fetchCurrentMangaTitle(id)
             dispatch(setCurrentMangaTitle(currentMangaTitle.data.data))
+            dispatch(setLastMangaPage(currentMangaTitle.data.pagination.last_visible_page))
         } catch (error) {
             dispatch(setMangaError(true))
         }

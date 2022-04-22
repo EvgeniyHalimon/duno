@@ -1,23 +1,22 @@
+/* eslint-disable react/style-prop-object */
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-import { Button } from "@mui/material";
 import { IGenre, ITitle } from "../../types/types";
 
 import './CurrentTitle.scss'
+import { Navigation } from "../Navigation/Navigation";
 
 interface ISliderInfo{
     title: ITitle
 }
 
 export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
-    const navigate = useNavigate()
     const topic: string | null = localStorage.getItem('topic')
     const titleScore = topic === 'anime' ? title.score : title.scored
     
     return(
-        <div className="wrapper">
-            <Button className="back-button" style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
+        <div className="current-title-wrapper">
+            <Navigation />
             <div
                 className="title"
             >

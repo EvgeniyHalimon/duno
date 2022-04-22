@@ -9,4 +9,3 @@ export const URL_MANGA_SEARCH: string = `${BASE_URL}/manga`
 export const URL_TOP_MANGA: string = `${BASE_URL}/top/manga`
 export const URL_RANDOM_MANGA: string = `${BASE_URL}/random/manga?sfw=false`
 export const URL_MANGA_GENRES: string = `${BASE_URL}/genres/manga`
-

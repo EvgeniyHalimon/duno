@@ -32,5 +32,11 @@ code {
 }
 
 .wrapper{
+  height: 100%;
+  display: flex;
+}
+
+.wrapper-genres, .current-title-wrapper{
   height: 100vh;
+  display: flex;
 }

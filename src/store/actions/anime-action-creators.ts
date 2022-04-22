@@ -181,6 +181,7 @@ export const fetchPopularAnime = (page: number) => {
         try {
             const popularAnime = await fetchAnimeData.fetchPopularAnime(page)
             dispatch(setPopularAnime(popularAnime.data.data))
+            dispatch(setLastAnimePage(popularAnime.data.pagination.last_visible_page))
         } catch (error) {
             dispatch(setAnimeError(true))
         }

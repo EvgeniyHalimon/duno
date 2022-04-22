@@ -7,14 +7,10 @@ import { Navigation } from "../Navigation/Navigation";
 
 import { Box } from '@mui/material';
 
-import './Home.scss'
-
 export const Home: React.FC = () => {
     return (
         <Box style={{display : 'flex', height: '151vh'}}>
-            <div className='sidebar'>
-                <Navigation/>
-            </div>
+            <Navigation/>
             <div style={{width: '93vw'}}>
                 <Head/>
                 <RandomTitlesContainer/>

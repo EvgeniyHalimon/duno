@@ -28,8 +28,8 @@ function App() {
             <Route path='/genres' element={<Genres/>}/>
             <Route path='/search+result+list' element={<SearchResultList/>}/>
             <Route path='/title/:id' element={<TitleContainer/>}/>
-            <Route path='*' element={<Error/>}/>
             <Route path='/title+not+found' element={<ErrorSearch/>}/>
+            <Route path='*' element={<Error/>}/>
           </Routes>
         </BrowserRouter>
       </Provider>

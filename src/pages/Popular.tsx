@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
 
 import { Pagination } from "@mui/material";
-import { Button } from "@mui/material";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { useDispatch } from "react-redux";
 import { fetchPopularAnime, isAnimeFlag } from "../store/actions/anime-action-creators";
 import { fetchPopularManga, isMangaFlag } from "../store/actions/manga-action-creators";
+import { Navigation } from "../components/Navigation/Navigation";
 
 
 
 export const Popular: React.FC = () => {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const [currentPage, setCurrentPage] = useState(1)
 
     const {popularAnime, lastAnimePage} = useTypesSelector(state => state.anime)
@@ -27,17 +25,21 @@ export const Popular: React.FC = () => {
     useEffect(() => {
         topic === "anime" ? dispatch(isAnimeFlag(true)) : "manga" ? dispatch(isMangaFlag(true)) : dispatch(isMangaFlag(false))
         topic === "anime" ? dispatch(fetchPopularAnime(currentPage)) : dispatch(fetchPopularManga(currentPage)) 
-    },[topic, currentPage])
+    },[topic, currentPage, lastPage])
+
+    console.log(lastPage);
 
     return(
-        <>
-            <Button className="back-button" onClick={() => navigate('/')}>Back to main page</Button>
-            <PaginatedTitles paginatedTitles={paginatedTitles}/>
-            <Pagination 
-                count={lastPage} 
-                color="primary"
-                onChange={(e, value) => setCurrentPage(value)}
-            />
-        </>
+        <div className="wrapper">
+            <Navigation/>
+            <div style={{padding: '20px 0 10px 0'}}>
+                <PaginatedTitles paginatedTitles={paginatedTitles}/>
+                <Pagination 
+                    count={lastPage} 
+                    color="primary"
+                    onChange={(e, value) => setCurrentPage(value)}
+                />
+            </div>
+        </div>
     )
 }

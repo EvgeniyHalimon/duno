@@ -5,5 +5,18 @@
   &-link{
     text-decoration: none;
     font-size: 20px;
+
+    &:visited{
+      color: inherit;
+    }
+  }
+}
+
+.sidebar{
+  padding-right: 20px;
+  border-right: 1px solid #2496FF;
+
+  & a{
+    color: inherit;
   }
 }
