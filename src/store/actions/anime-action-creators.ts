@@ -1,4 +1,4 @@
-import { IGenreData } from './../../types/types';
+import { IGenreData, IReview } from './../../types/types';
 import { Dispatch } from "redux"
 import { AnimeActionTypes } from "../action-types/anime-action-types"
 import { fetchAnimeData } from "../../utils/fetch";
@@ -182,6 +182,24 @@ export const fetchPopularAnime = (page: number) => {
             const popularAnime = await fetchAnimeData.fetchPopularAnime(page)
             dispatch(setPopularAnime(popularAnime.data.data))
             dispatch(setLastAnimePage(popularAnime.data.pagination.last_visible_page))
+        } catch (error) {
+            dispatch(setAnimeError(true))
+        }
+    }
+}
+
+export const setAnimeReviews = (data: IReview) => {
+    return{
+        type: AnimeActionTypes.SET_ANIME_REVIEW,
+        payload: data
+    }
+}
+
+export const fetchAnimeReviews = (id: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const animeReview = await fetchAnimeData.fetchAnimeReviews(id)
+            dispatch(setAnimeReviews(animeReview.data.data))
         } catch (error) {
             dispatch(setAnimeError(true))
         }

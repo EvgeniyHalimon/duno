@@ -11,6 +11,7 @@ import { TitleContainer } from './pages/TitleContainer';
 import { Popular } from './pages/Popular';
 import { Error } from './pages/404/404';
 import { ErrorSearch } from './pages/404/ErrorSearch';
+import { Reviews } from './pages/Reviews';
 
 const theme = createTheme({
   spacing: 5
@@ -28,6 +29,7 @@ function App() {
             <Route path='/genres' element={<Genres/>}/>
             <Route path='/search+result+list' element={<SearchResultList/>}/>
             <Route path='/title/:id' element={<TitleContainer/>}/>
+            <Route path='/reviews' element={<Reviews/>}/>
             <Route path='/title+not+found' element={<ErrorSearch/>}/>
             <Route path='*' element={<Error/>}/>
           </Routes>

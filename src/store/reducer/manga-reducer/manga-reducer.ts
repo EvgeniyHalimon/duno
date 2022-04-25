@@ -15,7 +15,8 @@ const inintalState: IInitialStateMangas = {
     mangaByGenre: [],
     currentMangaTitle: [],
     currentMangaPage: 1,
-    popularManga: []
+    popularManga: [],
+    mangaReviews: []
 }
 
 const updateMangas = (state = inintalState, action: MangaAction) => {
@@ -84,6 +85,11 @@ const updateMangas = (state = inintalState, action: MangaAction) => {
             return{
                 ...state,
                 popularManga: action.payload
+            }
+        case MangaActionTypes.SET_MANGA_REVIEW:
+            return{
+                ...state,
+                mangaReviews: action.payload
             }
         default:
             return state

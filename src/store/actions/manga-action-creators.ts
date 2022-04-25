@@ -1,5 +1,5 @@
 import { Dispatch } from "redux"
-import { IGenreData, ITitle } from "../../types/types";
+import { IGenreData, IReview, ITitle } from "../../types/types";
 import { fetchMangaData } from "../../utils/fetch";
 import { MangaActionTypes } from "../action-types/manga-action-types";
 
@@ -31,7 +31,7 @@ export const setLastMangaPage = (number: number) => {
     }
 }
 
-export const fetchAnimes = () => {
+export const fetchMangas = () => {
     return async(dispatch: Dispatch) => {
         try {
             const mangas = await fetchMangaData.fetchManga()
@@ -181,6 +181,24 @@ export const fetchPopularManga = (page: number) => {
         try {
             const popularAnime = await fetchMangaData.fetchPopularManga(page)
             dispatch(setPopularManga(popularAnime.data.data))
+        } catch (error) {
+            dispatch(setMangaError(true))
+        }
+    }
+}
+
+export const setMangaReviews = (data: IReview) => {
+    return{
+        type: MangaActionTypes.SET_MANGA_REVIEW,
+        payload: data
+    }
+}
+
+export const fetchMangaReviews = (id: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const mangaReview = await fetchMangaData.fetchMangaReviews(id)
+            dispatch(setMangaReviews(mangaReview.data.data))
         } catch (error) {
             dispatch(setMangaError(true))
         }

@@ -1,4 +1,4 @@
-import { IGenreData } from './../../../types/types';
+import { IGenreData, IReview } from './../../../types/types';
 import { ITitle } from "../../../types/types";
 import { AnimeActionTypes } from "../../action-types/anime-action-types";
 
@@ -67,5 +67,10 @@ interface IPopularAnime{
     payload: ITitle
 }
 
+interface IAnimeReview{
+    type: AnimeActionTypes.SET_ANIME_REVIEW,
+    payload: IReview
+}
+
 export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnimes | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
-ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle | IAnimeCurrentPage | IPopularAnime
+ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle | IAnimeCurrentPage | IPopularAnime | IAnimeReview

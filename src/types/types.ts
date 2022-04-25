@@ -28,7 +28,8 @@ export interface IInitialStateAnimes{
     animeByGenre: ITitle | [],
     currentAnimeTitle: ITitle | [],
     currentAnimePage: number,
-    popularAnime: ITitle | []
+    popularAnime: ITitle | [],
+    animeReviews: any
 }
 
 export interface IInitialStateMangas{
@@ -44,7 +45,8 @@ export interface IInitialStateMangas{
     mangaByGenre: ITitle | [],
     currentMangaTitle: ITitle | [],
     currentMangaPage: number,
-    popularManga: ITitle | []
+    popularManga: ITitle | [],
+    mangaReviews: any
 }
 
 export interface ITitle{
@@ -67,6 +69,7 @@ export interface ITitle{
     scored_by?: number,
     rating?: string,
     status?: string,
+    mal_id?: number | undefined
 }
 
 export interface IGenreData{
@@ -74,4 +77,23 @@ export interface IGenreData{
     mal_id: number
     name: string
     url: string
+}
+
+export interface IReview{
+    episodes_watch?: number,
+    chapters_read?: number,
+    review: string,
+    type: string,
+    user: {
+        username: string,
+        images: IImages
+    },
+    scores: {
+        overall: number,
+        story: number,
+        art: number,
+        character: number,
+        enjoyment: number,
+        sound?: number
+    }
 }

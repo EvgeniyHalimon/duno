@@ -15,7 +15,8 @@ const initialState: IInitialStateAnimes = {
     animeByGenre: [],
     currentAnimeTitle: [],
     currentAnimePage: 1,
-    popularAnime: []
+    popularAnime: [],
+    animeReviews: []
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {
@@ -84,6 +85,11 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
             return{
                 ...state,
                 popularAnime: action.payload
+            }
+        case AnimeActionTypes.SET_ANIME_REVIEW:
+            return{
+                ...state,
+                animeReviews: action.payload
             }
         default:
             return state

@@ -1,4 +1,4 @@
-import { IGenreData } from './../../../types/types';
+import { IGenreData, IReview } from './../../../types/types';
 import { ITitle } from "../../../types/types";
 import { MangaActionTypes } from "../../action-types/manga-action-types";
 
@@ -67,5 +67,11 @@ interface IPopularManga{
     payload: ITitle
 }
 
+interface IMangaReview{
+    type: MangaActionTypes.SET_MANGA_REVIEW,
+    payload: IReview
+}
+
 export type MangaAction = IMangaAction | IMangaErrorAction | IRandomManga | IPaginatedMangas | ILastMangaPage | IIsManga | 
-ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres | IMangaCurrentTitle | IMangaCurrentPage | IPopularManga
+ISeacrhMangaResult | ISearchMangaValue | IMangaGenres | IMangaByGenres | IMangaCurrentTitle | IMangaCurrentPage | IPopularManga | 
+IMangaReview

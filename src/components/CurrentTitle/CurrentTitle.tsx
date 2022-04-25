@@ -1,23 +1,42 @@
 /* eslint-disable react/style-prop-object */
-import React from "react";
+import React, { useEffect } from "react";
+
+import { Navigation } from "../Navigation/Navigation";
 
 import { IGenre, ITitle } from "../../types/types";
 
 import './CurrentTitle.scss'
-import { Navigation } from "../Navigation/Navigation";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchAnimeReviews } from "../../store/actions/anime-action-creators";
+import { fetchMangaReviews } from "../../store/actions/manga-action-creators";
+import { useTypesSelector } from "../../hooks/useTypesSelector";
 
 interface ISliderInfo{
     title: ITitle
 }
 
 export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
+    const dispatch = useDispatch()
     const topic: string | null = localStorage.getItem('topic')
     const titleScore = topic === 'anime' ? title.score : title.scored
+
+    const {animeReviews} = useTypesSelector(state => state.anime)
+    const {mangaReviews} = useTypesSelector(state => state.manga)
+
+    const reviews = topic === 'anime' ? animeReviews : mangaReviews
+    console.log("🚀 ~ file: CurrentTitle.tsx ~ line 28 ~ reviews", reviews)
 
     const score: any = title.score || title.scored
     const color = score >= 7.5 ? 'green' : 
                 (score >= 5 && score <= 7.5) ? 'orange' : 
                 (score <= 4.9) ? 'red' : 'white'
+
+    const id: any = title?.mal_id
+    
+    useEffect(() => {
+        topic ==='anime' ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
+    },[topic, id])
     
     return(
         <div className="current-title-wrapper">
@@ -46,6 +65,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p>{topic === 'anime' ? `Episodes: ${title.episodes}` : `Chapters: ${title.chapters}`}</p>
                     </div>
                 </div>
+                <Link to={'/reviews'}>See reviews ({reviews.length})</Link>
             </div>
         </div>
     )

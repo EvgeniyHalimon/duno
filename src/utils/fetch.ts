@@ -1,3 +1,4 @@
+import { fetchAnimeSearch } from './../store/actions/anime-action-creators';
 import axios from "axios"
 import { URL_ANIME_GENRES, URL_ANIME_SEARCH, URL_MANGA_GENRES, URL_MANGA_SEARCH, URL_RANDOM_ANIME, URL_RANDOM_MANGA, URL_TOP_ANIME, URL_TOP_MANGA } from "../constants/constants"
 
@@ -37,6 +38,10 @@ export const fetchAnimeData = {
     async fetchPopularAnime(page: number){
         const animes = await axios.get(`${URL_TOP_ANIME}?page=${page}&limit=10`)
         return animes
+    },
+    async fetchAnimeReviews(id: number){
+        const animeReviews = await axios.get(`${URL_ANIME_SEARCH}/${id}/reviews`)
+        return animeReviews
     }
 }
 
@@ -75,5 +80,9 @@ export const fetchMangaData = {
     async fetchPopularManga(page: number){
         const mangas = await axios.get(`${URL_TOP_MANGA}?page=${page}&limit=10`)
         return mangas
+    },
+    async fetchMangaReviews(id: number){
+        const mangaReviews = await axios.get(`${URL_MANGA_SEARCH}/${id}/reviews`)
+        return mangaReviews
     }
 }
