@@ -15,6 +15,8 @@ export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
     const color = score >= 7.5 ? 'green' : 
                 (score >= 5 && score <= 7.5) ? 'orange' : 
                 (score <= 4.9) ? 'red' : 'white'
+
+    const place = title.rank == '1' ? <span>&#129351;</span> : title.rank == '2' ? <span>&#129352;</span> : title.rank == '3' ? <span>&#129353;</span> : title.rank
     
     return(
         <Link to={`/title/${title?.mal_id}`} key={title?.url}>
@@ -31,7 +33,7 @@ export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
                         <p
                             style={{color: color}}
                         >Score: {title.score || title.scored}</p>
-                        <p>Rank: {title.rank}</p>
+                        <p>Rank: {place}</p>
                         <div className="slide-genres">
                             {title.genres?.map((genre: IGenre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
                         </div>

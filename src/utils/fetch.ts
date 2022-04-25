@@ -39,7 +39,7 @@ export const fetchAnimeData = {
         const animes = await axios.get(`${URL_TOP_ANIME}?page=${page}&limit=10`)
         return animes
     },
-    async fetchAnimeReviews(id: number){
+    async fetchAnimeReviews(id: string | undefined){
         const animeReviews = await axios.get(`${URL_ANIME_SEARCH}/${id}/reviews`)
         return animeReviews
     }
@@ -81,7 +81,7 @@ export const fetchMangaData = {
         const mangas = await axios.get(`${URL_TOP_MANGA}?page=${page}&limit=10`)
         return mangas
     },
-    async fetchMangaReviews(id: number){
+    async fetchMangaReviews(id: string | undefined){
         const mangaReviews = await axios.get(`${URL_MANGA_SEARCH}/${id}/reviews`)
         return mangaReviews
     }

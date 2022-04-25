@@ -79,7 +79,18 @@ export interface IGenreData{
     url: string
 }
 
+export interface IScore{
+    map: any;
+    overall: number,
+    story: number,
+    art: number,
+    character: number,
+    enjoyment: number,
+    sound?: number
+}
+
 export interface IReview{
+    mal_id: number,
     episodes_watch?: number,
     chapters_read?: number,
     review: string,
@@ -88,12 +99,5 @@ export interface IReview{
         username: string,
         images: IImages
     },
-    scores: {
-        overall: number,
-        story: number,
-        art: number,
-        character: number,
-        enjoyment: number,
-        sound?: number
-    }
+    scores: IScore
 }

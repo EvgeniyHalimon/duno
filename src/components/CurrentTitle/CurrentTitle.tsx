@@ -33,6 +33,8 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                 (score <= 4.9) ? 'red' : 'white'
 
     const id: any = title?.mal_id
+
+    const place = title.rank == '1' ? <span>&#129351;</span> : title.rank == '2' ? <span>&#129352;</span> : title.rank == '3' ? <span>&#129353;</span> : title.rank
     
     useEffect(() => {
         topic ==='anime' ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
@@ -51,7 +53,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p>{topic === 'anime' ? `Rating: ${title.rating}` : null}</p>
                         <p>{title.type}</p>
                         <p>{title.aired?.string || title.published?.string}</p>
-                        <p>Rank: {title.rank}</p>
+                        <p className="title-rank">Rank: {place}</p>
                         <p>Status: {title.status}</p>
                         <p
                             style={{color: color}}
@@ -65,7 +67,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p>{topic === 'anime' ? `Episodes: ${title.episodes}` : `Chapters: ${title.chapters}`}</p>
                     </div>
                 </div>
-                <Link to={'/reviews'}>See reviews ({reviews.length})</Link>
+                <Link to={`/reviews/${id}`}>See reviews ({reviews.length})</Link>
             </div>
         </div>
     )
