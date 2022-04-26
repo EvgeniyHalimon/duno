@@ -1,11 +1,11 @@
 .title{
   display: inline-block;
   white-space: initial;
-  padding: 10px;
+  padding: 20px;
 
   &-item{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
 
   &-title_name{
@@ -13,7 +13,7 @@
   }
   
   &-item p{
-    margin-right: 5px;
+    margin: 0 5px 10px 0;
   }
   
   &-genres{
@@ -34,6 +34,15 @@
   &-synopsis{
     word-wrap: break-word;
   }
+
+  &-link{
+    color: blue;
+    text-decoration: none;
+    &:visited{
+      color: blue;
+    }
+  }
+
 }
 
 

@@ -10,6 +10,10 @@ body {
   list-style-type: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #root{
   background: linear-gradient(180deg, #1D1D28, #303035);
 }
@@ -27,6 +31,11 @@ code {
   justify-content: center;
 }
 
+.css-i9gxme {
+  flex-grow: 0 !important;
+  -webkit-box-flex: 1 !important;
+}
+
 .back-button{
   margin: 10px 0 10px 0 !important;
 }
@@ -36,7 +45,7 @@ code {
   display: flex;
 }
 
-.wrapper-genres, .current-title-wrapper{
+.wrapper-genres, .current-title-wrapper, .wrapper-reviews{
   height: 100vh;
   display: flex;
 }

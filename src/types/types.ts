@@ -91,7 +91,7 @@ export interface IScore{
 
 export interface IReview{
     mal_id: number,
-    episodes_watch?: number,
+    episodes_watched?: number,
     chapters_read?: number,
     review: string,
     type: string,

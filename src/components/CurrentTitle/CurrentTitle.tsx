@@ -25,7 +25,6 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     const {mangaReviews} = useTypesSelector(state => state.manga)
 
     const reviews = topic === 'anime' ? animeReviews : mangaReviews
-    console.log("🚀 ~ file: CurrentTitle.tsx ~ line 28 ~ reviews", reviews)
 
     const score: any = title.score || title.scored
     const color = score >= 7.5 ? 'green' : 
@@ -65,9 +64,9 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p className="title-synopsis">{title.synopsis}</p>
                         <p>{topic === 'anime' ? `Duration: ${title.duration}` : null}</p>
                         <p>{topic === 'anime' ? `Episodes: ${title.episodes}` : `Chapters: ${title.chapters}`}</p>
+                        <Link className="title-link" to={`/reviews/${id}`}>See reviews ({reviews.length})</Link>
                     </div>
                 </div>
-                <Link to={`/reviews/${id}`}>See reviews ({reviews.length})</Link>
             </div>
         </div>
     )

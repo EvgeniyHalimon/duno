@@ -1,0 +1,71 @@
+.review-wrapper{
+    display: flex;
+}
+
+.review-list{
+    &-title{
+        text-align: center;
+        border-bottom: 1px solid #2496FF;
+        margin: 0;
+        padding: 20px 0;
+    }
+}
+
+.review{
+    display: flex;
+    border-bottom: 2px solid #2496FF;
+    padding: 20px;
+
+    &-block{
+        padding-left: 20px;
+
+        &-text, &-quantity{
+            margin: 0 0 20px 0;
+        }
+
+        &-score{
+            display: flex;
+
+            & p{
+                margin: 0 10px 0 0;
+            }
+
+            & p:last-child{
+                margin-right: 0px;
+            }
+        }
+    }
+    
+    &:last-child{
+        border: none;
+    }
+
+    &-title{
+        margin-left: 20px;
+    }
+}
+
+.user{
+    &-image{
+        width: 100%;
+    }
+
+    &-username{
+
+    }
+}
+
+.anchor{
+    position: fixed;
+    color:#2496FF;
+    text-decoration: none;
+    top: 95%;
+    right: 95%;
+    width: 60px;
+    height: 20px;
+    font-size: 40px;
+
+    .anchor:visited{
+        color: inherit;
+    }
+}
