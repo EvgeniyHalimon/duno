@@ -37,13 +37,30 @@
   }
 
   &-link{
-    color: blue;
+    color: #2496FF;
     text-decoration: none;
     &:visited{
-      color: blue;
+      color: #2496FF;
     }
   }
 
 }
 
 
+@media screen and (max-width: 800px) {
+
+  .title-item{
+    display: contents;
+  }
+
+  .title-poster-current{
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .title-poster-current{
+    width: 80%;
+  }
+}

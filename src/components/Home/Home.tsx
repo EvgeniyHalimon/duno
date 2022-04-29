@@ -9,9 +9,9 @@ import { Box } from '@mui/material';
 
 export const Home: React.FC = () => {
     return (
-        <Box style={{display : 'flex', height: '152vh'}}>
+        <Box className="home">
             <Navigation/>
-            <div style={{width: '93vw'}}>
+            <div className="home-wrapper">
                 <Head/>
                 <RandomTitlesContainer/>
                 <Titles/>

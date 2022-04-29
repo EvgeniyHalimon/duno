@@ -26,3 +26,21 @@
   border-radius: 5px;
   padding: 0px 6px;
 }
+
+@media screen and (max-width: 768px) {
+  .genre-name{
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+    padding: 3px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .genre-name{
+    font-size: 12px;
+  }
+
+  .genre-list{
+    padding: 0 4px;
+  }
+}

@@ -25,3 +25,16 @@
   color: #2496FF !important;
   text-decoration: line-through;
 }
+
+@media screen and (max-width: 800px){
+  .navigation{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .sidebar{
+    padding: 0;
+    border-right: none;
+    border-bottom: 1px solid #2496FF;
+  }
+}

@@ -21,7 +21,7 @@ export const Slider: React.FC<ISlider> = ({children}) => {
     const sliderPages = children.length 
 
     useEffect(() => {
-        resetTimeout()
+        /* resetTimeout()
         timeoutRef.current = setTimeout(() => {
             setIndex((prevIndex) => 
                 prevIndex === sliderPages - 1 ? 0 : prevIndex + 1
@@ -29,7 +29,7 @@ export const Slider: React.FC<ISlider> = ({children}) => {
         }, 5000);
         return () => {
             resetTimeout()
-        }
+        } */
     },[index])
 
     return(
