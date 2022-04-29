@@ -24,7 +24,7 @@ export const Switcher: React.FC = () => {
     }
 
     return(
-        <Box>
+        <Box className="switcher">
             <Button
                 onClick={() => { chooseTopic('anime') }}
             >

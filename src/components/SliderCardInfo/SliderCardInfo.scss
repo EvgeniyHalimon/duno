@@ -4,7 +4,7 @@
   border-radius: 25px;
   border: 1px solid #2496FF;
   overflow: hidden;
-  margin-right: 15px;
+  margin-right: 12px;
   white-space: initial;
   background: linear-gradient(180deg, #303035, #1D1D28);
 
@@ -14,6 +14,7 @@
     height: 360px;
     text-decoration: none;
     color: inherit;
+    padding: 20px;
 
     & p{
       margin-right: 5px;
@@ -22,6 +23,7 @@
   
   &-info{
     color: white;
+    height: 320px;
   }
   
   &-genres{
@@ -47,7 +49,7 @@
   }
 
   &-poster{
-    margin: 20px;
+    margin-right: 20px;
   }
   
   &-synopsis{
