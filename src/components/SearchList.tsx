@@ -20,18 +20,20 @@ export const SearchResultList: React.FC = () => {
     const topic: string | null = localStorage.getItem('topic')
 
     const paginatedTitles = topic === "anime" ? animeSearchResult : mangaSearchResult
+    const searchValue = topic === "anime" ? searchAnimeValue : searchMangaValue
     console.log("🚀 ~ file: SearchList.tsx ~ line 23 ~ paginatedTitles", paginatedTitles)
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
 
+    if(paginatedTitles.length === 0){
+        navigate("/title+not+found")
+    }
+
     useEffect(() => {
         topic === "anime" ? dispatch(fetchAnimeSearch(searchAnimeValue, currentPage)) : dispatch(fetchMangaSearch(searchMangaValue, currentPage))
-        if(paginatedTitles.length === 0){
-            navigate("/title+not+found")
-        }
     },[currentPage, isAnime, isManga])
 
     return(
-        <>
+        <div>
             <Button className="back-button" style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
             <PaginatedTitles paginatedTitles={paginatedTitles}/>
             <Pagination 
@@ -39,6 +41,6 @@ export const SearchResultList: React.FC = () => {
                 color="primary"
                 onChange={(e, value) => setCurrentPage(value)}
             />
-        </>
+        </div>
     )
 }

@@ -33,7 +33,7 @@ export const Genre: React.FC = () => {
     return(
         <>
             <Button className="back-button" onClick={() => navigate('/genres')}>Back to genres page</Button>
-            <div style={{height: '93vh'}}>
+            <div>
                 <PaginatedTitles paginatedTitles={paginatedTitles}/>
                 <Pagination 
                     count={lastPage} 

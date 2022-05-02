@@ -47,7 +47,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
             >
                 <div className="title-item">
                     <img className="title-poster-current" src={title.images?.webp.large_image_url} alt={`${title.title}-poster`} />
-                    <div>
+                    <div className="title-info">
                         <p className="title-title_name">{title.title} / {title.title_japanese}</p>
                         <p>{topic === 'anime' ? `Rating: ${title.rating}` : null}</p>
                         <p>{title.type}</p>

@@ -9,11 +9,11 @@
   }
 
   &-title_name{
-    font-size: 30px;
+    font-size: clamp(18px, 25px, 32px);
   }
   
   &-item p{
-    margin: 0 5px 10px 0;
+    margin: 0 0 10px 0;
   }
   
   &-genres{
@@ -59,7 +59,7 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 450px) {
   .title-poster-current{
     width: 80%;
   }

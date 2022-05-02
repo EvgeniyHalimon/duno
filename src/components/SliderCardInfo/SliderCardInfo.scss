@@ -23,7 +23,12 @@
   
   &-info{
     color: white;
-    height: 320px;
+    .info{
+      margin: 0 0 10px 0;
+      &:last-child{
+        margin: 0;
+      }
+    }
   }
   
   &-genres{
@@ -54,5 +59,64 @@
   
   &-synopsis{
     word-wrap: break-word;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .slide{
+    margin-right: 11px;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .slide{
+    width: 98%;
+    margin-right: 14px;
+
+    &-synopsis{
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 700px){
+  .slide{
+    text-align: center;
+    margin-right: 12px;
+    &-item{
+      display: block;
+      height: 100%;
+    }
+    &-genres{
+      justify-content: center;
+    }
+    &-poster{
+      margin-right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 700px){
+  .slide{
+    margin-right: 11px;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .slide{
+    width: 97%;
+    margin-right: 13px;
+  }
+}
+
+@media screen and (max-width: 430px){
+  .slide{
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 350px){
+  .slide{
+    margin-right: 8px;
   }
 }

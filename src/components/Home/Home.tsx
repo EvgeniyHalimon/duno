@@ -7,6 +7,8 @@ import { Navigation } from "../Navigation/Navigation";
 
 import { Box } from '@mui/material';
 
+import './Home.scss'
+
 export const Home: React.FC = () => {
     return (
         <Box className="home">

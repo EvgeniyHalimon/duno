@@ -84,9 +84,13 @@ code {
   .wrapper-genres, .current-title-wrapper{
     display: block;
   }
+
+  .current-title-wrapper{
+    height: 100%;
+  }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 920px) {
   .current-title-wrapper{
     height: 100%;
   }
