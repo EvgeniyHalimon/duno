@@ -51,3 +51,9 @@
   display: flex;
   margin: 0 auto 10px auto;
 }
+
+@media screen and (max-width:625px) {
+  .titles-item{
+    margin-right: 0;
+  }
+}
