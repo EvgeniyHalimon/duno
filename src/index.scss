@@ -31,8 +31,9 @@ code {
   width: 100%;
 }
 
-.switcher{
+.loading{
   display: flex;
+  margin: 0 auto;
 }
 
 .css-0{
@@ -60,6 +61,12 @@ code {
 .wrapper{
   height: 100%;
   display: flex;
+}
+
+.wrapper-height{
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .wrapper-genres, .current-title-wrapper, .wrapper-reviews{
@@ -99,5 +106,11 @@ code {
 @media screen and (max-width: 550px) {
   .wrapper-genres{
     height: 100%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .loading{
+    width: 90%;
   }
 }

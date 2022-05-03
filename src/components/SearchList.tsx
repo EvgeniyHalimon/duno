@@ -9,6 +9,7 @@ import { fetchMangaSearch } from "../store/actions/manga-action-creators";
 
 import { Button, Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { Loading } from "./Loading";
 
 export const SearchResultList: React.FC = () => {
     const navigate = useNavigate()
@@ -20,8 +21,6 @@ export const SearchResultList: React.FC = () => {
     const topic: string | null = localStorage.getItem('topic')
 
     const paginatedTitles = topic === "anime" ? animeSearchResult : mangaSearchResult
-    const searchValue = topic === "anime" ? searchAnimeValue : searchMangaValue
-    console.log("🚀 ~ file: SearchList.tsx ~ line 23 ~ paginatedTitles", paginatedTitles)
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
 
     if(paginatedTitles.length === 0){
@@ -33,6 +32,7 @@ export const SearchResultList: React.FC = () => {
     },[currentPage, isAnime, isManga])
 
     return(
+        paginatedTitles ?
         <div>
             <Button className="back-button" style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
             <PaginatedTitles paginatedTitles={paginatedTitles}/>
@@ -41,6 +41,6 @@ export const SearchResultList: React.FC = () => {
                 color="primary"
                 onChange={(e, value) => setCurrentPage(value)}
             />
-        </div>
+        </div> : <Loading/>
     )
 }

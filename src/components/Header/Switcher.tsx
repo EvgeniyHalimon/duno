@@ -28,12 +28,12 @@ export const Switcher: React.FC = () => {
             <Button
                 onClick={() => { chooseTopic('anime') }}
             >
-                Anime
+                <p className="topic">Anime</p> 
             </Button>
             <Button
                 onClick={() => { chooseTopic('manga') }}
             >
-                Manga
+                <p className="topic">Manga</p>
             </Button>
         </Box>
     )

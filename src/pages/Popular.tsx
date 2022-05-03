@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { fetchPopularAnime, isAnimeFlag } from "../store/actions/anime-action-creators";
 import { fetchPopularManga, isMangaFlag } from "../store/actions/manga-action-creators";
 import { Navigation } from "../components/Navigation/Navigation";
+import { Loading } from "../components/Loading";
 
 
 
@@ -27,9 +28,8 @@ export const Popular: React.FC = () => {
         topic === "anime" ? dispatch(fetchPopularAnime(currentPage)) : dispatch(fetchPopularManga(currentPage)) 
     },[topic, currentPage, lastPage])
 
-    console.log(lastPage);
-
     return(
+        paginatedTitles.length !== 0 ?
         <div className="wrapper">
             <Navigation/>
             <div style={{padding: '20px 0 10px 0'}}>
@@ -40,6 +40,9 @@ export const Popular: React.FC = () => {
                     onChange={(e, value) => setCurrentPage(value)}
                 />
             </div>
+        </div> : 
+        <div className="wrapper-height">
+            <Loading/>
         </div>
     )
 }

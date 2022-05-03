@@ -5,10 +5,7 @@ export const Loading: React.FC = () => {
         <img 
             src="https://starserv.ru/uploads/monthly_2020_10/AnguishedUnselfishGodwit-max-1mb.gif.a110174b0718aaffe053dde243a331e8.gif" 
             alt="gif" 
-            style={{
-                display: 'flex',
-                margin: '0 auto'
-            }}   
+            className="loading"  
         />
     )
 }

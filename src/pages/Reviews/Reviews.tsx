@@ -16,7 +16,6 @@ export const Reviews = () => {
     const {animeReviews, currentAnimeTitle} = useTypesSelector(state => state.anime)
     const {mangaReviews, currentMangaTitle} = useTypesSelector(state => state.manga)
     const reviews = topic === 'anime' ? animeReviews : mangaReviews
-    console.log("🚀 ~ file: Reviews.tsx ~ line 19 ~ Reviews ~ reviews", reviews.length)
     const title = topic === 'anime' ? currentAnimeTitle : currentMangaTitle
 
     useEffect(() => {

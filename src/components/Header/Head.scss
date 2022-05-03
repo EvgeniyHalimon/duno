@@ -6,6 +6,15 @@
   height: 100px;
 }
 
+.switcher{
+  display: flex;
+}
+
+.topic{
+  font-size: 18px;
+  margin: 0;
+}
+
 @media screen and (max-width: 600px) {
   .header{
     flex-direction: column-reverse;
