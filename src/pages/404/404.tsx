@@ -11,7 +11,7 @@ export const Error: React.FC = () => {
     const navigate = useNavigate()
 
     return(
-        <div className="error-wrapper">
+        <div className="error-wrapper" role={'wrapper'}>
             <Button className="back-button" style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
             <h1>Page not found</h1>
         </div>
