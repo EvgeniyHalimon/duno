@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
+
 import { useDispatch } from "react-redux";
+
 import { Link, useNavigate } from "react-router-dom";
+
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { fetchAnimeGenres, isAnimeFlag } from "../../store/actions/anime-action-creators";
 import { fetchMangaGenres, isMangaFlag } from "../../store/actions/manga-action-creators";
+
 import { IGenreData } from "../../types/types";
-import { Button } from "@mui/material";
 
 import './Genres.scss'
 import { Navigation } from "../../components/Navigation/Navigation";

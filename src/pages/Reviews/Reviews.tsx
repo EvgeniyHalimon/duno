@@ -1,12 +1,17 @@
-import React, {useEffect} from 'react'
-import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { Navigation } from '../../components/Navigation/Navigation'
-import { useTypesSelector } from '../../hooks/useTypesSelector'
-import { fetchAnimeReviews, fetchCurrentAnimeTitle } from '../../store/actions/anime-action-creators'
-import { fetchCurrentMangaTitle, fetchMangaReviews } from '../../store/actions/manga-action-creators'
-import { IReview } from '../../types/types'
-import './Reviews.scss'
+import React, {useEffect} from 'react';
+
+import { Navigation } from '../../components/Navigation/Navigation';
+
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { fetchAnimeReviews, fetchCurrentAnimeTitle } from '../../store/actions/anime-action-creators';
+import { fetchCurrentMangaTitle, fetchMangaReviews } from '../../store/actions/manga-action-creators';
+
+import { IReview } from '../../types/types';
+
+import './Reviews.scss';
 
 export const Reviews = () => {
     const {id} = useParams()

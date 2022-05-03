@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
 
-import { Pagination } from "@mui/material";
-import { useTypesSelector } from "../hooks/useTypesSelector";
-import { useDispatch } from "react-redux";
-import { fetchPopularAnime, isAnimeFlag } from "../store/actions/anime-action-creators";
-import { fetchPopularManga, isMangaFlag } from "../store/actions/manga-action-creators";
+import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
 import { Navigation } from "../components/Navigation/Navigation";
 import { Loading } from "../components/Loading";
 
+import { useDispatch } from "react-redux";
+
+import { useTypesSelector } from "../hooks/useTypesSelector";
+import { fetchPopularAnime, isAnimeFlag } from "../store/actions/anime-action-creators";
+import { fetchPopularManga, isMangaFlag } from "../store/actions/manga-action-creators";
+
+import { Pagination } from "@mui/material";
 
 
 export const Popular: React.FC = () => {

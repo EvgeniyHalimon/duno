@@ -5,6 +5,7 @@ import { ITitle } from "../../types/types";
 import { Slider } from "../Slider/Slider";
 
 import { useDispatch } from "react-redux";
+
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { fetchRandomAnime } from "../../store/actions/anime-action-creators";
 import { fetchRandomManga } from "../../store/actions/manga-action-creators";

@@ -5,12 +5,15 @@ import { Navigation } from "../Navigation/Navigation";
 
 import { IGenre, ITitle } from "../../types/types";
 
-import './CurrentTitle.scss'
 import { Link } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
+
 import { fetchAnimeReviews } from "../../store/actions/anime-action-creators";
 import { fetchMangaReviews } from "../../store/actions/manga-action-creators";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
+
+import './CurrentTitle.scss'
 
 interface ISliderInfo{
     title: ITitle

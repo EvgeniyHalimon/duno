@@ -3,12 +3,14 @@ import React,{ useState, useEffect } from "react";
 import { PaginatedTitles } from "./PaginatedTitles/PaginatedTitles";
 
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchAnimeSearch } from "../store/actions/anime-action-creators";
 import { fetchMangaSearch } from "../store/actions/manga-action-creators";
 
 import { Button, Pagination } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+
 import { Loading } from "./Loading";
 
 export const SearchResultList: React.FC = () => {
