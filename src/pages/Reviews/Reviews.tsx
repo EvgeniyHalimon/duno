@@ -9,7 +9,7 @@ import { useTypesSelector } from '../../hooks/useTypesSelector';
 import { fetchAnimeReviews, fetchCurrentAnimeTitle } from '../../store/actions/anime-action-creators';
 import { fetchCurrentMangaTitle, fetchMangaReviews } from '../../store/actions/manga-action-creators';
 
-import { IReview } from '../../types/types';
+import { IReview, ITitle } from '../../types/types';
 
 import { getFromStorage } from '../../utils/storage';
 
@@ -22,7 +22,7 @@ export const Reviews = () => {
     const {animeReviews, currentAnimeTitle} = useTypesSelector(state => state.anime)
     const {mangaReviews, currentMangaTitle} = useTypesSelector(state => state.manga)
     const reviews = getFromStorage('topic') === 'anime' ? animeReviews : mangaReviews
-    const title = getFromStorage('topic') === 'anime' ? currentAnimeTitle : currentMangaTitle
+    const title: ITitle = getFromStorage('topic') === 'anime' ? currentAnimeTitle : currentMangaTitle
 
     useEffect(() => {
         if(getFromStorage('topic') === 'anime'){

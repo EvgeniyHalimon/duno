@@ -26,7 +26,6 @@ export const Genres: React.FC = () => {
     
     const uniqueGenres = Array.from(new Set(genres?.map((genre : IGenreData) => genre.mal_id)))
     .map((mal_id : any) => {
-        console.log(typeof mal_id);
         return {
             mal_id : mal_id,
             name: genres?.find((genre: IGenreData) => genre.mal_id === mal_id).name,

@@ -50,7 +50,8 @@ export interface IInitialStateMangas{
 }
 
 export interface ITitle{
-    [x: string]: any;
+    map(arg0: (titles: ITitle) => JSX.Element): import("react").ReactNode;
+    length? : number
     url?: string
     title?: string
     title_japanese?: string
@@ -69,7 +70,7 @@ export interface ITitle{
     scored_by?: number,
     rating?: string,
     status?: string,
-    mal_id?: number | undefined
+    mal_id?: number
 }
 
 export interface IGenreData{
