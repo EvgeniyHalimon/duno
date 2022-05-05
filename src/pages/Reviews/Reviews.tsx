@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
-
-import { Navigation } from '../../components/Navigation/Navigation';
+import {useEffect} from 'react';
 
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+import { Navigation } from '../../components/Navigation/Navigation';
 
 import { useTypesSelector } from '../../hooks/useTypesSelector';
 import { fetchAnimeReviews, fetchCurrentAnimeTitle } from '../../store/actions/anime-action-creators';
@@ -11,22 +11,28 @@ import { fetchCurrentMangaTitle, fetchMangaReviews } from '../../store/actions/m
 
 import { IReview } from '../../types/types';
 
+import { getFromStorage } from '../../utils/storage';
+
 import './Reviews.scss';
 
 export const Reviews = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
-    const topic: string | null = localStorage.getItem('topic')
 
     const {animeReviews, currentAnimeTitle} = useTypesSelector(state => state.anime)
     const {mangaReviews, currentMangaTitle} = useTypesSelector(state => state.manga)
-    const reviews = topic === 'anime' ? animeReviews : mangaReviews
-    const title = topic === 'anime' ? currentAnimeTitle : currentMangaTitle
+    const reviews = getFromStorage('topic') === 'anime' ? animeReviews : mangaReviews
+    const title = getFromStorage('topic') === 'anime' ? currentAnimeTitle : currentMangaTitle
 
     useEffect(() => {
-        topic ==='anime' ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
-        topic ==='anime' ? dispatch(fetchCurrentAnimeTitle(id)) : dispatch(fetchCurrentMangaTitle(id))
-    },[topic, id])
+        if(getFromStorage('topic') === 'anime'){
+            dispatch(fetchAnimeReviews(id))
+            dispatch(fetchCurrentAnimeTitle(id)) 
+        } else if (getFromStorage('topic') === 'manga'){
+            dispatch(fetchMangaReviews(id))
+            dispatch(fetchCurrentMangaTitle(id))
+        }
+    },[getFromStorage('topic'), id])
 
     return(
         reviews.length === 0 ?
@@ -46,11 +52,11 @@ export const Reviews = () => {
                         </div>
                         <div className='review-block'>
                             <p className='review-block-text'>{review.review}</p>
-                            <p className='review-block-quantity'>{topic === 'anime' ? `Episodes watched : ${review.episodes_watched}` : `Chapter's read : ${review.chapters_read}`}</p>
+                            <p className='review-block-quantity'>{getFromStorage('topic') === 'anime' ? `Episodes watched : ${review.episodes_watched}` : `Chapter's read : ${review.chapters_read}`}</p>
                             <div className='review-block-score'>
                                 <p>Character: {review?.scores.character}</p>
                                 <p>Enjoyment: {review?.scores.enjoyment}</p>
-                                <p>{topic === 'anime' ? `Sound: ${review?.scores.sound}` : `Art: ${review?.scores.art}`}</p>
+                                <p>{getFromStorage('topic') === 'anime' ? `Sound: ${review?.scores.sound}` : `Art: ${review?.scores.art}`}</p>
                                 <p>Story: {review?.scores.story}</p>
                                 <p>Overall: {review?.scores.overall}</p>
                             </div>

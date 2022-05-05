@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-
-import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
+import { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useTypesSelector } from "../hooks/useTypesSelector";
+import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
+
 import { fetchPaginatedAnimesByGenre, isAnimeFlag } from "../store/actions/anime-action-creators";
 import { fetchPaginatedMangasByGenre, isMangaFlag } from "../store/actions/manga-action-creators";
+
+import { useTypesSelector } from "../hooks/useTypesSelector";
+import { getFromStorage } from "../utils/storage";
 
 import { Pagination, Button } from "@mui/material";
 
@@ -20,18 +22,21 @@ export const Genre: React.FC = () => {
     const {animeByGenre, lastAnimePage} = useTypesSelector(state => state.anime)
     const {mangaByGenre, lastMangaPage} = useTypesSelector(state => state.manga)
 
-    const topic: string | null = localStorage.getItem('topic')
-
-    const paginatedTitles = topic === "anime" ? animeByGenre : mangaByGenre
-    const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
+    const paginatedTitles = getFromStorage('topic') === 'anime'  ? animeByGenre : mangaByGenre
+    const lastPage = getFromStorage('topic') === 'anime'  ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        topic === "anime" ? dispatch(isAnimeFlag(true)) : "manga" ? dispatch(isMangaFlag(true)) : dispatch(isMangaFlag(false))
-        topic === "anime" ? dispatch(fetchPaginatedAnimesByGenre(name, currentPage)) : dispatch(fetchPaginatedMangasByGenre(name, currentPage)) 
-    },[topic, currentPage])
+        if(getFromStorage('topic') === 'anime' ){
+            dispatch(isAnimeFlag(true)) 
+            dispatch(fetchPaginatedAnimesByGenre(name, currentPage))
+        } else if(getFromStorage('topic') === 'manga' ){
+            dispatch(isMangaFlag(true)) 
+            dispatch(fetchPaginatedMangasByGenre(name, currentPage))
+        }
+    },[getFromStorage('topic'), currentPage])
 
     return(
-        <>
+        <div className="wrapper-genre">
             <Button className="back-button" onClick={() => navigate('/genres')}>Back to genres page</Button>
             <div>
                 <PaginatedTitles paginatedTitles={paginatedTitles}/>
@@ -41,6 +46,6 @@ export const Genre: React.FC = () => {
                     onChange={(e, value) => setCurrentPage(value)}
                 />
             </div>
-        </>
+        </div>
     )
 }

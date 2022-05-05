@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Search } from "./Search";
 import { Switcher } from './Switcher';
 

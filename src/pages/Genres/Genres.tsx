@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { Navigation } from "../../components/Navigation/Navigation";
 
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { fetchAnimeGenres, isAnimeFlag } from "../../store/actions/anime-action-creators";
@@ -10,23 +12,21 @@ import { fetchMangaGenres, isMangaFlag } from "../../store/actions/manga-action-
 
 import { IGenreData } from "../../types/types";
 
+import { getFromStorage } from "../../utils/storage";
+
 import './Genres.scss'
-import { Navigation } from "../../components/Navigation/Navigation";
 
 export const Genres: React.FC = () => {
-
-    const navigate = useNavigate()
     const dispatch = useDispatch()
-
-    const topic: string | null = localStorage.getItem('topic')
 
     const {animeGenres} = useTypesSelector(state => state.anime)
     const {mangaGenres} = useTypesSelector(state => state.manga)
     
-    const genres: any = topic === "anime" ? animeGenres : mangaGenres
+    const genres: any = getFromStorage('topic') === "anime" ? animeGenres : mangaGenres
     
     const uniqueGenres = Array.from(new Set(genres?.map((genre : IGenreData) => genre.mal_id)))
     .map((mal_id : any) => {
+        console.log(typeof mal_id);
         return {
             mal_id : mal_id,
             name: genres?.find((genre: IGenreData) => genre.mal_id === mal_id).name,
@@ -46,9 +46,14 @@ export const Genres: React.FC = () => {
     })
 
     useEffect(() => {
-        topic === "anime" ? dispatch(isAnimeFlag(true)) : "manga" ? dispatch(isMangaFlag(true)) : dispatch(isMangaFlag(false))
-        topic === "anime" ? dispatch(fetchAnimeGenres()) : dispatch(fetchMangaGenres())
-    },[topic])
+        if(getFromStorage('topic') === "anime"){
+            dispatch(isAnimeFlag(true))
+            dispatch(fetchAnimeGenres())
+        } else if(getFromStorage('topic') === "manga"){
+            dispatch(isMangaFlag(true))
+            dispatch(fetchMangaGenres())
+        }
+    },[getFromStorage('topic')])
 
     return(
         <div className="wrapper-genres">
@@ -58,11 +63,11 @@ export const Genres: React.FC = () => {
                     {
                         uniqueGenres?.map((genre: IGenreData) => {
                             return( 
-                                    <Link to={`/genres/${genre.mal_id}`} key={genre.mal_id} className='genre-name'>
-                                        <li>
-                                            <h3 style={{margin: 0}}>{genre.name}<sub>({genre.count})</sub></h3>
-                                        </li>
-                                    </Link>
+                                <li className='genre-name' key={genre.mal_id}>
+                                        <Link to={`/genres/${genre.mal_id}`} className='genre-name-link'>
+                                            <h3 className="heading">{genre.name}<sub>({genre.count})</sub></h3>
+                                        </Link>
+                                    </li>
                             )
                         })
                     }

@@ -131,14 +131,14 @@ export const animeSearchResult = (data: ITitle) => {
     }
 }
 
-export const setAnimeSearchValue = (inputValue: string) => {
+export const setAnimeSearchValue = (inputValue: string | null) => {
     return{
         type: AnimeActionTypes.SET_ANIME_SEARCH_VALUE,
         payload: inputValue
     }
 }
 
-export const fetchAnimeSearch = (inputValue: string, page: number) => {
+export const fetchAnimeSearch = (inputValue: string | null, page: number) => {
     return async (dispatch: Dispatch) => {
         try {
             const searchResult = await fetchAnimeData.fetchAnimeSearch(inputValue, page)

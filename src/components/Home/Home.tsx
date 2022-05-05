@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Head } from "../Header/Head";
 import { RandomTitlesContainer } from "../RandomPaginatedTitles/RandomTitlesContainer";
 import { Titles } from "../Titles";

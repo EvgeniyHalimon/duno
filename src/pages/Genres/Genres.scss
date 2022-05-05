@@ -9,14 +9,16 @@
   cursor: pointer;
   margin: 0 10px 5px 0;
   padding: 5px;
-  text-decoration: none;
-  color: white;
   border-radius: 10px;
   border: 1px solid white;
   background: linear-gradient(180deg, #303035, #1D1D28);
 
-  &:visited{
-    color: inherit;
+  &-link{
+    color: white;
+    text-decoration: none;
+    &:visited{
+      color: inherit;
+    }
   }
 }
 
@@ -25,6 +27,10 @@
   background-color: rgba(70, 169, 214, 0.5);
   border-radius: 5px;
   padding: 0px 6px;
+}
+
+.heading{
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {

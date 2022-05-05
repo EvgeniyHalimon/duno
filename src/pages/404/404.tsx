@@ -1,5 +1,3 @@
-import React from "react"
-
 import { useNavigate } from "react-router-dom"
 
 import { Button } from "@mui/material"
@@ -12,7 +10,7 @@ export const Error: React.FC = () => {
 
     return(
         <div className="error-wrapper" role={'wrapper'}>
-            <Button className="back-button" style={{display: 'block'}} onClick={() => navigate('/')}>Back to main page</Button>
+            <Button className="back-button" onClick={() => navigate('/')}>Back to main page</Button>
             <h1>Page not found</h1>
         </div>
     )

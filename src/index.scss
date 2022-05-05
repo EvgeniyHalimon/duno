@@ -36,26 +36,9 @@ code {
   margin: 0 auto;
 }
 
-.css-0{
-  justify-content: flex-start;
-}
-
-.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root, .css-1v2lvtn-MuiPaginationItem-root{
-  color: white !important;
-}
-
-.css-wjh20t-MuiPagination-ul {
-  justify-content: center;
-  padding-bottom: 20px !important;
-}
-
-.css-i9gxme {
-  flex-grow: 0 !important;
-  -webkit-box-flex: 1 !important;
-}
-
 .back-button{
   margin: 10px 0 10px 0 !important;
+  display: block;
 }
 
 .wrapper{
@@ -69,9 +52,17 @@ code {
   align-items: center;
 }
 
+.wrapper-popular{
+  padding: 20px 0 10px 0;
+}
+
 .wrapper-genres, .current-title-wrapper, .wrapper-reviews{
   height: 100vh;
   display: flex;
+}
+
+.wrapper-genre{
+  height: 100vh;
 }
 
 .search-input{

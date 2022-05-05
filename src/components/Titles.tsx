@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
-
-import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
+import { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
+
+import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
 
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchPaginatedAnimes, setCurrentAnimePage } from "../store/actions/anime-action-creators";
 import { fetchPaginatedMangas, setCurrentMangaPage } from "../store/actions/manga-action-creators";
 
+import { getFromStorage } from "../utils/storage";
 import { Pagination } from "@mui/material";
 
 export const Titles: React.FC = () => {
@@ -15,11 +16,9 @@ export const Titles: React.FC = () => {
     const {paginatedAnimes, lastAnimePage, isAnime, currentAnimePage} = useTypesSelector(state => state.anime)
     const {paginatedMangas, lastMangaPage, isManga, currentMangaPage} = useTypesSelector(state => state.manga)
 
-    const topic: string | null = localStorage.getItem('topic')
-
-    const paginatedTitles = topic === "anime" ? paginatedAnimes : paginatedMangas
-    const currentPage = topic === "anime" ? currentAnimePage : currentMangaPage
-    const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
+    const paginatedTitles = getFromStorage('topic') === 'anime' ? paginatedAnimes : paginatedMangas
+    const currentPage = getFromStorage('topic') === 'anime' ? currentAnimePage : currentMangaPage
+    const lastPage = getFromStorage('topic') === 'anime' ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
         isAnime ? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
@@ -34,7 +33,7 @@ export const Titles: React.FC = () => {
                 count={lastPage} 
                 defaultPage={1}
                 color="primary"
-                onChange={(e, value) => dispatch(topic === 'anime' ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
+                onChange={(e, value) => dispatch(getFromStorage('topic') === 'anime' ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
             />
         </>
         )

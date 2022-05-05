@@ -130,14 +130,14 @@ export const mangaSearchResult = (data: ITitle) => {
     }
 }
 
-export const setMangaSearchValue = (inputValue: string) => {
+export const setMangaSearchValue = (inputValue: string | null) => {
     return{
         type: MangaActionTypes.SET_MANGA_SEARCH_VALUE,
         payload: inputValue
     }
 }
 
-export const fetchMangaSearch = (inputValue: string, page: number) => {
+export const fetchMangaSearch = (inputValue: string | null, page: number) => {
     return async (dispatch: Dispatch) => {
         try {
             const searchResult = await fetchMangaData.fetchMangaSearch(inputValue, page)
