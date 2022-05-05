@@ -34,7 +34,9 @@ export const SearchResultList: React.FC = () => {
     return(
         paginatedTitles ?
         <div className="wrapper-genre">
-            <Button className="back-button" onClick={() => navigate('/')}>Back to main page</Button>
+            <Button className="back-button" onClick={() => navigate('/')}>
+                <p className="back-button">Back to main page </p>
+            </Button>
             <PaginatedTitles paginatedTitles={paginatedTitles}/>
             <Pagination 
                 count={lastPage} 

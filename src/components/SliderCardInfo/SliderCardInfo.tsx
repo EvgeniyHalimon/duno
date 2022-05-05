@@ -20,8 +20,6 @@ export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
         if(rank === 3) return <span>&#129353;</span>
         return rank
     }
-
-    console.log(typeof title.rank, title.rank);
     
     return(
         <Link to={`/title/${title?.mal_id}`}>

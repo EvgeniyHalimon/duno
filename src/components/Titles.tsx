@@ -21,8 +21,8 @@ export const Titles: React.FC = () => {
     const lastPage = getFromStorage('topic') === 'anime' ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        isAnime ? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
-    },[currentPage, isAnime, isManga])
+        getFromStorage('topic') === 'anime'? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
+    },[currentPage, getFromStorage('topic')])
 
     return(
         <>

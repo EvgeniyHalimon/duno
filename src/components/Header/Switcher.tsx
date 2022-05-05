@@ -13,11 +13,9 @@ export const Switcher: React.FC = () => {
         if(string === "anime"){
             dispatch(isAnimeFlag(true))
             dispatch(isMangaFlag(false))
-            
         } else if (string === "manga"){
             dispatch(isMangaFlag(true))
             dispatch(isAnimeFlag(false))
-            
         }
     }
 

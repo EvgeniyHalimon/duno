@@ -37,7 +37,9 @@ export const Genre: React.FC = () => {
 
     return(
         <div className="wrapper-genre">
-            <Button className="back-button" onClick={() => navigate('/genres')}>Back to genres page</Button>
+            <Button onClick={() => navigate('/genres')}>
+                <p className="back-button">Back to genres</p>
+            </Button>
             <div>
                 <PaginatedTitles paginatedTitles={paginatedTitles}/>
                 <Pagination 

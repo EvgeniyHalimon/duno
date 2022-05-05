@@ -11,17 +11,19 @@ import { fetchRandomManga } from "../../store/actions/manga-action-creators";
 
 import { ITitle } from "../../types/types";
 
+import { getFromStorage } from "../../utils/storage";
+
 import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()
-    const {randomAnimes, isAnime} = useTypesSelector(state => state.anime)
-    const {randomMangas, isManga} = useTypesSelector(state => state.manga)
-    const randomTitles = isAnime ? randomAnimes : randomMangas
+    const {randomAnimes} = useTypesSelector(state => state.anime)
+    const {randomMangas} = useTypesSelector(state => state.manga)
+    const randomTitles = getFromStorage('topic') === 'anime' ? randomAnimes : randomMangas
 
     useEffect(() => {
-        isAnime ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
-    },[isAnime, isManga])
+        getFromStorage('topic') === 'anime' ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
+    },[getFromStorage('topic')])
 
     return(
         <div className="slider-section">

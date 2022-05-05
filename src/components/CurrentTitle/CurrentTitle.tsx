@@ -34,7 +34,12 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
 
     const id: any = title?.mal_id
 
-    const place = title.rank == '1' ? <span>&#129351;</span> : title.rank == '2' ? <span>&#129352;</span> : title.rank == '3' ? <span>&#129353;</span> : title.rank
+    const getPlaceEmoji = (rank: any) => {
+        if(rank === 1) return <span>&#129351;</span>
+        if(rank === 2) return <span>&#129352;</span>
+        if(rank === 3) return <span>&#129353;</span>
+        return rank
+    }
     
     useEffect(() => {
         getFromStorage('topic') === 'anime'  ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
@@ -53,7 +58,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p>{getFromStorage('topic') === 'anime'  ? `Rating: ${title.rating}` : null}</p>
                         <p>{title.type}</p>
                         <p>{title.aired?.string || title.published?.string}</p>
-                        <p className="title-rank">Rank: {place}</p>
+                        <p className="title-rank">Rank: {getPlaceEmoji(title.rank)}</p>
                         <p>Status: {title.status}</p>
                         <p
                             style={{color: getScoreColor(score)}}
