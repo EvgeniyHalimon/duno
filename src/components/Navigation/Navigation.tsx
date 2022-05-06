@@ -18,7 +18,7 @@ export const Navigation: React.FC = () => {
                 </li>
                 <li>
                     <NavLink 
-                        to={'/popular'}
+                        to='/popular'
                         className="navigation-link"
                     >
                         POPULAR</NavLink>
@@ -29,6 +29,13 @@ export const Navigation: React.FC = () => {
                         className="navigation-link"
                     >
                         GENRES</NavLink>
+                </li>
+                <li>
+                    <NavLink 
+                        to='/calculator'
+                        className="navigation-link"
+                    >
+                        CALCULATOR</NavLink>
                 </li>
             </ul>
         </Box>

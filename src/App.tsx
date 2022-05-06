@@ -16,6 +16,7 @@ import { Reviews } from './pages/Reviews/Reviews';
 import { store } from './store/store';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Calculator } from './pages/Calculator/Calculator';
 
 const theme = createTheme({
   spacing: 5,
@@ -55,6 +56,7 @@ function App() {
             <Route path='/popular' element={<Popular/>}/>
             <Route path='/genres/:name' element={<Genre/>}/>
             <Route path='/genres' element={<Genres/>}/>
+            <Route path='/calculator' element={<Calculator/>}/>
             <Route path='/search-result-list' element={<SearchResultList/>}/>
             <Route path='/title/:id' element={<TitleContainer/>}/>
             <Route path='/reviews/:id' element={<Reviews/>}/>
