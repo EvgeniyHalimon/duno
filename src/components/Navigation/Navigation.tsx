@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 
 import './Navigation.scss' 
 
-export const Navigation: React.FC<any> = () => {
+export const Navigation: React.FC = () => {
 
     return(
         <Box sx={{ flexGrow: 1 }} className='sidebar'>
