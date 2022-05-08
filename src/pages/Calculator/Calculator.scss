@@ -1,0 +1,27 @@
+.calculator-wrapper{
+    height: 100vh;
+    display: flex;
+}
+
+.calculator{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+
+    &-placeholder{ 
+        background: linear-gradient(180deg, #303035, #1D1D28);
+        width: 400px;
+        height: 600px;
+        border-radius: 30px;
+        border: 1px solid #2496FF;
+        overflow: hidden;
+    }
+
+    &-form{
+        display: inline-grid;
+        &-date{
+            color: white;
+        }
+    }
+}
