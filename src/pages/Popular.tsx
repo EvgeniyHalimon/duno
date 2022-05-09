@@ -17,7 +17,7 @@ export const Popular: React.FC = () => {
     const {popularAnime, lastAnimePage} = useTypesSelector(state => state.anime)
     const {popularManga, lastMangaPage} = useTypesSelector(state => state.manga)
 
-    const topic = getFromStorage('storage')
+    const topic = getFromStorage('topic')
     const isAnime = topic === 'anime'
 
     const paginatedTitles = isAnime ? popularAnime : popularManga
