@@ -55,7 +55,7 @@ export interface ITitle{
     type: string
     score?: string | null
     scored?: string | null
-    rank?: string | null
+    rank?: number | null
     synopsis: string | null
     images: IImages
     aired?: IAiredNPublished | null

@@ -1,20 +1,17 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
+import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
-
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchPaginatedAnimes, setCurrentAnimePage } from "../store/actions/anime-action-creators";
 import { fetchPaginatedMangas, setCurrentMangaPage } from "../store/actions/manga-action-creators";
-
 import { getFromStorage } from "../utils/storage";
-import { Pagination } from "@mui/material";
 
 export const Titles: React.FC = () => {
     const dispatch = useDispatch()
-    const {paginatedAnimes, lastAnimePage, isAnime, currentAnimePage} = useTypesSelector(state => state.anime)
-    const {paginatedMangas, lastMangaPage, isManga, currentMangaPage} = useTypesSelector(state => state.manga)
+    const {paginatedAnimes, lastAnimePage, currentAnimePage} = useTypesSelector(state => state.anime)
+    const {paginatedMangas, lastMangaPage, currentMangaPage} = useTypesSelector(state => state.manga)
 
     const paginatedTitles = getFromStorage('topic') === 'anime' ? paginatedAnimes : paginatedMangas
     const currentPage = getFromStorage('topic') === 'anime' ? currentAnimePage : currentMangaPage

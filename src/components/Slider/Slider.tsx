@@ -1,7 +1,6 @@
 import { ReactElement, useEffect, useRef, useState } from "react";
 
 import {Loading} from "../Loading";
-
 import './Slider.scss'
 
 interface ISlider{

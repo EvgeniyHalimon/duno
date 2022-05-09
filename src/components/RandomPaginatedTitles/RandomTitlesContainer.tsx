@@ -1,18 +1,13 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
 
 import { SliderCardInfo } from "../SliderCardInfo/SliderCardInfo";
 import { Slider } from "../Slider/Slider";
-
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { fetchRandomAnime } from "../../store/actions/anime-action-creators";
 import { fetchRandomManga } from "../../store/actions/manga-action-creators";
-
-import { ITitle } from "../../types/types";
-
 import { getFromStorage } from "../../utils/storage";
-
+import { ITitle } from "../../types/types";
 import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer: React.FC = () => {

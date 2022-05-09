@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 
-import { ITitle } from "../../types/types";
-
 import { getScoreColor } from "../../utils/getColor";
-
+import { ITitle } from "../../types/types";
 import './SliderCardInfo.scss'
 
 interface ISliderInfo{
@@ -14,7 +12,7 @@ export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
 
     const score = title.score || title.scored
 
-    const getPlaceEmoji = (rank: number | string | null | undefined) => {
+    const getPlaceEmoji = (rank: number | null | undefined) => {
         if(rank){
             if(rank === 1) return <span>&#129351;</span>
             if(rank === 2) return <span>&#129352;</span>

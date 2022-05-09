@@ -28,12 +28,14 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
 
     const id: any = title?.mal_id
 
-    const getPlaceEmoji = (rank: any) => {
+    const getPlaceEmoji = (rank: number | null | undefined) => {
         if(rank === 1) return <span>&#129351;</span>
         if(rank === 2) return <span>&#129352;</span>
         if(rank === 3) return <span>&#129353;</span>
         return rank
     }
+
+    console.log(title.rank, typeof title.rank);
     
     useEffect(() => {
         getFromStorage('topic') === 'anime'  ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
