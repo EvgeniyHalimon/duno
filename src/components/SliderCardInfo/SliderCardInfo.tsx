@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { IGenre, ITitle } from "../../types/types";
+import { ITitle } from "../../types/types";
 
 import { getScoreColor } from "../../utils/getColor";
 
@@ -12,12 +12,14 @@ interface ISliderInfo{
 
 export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
 
-    const score: any = title.score || title.scored
+    const score = title.score || title.scored
 
-    const getPlaceEmoji = (rank: any) => {
-        if(rank === 1) return <span>&#129351;</span>
-        if(rank === 2) return <span>&#129352;</span>
-        if(rank === 3) return <span>&#129353;</span>
+    const getPlaceEmoji = (rank: number | string | null | undefined) => {
+        if(rank){
+            if(rank === 1) return <span>&#129351;</span>
+            if(rank === 2) return <span>&#129352;</span>
+            if(rank === 3) return <span>&#129353;</span>
+        }
         return rank
     }
     
@@ -35,7 +37,7 @@ export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
                         >Score: {score}</p>
                         <p className="info">Rank: {getPlaceEmoji(title.rank)}</p>
                         <div className="slide-genres">
-                            {title.genres?.map((genre: IGenre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
+                            {title.genres.map((genre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
                         </div>
                         <p className="slide-synopsis info">
                             {title.synopsis?.slice(0, 750)}

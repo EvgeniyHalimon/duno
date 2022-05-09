@@ -13,7 +13,7 @@ const inintalState: IInitialStateMangas = {
     searchMangaValue: "Berserk",
     mangaGenres: [],
     mangaByGenre: [],
-    currentMangaTitle: [],
+    currentMangaTitle: null,
     currentMangaPage: 1,
     popularManga: [],
     mangaReviews: []

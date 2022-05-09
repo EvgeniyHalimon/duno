@@ -4,7 +4,7 @@ import { MangaActionTypes } from "../../action-types/manga-action-types";
 
 interface IMangaAction{
     type: MangaActionTypes.SET_MANGAS,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface IMangaErrorAction{
@@ -19,7 +19,7 @@ interface IRandomManga{
 
 interface IPaginatedMangas{
     type: MangaActionTypes.SET_PAGINATED_MANGAS,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface ILastMangaPage{
@@ -34,7 +34,7 @@ interface IIsManga{
 
 interface ISeacrhMangaResult{
     type: MangaActionTypes.SET_MANGA_SEARCH_RESULT,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface ISearchMangaValue{
@@ -44,12 +44,12 @@ interface ISearchMangaValue{
 
 interface IMangaGenres{
     type: MangaActionTypes.SET_MANGA_GENRES,
-    payload: IGenreData
+    payload: IGenreData[]
 }
 
 interface IMangaByGenres{
     type: MangaActionTypes.SET_MANGA_BY_GENRE,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface IMangaCurrentTitle{
@@ -64,7 +64,7 @@ interface IMangaCurrentPage{
 
 interface IPopularManga{
     type: MangaActionTypes.SET_POPULAR_MANGA,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface IMangaReview{

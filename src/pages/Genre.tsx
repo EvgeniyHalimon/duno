@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { Pagination, Button } from "@mui/material";
 
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
-
 import { fetchPaginatedAnimesByGenre, isAnimeFlag } from "../store/actions/anime-action-creators";
 import { fetchPaginatedMangasByGenre, isMangaFlag } from "../store/actions/manga-action-creators";
-
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
 
-import { Pagination, Button } from "@mui/material";
 
 export const Genre: React.FC = () => {
     const dispatch = useDispatch()

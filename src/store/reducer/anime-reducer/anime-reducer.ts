@@ -13,7 +13,7 @@ const initialState: IInitialStateAnimes = {
     searchAnimeValue: "Berserk",
     animeGenres: [],
     animeByGenre: [],
-    currentAnimeTitle: [],
+    currentAnimeTitle: null,
     currentAnimePage: 1,
     popularAnime: [],
     animeReviews: []

@@ -1,20 +1,14 @@
 import { useEffect } from "react";
-
 import { Link } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 
 import { Navigation } from "../Navigation/Navigation";
-
-import { IGenre, ITitle } from "../../types/types";
-
 import { fetchAnimeReviews } from "../../store/actions/anime-action-creators";
 import { fetchMangaReviews } from "../../store/actions/manga-action-creators";
-
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { getScoreColor } from "../../utils/getColor";
 import { getFromStorage } from "../../utils/storage";
-
+import { IGenre, ITitle } from "../../types/types";
 import './CurrentTitle.scss'
 
 interface ISliderInfo{

@@ -1,18 +1,13 @@
 import {useEffect} from 'react';
-
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { Navigation } from '../../components/Navigation/Navigation';
-
 import { useTypesSelector } from '../../hooks/useTypesSelector';
 import { fetchAnimeReviews, fetchCurrentAnimeTitle } from '../../store/actions/anime-action-creators';
 import { fetchCurrentMangaTitle, fetchMangaReviews } from '../../store/actions/manga-action-creators';
-
-import { IReview, ITitle } from '../../types/types';
-
 import { getFromStorage } from '../../utils/storage';
-
+import { IReview } from '../../types/types';
 import './Reviews.scss';
 
 export const Reviews = () => {
@@ -22,7 +17,7 @@ export const Reviews = () => {
     const {animeReviews, currentAnimeTitle} = useTypesSelector(state => state.anime)
     const {mangaReviews, currentMangaTitle} = useTypesSelector(state => state.manga)
     const reviews = getFromStorage('topic') === 'anime' ? animeReviews : mangaReviews
-    const title: ITitle = getFromStorage('topic') === 'anime' ? currentAnimeTitle : currentMangaTitle
+    const title = getFromStorage('topic') === 'anime' ? currentAnimeTitle : currentMangaTitle
 
     useEffect(() => {
         if(getFromStorage('topic') === 'anime'){
@@ -43,7 +38,10 @@ export const Reviews = () => {
         <div className='review-wrapper'>
             <Navigation/>
             <div className='review-list'>
-                <h1 className='review-list-title' id="top">Review's on {title.title}</h1>
+                {
+                    title ? <h1 className='review-list-title' id="top">Review's on {title.title}</h1> :
+                    <h1>Loading..</h1>    
+                }
                 {reviews.map((review: IReview) => 
                     <div className='review' key={review.mal_id}>
                         <div className='user'>

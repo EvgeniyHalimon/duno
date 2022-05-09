@@ -4,7 +4,7 @@ import { AnimeActionTypes } from "../../action-types/anime-action-types";
 
 interface IAnimeAction{
     type: AnimeActionTypes.SET_ANIMES,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface IAnimeErrorAction{
@@ -19,7 +19,7 @@ interface IRandomAnimes{
 
 interface IPaginatedAnimes{
     type: AnimeActionTypes.SET_PAGINATED_ANIMES,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface ILastAnimePage{
@@ -34,7 +34,7 @@ interface IIsAnime{
 
 interface ISeacrhAnimeResult{
     type: AnimeActionTypes.SET_ANIME_SEARCH_RESULT,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface ISeacrhAnimeValue{
@@ -44,12 +44,12 @@ interface ISeacrhAnimeValue{
 
 interface IAnimeGenres{
     type: AnimeActionTypes.SET_ANIME_GENRES,
-    payload: IGenreData
+    payload: IGenreData[]
 }
 
 interface IAnimeByGenres{
     type: AnimeActionTypes.SET_ANIME_BY_GENRE,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface IAnimeCurrentTitle{
@@ -64,7 +64,7 @@ interface IAnimeCurrentPage{
 
 interface IPopularAnime{
     type: AnimeActionTypes.SET_POPULAR_ANIME,
-    payload: ITitle
+    payload: ITitle[]
 }
 
 interface IAnimeReview{

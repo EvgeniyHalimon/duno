@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
-
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Button, Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "./PaginatedTitles/PaginatedTitles";
 import { Loading } from "./Loading";
-
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchAnimeSearch } from "../store/actions/anime-action-creators";
 import { fetchMangaSearch } from "../store/actions/manga-action-creators";
-
 import { getFromStorage } from "../utils/storage";
 
-import { Button, Pagination } from "@mui/material";
 
 export const SearchResultList: React.FC = () => {
     const navigate = useNavigate()

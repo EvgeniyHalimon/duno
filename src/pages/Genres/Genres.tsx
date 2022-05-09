@@ -1,19 +1,13 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
-
 import { Link } from "react-router-dom";
 
 import { Navigation } from "../../components/Navigation/Navigation";
-
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { fetchAnimeGenres, isAnimeFlag } from "../../store/actions/anime-action-creators";
 import { fetchMangaGenres, isMangaFlag } from "../../store/actions/manga-action-creators";
-
-import { IGenreData } from "../../types/types";
-
 import { getFromStorage } from "../../utils/storage";
-
+import { IGenreData } from "../../types/types";
 import './Genres.scss'
 
 export const Genres: React.FC = () => {
@@ -22,15 +16,15 @@ export const Genres: React.FC = () => {
     const {animeGenres} = useTypesSelector(state => state.anime)
     const {mangaGenres} = useTypesSelector(state => state.manga)
     
-    const genres: any = getFromStorage('topic') === "anime" ? animeGenres : mangaGenres
+    const genres = getFromStorage('topic') === "anime" ? animeGenres : mangaGenres
     
     const uniqueGenres = Array.from(new Set(genres?.map((genre : IGenreData) => genre.mal_id)))
     .map((mal_id : any) => {
         return {
             mal_id : mal_id,
-            name: genres?.find((genre: IGenreData) => genre.mal_id === mal_id).name,
-            count: genres?.find((genre: IGenreData) => genre.mal_id === mal_id).count,
-            url: genres.find((genre: IGenreData) => genre.mal_id === mal_id).url,
+            name: genres.find((genre: IGenreData) => genre.mal_id === mal_id)?.name as string,
+            count: genres.find((genre: IGenreData) => genre.mal_id === mal_id)?.count as number,
+            url: genres.find((genre: IGenreData) => genre.mal_id === mal_id)?.url as string,
         }
     })
     .sort((a: IGenreData, b: IGenreData) => {

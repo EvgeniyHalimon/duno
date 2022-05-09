@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { useDispatch } from "react-redux";
+import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
 import { Navigation } from "../components/Navigation/Navigation";
 import { Loading } from "../components/Loading";
-
 import { fetchPopularAnime, isAnimeFlag } from "../store/actions/anime-action-creators";
 import { fetchPopularManga, isMangaFlag } from "../store/actions/manga-action-creators";
-
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
-
-import { Pagination } from "@mui/material";
 
 export const Popular: React.FC = () => {
     const dispatch = useDispatch()

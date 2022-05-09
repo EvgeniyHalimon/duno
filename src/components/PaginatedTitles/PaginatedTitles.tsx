@@ -1,11 +1,9 @@
 import { Title } from "../Title/Title";
-
 import { ITitle } from "../../types/types";
-
 import './PaginatedTitles.scss'
 
 interface IPaganatedTitles{
-    paginatedTitles: ITitle
+    paginatedTitles: ITitle[]
 }
 
 export const PaginatedTitles: React.FC<IPaganatedTitles> = ({paginatedTitles}) => {

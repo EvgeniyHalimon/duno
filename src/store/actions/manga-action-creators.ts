@@ -17,7 +17,7 @@ export const setRandomMangas = (data: ITitle[]) => {
     }
 }
 
-export const setPaginatedMangas = (data: ITitle) => {
+export const setPaginatedMangas = (data: ITitle[]) => {
     return{
         type: MangaActionTypes.SET_PAGINATED_MANGAS,
         payload: data
@@ -67,7 +67,7 @@ export const fetchMangaGenres = () => {
     }
 }
 
-export const setMangasByGenre = (data: ITitle) => {
+export const setMangasByGenre = (data: ITitle[]) => {
     return{
         type: MangaActionTypes.SET_MANGA_BY_GENRE,
         payload: data
@@ -123,7 +123,7 @@ export const isMangaFlag = (bool: boolean) => {
     }
 }
 
-export const mangaSearchResult = (data: ITitle) => {
+export const mangaSearchResult = (data: ITitle[]) => {
     return{
         type: MangaActionTypes.SET_MANGA_SEARCH_RESULT,
         payload: data
@@ -169,7 +169,7 @@ export const fetchCurrentMangaTitle = (id: string | undefined) => {
     }
 }
 
-export const setPopularManga = (data: ITitle) => {
+export const setPopularManga = (data: ITitle[]) => {
     return{
         type: MangaActionTypes.SET_POPULAR_MANGA,
         payload: data
