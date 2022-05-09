@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button, Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "./PaginatedTitles/PaginatedTitles";
@@ -15,11 +15,13 @@ export const SearchResultList: React.FC = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1)
+    const [searchParams, setSearchParams] = useSearchParams()
     const {animeSearchResult, lastAnimePage, isAnime} = useTypesSelector(state => state.anime)
     const {mangaSearchResult, lastMangaPage, isManga} = useTypesSelector(state => state.manga)
 
-    const searchTerm = getFromStorage('searchTerm')
     const topic = getFromStorage('topic')
+
+    const searchTerm = searchParams.get('search')
 
     const paginatedTitles = topic === "anime" ? animeSearchResult : mangaSearchResult
     const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage

@@ -3,7 +3,7 @@ import { IGenreData, IReview, ITitle } from "../../types/types";
 import { fetchMangaData } from "../../utils/fetch";
 import { MangaActionTypes } from "../action-types/manga-action-types";
 
-export const setMangas = (data: any) => {
+export const setMangas = (data: ITitle) => {
     return{
         type: MangaActionTypes.SET_MANGAS,
         payload: data

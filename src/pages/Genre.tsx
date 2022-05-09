@@ -20,12 +20,13 @@ export const Genre: React.FC = () => {
     const {mangaByGenre, lastMangaPage} = useTypesSelector(state => state.manga)
 
     const topic = getFromStorage('topic')
+    const isAnime = topic === 'anime'
 
-    const paginatedTitles = topic === 'anime'  ? animeByGenre : mangaByGenre
-    const lastPage = topic === 'anime'  ? lastAnimePage : lastMangaPage
+    const paginatedTitles = isAnime  ? animeByGenre : mangaByGenre
+    const lastPage = isAnime  ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        if(topic === 'anime' ){
+        if(topic === 'anime'){
             dispatch(isAnimeFlag(true)) 
             dispatch(fetchPaginatedAnimesByGenre(name, currentPage))
         } else if(topic === 'manga' ){

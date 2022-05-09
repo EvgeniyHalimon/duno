@@ -22,9 +22,10 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     const {mangaReviews} = useTypesSelector(state => state.manga)
     
     const topic = getFromStorage('topic')
+    const isAnime = topic === 'anime'
     
-    const titleScore = topic === 'anime' ? title.score : title.scored
-    const reviews = topic === 'anime'  ? animeReviews : mangaReviews
+    const titleScore = isAnime ? title.score : title.scored
+    const reviews = isAnime  ? animeReviews : mangaReviews
 
     const score = title.score || title.scored
 
@@ -40,7 +41,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     console.log(title.rank, typeof title.rank);
     
     useEffect(() => {
-        topic === 'anime'  ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
+        isAnime  ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
     },[topic, id])
     
     return(
@@ -53,7 +54,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                     <img className="title-poster-current" src={title.images?.webp.large_image_url} alt={`${title.title}-poster`} />
                     <div className="title-info">
                         <p className="title-title_name">{title.title} / {title.title_japanese}</p>
-                        <p>{topic === 'anime'  ? `Rating: ${title.rating}` : null}</p>
+                        <p>{isAnime  ? `Rating: ${title.rating}` : null}</p>
                         <p>{title.type}</p>
                         <p>{title.aired?.string || title.published?.string}</p>
                         <p className="title-rank">Rank: {getPlaceEmoji(title.rank)}</p>
@@ -66,8 +67,8 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                             {title.genres?.map((genre: IGenre) => <p className="title-name" key={genre.mal_id}>{genre.name}</p>)}
                         </div>
                         <p className="title-synopsis">{title.synopsis}</p>
-                        <p>{topic === 'anime'  ? `Duration: ${title.duration}` : null}</p>
-                        <p>{topic === 'anime'  ? `Episodes: ${title.episodes}` : `Chapters: ${title.chapters}`}</p>
+                        <p>{isAnime  ? `Duration: ${title.duration}` : null}</p>
+                        <p>{isAnime  ? `Episodes: ${title.episodes}` : `Chapters: ${title.chapters}`}</p>
                         <Link className="title-link" to={`/reviews/${id}`}>See reviews ({reviews.length})</Link>
                     </div>
                 </div>

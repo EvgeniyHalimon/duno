@@ -18,9 +18,10 @@ export const Popular: React.FC = () => {
     const {popularManga, lastMangaPage} = useTypesSelector(state => state.manga)
 
     const topic = getFromStorage('storage')
+    const isAnime = topic === 'anime'
 
-    const paginatedTitles = topic === 'anime' ? popularAnime : popularManga
-    const lastPage = topic === 'anime' ? lastAnimePage : lastMangaPage
+    const paginatedTitles = isAnime ? popularAnime : popularManga
+    const lastPage = isAnime ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
         if(topic === "anime"){

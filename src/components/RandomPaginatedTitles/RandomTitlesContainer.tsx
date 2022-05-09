@@ -16,11 +16,12 @@ export const RandomTitlesContainer: React.FC = () => {
     const {randomMangas} = useTypesSelector(state => state.manga)
 
     const topic = getFromStorage('topic')
+    const isAnime = topic === 'anime'
 
-    const randomTitles = topic === 'anime' ? randomAnimes : randomMangas
+    const randomTitles = isAnime ? randomAnimes : randomMangas
 
     useEffect(() => {
-        topic === 'anime' ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
+        isAnime ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
     },[topic])
 
     return(

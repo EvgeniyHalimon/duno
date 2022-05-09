@@ -14,13 +14,14 @@ export const Titles: React.FC = () => {
     const {paginatedMangas, lastMangaPage, currentMangaPage} = useTypesSelector(state => state.manga)
 
     const topic = getFromStorage('topic')
+    const isAnime = topic === 'anime'
 
-    const paginatedTitles = topic === 'anime' ? paginatedAnimes : paginatedMangas
-    const currentPage = topic === 'anime' ? currentAnimePage : currentMangaPage
-    const lastPage = topic === 'anime' ? lastAnimePage : lastMangaPage
+    const paginatedTitles = isAnime ? paginatedAnimes : paginatedMangas
+    const currentPage = isAnime ? currentAnimePage : currentMangaPage
+    const lastPage = isAnime ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        topic === 'anime'? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
+        isAnime ? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
     },[currentPage, topic])
 
     return(
@@ -32,7 +33,7 @@ export const Titles: React.FC = () => {
                 count={lastPage} 
                 defaultPage={1}
                 color="primary"
-                onChange={(e, value) => dispatch(topic === 'anime' ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
+                onChange={(e, value) => dispatch(isAnime ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
             />
         </>
         )
