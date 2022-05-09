@@ -19,18 +19,20 @@ export const Genre: React.FC = () => {
     const {animeByGenre, lastAnimePage} = useTypesSelector(state => state.anime)
     const {mangaByGenre, lastMangaPage} = useTypesSelector(state => state.manga)
 
-    const paginatedTitles = getFromStorage('topic') === 'anime'  ? animeByGenre : mangaByGenre
-    const lastPage = getFromStorage('topic') === 'anime'  ? lastAnimePage : lastMangaPage
+    const topic = getFromStorage('topic')
+
+    const paginatedTitles = topic === 'anime'  ? animeByGenre : mangaByGenre
+    const lastPage = topic === 'anime'  ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        if(getFromStorage('topic') === 'anime' ){
+        if(topic === 'anime' ){
             dispatch(isAnimeFlag(true)) 
             dispatch(fetchPaginatedAnimesByGenre(name, currentPage))
-        } else if(getFromStorage('topic') === 'manga' ){
+        } else if(topic === 'manga' ){
             dispatch(isMangaFlag(true)) 
             dispatch(fetchPaginatedMangasByGenre(name, currentPage))
         }
-    },[getFromStorage('topic'), currentPage])
+    },[topic, currentPage])
 
     return(
         <div className="wrapper-genre">

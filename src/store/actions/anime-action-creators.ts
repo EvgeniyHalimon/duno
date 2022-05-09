@@ -195,7 +195,7 @@ export const setAnimeReviews = (data: IReview) => {
     }
 }
 
-export const fetchAnimeReviews = (id: string | undefined) => {
+export const fetchAnimeReviews = (id: number | undefined) => {
     return async (dispatch: Dispatch) => {
         try {
             const animeReview = await fetchAnimeData.fetchAnimeReviews(id)

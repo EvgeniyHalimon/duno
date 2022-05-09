@@ -13,13 +13,15 @@ export const Titles: React.FC = () => {
     const {paginatedAnimes, lastAnimePage, currentAnimePage} = useTypesSelector(state => state.anime)
     const {paginatedMangas, lastMangaPage, currentMangaPage} = useTypesSelector(state => state.manga)
 
-    const paginatedTitles = getFromStorage('topic') === 'anime' ? paginatedAnimes : paginatedMangas
-    const currentPage = getFromStorage('topic') === 'anime' ? currentAnimePage : currentMangaPage
-    const lastPage = getFromStorage('topic') === 'anime' ? lastAnimePage : lastMangaPage
+    const topic = getFromStorage('topic')
+
+    const paginatedTitles = topic === 'anime' ? paginatedAnimes : paginatedMangas
+    const currentPage = topic === 'anime' ? currentAnimePage : currentMangaPage
+    const lastPage = topic === 'anime' ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        getFromStorage('topic') === 'anime'? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
-    },[currentPage, getFromStorage('topic')])
+        topic === 'anime'? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
+    },[currentPage, topic])
 
     return(
         <>
@@ -30,7 +32,7 @@ export const Titles: React.FC = () => {
                 count={lastPage} 
                 defaultPage={1}
                 color="primary"
-                onChange={(e, value) => dispatch(getFromStorage('topic') === 'anime' ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
+                onChange={(e, value) => dispatch(topic === 'anime' ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
             />
         </>
         )

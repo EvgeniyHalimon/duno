@@ -19,13 +19,14 @@ export const SearchResultList: React.FC = () => {
     const {mangaSearchResult, lastMangaPage, isManga} = useTypesSelector(state => state.manga)
 
     const searchTerm = getFromStorage('searchTerm')
+    const topic = getFromStorage('topic')
 
-    const paginatedTitles = getFromStorage('topic') === "anime" ? animeSearchResult : mangaSearchResult
-    const lastPage = getFromStorage('topic') === "anime" ? lastAnimePage : lastMangaPage
+    const paginatedTitles = topic === "anime" ? animeSearchResult : mangaSearchResult
+    const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
 
 
     useEffect(() => {
-        getFromStorage('topic') === "anime" ? dispatch(fetchAnimeSearch(searchTerm, currentPage)) : dispatch(fetchMangaSearch(searchTerm, currentPage))
+        topic === "anime" ? dispatch(fetchAnimeSearch(searchTerm, currentPage)) : dispatch(fetchMangaSearch(searchTerm, currentPage))
     },[currentPage, isAnime, isManga])
 
     return(

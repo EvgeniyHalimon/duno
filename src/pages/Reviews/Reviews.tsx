@@ -14,20 +14,22 @@ export const Reviews = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
 
+    const topic = getFromStorage('topic')
+
     const {animeReviews, currentAnimeTitle} = useTypesSelector(state => state.anime)
     const {mangaReviews, currentMangaTitle} = useTypesSelector(state => state.manga)
-    const reviews = getFromStorage('topic') === 'anime' ? animeReviews : mangaReviews
-    const title = getFromStorage('topic') === 'anime' ? currentAnimeTitle : currentMangaTitle
+    const reviews = topic === 'anime' ? animeReviews : mangaReviews
+    const title = topic === 'anime' ? currentAnimeTitle : currentMangaTitle
 
     useEffect(() => {
-        if(getFromStorage('topic') === 'anime'){
-            dispatch(fetchAnimeReviews(id))
+        if(topic === 'anime'){
+            dispatch(fetchAnimeReviews(Number(id)))
             dispatch(fetchCurrentAnimeTitle(id)) 
-        } else if (getFromStorage('topic') === 'manga'){
-            dispatch(fetchMangaReviews(id))
+        } else if (topic === 'manga'){
+            dispatch(fetchMangaReviews(Number(id)))
             dispatch(fetchCurrentMangaTitle(id))
         }
-    },[getFromStorage('topic'), id])
+    },[topic, id])
 
     return(
         reviews.length === 0 ?
@@ -50,11 +52,11 @@ export const Reviews = () => {
                         </div>
                         <div className='review-block'>
                             <p className='review-block-text'>{review.review}</p>
-                            <p className='review-block-quantity'>{getFromStorage('topic') === 'anime' ? `Episodes watched : ${review.episodes_watched}` : `Chapter's read : ${review.chapters_read}`}</p>
+                            <p className='review-block-quantity'>{topic === 'anime' ? `Episodes watched : ${review.episodes_watched}` : `Chapter's read : ${review.chapters_read}`}</p>
                             <div className='review-block-score'>
                                 <p>Character: {review?.scores.character}</p>
                                 <p>Enjoyment: {review?.scores.enjoyment}</p>
-                                <p>{getFromStorage('topic') === 'anime' ? `Sound: ${review?.scores.sound}` : `Art: ${review?.scores.art}`}</p>
+                                <p>{topic === 'anime' ? `Sound: ${review?.scores.sound}` : `Art: ${review?.scores.art}`}</p>
                                 <p>Story: {review?.scores.story}</p>
                                 <p>Overall: {review?.scores.overall}</p>
                             </div>

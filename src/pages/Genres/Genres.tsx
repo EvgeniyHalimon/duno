@@ -15,8 +15,10 @@ export const Genres: React.FC = () => {
 
     const {animeGenres} = useTypesSelector(state => state.anime)
     const {mangaGenres} = useTypesSelector(state => state.manga)
+
+    const topic = getFromStorage('topic') 
     
-    const genres = getFromStorage('topic') === "anime" ? animeGenres : mangaGenres
+    const genres = topic === "anime" ? animeGenres : mangaGenres
     
     const uniqueGenres = Array.from(new Set(genres?.map((genre : IGenreData) => genre.mal_id)))
     .map((mal_id : any) => {
@@ -39,14 +41,14 @@ export const Genres: React.FC = () => {
     })
 
     useEffect(() => {
-        if(getFromStorage('topic') === "anime"){
+        if(topic === "anime"){
             dispatch(isAnimeFlag(true))
             dispatch(fetchAnimeGenres())
-        } else if(getFromStorage('topic') === "manga"){
+        } else if(topic === "manga"){
             dispatch(isMangaFlag(true))
             dispatch(fetchMangaGenres())
         }
-    },[getFromStorage('topic')])
+    },[topic])
 
     return(
         <div className="wrapper-genres">

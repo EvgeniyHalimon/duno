@@ -194,7 +194,7 @@ export const setMangaReviews = (data: IReview) => {
     }
 }
 
-export const fetchMangaReviews = (id: string | undefined) => {
+export const fetchMangaReviews = (id: number | undefined) => {
     return async (dispatch: Dispatch) => {
         try {
             const mangaReview = await fetchMangaData.fetchMangaReviews(id)

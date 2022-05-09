@@ -16,11 +16,13 @@ export const TitleContainer: React.FC = () => {
     const {currentAnimeTitle} = useTypesSelector(state => state.anime)
     const {currentMangaTitle} = useTypesSelector(state => state.manga) 
     
-    const currentTitle = getFromStorage('topic') === "anime" ? currentAnimeTitle : currentMangaTitle
+    const topic = getFromStorage('topic')
+
+    const currentTitle = topic === "anime" ? currentAnimeTitle : currentMangaTitle
 
     useEffect(() => {
-        getFromStorage('topic') === 'anime' ? dispatch(fetchCurrentAnimeTitle(id)) : dispatch(fetchCurrentMangaTitle(id))
-    },[id])
+        topic === 'anime' ? dispatch(fetchCurrentAnimeTitle(id)) : dispatch(fetchCurrentMangaTitle(id))
+    },[topic, id])
 
     if(!currentTitle){
         return <h1>Loading..</h1> 

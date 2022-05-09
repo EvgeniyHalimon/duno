@@ -17,18 +17,20 @@ export const Popular: React.FC = () => {
     const {popularAnime, lastAnimePage} = useTypesSelector(state => state.anime)
     const {popularManga, lastMangaPage} = useTypesSelector(state => state.manga)
 
-    const paginatedTitles = getFromStorage('topic') === 'anime' ? popularAnime : popularManga
-    const lastPage = getFromStorage('topic') === 'anime' ? lastAnimePage : lastMangaPage
+    const topic = getFromStorage('storage')
+
+    const paginatedTitles = topic === 'anime' ? popularAnime : popularManga
+    const lastPage = topic === 'anime' ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        if(getFromStorage('topic') === "anime"){
+        if(topic === "anime"){
             dispatch(isAnimeFlag(true))
             dispatch(fetchPopularAnime(currentPage))
-        } else if(getFromStorage('topic') === "manga"){
+        } else if(topic === "manga"){
             dispatch(isMangaFlag(true))
             dispatch(fetchPopularManga(currentPage)) 
         }
-    },[getFromStorage('topic'), currentPage, lastPage])
+    },[topic, currentPage, lastPage])
 
     return(
         paginatedTitles.length !== 0 ?

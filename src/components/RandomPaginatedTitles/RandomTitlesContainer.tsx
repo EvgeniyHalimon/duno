@@ -14,11 +14,14 @@ export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()
     const {randomAnimes} = useTypesSelector(state => state.anime)
     const {randomMangas} = useTypesSelector(state => state.manga)
-    const randomTitles = getFromStorage('topic') === 'anime' ? randomAnimes : randomMangas
+
+    const topic = getFromStorage('topic')
+
+    const randomTitles = topic === 'anime' ? randomAnimes : randomMangas
 
     useEffect(() => {
-        getFromStorage('topic') === 'anime' ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
-    },[getFromStorage('topic')])
+        topic === 'anime' ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
+    },[topic])
 
     return(
         <div className="slider-section">
