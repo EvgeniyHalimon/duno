@@ -29,7 +29,7 @@ interface ILastAnimePage{
 
 interface IIsTitle{
     type: TitleActionTypes.SET_IS_TITLE,
-    payload: string
+    payload: string | null
 }
 
 interface ISeacrhTitleResult{

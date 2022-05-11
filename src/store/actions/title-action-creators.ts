@@ -14,6 +14,13 @@ export const setTitles = (data: ITitle) => {
     }
 }
 
+export const isTitleFlag = (str: string | null) => {
+    return{
+        type: TitleActionTypes.SET_IS_TITLE,
+        payload: str
+    }
+}
+
 export const setRandomTitles = (data: ITitle[]) => {
     return{
         type: TitleActionTypes.SET_RANDOM_TITLES,
@@ -42,6 +49,7 @@ export const fetchTitles = () => {
         try {
             const titles = await (isAnime ? fetchAnimeData.fetchAnimes() : fetchMangaData.fetchManga())
             dispatch(setTitles(titles.data.data))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
@@ -69,6 +77,7 @@ export const fetchTitleGenres = () => {
         try {
             const titleGenres = await (isAnime ? fetchAnimeData.fetchAnimeGenres() : fetchMangaData.fetchMangaGenres())
             dispatch(setTitleGenres(titleGenres.data.data))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
@@ -90,6 +99,7 @@ export const fetchPaginatedTitles = (page: number) => {
             const titles = await (isAnime ? fetchAnimeData.fetchPaginatedAnimes(page) : fetchMangaData.fetchPaginatedManga(page))
             dispatch(setLastTitlePage(titles.data.pagination.last_visible_page))
             dispatch(setPaginatedTitles(titles.data.data))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
@@ -104,6 +114,7 @@ export const fetchPaginatedTitlesByGenre = (genre: string | undefined, page: num
             const titles = await (isAnime ? fetchAnimeData.fetchAnimesByGenres(genre, page) : fetchMangaData.fetchMangasByGenres(genre, page))
             dispatch(setLastTitlePage(titles.data.pagination.last_visible_page))
             dispatch(setTitlesByGenre(titles.data.data))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
@@ -124,16 +135,10 @@ export const fetchRandomTitle = () => {
         try {
             const randomTitles = await (isAnime ? fetchAnimeData.fetchRandomAnime() : fetchMangaData.fetchRandomManga())
             dispatch(setRandomTitles(randomTitles))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
-    }
-}
-
-export const isTitleFlag = (str: string) => {
-    return{
-        type: TitleActionTypes.SET_IS_TITLE,
-        payload: str
     }
 }
 
@@ -160,6 +165,7 @@ export const fetchTitleSearch = (inputValue: string | null, page: number) => {
             dispatch(setLastTitlePage(searchResult.data.pagination.last_visible_page))
             dispatch(setTitleSearchValue(inputValue))
             dispatch(titleSearchResult(searchResult.data.data))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
@@ -180,6 +186,7 @@ export const fetchCurrentTitle = (id: string | undefined) => {
         try {
             const currentTitle = await (isAnime ? fetchAnimeData.fetchCurrentAnimeTitle(id) : fetchMangaData.fetchCurrentMangaTitle(id))
             dispatch(setCurrentTitle(currentTitle.data.data))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
@@ -201,6 +208,7 @@ export const fetchPopularTitle = (page: number) => {
             const popularTitle = await (isAnime ? fetchAnimeData.fetchPopularAnime(page) : fetchMangaData.fetchPopularManga(page))
             dispatch(setPopularTitle(popularTitle.data.data))
             dispatch(setLastTitlePage(popularTitle.data.pagination.last_visible_page))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }
@@ -221,6 +229,7 @@ export const fetchTitleReviews = (id: number | undefined) => {
         try {
             const titleReview = await (isAnime ? fetchAnimeData.fetchAnimeReviews(id) : fetchMangaData.fetchMangaReviews(id))
             dispatch(setTitleReviews(titleReview.data.data))
+            dispatch(isTitleFlag(topic))
         } catch (error) {
             dispatch(setTitleError(true))
         }

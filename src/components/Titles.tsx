@@ -9,13 +9,13 @@ import { getFromStorage } from "../utils/storage";
 
 export const Titles: React.FC = () => {
     const dispatch = useDispatch()
-    const {paginatedTitles, lastTitlePage, currentTitlePage} = useTypesSelector(state => state.title)
+    const {paginatedTitles, lastTitlePage, currentTitlePage, isTitle} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 
     useEffect(() => {
         dispatch(fetchPaginatedTitles(currentTitlePage))
-    },[currentTitlePage, topic])
+    },[currentTitlePage, topic, isTitle])
 
     return(
         <>

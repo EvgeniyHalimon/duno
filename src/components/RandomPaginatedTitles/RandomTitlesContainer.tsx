@@ -11,13 +11,13 @@ import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()
-    const {randomTitles} = useTypesSelector(state => state.title)
+    const {randomTitles, isTitle} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 
     useEffect(() => {
         dispatch(fetchRandomTitle())
-    },[topic])
+    },[topic, isTitle])
 
     return(
         <div className="slider-section">

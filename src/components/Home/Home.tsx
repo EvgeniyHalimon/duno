@@ -5,7 +5,7 @@ import { RandomTitlesContainer } from "../RandomPaginatedTitles/RandomTitlesCont
 import { Titles } from "../Titles";
 import { Navigation } from "../Navigation/Navigation";
 import { getFromStorage, setToStorage } from "../../utils/storage";
-import './Home.scss'
+import './Home.scss';
 
 export const Home: React.FC = () => {
 

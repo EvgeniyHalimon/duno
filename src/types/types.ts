@@ -20,7 +20,7 @@ export interface IInitialStateTitle{
     titleError: boolean,
     paginatedTitles: ITitle[] | [],
     lastTitlePage: number,
-    isTitle: string,
+    isTitle: string | null,
     titleSearchResult: ITitle[] | [],
     searchTitleValue: string,
     titleGenres: IGenreData[],
@@ -29,40 +29,6 @@ export interface IInitialStateTitle{
     currentTitlePage: number,
     popularTitle: ITitle[] | [],
     titleReviews: IReview[] | []
-}
-
-export interface IInitialStateAnimes{
-    titles: ITitle | [],
-    randomAnimes: ITitle[],
-    animeError: boolean,
-    paginatedAnimes: ITitle[] | [],
-    lastAnimePage: number,
-    isAnime: boolean,
-    animeSearchResult: ITitle[] | [],
-    searchAnimeValue: string,
-    animeGenres: IGenreData[],
-    animeByGenre: ITitle[] | [],
-    currentAnimeTitle: ITitle | null,
-    currentAnimePage: number,
-    popularAnime: ITitle[] | [],
-    animeReviews: any
-}
-
-export interface IInitialStateMangas{
-    mangas: ITitle | [] ,
-    mangaError: boolean,
-    randomMangas: ITitle[],
-    paginatedMangas: ITitle[] | [],
-    lastMangaPage: number,
-    isManga: boolean,
-    mangaSearchResult: ITitle[] | [],
-    searchMangaValue: string,
-    mangaGenres: IGenreData[],
-    mangaByGenre: ITitle[] | [],
-    currentMangaTitle: ITitle | null,
-    currentMangaPage: number,
-    popularManga: ITitle[] | [],
-    mangaReviews: any
 }
 
 export interface ITitle{
