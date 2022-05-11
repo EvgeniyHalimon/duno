@@ -12,13 +12,13 @@ import { getFromStorage } from "../utils/storage";
 export const Popular: React.FC = () => {
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1)
-    const {popularTitle, lastTitlePage} = useTypesSelector(state => state.title)
+    const {popularTitle, lastTitlePage, isTitle} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 
     useEffect(() => {
         dispatch(fetchPopularTitle(currentPage))
-    },[topic, currentPage, lastTitlePage])
+    },[topic, currentPage, isTitle])
 
     return(
         popularTitle.length !== 0 ?

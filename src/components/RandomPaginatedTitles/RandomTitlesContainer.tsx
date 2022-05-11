@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SliderCardInfo } from "../SliderCardInfo/SliderCardInfo";
 import { Slider } from "../Slider/Slider";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { fetchRandomTitle } from "../../store/actions/title-action-creators";
+import { fetchRandomTitle, isTitleFlag } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { ITitle } from "../../types/types";
 import './RandomPaginatedTitles.scss'
@@ -17,6 +17,11 @@ export const RandomTitlesContainer: React.FC = () => {
 
     useEffect(() => {
         dispatch(fetchRandomTitle())
+        if(topic === 'anime'){
+            dispatch(isTitleFlag('anime'))
+        } else if(topic === 'manga'){
+            dispatch(isTitleFlag('manga'))
+        }
     },[topic, isTitle])
 
     return(

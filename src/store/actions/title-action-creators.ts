@@ -91,6 +91,20 @@ export const setTitlesByGenre = (data: ITitle) => {
     }
 }
 
+export const fetchRandomTitle = () => {
+    return async (dispatch: Dispatch) => {
+        const topic = getFromStorage('topic')
+        const isAnime = topic === 'anime'
+        try {
+            const randomTitles = await (isAnime ? fetchAnimeData.fetchRandomAnime() : fetchMangaData.fetchRandomManga())
+            dispatch(setRandomTitles(randomTitles))
+            dispatch(isTitleFlag(topic))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
 export const fetchPaginatedTitles = (page: number) => {
     return async(dispatch: Dispatch) => {
         const topic = getFromStorage('topic')
@@ -125,20 +139,6 @@ export const setTitleError = (bool: boolean) => {
     return{
         type: TitleActionTypes.SET_TITLE_ERROR,
         payload: bool
-    }
-}
-
-export const fetchRandomTitle = () => {
-    return async (dispatch: Dispatch) => {
-        const topic = getFromStorage('topic')
-        const isAnime = topic === 'anime'
-        try {
-            const randomTitles = await (isAnime ? fetchAnimeData.fetchRandomAnime() : fetchMangaData.fetchRandomManga())
-            dispatch(setRandomTitles(randomTitles))
-            dispatch(isTitleFlag(topic))
-        } catch (error) {
-            dispatch(setTitleError(true))
-        }
     }
 }
 
