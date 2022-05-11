@@ -4,24 +4,19 @@ import { useDispatch } from "react-redux";
 import { SliderCardInfo } from "../SliderCardInfo/SliderCardInfo";
 import { Slider } from "../Slider/Slider";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { fetchRandomAnime } from "../../store/actions/anime-action-creators";
-import { fetchRandomManga } from "../../store/actions/manga-action-creators";
+import { fetchRandomTitle } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { ITitle } from "../../types/types";
 import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()
-    const {randomAnimes} = useTypesSelector(state => state.anime)
-    const {randomMangas} = useTypesSelector(state => state.manga)
+    const {randomTitles} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
-    const isAnime = topic === 'anime'
-
-    const randomTitles = isAnime ? randomAnimes : randomMangas
 
     useEffect(() => {
-        isAnime ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
+        dispatch(fetchRandomTitle())
     },[topic])
 
     return(

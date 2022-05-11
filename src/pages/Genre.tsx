@@ -4,8 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Pagination, Button } from "@mui/material";
 
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
-import { fetchPaginatedAnimesByGenre, isAnimeFlag } from "../store/actions/anime-action-creators";
-import { fetchPaginatedMangasByGenre, isMangaFlag } from "../store/actions/manga-action-creators";
+import { fetchPaginatedTitlesByGenre } from "../store/actions/title-action-creators";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
 
@@ -16,23 +15,12 @@ export const Genre: React.FC = () => {
     const {name} = useParams()
     const [currentPage, setCurrentPage] = useState(1)
 
-    const {animeByGenre, lastAnimePage} = useTypesSelector(state => state.anime)
-    const {mangaByGenre, lastMangaPage} = useTypesSelector(state => state.manga)
+    const {titleByGenre, lastTitlePage} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
-    const isAnime = topic === 'anime'
-
-    const paginatedTitles = isAnime  ? animeByGenre : mangaByGenre
-    const lastPage = isAnime  ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        if(topic === 'anime'){
-            dispatch(isAnimeFlag(true)) 
-            dispatch(fetchPaginatedAnimesByGenre(name, currentPage))
-        } else if(topic === 'manga' ){
-            dispatch(isMangaFlag(true)) 
-            dispatch(fetchPaginatedMangasByGenre(name, currentPage))
-        }
+        dispatch(fetchPaginatedTitlesByGenre(name, currentPage))
     },[topic, currentPage])
 
     return(
@@ -41,9 +29,9 @@ export const Genre: React.FC = () => {
                 <p className="back-button">Back to genres</p>
             </Button>
             <div>
-                <PaginatedTitles paginatedTitles={paginatedTitles}/>
+                <PaginatedTitles paginatedTitles={titleByGenre}/>
                 <Pagination 
-                    count={lastPage} 
+                    count={lastTitlePage} 
                     color="primary"
                     onChange={(e, value) => setCurrentPage(value)}
                 />

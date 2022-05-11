@@ -6,9 +6,7 @@ import { Button, Pagination } from "@mui/material";
 import { PaginatedTitles } from "./PaginatedTitles/PaginatedTitles";
 import { Loading } from "./Loading";
 import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchAnimeSearch } from "../store/actions/anime-action-creators";
-import { fetchMangaSearch } from "../store/actions/manga-action-creators";
-import { getFromStorage } from "../utils/storage";
+import { fetchTitleSearch } from "../store/actions/title-action-creators";
 
 
 export const SearchResultList: React.FC = () => {
@@ -16,30 +14,23 @@ export const SearchResultList: React.FC = () => {
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1)
     const [searchParams, setSearchParams] = useSearchParams()
-    const {animeSearchResult, lastAnimePage, isAnime} = useTypesSelector(state => state.anime)
-    const {mangaSearchResult, lastMangaPage, isManga} = useTypesSelector(state => state.manga)
-
-    const topic = getFromStorage('topic')
+    const {titleSearchResult, lastTitlePage} = useTypesSelector(state => state.title)
 
     const searchTerm = searchParams.get('search')
 
-    const paginatedTitles = topic === "anime" ? animeSearchResult : mangaSearchResult
-    const lastPage = topic === "anime" ? lastAnimePage : lastMangaPage
-
-
     useEffect(() => {
-        topic === "anime" ? dispatch(fetchAnimeSearch(searchTerm, currentPage)) : dispatch(fetchMangaSearch(searchTerm, currentPage))
-    },[currentPage, isAnime, isManga])
+        dispatch(fetchTitleSearch(searchTerm, currentPage))
+    },[currentPage])
 
     return(
-        paginatedTitles ?
+        titleSearchResult ?
         <div className="wrapper-genre">
             <Button className="back-button" onClick={() => navigate('/')}>
                 <p className="back-button">Back to main page </p>
             </Button>
-            <PaginatedTitles paginatedTitles={paginatedTitles}/>
+            <PaginatedTitles paginatedTitles={titleSearchResult}/>
             <Pagination 
-                count={lastPage} 
+                count={lastTitlePage} 
                 color="primary"
                 onChange={(e, value) => setCurrentPage(value)}
             />

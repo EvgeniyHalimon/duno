@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { Navigation } from "../Navigation/Navigation";
-import { fetchAnimeReviews } from "../../store/actions/anime-action-creators";
-import { fetchMangaReviews } from "../../store/actions/manga-action-creators";
+import { fetchTitleReviews } from "../../store/actions/title-action-creators";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { getScoreColor } from "../../utils/getColor";
 import { getFromStorage } from "../../utils/storage";
@@ -17,15 +16,12 @@ interface ISliderInfo{
 
 export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     const dispatch = useDispatch()
-    
-    const {animeReviews} = useTypesSelector(state => state.anime)
-    const {mangaReviews} = useTypesSelector(state => state.manga)
+    const {titleReviews} = useTypesSelector(state => state.title)
     
     const topic = getFromStorage('topic')
     const isAnime = topic === 'anime'
     
     const titleScore = isAnime ? title.score : title.scored
-    const reviews = isAnime  ? animeReviews : mangaReviews
 
     const score = title.score || title.scored
 
@@ -37,11 +33,9 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
         if(rank === 3) return <span>&#129353;</span>
         return rank
     }
-
-    console.log(title.rank, typeof title.rank);
     
     useEffect(() => {
-        isAnime  ? dispatch(fetchAnimeReviews(id)) : dispatch(fetchMangaReviews(id))
+        dispatch(fetchTitleReviews(id))
     },[topic, id])
     
     return(
@@ -69,7 +63,7 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
                         <p className="title-synopsis">{title.synopsis}</p>
                         <p>{isAnime  ? `Duration: ${title.duration}` : null}</p>
                         <p>{isAnime  ? `Episodes: ${title.episodes}` : `Chapters: ${title.chapters}`}</p>
-                        <Link className="title-link" to={`/reviews/${id}`}>See reviews ({reviews.length})</Link>
+                        <Link className="title-link" to={`/reviews/${id}`}>See reviews ({titleReviews ? titleReviews.length : 0})</Link>
                     </div>
                 </div>
             </div>

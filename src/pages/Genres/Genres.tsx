@@ -4,29 +4,24 @@ import { Link } from "react-router-dom";
 
 import { Navigation } from "../../components/Navigation/Navigation";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { fetchAnimeGenres, isAnimeFlag } from "../../store/actions/anime-action-creators";
-import { fetchMangaGenres, isMangaFlag } from "../../store/actions/manga-action-creators";
+import { fetchTitleGenres } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { IGenreData } from "../../types/types";
 import './Genres.scss'
 
 export const Genres: React.FC = () => {
     const dispatch = useDispatch()
+    const {titleGenres} = useTypesSelector(state => state.title)
 
-    const {animeGenres} = useTypesSelector(state => state.anime)
-    const {mangaGenres} = useTypesSelector(state => state.manga)
-
-    const topic = getFromStorage('topic') 
+    const topic = getFromStorage('topic')
     
-    const genres = topic === "anime" ? animeGenres : mangaGenres
-    
-    const uniqueGenres = Array.from(new Set(genres?.map((genre : IGenreData) => genre.mal_id)))
+    const uniqueGenres = Array.from(new Set(titleGenres?.map((genre : IGenreData) => genre.mal_id)))
     .map((mal_id : any) => {
         return {
             mal_id : mal_id,
-            name: genres.find((genre: IGenreData) => genre.mal_id === mal_id)?.name as string,
-            count: genres.find((genre: IGenreData) => genre.mal_id === mal_id)?.count as number,
-            url: genres.find((genre: IGenreData) => genre.mal_id === mal_id)?.url as string,
+            name: titleGenres.find((genre: IGenreData) => genre.mal_id === mal_id)?.name as string,
+            count: titleGenres.find((genre: IGenreData) => genre.mal_id === mal_id)?.count as number,
+            url: titleGenres.find((genre: IGenreData) => genre.mal_id === mal_id)?.url as string,
         }
     })
     .sort((a: IGenreData, b: IGenreData) => {
@@ -41,13 +36,7 @@ export const Genres: React.FC = () => {
     })
 
     useEffect(() => {
-        if(topic === "anime"){
-            dispatch(isAnimeFlag(true))
-            dispatch(fetchAnimeGenres())
-        } else if(topic === "manga"){
-            dispatch(isMangaFlag(true))
-            dispatch(fetchMangaGenres())
-        }
+        dispatch(fetchTitleGenres())
     },[topic])
 
     return(

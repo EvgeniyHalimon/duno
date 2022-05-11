@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { Navigation } from '../../components/Navigation/Navigation';
 import { useTypesSelector } from '../../hooks/useTypesSelector';
-import { fetchAnimeReviews, fetchCurrentAnimeTitle } from '../../store/actions/anime-action-creators';
-import { fetchCurrentMangaTitle, fetchMangaReviews } from '../../store/actions/manga-action-creators';
+import { fetchCurrentTitle, fetchTitleReviews } from '../../store/actions/title-action-creators';
 import { getFromStorage } from '../../utils/storage';
 import { IReview } from '../../types/types';
 import './Reviews.scss';
@@ -16,24 +15,15 @@ export const Reviews = () => {
 
     const topic = getFromStorage('topic')
     const isAnime = topic === 'anime'
-
-    const {animeReviews, currentAnimeTitle} = useTypesSelector(state => state.anime)
-    const {mangaReviews, currentMangaTitle} = useTypesSelector(state => state.manga)
-    const reviews = isAnime ? animeReviews : mangaReviews
-    const title = isAnime ? currentAnimeTitle : currentMangaTitle
+    const {titleReviews, currentTitle} = useTypesSelector(state => state.title)
 
     useEffect(() => {
-        if(topic === 'anime'){
-            dispatch(fetchAnimeReviews(Number(id)))
-            dispatch(fetchCurrentAnimeTitle(id)) 
-        } else if (topic === 'manga'){
-            dispatch(fetchMangaReviews(Number(id)))
-            dispatch(fetchCurrentMangaTitle(id))
-        }
+        dispatch(fetchTitleReviews(Number(id)))
+        dispatch(fetchCurrentTitle(id))
     },[topic, id])
 
     return(
-        reviews.length === 0 ?
+        titleReviews.length === 0 ?
         <div className='wrapper-reviews'>
             <Navigation/>
             <h1 className='review-title'>No review's yet</h1> 
@@ -42,10 +32,10 @@ export const Reviews = () => {
             <Navigation/>
             <div className='review-list'>
                 {
-                    title ? <h1 className='review-list-title' id="top">Review's on {title.title}</h1> :
+                    currentTitle ? <h1 className='review-list-title' id="top">Review's on {currentTitle.title}</h1> :
                     <h1>Loading..</h1>    
                 }
-                {reviews.map((review: IReview) => 
+                {titleReviews && titleReviews.map((review: IReview) => 
                     <div className='review' key={review.mal_id}>
                         <div className='user'>
                             <img className='user-image' src={review.user.images.webp.image_url} alt={`${review.user.username}-avatar`}/>

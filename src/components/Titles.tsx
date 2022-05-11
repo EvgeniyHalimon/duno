@@ -4,25 +4,18 @@ import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
 import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchPaginatedAnimes, setCurrentAnimePage } from "../store/actions/anime-action-creators";
-import { fetchPaginatedMangas, setCurrentMangaPage } from "../store/actions/manga-action-creators";
+import { fetchPaginatedTitles, setCurrentTitlePage } from "../store/actions/title-action-creators";
 import { getFromStorage } from "../utils/storage";
 
 export const Titles: React.FC = () => {
     const dispatch = useDispatch()
-    const {paginatedAnimes, lastAnimePage, currentAnimePage} = useTypesSelector(state => state.anime)
-    const {paginatedMangas, lastMangaPage, currentMangaPage} = useTypesSelector(state => state.manga)
+    const {paginatedTitles, lastTitlePage, currentTitlePage} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
-    const isAnime = topic === 'anime'
-
-    const paginatedTitles = isAnime ? paginatedAnimes : paginatedMangas
-    const currentPage = isAnime ? currentAnimePage : currentMangaPage
-    const lastPage = isAnime ? lastAnimePage : lastMangaPage
 
     useEffect(() => {
-        isAnime ? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
-    },[currentPage, topic])
+        dispatch(fetchPaginatedTitles(currentTitlePage))
+    },[currentTitlePage, topic])
 
     return(
         <>
@@ -30,11 +23,11 @@ export const Titles: React.FC = () => {
                 paginatedTitles={paginatedTitles}
             />
             <Pagination 
-                count={lastPage} 
+                count={lastTitlePage} 
                 defaultPage={1}
                 color="primary"
-                onChange={(e, value) => dispatch(isAnime ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
+                onChange={(e, value) => dispatch(setCurrentTitlePage(value))}
             />
         </>
-        )
-    }
+    )
+}

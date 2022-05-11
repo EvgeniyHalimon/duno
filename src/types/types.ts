@@ -14,8 +14,25 @@ export interface IGenre{
     name: string
 }
 
+export interface IInitialStateTitle{
+    titles: ITitle | [],
+    randomTitles: ITitle[],
+    titleError: boolean,
+    paginatedTitles: ITitle[] | [],
+    lastTitlePage: number,
+    isTitle: string,
+    titleSearchResult: ITitle[] | [],
+    searchTitleValue: string,
+    titleGenres: IGenreData[],
+    titleByGenre: ITitle[] | [],
+    currentTitle: ITitle | null,
+    currentTitlePage: number,
+    popularTitle: ITitle[] | [],
+    titleReviews: IReview[] | []
+}
+
 export interface IInitialStateAnimes{
-    animes: ITitle | [],
+    titles: ITitle | [],
     randomAnimes: ITitle[],
     animeError: boolean,
     paginatedAnimes: ITitle[] | [],
