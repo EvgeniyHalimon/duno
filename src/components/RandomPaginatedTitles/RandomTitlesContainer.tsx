@@ -16,12 +16,12 @@ export const RandomTitlesContainer: React.FC = () => {
     const topic = getFromStorage('topic')
 
     useEffect(() => {
-        dispatch(fetchRandomTitle())
         if(topic === 'anime'){
             dispatch(isTitleFlag('anime'))
         } else if(topic === 'manga'){
             dispatch(isTitleFlag('manga'))
         }
+        dispatch(fetchRandomTitle())
     },[topic, isTitle])
 
     return(

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 import { Navigation } from "../../components/Navigation/Navigation";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { fetchTitleGenres } from "../../store/actions/title-action-creators";
+import { fetchTitleGenres, isTitleFlag } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { IGenreData } from "../../types/types";
 import './Genres.scss'
 
 export const Genres: React.FC = () => {
     const dispatch = useDispatch()
-    const {titleGenres} = useTypesSelector(state => state.title)
+    const {titleGenres, isTitle} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
     
@@ -37,7 +37,12 @@ export const Genres: React.FC = () => {
 
     useEffect(() => {
         dispatch(fetchTitleGenres())
-    },[topic])
+        if(topic === 'anime'){
+            dispatch(isTitleFlag('anime'))
+        } else if(topic === 'manga'){
+            dispatch(isTitleFlag('manga'))
+        }
+    },[topic, isTitle])
 
     return(
         <div className="wrapper-genres">

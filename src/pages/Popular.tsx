@@ -5,7 +5,7 @@ import { Pagination } from "@mui/material";
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
 import { Navigation } from "../components/Navigation/Navigation";
 import { Loading } from "../components/Loading";
-import { fetchPopularTitle } from "../store/actions/title-action-creators";
+import { fetchPopularTitle, isTitleFlag } from "../store/actions/title-action-creators";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
 
@@ -17,6 +17,11 @@ export const Popular: React.FC = () => {
     const topic = getFromStorage('topic')
 
     useEffect(() => {
+        if(topic === 'anime'){
+            dispatch(isTitleFlag('anime'))
+        } else if(topic === 'manga'){
+            dispatch(isTitleFlag('manga'))
+        }
         dispatch(fetchPopularTitle(currentPage))
     },[topic, currentPage, isTitle])
 

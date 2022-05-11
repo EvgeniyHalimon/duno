@@ -14,12 +14,12 @@ export const Titles: React.FC = () => {
     const topic = getFromStorage('topic')
 
     useEffect(() => {
-        dispatch(fetchPaginatedTitles(currentTitlePage))
         if(topic === 'anime'){
             dispatch(isTitleFlag('anime'))
         } else if(topic === 'manga'){
             dispatch(isTitleFlag('manga'))
         }
+        dispatch(fetchPaginatedTitles(currentTitlePage))
     },[currentTitlePage, topic, isTitle])
 
     return(
