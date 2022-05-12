@@ -13,7 +13,7 @@ export const TimeForm: React.FC = () => {
         },
         '& .MuiOutlinedInput-root': {
           '& fieldset': {
-            borderColor: 'white',
+            borderColor: 'white'
           },
           '&:hover fieldset': {
             borderColor: '#2496FF',
@@ -28,62 +28,70 @@ export const TimeForm: React.FC = () => {
         '& input': {
             color: 'white',
             background: 'linear-gradient(180deg, #303035, #1D1D28)',
-            colorScheme: 'dark'
+            colorScheme: 'dark',
+            height : '5px'
         }
     });
 
     return(
         <form className="calculator-form">
-            <CssTextField 
+            <CssTextField
+                className="calculator-date" 
                 label='Monday' 
                 type="time"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
-            <CssTextField 
+            <CssTextField
+                className="calculator-date" 
                 label='Tuesday' 
                 type="time"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
-            <CssTextField 
+            <CssTextField
+                className="calculator-date" 
                 label='Wednesday' 
                 type="time"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
-            <CssTextField 
+            <CssTextField
+                className="calculator-date" 
                 label='Thursday' 
                 type="time"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
-            <CssTextField 
+            <CssTextField
+                className="calculator-date" 
                 label='Friday' 
                 type="time"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
-            <CssTextField 
+            <CssTextField
+                className="calculator-date" 
                 label='Saturday' 
                 type="time"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
-            <CssTextField 
+            <CssTextField
+                className="calculator-date" 
                 label='Sunday' 
                 type="time"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
-            <input type="submit" placeholder="Calculate"/>
+            <input type="submit" className="calculator-submit" placeholder="Calculate"/>
         </form>
     )
 }
