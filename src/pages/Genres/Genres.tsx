@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Navigation } from "../../components/Navigation/Navigation";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { fetchTitleGenres, isTitleFlag } from "../../store/actions/title-action-creators";
+import { fetchTitleGenres, isTitleFlag, setCleanUpGenres } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { IGenreData } from "../../types/types";
 import './Genres.scss'
@@ -41,6 +41,9 @@ export const Genres: React.FC = () => {
             dispatch(isTitleFlag('anime'))
         } else if(topic === 'manga'){
             dispatch(isTitleFlag('manga'))
+        }
+        return () => {
+            dispatch(setCleanUpGenres())
         }
     },[topic, isTitle])
 

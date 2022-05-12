@@ -91,6 +91,46 @@ const updateAnimes = (state = initialState, action: TitleAction) => {
                 ...state,
                 titleReviews: action.payload
             }
+        case TitleActionTypes.SET_TITLE_CLEANUP_RANDOM_TITLES:
+            return{
+                ...state,
+                randomTitles: []
+            }
+        case TitleActionTypes.SET_TITLE_CLEANUP_PAGINATED_TITLES:
+            return{
+                ...state,
+                paginatedTitles: []
+            }
+        case TitleActionTypes.SET_TITLE_CLEANUP_SEARCH_RESULT:
+            return{
+                ...state,
+                titleSearchResult: []
+            }
+        case TitleActionTypes.SET_TITLE_CLEANUP_TITLE_GENRES:
+            return{
+                ...state,
+                titleGenres: []
+            }
+        case TitleActionTypes.SET_TITLE_CLEANUP_TITLE_BY_GENRES:
+            return{
+                ...state,
+                titleByGenre: []
+            }
+        case TitleActionTypes.SET_TITLE_CLEANUP_CURRENT_TITLE:
+            return{
+                ...state,
+                currentTitle: null
+            }
+        case TitleActionTypes.SET_TITLE_CLEANUP_POPULAR_TITLE:
+            return{
+                ...state,
+                popularTitle: []
+            }
+        case TitleActionTypes.SET_TITLE_CLEANUP_TITLE_REVIEWS:
+            return{
+                ...state,
+                titleReviews: []
+            }
         default:
             return state
     }

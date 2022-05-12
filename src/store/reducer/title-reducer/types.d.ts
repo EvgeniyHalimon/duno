@@ -72,5 +72,47 @@ interface ITitleReview{
     payload: IReview[]
 }
 
+interface ITitleCleanUpGenres{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_TITLE_GENRES,
+    payload: []
+}
+
+interface ITitleCleanUpRandomTitles{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_RANDOM_TITLES,
+    payload: []
+}
+
+interface ITitleCleanUpPaginatedTitles{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_PAGINATED_TITLES,
+    payload: []
+}
+
+interface ITitleCleanUpSearchResult{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_SEARCH_RESULT,
+    payload: []
+}
+
+interface ITitleCleanUpTitleByGenre{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_TITLE_BY_GENRES,
+    payload: []
+}
+
+interface ITitleCleanUpCurrentTitle{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_CURRENT_TITLE,
+    payload: []
+}
+
+interface ITitleCleanUpPopularTitle{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_POPULAR_TITLE,
+    payload: []
+}
+
+interface ITitleCleanUpTitleReviews{
+    type: TitleActionTypes.SET_TITLE_CLEANUP_TITLE_REVIEWS,
+    payload: []
+}
+
 export type TitleAction = ITitleAction | ITitleErrorAction | IRandomTitles | IPaginatedTitles | ILastAnimePage | IIsTitle | ISeacrhTitleResult | 
-ISeacrhTitleValue | ITitleGenres | ITitleByGenres | ITitleCurrentTitle | ITitleCurrentPage | IPopularTitle | ITitleReview
+ISeacrhTitleValue | ITitleGenres | ITitleByGenres | ITitleCurrentTitle | ITitleCurrentPage | IPopularTitle | ITitleReview | ITitleCleanUpGenres | 
+ITitleCleanUpRandomTitles | ITitleCleanUpPaginatedTitles | ITitleCleanUpSearchResult | ITitleCleanUpTitleByGenre | ITitleCleanUpCurrentTitle | 
+ITitleCleanUpPopularTitle | ITitleCleanUpTitleReviews

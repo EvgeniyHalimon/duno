@@ -28,7 +28,7 @@ export const setRandomTitles = (data: ITitle[]) => {
     }
 }
 
-export const setPaginatedTitles = (data: ITitle) => {
+export const setPaginatedTitles = (data: ITitle | []) => {
     return{
         type: TitleActionTypes.SET_PAGINATED_TITLES,
         payload: data
@@ -63,7 +63,7 @@ export const setCurrentTitlePage = (page: number) => {
     }
 }
 
-export const setTitleGenres = (data: IGenreData) => {
+export const setTitleGenres = (data: IGenreData | []) => {
     return{
         type: TitleActionTypes.SET_TITLE_GENRES,
         payload: data
@@ -84,7 +84,7 @@ export const fetchTitleGenres = () => {
     }
 }
 
-export const setTitlesByGenre = (data: ITitle) => {
+export const setTitlesByGenre = (data: ITitle | []) => {
     return{
         type: TitleActionTypes.SET_TITLE_BY_GENRE,
         payload: data
@@ -142,7 +142,7 @@ export const setTitleError = (bool: boolean) => {
     }
 }
 
-export const titleSearchResult = (data: ITitle) => {
+export const titleSearchResult = (data: ITitle | []) => {
     return{
         type: TitleActionTypes.SET_TITLE_SEARCH_RESULT,
         payload: data
@@ -172,7 +172,7 @@ export const fetchTitleSearch = (inputValue: string | null, page: number) => {
     }
 }
 
-export const setCurrentTitle = (data: ITitle) => {
+export const setCurrentTitle = (data: ITitle | []) => {
     return{
         type: TitleActionTypes.SET_CURRENT_TITLE_TITLE,
         payload: data
@@ -193,7 +193,7 @@ export const fetchCurrentTitle = (id: string | undefined) => {
     }
 }
 
-export const setPopularTitle = (data: ITitle) => {
+export const setPopularTitle = (data: ITitle | []) => {
     return{
         type: TitleActionTypes.SET_POPULAR_TITLE,
         payload: data
@@ -230,6 +230,87 @@ export const fetchTitleReviews = (id: number | undefined) => {
             const titleReview = await (isAnime ? fetchAnimeData.fetchAnimeReviews(id) : fetchMangaData.fetchMangaReviews(id))
             dispatch(setTitleReviews(titleReview.data.data))
             dispatch(isTitleFlag(topic))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpGenres = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(setTitleGenres([]))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpRandomTitles = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(setRandomTitles([]))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpTitleReviews = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(setTitleReviews([]))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpPaginatedTitles = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(setPaginatedTitles([]))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpTitlesByGenre = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(setTitlesByGenre([]))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpPopularTitle = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(setPopularTitle([]))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpCurrentTitle = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(setCurrentTitle([]))
+            dispatch(titleSearchResult([]))
+        } catch (error) {
+            dispatch(setTitleError(true))
+        }
+    }
+}
+
+export const setCleanUpSearchResult = () => {
+    return (dispatch: Dispatch) => {
+        try {
+            dispatch(titleSearchResult([]))
         } catch (error) {
             dispatch(setTitleError(true))
         }
