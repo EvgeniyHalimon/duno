@@ -32,20 +32,6 @@ export const Calculator : React.FC = () => {
             <div className="calculator">
                 <CalculatorPlaceholder/>
                 <TimeForm/>
-                {
-                    paginatedTitles ? 
-                        <div>
-                        <PopupTitles 
-                            paginatedTitles={paginatedTitles}
-                        />
-                        <Pagination 
-                            count={lastPage} 
-                            defaultPage={1}
-                            color="primary"
-                            onChange={(e, value) => setCurrentPage(value)}
-                        />
-                    </div> : null
-                }
             </div>
         </div>
     )

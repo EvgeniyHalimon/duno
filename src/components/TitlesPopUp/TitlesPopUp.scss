@@ -1,12 +1,33 @@
 .popup{
+    height: 100vh;
+    width: 100vw;
     display: flex;
+    justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    z-index: 9;
 
-    &-input{
-        height: 25px;
+    &-modal{
+        width: 600px;
+        height: 600px;
         border-radius: 30px;
-        border: none;
-        padding-left: 10px;
-        outline-color: #2496FF;
+        background-color: white;
+        padding: 20px;
+    }
+}
+
+.popup-input{
+    height: 25px;
+    border-radius: 30px;
+    border: 1px solid blue;
+    padding-left: 10px;
+    outline-color: #2496FF;
+    &:hover{
+        border: 1px solid #2496FF;
     }
 }

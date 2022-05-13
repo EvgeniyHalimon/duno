@@ -38,7 +38,7 @@ export const TimeForm: React.FC = () => {
             <CssTextField
                 className="calculator-date" 
                 label='Monday' 
-                type="time"
+                type="text"
                 InputLabelProps={{
                     shrink: true,
                 }}
@@ -46,7 +46,7 @@ export const TimeForm: React.FC = () => {
             <CssTextField
                 className="calculator-date" 
                 label='Tuesday' 
-                type="time"
+                type="text"
                 InputLabelProps={{
                     shrink: true,
                 }}
@@ -54,7 +54,7 @@ export const TimeForm: React.FC = () => {
             <CssTextField
                 className="calculator-date" 
                 label='Wednesday' 
-                type="time"
+                type="text"
                 InputLabelProps={{
                     shrink: true,
                 }}
@@ -62,7 +62,7 @@ export const TimeForm: React.FC = () => {
             <CssTextField
                 className="calculator-date" 
                 label='Thursday' 
-                type="time"
+                type="text"
                 InputLabelProps={{
                     shrink: true,
                 }}
@@ -70,7 +70,7 @@ export const TimeForm: React.FC = () => {
             <CssTextField
                 className="calculator-date" 
                 label='Friday' 
-                type="time"
+                type="text"
                 InputLabelProps={{
                     shrink: true,
                 }}
@@ -78,7 +78,7 @@ export const TimeForm: React.FC = () => {
             <CssTextField
                 className="calculator-date" 
                 label='Saturday' 
-                type="time"
+                type="text"
                 InputLabelProps={{
                     shrink: true,
                 }}
@@ -86,7 +86,7 @@ export const TimeForm: React.FC = () => {
             <CssTextField
                 className="calculator-date" 
                 label='Sunday' 
-                type="time"
+                type="text"
                 InputLabelProps={{
                     shrink: true,
                 }}

@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { fetchAnimeSearch } from "../../store/actions/anime-action-creators"
-import { Switcher } from "../Header/Switcher"
 
 import './TitlesPopUp.scss'
 
@@ -22,13 +21,14 @@ export const TitlesPopUp = () => {
 
     return(
         <div className="popup">
-            <Switcher/>
-            <input 
-                type="text" 
-                className="popup-input"
-                onChange={(e) => handler(e)}
-                onKeyDown={(e) => handleSearch(e)}
-            />
+            <div className="popup-modal">
+                <input 
+                    type="searh" 
+                    className="popup-input"
+                    onChange={(e) => handler(e)}
+                    onKeyDown={(e) => handleSearch(e)}
+                />
+            </div>
         </div>
     )
 }
