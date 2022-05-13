@@ -1,9 +1,7 @@
-import { Title } from "../Title/Title";
-
 import { ITitle } from "../../types/types";
 
-import './PopupTitles.scss'
 import { PopupTitle } from "../PopupTitle/PopupTitle";
+import './PopupTitles.scss'
 
 interface IPaganatedTitles{
     paginatedTitles: ITitle
@@ -11,7 +9,7 @@ interface IPaganatedTitles{
 
 export const PopupTitles: React.FC<IPaganatedTitles> = ({paginatedTitles}) => {
     return(
-        <div className="titles-list">
+        <div className="popup-list">
             {paginatedTitles && paginatedTitles.map((titles: ITitle) => 
                 <PopupTitle title={titles} key={titles?.url}/>
             )}

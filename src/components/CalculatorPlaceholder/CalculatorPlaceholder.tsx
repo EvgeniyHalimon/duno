@@ -29,10 +29,7 @@ export const CalculatorPlaceholder = () => {
             </div>
             {
                 isShow ?
-                <div onClick={() => setIsShow(false)}>
-<TitlesPopUp/>
-                </div>
-                 :
+                <TitlesPopUp/> :
                 null
             }
         </div>

@@ -13,13 +13,14 @@ export const PopupTitle: React.FC<IPaganatedTitle> = ({title}) => {
 
     const score: any = title?.score || title?.scored
     return(
-        <div className="titles-item">   
-            <p className="info">{title?.title} / {title?.title_japanese}</p>
-            <p className="info">{title?.type}</p>
-            <p
-                style={{color : getScoreColor(score)}} className="info"
-            >Score : {title?.score || title?.scored}</p>
-            <p className="info">Rank : {title?.rank}</p>
+        <div className="popup-titles-item">   
+            <p className="popup-title">{title?.title} / {title?.title_japanese}</p>
+            <div className="statistic-info">
+                <p
+                    style={{color : getScoreColor(score)}} className="popup-info"
+                >Score : {title?.score || title?.scored}</p>
+                <p className="popup-info">Rank : {title?.rank}</p>
+            </div>
         </div>
     )
 }
