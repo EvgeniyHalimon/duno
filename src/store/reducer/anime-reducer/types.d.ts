@@ -1,6 +1,6 @@
+import { AnimeActionTypes } from './../../action-types/anime-action-types';
 import { IGenreData, IReview } from './../../../types/types';
 import { ITitle } from "../../../types/types";
-import { AnimeActionTypes } from "../../action-types/anime-action-types";
 
 interface IAnimeAction{
     type: AnimeActionTypes.SET_ANIMES,
@@ -72,5 +72,15 @@ interface IAnimeReview{
     payload: IReview
 }
 
+interface IChoosenTitle{
+    type: AnimeActionTypes.SET_CHOOSEN_TITLE,
+    payload: ITitle
+}
+
+interface IShowPopup {
+    type: AnimeActionTypes.SET_SHOW_POPUP,
+    payload: boolean
+}
+
 export type AnimeAction = IAnimeAction | IAnimeErrorAction | IRandomAnimes | IPaginatedAnimes | ILastAnimePage | IIsAnime | ISeacrhAnimeResult | 
-ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle | IAnimeCurrentPage | IPopularAnime | IAnimeReview
+ISeacrhAnimeValue | IAnimeGenres | IAnimeByGenres | IAnimeCurrentTitle | IAnimeCurrentPage | IPopularAnime | IAnimeReview | IChoosenTitle | IShowPopup

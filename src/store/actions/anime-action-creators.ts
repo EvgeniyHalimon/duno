@@ -205,3 +205,29 @@ export const fetchAnimeReviews = (id: string | undefined) => {
         }
     }
 }
+
+export const setChoosenTitle = (data: ITitle | null) => {
+    return{
+        type: AnimeActionTypes.SET_CHOOSEN_TITLE,
+        payload: data
+    }
+}
+
+export const dispatchChoosenTitle = (data: ITitle | null) => {
+    return (dispatch: Dispatch) => {
+        dispatch(setChoosenTitle(data))
+    }
+}
+
+export const setShowPopup = (bool: boolean) => {
+    return{
+        type: AnimeActionTypes.SET_SHOW_POPUP,
+        payload: bool
+    }
+}
+
+export const dispatchShowPopup = (bool: boolean) => {
+    return (dispatch: Dispatch) => {
+        dispatch(setShowPopup(bool))
+    }
+}

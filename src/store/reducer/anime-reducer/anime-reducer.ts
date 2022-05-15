@@ -16,7 +16,9 @@ const initialState: IInitialStateAnimes = {
     currentAnimeTitle: [],
     currentAnimePage: 1,
     popularAnime: [],
-    animeReviews: []
+    animeReviews: [],
+    choosenTitle: null,
+    showPopup: false
 }
 
 const updateAnimes = (state = initialState, action: AnimeAction) => {
@@ -90,6 +92,16 @@ const updateAnimes = (state = initialState, action: AnimeAction) => {
             return{
                 ...state,
                 animeReviews: action.payload
+            }
+        case AnimeActionTypes.SET_CHOOSEN_TITLE:
+            return{
+                ...state,
+                choosenTitle: action.payload
+            }
+        case AnimeActionTypes.SET_SHOW_POPUP:
+            return{
+                ...state,
+                showPopup: action.payload
             }
         default:
             return state

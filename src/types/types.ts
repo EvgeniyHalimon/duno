@@ -29,7 +29,9 @@ export interface IInitialStateAnimes{
     currentAnimeTitle: ITitle | [],
     currentAnimePage: number,
     popularAnime: ITitle | [],
-    animeReviews: any
+    animeReviews: any,
+    choosenTitle: ITitle | null,
+    showPopup: boolean
 }
 
 export interface IInitialStateMangas{

@@ -26,7 +26,6 @@ export const SearchResultList: React.FC = () => {
     const paginatedTitles = getFromStorage('topic') === "anime" ? animeSearchResult : mangaSearchResult
     const lastPage = getFromStorage('topic') === "anime" ? lastAnimePage : lastMangaPage
 
-
     useEffect(() => {
         getFromStorage('topic') === "anime" ? dispatch(fetchAnimeSearch(searchTerm, currentPage)) : dispatch(fetchMangaSearch(searchTerm, currentPage))
     },[currentPage, isAnime, isManga])

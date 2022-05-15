@@ -1,0 +1,10 @@
+.title-card{
+    text-align: center;
+    &-poster{
+        height: 340px;
+    }
+
+    &-name{
+        text-align: left;
+    }
+}
