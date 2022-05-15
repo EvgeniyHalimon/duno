@@ -91,6 +91,14 @@ export const TimeForm: React.FC = () => {
                     shrink: true,
                 }}
             />
+            <CssTextField
+                className="calculator-date" 
+                label='Start watch from' 
+                type="date"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+            />
             <input type="submit" className="calculator-submit" placeholder="Calculate"/>
         </form>
     )

@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { fetchAnimeSearch } from "../../store/actions/anime-action-creators"
 import { Pagination } from "@mui/material";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { getFromStorage } from "../../utils/storage";
-import { fetchMangaSearch } from "../../store/actions/manga-action-creators";
 
-import './TitlesPopUp.scss'
 import { PopupTitles } from "../PopupTitles/PopupTitles";
+import { dispatchShowPopup, fetchAnimeSearch } from "../../store/actions/anime-action-creators"
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { getFromStorage } from "../../utils/storage";import './TitlesPopUp.scss'
 
 export const TitlesPopUp = () => {
     const dispatch = useDispatch()
@@ -26,12 +24,14 @@ export const TitlesPopUp = () => {
     const handler = (e: any) => {
         setTitle(e.target.value)
         localStorage.setItem('searchTerm', title)
+        setCurrentPage(1)
     }
 
     const handleSearch = (e:any) => {
         if(e.key === "Enter"){
             dispatch(fetchAnimeSearch(title,1))
             localStorage.setItem('searchTerm', title)
+            setCurrentPage(1)
         }
     }
 
@@ -51,7 +51,7 @@ export const TitlesPopUp = () => {
                     color="primary"
                     onChange={(e, value) => setCurrentPage(value)}
                 />
-                <button>Apply</button>
+                <button onClick={() => dispatch(dispatchShowPopup(false))}>Apply</button>
             </div>
         </div>
     )
