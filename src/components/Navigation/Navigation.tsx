@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-
 import { Box } from "@mui/material";
 
 import './Navigation.scss' 

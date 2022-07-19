@@ -1,36 +1,27 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
-
 import { Link } from "react-router-dom";
 
 import { Navigation } from "../../components/Navigation/Navigation";
-
 import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { fetchAnimeGenres, isAnimeFlag } from "../../store/actions/anime-action-creators";
-import { fetchMangaGenres, isMangaFlag } from "../../store/actions/manga-action-creators";
-
-import { IGenreData } from "../../types/types";
-
+import { fetchTitleGenres, isTitleFlag, setCleanUpGenres } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
-
+import { IGenreData } from "../../types/types";
 import './Genres.scss'
 
 export const Genres: React.FC = () => {
     const dispatch = useDispatch()
+    const {titleGenres, isTitle} = useTypesSelector(state => state.title)
 
-    const {animeGenres} = useTypesSelector(state => state.anime)
-    const {mangaGenres} = useTypesSelector(state => state.manga)
+    const topic = getFromStorage('topic')
     
-    const genres: any = getFromStorage('topic') === "anime" ? animeGenres : mangaGenres
-    
-    const uniqueGenres = Array.from(new Set(genres?.map((genre : IGenreData) => genre.mal_id)))
+    const uniqueGenres = Array.from(new Set(titleGenres?.map((genre : IGenreData) => genre.mal_id)))
     .map((mal_id : any) => {
         return {
             mal_id : mal_id,
-            name: genres?.find((genre: IGenreData) => genre.mal_id === mal_id).name,
-            count: genres?.find((genre: IGenreData) => genre.mal_id === mal_id).count,
-            url: genres.find((genre: IGenreData) => genre.mal_id === mal_id).url,
+            name: titleGenres.find((genre: IGenreData) => genre.mal_id === mal_id)?.name as string,
+            count: titleGenres.find((genre: IGenreData) => genre.mal_id === mal_id)?.count as number,
+            url: titleGenres.find((genre: IGenreData) => genre.mal_id === mal_id)?.url as string,
         }
     })
     .sort((a: IGenreData, b: IGenreData) => {
@@ -45,14 +36,16 @@ export const Genres: React.FC = () => {
     })
 
     useEffect(() => {
-        if(getFromStorage('topic') === "anime"){
-            dispatch(isAnimeFlag(true))
-            dispatch(fetchAnimeGenres())
-        } else if(getFromStorage('topic') === "manga"){
-            dispatch(isMangaFlag(true))
-            dispatch(fetchMangaGenres())
+        dispatch(fetchTitleGenres())
+        if(topic === 'anime'){
+            dispatch(isTitleFlag('anime'))
+        } else if(topic === 'manga'){
+            dispatch(isTitleFlag('manga'))
         }
-    },[getFromStorage('topic')])
+        return () => {
+            dispatch(setCleanUpGenres())
+        }
+    },[topic, isTitle])
 
     return(
         <div className="wrapper-genres">

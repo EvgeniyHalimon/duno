@@ -1,10 +1,9 @@
 import { Provider } from 'react-redux';
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { Home } from './components/Home/Home';
 import { SearchResultList } from './components/SearchList';
-
 import { Genres } from './pages/Genres/Genres';
 import { Genre } from './pages/Genre';
 import { TitleContainer } from './pages/TitleContainer';
@@ -12,10 +11,8 @@ import { Popular } from './pages/Popular';
 import { Error } from './pages/404/404';
 import { ErrorSearch } from './pages/404/ErrorSearch';
 import { Reviews } from './pages/Reviews/Reviews';
-
 import { store } from './store/store';
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
   spacing: 5,

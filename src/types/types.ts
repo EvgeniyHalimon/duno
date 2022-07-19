@@ -10,67 +10,47 @@ export interface IAiredNPublished{
 }
 
 export interface IGenre{
-    map(arg0: (genre: IGenre) => JSX.Element): import("react").ReactNode;
     mal_id: number
     name: string
 }
 
-export interface IInitialStateAnimes{
-    animes: ITitle | [],
-    randomAnimes: ITitle[],
-    animeError: boolean,
-    paginatedAnimes: ITitle | [],
-    lastAnimePage: number,
-    isAnime: boolean,
-    animeSearchResult: ITitle[] | [],
-    searchAnimeValue: string,
-    animeGenres: IGenreData | [] | boolean,
-    animeByGenre: ITitle | [],
-    currentAnimeTitle: ITitle | [],
-    currentAnimePage: number,
-    popularAnime: ITitle | [],
-    animeReviews: any
-}
-
-export interface IInitialStateMangas{
-    mangas: ITitle | [] ,
-    mangaError: boolean,
-    randomMangas: ITitle[],
-    paginatedMangas: ITitle | [],
-    lastMangaPage: number,
-    isManga: boolean,
-    mangaSearchResult: ITitle | [],
-    searchMangaValue: string,
-    mangaGenres: IGenreData | [] | boolean,
-    mangaByGenre: ITitle | [],
-    currentMangaTitle: ITitle | [],
-    currentMangaPage: number,
-    popularManga: ITitle | [],
-    mangaReviews: any
+export interface IInitialStateTitle{
+    titles: ITitle | [],
+    randomTitles: ITitle[],
+    titleError: boolean,
+    paginatedTitles: ITitle[] | [],
+    lastTitlePage: number,
+    isTitle: string | null,
+    titleSearchResult: ITitle[] | [],
+    searchTitleValue: string,
+    titleGenres: IGenreData[],
+    titleByGenre: ITitle[] | [],
+    currentTitle: ITitle | null,
+    currentTitlePage: number,
+    popularTitle: ITitle[] | [],
+    titleReviews: IReview[] | []
 }
 
 export interface ITitle{
-    map(arg0: (titles: ITitle) => JSX.Element): import("react").ReactNode;
-    length? : number
-    url?: string
-    title?: string
+    url: string
+    title: string
     title_japanese?: string
-    type?: string
+    type: string
     score?: string | null
     scored?: string | null
-    rank?: string | null
-    synopsis?: string | null
-    images?: IImages
+    rank?: number | null
+    synopsis: string | null
+    images: IImages
     aired?: IAiredNPublished | null
     published?: IAiredNPublished | null
-    genres?: IGenre,
+    genres: IGenre[],
     duration?: string,
     episodes?: number,
     chapters?: number,
     scored_by?: number,
-    rating?: string,
-    status?: string,
-    mal_id?: number
+    rating: string,
+    status: string,
+    mal_id: number
 }
 
 export interface IGenreData{

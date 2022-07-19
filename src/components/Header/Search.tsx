@@ -1,6 +1,6 @@
 import {useState} from "react";
-
 import { useNavigate } from "react-router";
+import { setToStorage } from "../../utils/storage";
 
 export const Search: React.FC = () => {
     const navigate = useNavigate()
@@ -17,7 +17,7 @@ export const Search: React.FC = () => {
     
     const handler = (e: any) => {
         setSearchTerm(e.target.value)
-        localStorage.setItem('searchTerm', e.target.value)
+        setToStorage('searchTerm', e.target.value)
     }
     
     return(

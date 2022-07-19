@@ -1,28 +1,26 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
+import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
-
 import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchPaginatedAnimes, setCurrentAnimePage } from "../store/actions/anime-action-creators";
-import { fetchPaginatedMangas, setCurrentMangaPage } from "../store/actions/manga-action-creators";
-
+import { fetchPaginatedTitles, isTitleFlag, setCurrentTitlePage } from "../store/actions/title-action-creators";
 import { getFromStorage } from "../utils/storage";
-import { Pagination } from "@mui/material";
 
 export const Titles: React.FC = () => {
     const dispatch = useDispatch()
-    const {paginatedAnimes, lastAnimePage, isAnime, currentAnimePage} = useTypesSelector(state => state.anime)
-    const {paginatedMangas, lastMangaPage, isManga, currentMangaPage} = useTypesSelector(state => state.manga)
+    const {paginatedTitles, lastTitlePage, currentTitlePage, isTitle} = useTypesSelector(state => state.title)
 
-    const paginatedTitles = getFromStorage('topic') === 'anime' ? paginatedAnimes : paginatedMangas
-    const currentPage = getFromStorage('topic') === 'anime' ? currentAnimePage : currentMangaPage
-    const lastPage = getFromStorage('topic') === 'anime' ? lastAnimePage : lastMangaPage
+    const topic = getFromStorage('topic')
 
     useEffect(() => {
-        getFromStorage('topic') === 'anime'? dispatch(fetchPaginatedAnimes(currentPage)) : dispatch(fetchPaginatedMangas(currentPage))
-    },[currentPage, getFromStorage('topic')])
+        if(topic === 'anime'){
+            dispatch(isTitleFlag('anime'))
+        } else if(topic === 'manga'){
+            dispatch(isTitleFlag('manga'))
+        }
+        dispatch(fetchPaginatedTitles(currentTitlePage))
+    },[currentTitlePage, topic, isTitle])
 
     return(
         <>
@@ -30,11 +28,11 @@ export const Titles: React.FC = () => {
                 paginatedTitles={paginatedTitles}
             />
             <Pagination 
-                count={lastPage} 
+                count={lastTitlePage} 
                 defaultPage={1}
                 color="primary"
-                onChange={(e, value) => dispatch(getFromStorage('topic') === 'anime' ? setCurrentAnimePage(value) : setCurrentMangaPage(value))}
+                onChange={(e, value) => dispatch(setCurrentTitlePage(value))}
             />
         </>
-        )
-    }
+    )
+}

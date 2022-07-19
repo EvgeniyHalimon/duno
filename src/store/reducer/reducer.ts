@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
-import updateAnimes from "./anime-reducer/anime-reducer";
-import updateMangas from "./manga-reducer/manga-reducer";
+
+import updateTitles from "./title-reducer/title-reducer";
 
 const reducer = combineReducers({
-    anime: updateAnimes,
-    manga: updateMangas
+    title: updateTitles
 })
 
 export default reducer

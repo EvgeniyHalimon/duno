@@ -1,47 +1,38 @@
 import { useEffect, useState } from "react";
-
 import { useDispatch } from "react-redux";
+import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
 import { Navigation } from "../components/Navigation/Navigation";
 import { Loading } from "../components/Loading";
-
-import { fetchPopularAnime, isAnimeFlag } from "../store/actions/anime-action-creators";
-import { fetchPopularManga, isMangaFlag } from "../store/actions/manga-action-creators";
-
+import { fetchPopularTitle, isTitleFlag } from "../store/actions/title-action-creators";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
-
-import { Pagination } from "@mui/material";
 
 export const Popular: React.FC = () => {
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1)
+    const {popularTitle, lastTitlePage, isTitle} = useTypesSelector(state => state.title)
 
-    const {popularAnime, lastAnimePage} = useTypesSelector(state => state.anime)
-    const {popularManga, lastMangaPage} = useTypesSelector(state => state.manga)
-
-    const paginatedTitles = getFromStorage('topic') === 'anime' ? popularAnime : popularManga
-    const lastPage = getFromStorage('topic') === 'anime' ? lastAnimePage : lastMangaPage
+    const topic = getFromStorage('topic')
 
     useEffect(() => {
-        if(getFromStorage('topic') === "anime"){
-            dispatch(isAnimeFlag(true))
-            dispatch(fetchPopularAnime(currentPage))
-        } else if(getFromStorage('topic') === "manga"){
-            dispatch(isMangaFlag(true))
-            dispatch(fetchPopularManga(currentPage)) 
+        if(topic === 'anime'){
+            dispatch(isTitleFlag('anime'))
+        } else if(topic === 'manga'){
+            dispatch(isTitleFlag('manga'))
         }
-    },[getFromStorage('topic'), currentPage, lastPage])
+        dispatch(fetchPopularTitle(currentPage))
+    },[topic, currentPage, isTitle])
 
     return(
-        paginatedTitles.length !== 0 ?
+        popularTitle.length !== 0 ?
         <div className="wrapper">
             <Navigation/>
             <div className="wrapper-popular">
-                <PaginatedTitles paginatedTitles={paginatedTitles}/>
+                <PaginatedTitles paginatedTitles={popularTitle}/>
                 <Pagination 
-                    count={lastPage} 
+                    count={lastTitlePage} 
                     color="primary"
                     onChange={(e, value) => setCurrentPage(value)}
                 />

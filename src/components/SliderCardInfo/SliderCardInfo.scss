@@ -65,6 +65,18 @@
   }
 }
 
+@media screen and (min-width: 1800px){
+  .slide{
+    margin-right: 14px;
+  }
+}
+
+@media screen and (max-width: 1800px){
+  .slide{
+    margin-right: 13px;
+  }
+}
+
 @media screen and (max-width: 1200px){
   .slide{
     margin-right: 11px;
@@ -96,12 +108,6 @@
     &-poster{
       margin-right: 0;
     }
-  }
-}
-
-@media screen and (max-width: 1800px){
-  .slide{
-    margin-right: 13px;
   }
 }
 

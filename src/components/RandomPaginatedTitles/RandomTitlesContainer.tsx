@@ -1,29 +1,28 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
 
 import { SliderCardInfo } from "../SliderCardInfo/SliderCardInfo";
 import { Slider } from "../Slider/Slider";
-
 import { useTypesSelector } from "../../hooks/useTypesSelector";
-import { fetchRandomAnime } from "../../store/actions/anime-action-creators";
-import { fetchRandomManga } from "../../store/actions/manga-action-creators";
-
-import { ITitle } from "../../types/types";
-
+import { fetchRandomTitle, isTitleFlag } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
-
+import { ITitle } from "../../types/types";
 import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer: React.FC = () => {
     const dispatch = useDispatch()
-    const {randomAnimes} = useTypesSelector(state => state.anime)
-    const {randomMangas} = useTypesSelector(state => state.manga)
-    const randomTitles = getFromStorage('topic') === 'anime' ? randomAnimes : randomMangas
+    const {randomTitles, isTitle} = useTypesSelector(state => state.title)
+
+    const topic = getFromStorage('topic')
 
     useEffect(() => {
-        getFromStorage('topic') === 'anime' ? dispatch(fetchRandomAnime()) : dispatch(fetchRandomManga())
-    },[getFromStorage('topic')])
+        if(topic === 'anime'){
+            dispatch(isTitleFlag('anime'))
+        } else if(topic === 'manga'){
+            dispatch(isTitleFlag('manga'))
+        }
+        dispatch(fetchRandomTitle())
+    },[topic, isTitle])
 
     return(
         <div className="slider-section">

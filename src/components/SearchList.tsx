@@ -1,45 +1,36 @@
 import { useState, useEffect } from "react";
-
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Button, Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "./PaginatedTitles/PaginatedTitles";
 import { Loading } from "./Loading";
-
 import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchAnimeSearch } from "../store/actions/anime-action-creators";
-import { fetchMangaSearch } from "../store/actions/manga-action-creators";
+import { fetchTitleSearch } from "../store/actions/title-action-creators";
 
-import { getFromStorage } from "../utils/storage";
-
-import { Button, Pagination } from "@mui/material";
 
 export const SearchResultList: React.FC = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1)
-    const {animeSearchResult, lastAnimePage, isAnime} = useTypesSelector(state => state.anime)
-    const {mangaSearchResult, lastMangaPage, isManga} = useTypesSelector(state => state.manga)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const {titleSearchResult, lastTitlePage} = useTypesSelector(state => state.title)
 
-    const searchTerm = getFromStorage('searchTerm')
-
-    const paginatedTitles = getFromStorage('topic') === "anime" ? animeSearchResult : mangaSearchResult
-    const lastPage = getFromStorage('topic') === "anime" ? lastAnimePage : lastMangaPage
-
+    const searchTerm = searchParams.get('search')
 
     useEffect(() => {
-        getFromStorage('topic') === "anime" ? dispatch(fetchAnimeSearch(searchTerm, currentPage)) : dispatch(fetchMangaSearch(searchTerm, currentPage))
-    },[currentPage, isAnime, isManga])
+        dispatch(fetchTitleSearch(searchTerm, currentPage))
+    },[currentPage])
 
     return(
-        paginatedTitles ?
+        titleSearchResult ?
         <div className="wrapper-genre">
             <Button className="back-button" onClick={() => navigate('/')}>
                 <p className="back-button">Back to main page </p>
             </Button>
-            <PaginatedTitles paginatedTitles={paginatedTitles}/>
+            <PaginatedTitles paginatedTitles={titleSearchResult}/>
             <Pagination 
-                count={lastPage} 
+                count={lastTitlePage} 
                 color="primary"
                 onChange={(e, value) => setCurrentPage(value)}
             />
