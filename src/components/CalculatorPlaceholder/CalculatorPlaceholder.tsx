@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useDispatch } from "react-redux"
 
 import { TitlesPopUp } from "../TitlesPopUp/TitlesPopUp"
