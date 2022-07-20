@@ -1,6 +1,6 @@
 import { Box, Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { isTitleFlag } from '../../store/actions/title-action-creators';
+import { isTitleFlag, setCurrentTitlePage } from '../../store/actions/title-action-creators';
 
 import { setToStorage } from "../../utils/storage";
 
@@ -11,8 +11,10 @@ export const Switcher: React.FC = () => {
         setToStorage("topic", string)
         if(string === 'anime'){
             dispatch(isTitleFlag('anime'))
+            dispatch(setCurrentTitlePage(1))
         } else if(string === 'manga'){
             dispatch(isTitleFlag('manga'))
+            dispatch(setCurrentTitlePage(1))
         }
     }
 

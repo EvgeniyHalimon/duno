@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create snap 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="sidebar MuiBox-root css-i9gxme"
+    >
+      <ul
+        class="navigation"
+      >
+        <li>
+          <a
+            class="navigation-link"
+            href="/"
+          >
+            HOME
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current="page"
+            class="navigation-link active"
+            href="/popular"
+          >
+            POPULAR
+          </a>
+        </li>
+        <li>
+          <a
+            class="navigation-link"
+            href="/genres"
+          >
+            GENRES
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      data-testid="location-display"
+    >
+      /popular
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -10,6 +10,7 @@ import { getFromStorage } from "../utils/storage";
 export const Titles: React.FC = () => {
     const dispatch = useDispatch()
     const {paginatedTitles, lastTitlePage, currentTitlePage, isTitle} = useTypesSelector(state => state.title)
+    console.log("🚀 ~ file: Titles.tsx ~ line 13 ~ currentTitlePage", currentTitlePage)
 
     const topic = getFromStorage('topic')
 
@@ -30,6 +31,7 @@ export const Titles: React.FC = () => {
             <Pagination 
                 count={lastTitlePage} 
                 defaultPage={1}
+                page={currentTitlePage}
                 color="primary"
                 onChange={(e, value) => dispatch(setCurrentTitlePage(value))}
             />

@@ -1,20 +1,34 @@
-import {render, screen} from "@testing-library/react";
-import { createMemoryHistory } from "history";
-import { Router } from "react-router-dom";
-import App from "../../App";
+import {Link, Route, Routes, useLocation} from 'react-router-dom'
+import {render, screen, fireEvent} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
+import {BrowserRouter, MemoryRouter} from 'react-router-dom'
+import { Navigation } from './Navigation'
 
-import { Navigation } from "./Navigation";
+export const LocationDisplay = () => {
+  const location = useLocation()
 
-/* describe('Navigation', () => {
-    it('Nav', () => {
-        const history = createMemoryHistory()
-        history.push('/home')
-        render(
-            <Router location={history.location} navigator={history}>
-                <App/>
-            </Router>
-        )
+  return <div data-testid="location-display">{location.pathname}</div>
+}
 
-        expect(screen.getByText(/home/i)).toBeInTheDocument()
-    });
-}); */
+export const App = () => (
+  <div>
+    <Navigation/>
+
+    <LocationDisplay />
+  </div>
+)
+
+
+
+test('full app rendering/navigating', async () => {
+  render(<App />, {wrapper: BrowserRouter})
+
+  fireEvent.click(screen.getByText("POPULAR"))
+  expect(screen.getByTestId('location-display')).toHaveTextContent('/popular');
+})
+
+test('Create snap', () => {
+    const govna = render(<BrowserRouter><App /></BrowserRouter>)
+    expect(govna.asFragment()).toMatchSnapshot()
+})

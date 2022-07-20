@@ -17,7 +17,7 @@ export const Navigation: React.FC = () => {
                 </li>
                 <li>
                     <NavLink 
-                        to={'/popular'}
+                        to='/popular'
                         className="navigation-link"
                     >
                         POPULAR</NavLink>
