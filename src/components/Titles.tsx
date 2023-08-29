@@ -7,7 +7,7 @@ import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchPaginatedTitles, isTitleFlag, setCurrentTitlePage } from "../store/actions/title-action-creators";
 import { getFromStorage } from "../utils/storage";
 
-export const Titles: React.FC = () => {
+export const Titles = () => {
     const dispatch = useDispatch()
     const {paginatedTitles, lastTitlePage, currentTitlePage, isTitle} = useTypesSelector(state => state.title)
 

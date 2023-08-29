@@ -7,7 +7,7 @@ import { fetchCurrentTitle } from "../store/actions/title-action-creators";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
 
-export const TitleContainer: React.FC = () => {
+export const TitleContainer = () => {
 
     const {id} = useParams()
     const dispatch = useDispatch()

@@ -13,8 +13,7 @@ export const Reviews = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
 
-    const topic = getFromStorage('topic')
-    const isAnime = topic === 'anime'
+    const topic = getFromStorage('topic') as string;
     const {titleReviews, currentTitle} = useTypesSelector(state => state.title)
 
     useEffect(() => {
@@ -38,18 +37,13 @@ export const Reviews = () => {
                 {titleReviews && titleReviews.map((review: IReview) => 
                     <div className='review' key={review.mal_id}>
                         <div className='user'>
-                            <img className='user-image' src={review.user.images.webp.image_url} alt={`${review.user.username}-avatar`}/>
-                            <p className='user-username'>Review by <i>{review.user.username}</i></p>
+                            <img className='user-image' src={review.user.images.webp.image_url} alt={`${review?.user?.username}-avatar`}/>
+                            <p className='user-username'>Review by <i>{review?.user?.username}</i></p>
                         </div>
                         <div className='review-block'>
-                            <p className='review-block-text'>{review.review}</p>
-                            <p className='review-block-quantity'>{isAnime ? `Episodes watched : ${review.episodes_watched}` : `Chapter's read : ${review.chapters_read}`}</p>
+                            <p className='review-block-text'>{review?.review}</p>
                             <div className='review-block-score'>
-                                <p>Character: {review?.scores.character}</p>
-                                <p>Enjoyment: {review?.scores.enjoyment}</p>
-                                <p>{isAnime ? `Sound: ${review?.scores.sound}` : `Art: ${review?.scores.art}`}</p>
-                                <p>Story: {review?.scores.story}</p>
-                                <p>Overall: {review?.scores.overall}</p>
+                                <p>Score: {review?.score}</p>
                             </div>
                         </div>
                     </div>

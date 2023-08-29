@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, FC } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -14,7 +14,7 @@ interface ISliderInfo{
     title: ITitle
 }
 
-export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
+export const CurrentTitle: FC<ISliderInfo> = ({title}) => {
     const dispatch = useDispatch()
     const {titleReviews} = useTypesSelector(state => state.title)
     

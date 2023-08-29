@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Link } from "react-router-dom";
 
 import { getScoreColor } from "../../utils/getColor";
@@ -8,7 +9,7 @@ interface ISliderInfo{
     title: ITitle
 }
 
-export const SliderCardInfo: React.FC<ISliderInfo> = ({title}) => {
+export const SliderCardInfo: FC<ISliderInfo> = ({title}) => {
 
     const score = title.score || title.scored
 

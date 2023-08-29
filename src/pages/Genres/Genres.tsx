@@ -9,7 +9,7 @@ import { getFromStorage } from "../../utils/storage";
 import { IGenreData } from "../../types/types";
 import './Genres.scss'
 
-export const Genres: React.FC = () => {
+export const Genres = () => {
     const dispatch = useDispatch()
     const {titleGenres, isTitle} = useTypesSelector(state => state.title)
 

@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import { getScoreColor } from "../../utils/getColor";
@@ -8,7 +9,7 @@ interface IPaganatedTitle{
     title?: ITitle
 }
 
-export const Title: React.FC<IPaganatedTitle> = ({title}) => {
+export const Title: FC<IPaganatedTitle> = ({title}) => {
 
     const score: any = title?.score || title?.scored
     return(

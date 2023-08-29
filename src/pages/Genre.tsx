@@ -9,7 +9,7 @@ import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
 
 
-export const Genre: React.FC = () => {
+export const Genre = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {name} = useParams()

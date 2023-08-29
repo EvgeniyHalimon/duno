@@ -2,8 +2,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { Home } from './components/Home/Home';
-import { SearchResultList } from './components/SearchList';
+import { Home } from './pages/Home/Home';
+import { SearchResultList } from './pages/SearchList';
 import { Genres } from './pages/Genres/Genres';
 import { Genre } from './pages/Genre';
 import { TitleContainer } from './pages/TitleContainer';

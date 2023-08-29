@@ -3,13 +3,13 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button, Pagination } from "@mui/material";
 
-import { PaginatedTitles } from "./PaginatedTitles/PaginatedTitles";
-import { Loading } from "./Loading";
+import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
+import { Loading } from "../components/Loading";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchTitleSearch } from "../store/actions/title-action-creators";
 
 
-export const SearchResultList: React.FC = () => {
+export const SearchResultList = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1)

@@ -1,7 +1,9 @@
-export const Loading: React.FC = () => {
+import loadingGif from '../assets/anime-confused.gif'
+
+export const Loading = () => {
     return(
         <img 
-            src="https://starserv.ru/uploads/monthly_2020_10/AnguishedUnselfishGodwit-max-1mb.gif.a110174b0718aaffe053dde243a331e8.gif" 
+            src={loadingGif}
             alt="gif" 
             className="loading"  
         />

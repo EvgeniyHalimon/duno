@@ -9,7 +9,7 @@ import { fetchPopularTitle, isTitleFlag } from "../store/actions/title-action-cr
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
 
-export const Popular: React.FC = () => {
+export const Popular = () => {
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1)
     const {popularTitle, lastTitlePage, isTitle} = useTypesSelector(state => state.title)

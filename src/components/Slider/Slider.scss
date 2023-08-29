@@ -22,7 +22,10 @@
     background-color: #444444;
 
     &.active{
-      background-color: #2496FF;
+      background-color: #76767a;
     }
+  }
+  &-loader{
+    height: 479px;
   }
 }
