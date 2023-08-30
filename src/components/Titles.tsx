@@ -4,7 +4,7 @@ import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
 import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchPaginatedTitles, isTitleFlag, setCurrentTitlePage } from "../store/actions/title-action-creators";
+import { fetchPaginatedTitles, setCurrentTitlePage } from "../store/actions/title-action-creators";
 import { getFromStorage } from "../utils/storage";
 
 export const Titles = () => {
@@ -14,11 +14,6 @@ export const Titles = () => {
     const topic = getFromStorage('topic')
 
     useEffect(() => {
-        if(topic === 'anime'){
-            dispatch(isTitleFlag('anime'))
-        } else if(topic === 'manga'){
-            dispatch(isTitleFlag('manga'))
-        }
         dispatch(fetchPaginatedTitles(currentTitlePage))
     },[currentTitlePage, topic, isTitle])
 
