@@ -23,14 +23,6 @@ code {
     monospace;
 }
 
-.home{
-  display : flex;
-}
-
-.home-wrapper{
-  width: 100%;
-}
-
 .loading{
   display: flex;
   margin: 0 auto;
@@ -57,13 +49,19 @@ code {
   padding: 20px 0 10px 0;
 }
 
-.wrapper-genres, .current-title-wrapper, .wrapper-reviews{
-  height: 100vh;
+.current-title-wrapper, .wrapper-reviews{
+  height: calc(100vh - 61px);
   display: flex;
 }
 
 .wrapper-genre{
-  height: 100vh;
+  display: contents;
+  height: calc(100vh - 61px);
+}
+
+
+.wrapper-genres{
+  height: calc(100vh - 78px);
   padding: 0 20px;
 }
 

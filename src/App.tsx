@@ -12,6 +12,7 @@ import { Error } from './pages/404/404';
 import { ErrorSearch } from './pages/404/ErrorSearch';
 import { Reviews } from './pages/Reviews/Reviews';
 import { store } from './store/store';
+import { Layout } from './components/Layout/Layout';
 
 
 const theme = createTheme({
@@ -48,15 +49,17 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/popular' element={<Popular/>}/>
-            <Route path='/genres/:name' element={<Genre/>}/>
-            <Route path='/genres' element={<Genres/>}/>
-            <Route path='/search-result-list' element={<SearchResultList/>}/>
-            <Route path='/title/:id' element={<TitleContainer/>}/>
-            <Route path='/reviews/:id' element={<Reviews/>}/>
-            <Route path='/title-not-found' element={<ErrorSearch/>}/>
-            <Route path='*' element={<Error/>}/>
+            <Route element={<Layout />}>
+              <Route path='/' element={<Home />} />
+              <Route path='/popular' element={<Popular />} />
+              <Route path='/genres/:name' element={<Genre />} />
+              <Route path='/genres' element={<Genres />} />
+              <Route path='/search-result-list' element={<SearchResultList />} />
+              <Route path='/title/:id' element={<TitleContainer />} />
+              <Route path='/reviews/:id' element={<Reviews />} />
+              <Route path='/title-not-found' element={<ErrorSearch />} />
+              <Route path='*' element={<Error />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </Provider>

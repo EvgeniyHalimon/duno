@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { Navigation } from "../../components/Navigation/Navigation";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { fetchTitleGenres, setCleanUpGenres } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
@@ -11,10 +10,10 @@ import './Genres.scss'
 
 export const Genres = () => {
     const dispatch = useDispatch()
-    const {titleGenres, isTitle} = useTypesSelector(state => state.title)
+    const { titleGenres, isTitle } = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
-    
+
     const uniqueGenres = titleGenres?.reduce((accumulator: Record<number, IGenreData>, genre: IGenreData) => {
         if (!accumulator[genre.mal_id]) {
             accumulator[genre.mal_id] = {
@@ -26,37 +25,34 @@ export const Genres = () => {
         }
         return accumulator;
     }, {} as Record<number, IGenreData>);
-    
+
     const sortedGenres = Object.values(uniqueGenres).sort((a: IGenreData, b: IGenreData) => {
         return a.name.localeCompare(b.name);
     });
-    
+
 
     useEffect(() => {
         dispatch(fetchTitleGenres())
         return () => {
             dispatch(setCleanUpGenres())
         }
-    },[topic, isTitle])
+    }, [topic, isTitle])
 
-    return(
+    return (
         <div className="wrapper-genres">
-            <Navigation/>
-            <div>
-                <ul className="genre-list">
-                    {
-                        sortedGenres?.map((genre: IGenreData) => {
-                            return( 
-                                <li className='genre-name' key={genre.mal_id}>
-                                        <Link to={`/genres/${genre.mal_id}`} className='genre-name-link'>
-                                            <h3 className="heading">{genre.name}<sub>({genre.count})</sub></h3>
-                                        </Link>
-                                    </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
+            <ul className="genre-list">
+                {
+                    sortedGenres?.map((genre: IGenreData) => {
+                        return (
+                            <li className='genre-name' key={genre.mal_id}>
+                                <Link to={`/genres/${genre.mal_id}`} className='genre-name-link'>
+                                    <h3 className="heading">{genre.name}<sub>({genre.count})</sub></h3>
+                                </Link>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         </div>
     )
 }

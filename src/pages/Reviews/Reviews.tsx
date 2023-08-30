@@ -24,11 +24,9 @@ export const Reviews = () => {
     return(
         titleReviews.length === 0 ?
         <div className='wrapper-reviews'>
-            <Navigation/>
             <h1 className='review-title'>No review's yet</h1> 
         </div> :
         <div className='review-wrapper'>
-            <Navigation/>
             <div className='review-list'>
                 {
                     currentTitle ? <h1 className='review-list-title' id="top">Review's on {currentTitle.title}</h1> :

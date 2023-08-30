@@ -6,6 +6,7 @@ import { CurrentTitle } from "../components/CurrentTitle/CurrentTitle";
 import { fetchCurrentTitle } from "../store/actions/title-action-creators";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
+import { Loading } from "../components/Loading";
 
 export const TitleContainer = () => {
 
@@ -21,7 +22,7 @@ export const TitleContainer = () => {
     },[topic, id])
 
     if(!currentTitle){
-        return <h1>Loading..</h1> 
+        return <Loading/> 
     }
 
     return(

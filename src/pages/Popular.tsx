@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
-import { Navigation } from "../components/Navigation/Navigation";
 import { Loading } from "../components/Loading";
 import { fetchPopularTitle } from "../store/actions/title-action-creators";
 import { useTypesSelector } from "../hooks/useTypesSelector";
@@ -23,7 +22,6 @@ export const Popular = () => {
     return(
         popularTitle.length !== 0 ?
         <div className="wrapper">
-            <Navigation/>
             <div className="wrapper-popular">
                 <PaginatedTitles paginatedTitles={popularTitle}/>
                 <Pagination 

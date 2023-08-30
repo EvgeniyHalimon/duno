@@ -1,3 +1,10 @@
+.home{
+  display : flex;
+  &-wrapper{
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .home{
     display: block;

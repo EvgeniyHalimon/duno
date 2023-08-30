@@ -1,10 +1,9 @@
 .navigation {
   display: flex;
-  flex-direction: column;
   list-style-type: none;
-  padding-left: 10px;
+  padding: 0 20px;
   color: white;
-  gap: 10px;
+  gap: 15px;
 
   &-link {
     text-decoration: none;
@@ -22,14 +21,6 @@
   }
 }
 
-
-.sidebar{
-  padding-right: 20px;
-  border-right: 1px solid #424257;
-  flex-grow: 0 !important;
-  -webkit-box-flex: 1 !important;
-}
-
 .active{
   color: #2496FF !important;
   text-decoration: line-through;
@@ -39,7 +30,6 @@
   .navigation{
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
   }
 
   .sidebar{
