@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { Head } from "../../components/Header/Head";
 import { RandomTitlesContainer } from "../../components/RandomPaginatedTitles/RandomTitlesContainer";
-import { Titles } from "../../components/Titles";
+import { Titles } from "../../components/Titles/Titles";
 import { getFromStorage, setToStorage } from "../../utils/storage";
 import { useTypesSelector } from '../../hooks/useTypesSelector';
 import './Home.scss';

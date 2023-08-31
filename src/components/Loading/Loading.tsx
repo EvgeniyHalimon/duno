@@ -6,6 +6,7 @@ export const Loading = () => {
             src={loadingGif}
             alt="gif" 
             className="loading"  
+            data-testid="loading-gif"
         />
     )
 }

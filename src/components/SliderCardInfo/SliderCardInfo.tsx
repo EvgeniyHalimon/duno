@@ -24,7 +24,7 @@ export const SliderCardInfo: FC<ISliderInfo> = ({title}) => {
     
     return(
         <Link to={`/title/${title?.mal_id}`}>
-            <div className="slide">
+            <div className="slide" data-testid="slide">
                 <div className="slide-item">
                     <img className="slide-poster" src={title.images?.webp.image_url} alt={`${title.title}-poster`} />
                     <div className="slide-info">

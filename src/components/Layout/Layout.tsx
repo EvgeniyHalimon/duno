@@ -19,7 +19,7 @@ export const Layout = () => {
     },[isTitle])
 
     return (
-        <Box className="layout">
+        <Box className="layout" data-testid="layout">
             <Navigation/>
             <Outlet/>
         </Box>

@@ -2,7 +2,7 @@ import './SkeletonTitle.scss';
 
 const SkeletonTitle = () => {
   return (
-    <div className="skeleton">
+    <div className="skeleton" data-testid="skeleton-title">
       <div className="skeleton-poster"></div>
       <div className="skeleton-info">
         <div className="skeleton-line"></div>

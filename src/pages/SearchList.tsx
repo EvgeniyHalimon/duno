@@ -4,7 +4,7 @@ import {  useSearchParams } from "react-router-dom";
 import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
-import { Loading } from "../components/Loading";
+import { Loading } from "../components/Loading/Loading";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { fetchTitleSearch } from "../store/actions/title-action-creators";
 

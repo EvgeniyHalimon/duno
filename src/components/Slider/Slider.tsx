@@ -34,7 +34,7 @@ export const Slider: FC<ISlider> = ({children}) => {
     return(
         sliderPages !== 0 ? 
         <>
-            <div className="slide-show">
+            <div className="slide-show" data-testid="slider">
                 <div
                     className="slide-show-slider"
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
@@ -48,6 +48,7 @@ export const Slider: FC<ISlider> = ({children}) => {
                         key={idx}
                         className={`slide-show-dot${index === idx ? " active" : ""}`}
                         onClick={() => { setIndex(idx) }}
+                        data-testid="slide-dot"
                     >
                     </div>
                 ))}

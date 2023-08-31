@@ -6,7 +6,7 @@ import { CurrentTitle } from "../components/CurrentTitle/CurrentTitle";
 import { fetchCurrentTitle } from "../store/actions/title-action-creators";
 import { useTypesSelector } from "../hooks/useTypesSelector";
 import { getFromStorage } from "../utils/storage";
-import { Loading } from "../components/Loading";
+import { Loading } from "../components/Loading/Loading";
 
 export const TitleContainer = () => {
 
