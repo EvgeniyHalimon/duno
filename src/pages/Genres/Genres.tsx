@@ -45,8 +45,8 @@ export const Genres = () => {
                     sortedGenres?.map((genre: IGenreData) => {
                         return (
                             <li className='genre-name' key={genre.mal_id}>
-                                <Link to={`/genres/${genre.mal_id}`} className='genre-name-link'>
-                                    <h3 className="heading">{genre.name}<sub>({genre.count})</sub></h3>
+                                <Link to={`/genres/${genre.mal_id}`} className='genre-name-link' data-testid={`genre-link-${genre.mal_id}`}>
+                                    <h3 className="heading" data-testid="genre-name">{genre.name}<sub>({genre.count})</sub></h3>
                                 </Link>
                             </li>
                         )

@@ -5,46 +5,51 @@ import { getScoreColor } from "../../utils/getColor";
 import { ITitle } from "../../types/types";
 import './SliderCardInfo.scss'
 
-interface ISliderInfo{
-    title: ITitle
+interface ISliderInfo {
+  title: ITitle;
 }
 
-export const SliderCardInfo: FC<ISliderInfo> = ({title}) => {
+const GOLD_MEDAL = <span>&#129351;</span>;
+const SILVER_MEDAL = <span>&#129352;</span>;
+const BRONZE_MEDAL = <span>&#129353;</span>;
 
-    const score = title.score || title.scored
+export const SliderCardInfo: FC<ISliderInfo> = ({ title }) => {
+  const {
+    mal_id,
+    title: titleName,
+    title_japanese,
+    type,
+    aired,
+    published,
+    images,
+    score,
+    rank,
+    genres,
+    synopsis,
+  } = title;
 
-    const getPlaceEmoji = (rank: number | null | undefined) => {
-        if(rank){
-            if(rank === 1) return <span>&#129351;</span>
-            if(rank === 2) return <span>&#129352;</span>
-            if(rank === 3) return <span>&#129353;</span>
-        }
-        return rank
-    }
-    
-    return(
-        <Link to={`/title/${title?.mal_id}`}>
-            <div className="slide" data-testid="slide">
-                <div className="slide-item">
-                    <img className="slide-poster" src={title.images?.webp.image_url} alt={`${title.title}-poster`} />
-                    <div className="slide-info">
-                        <p className="info">{title.title} / {title.title_japanese}</p>
-                        <p className="info">{title.type}</p>
-                        <p className="info">{title.aired?.string || title.published?.string}</p>
-                        <p
-                            style={{color: getScoreColor(score)}} className="info"
-                        >Score: {score}</p>
-                        <p className="info">Rank: {getPlaceEmoji(title.rank)}</p>
-                        <div className="slide-genres">
-                            {title.genres.map((genre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
-                        </div>
-                        <p className="slide-synopsis info">
-                            {title.synopsis?.slice(0, 750)}
-                            <Link to={`/title/${title?.mal_id}`} className="slide-synopsis-link">...show more</Link>
-                        </p>
-                    </div>
-                </div>
+  return (
+    <Link to={`/title/${mal_id}`}>
+      <div className="slide" data-testid="slide">
+        <div className="slide-item">
+          <img className="slide-poster" src={images?.webp.image_url} alt={`${titleName}-poster`} />
+          <div className="slide-info">
+            <p className="info">{titleName} / {title_japanese}</p>
+            <p className="info">{type}</p>
+            <p className="info">{aired?.string || published?.string}</p>
+            <p style={{ color: getScoreColor(score) }} className="info">Score: {score}</p>
+            <p className="info">Rank: {rank === 1 ? GOLD_MEDAL : rank === 2 ? SILVER_MEDAL : rank === 3 ? BRONZE_MEDAL : rank}</p>
+            <div className="slide-genres">
+              {genres.map((genre) => <p className="slide-name" key={genre.mal_id}>{genre.name}</p>)}
             </div>
-        </Link >
-    )
+            <p className="slide-synopsis info">
+              {synopsis?.slice(0, 750)}
+              <Link to={`/title/${mal_id}`} className="slide-synopsis-link">...show more</Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
 }
+

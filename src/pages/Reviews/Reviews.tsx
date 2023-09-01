@@ -2,7 +2,6 @@ import {useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { Navigation } from '../../components/Navigation/Navigation';
 import { useTypesSelector } from '../../hooks/useTypesSelector';
 import { fetchCurrentTitle, fetchTitleReviews } from '../../store/actions/title-action-creators';
 import { getFromStorage } from '../../utils/storage';

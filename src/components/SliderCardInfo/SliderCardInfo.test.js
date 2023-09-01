@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { SliderCardInfo } from './SliderCardInfo'; // Путь к вашему компоненту
-
+import { SliderCardInfo } from './SliderCardInfo';
 const mockTitle = {
   mal_id: 1,
   title: 'Mock Title',

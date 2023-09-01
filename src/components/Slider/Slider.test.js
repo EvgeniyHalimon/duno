@@ -51,7 +51,7 @@ describe('Slider component', () => {
   it('renders skeleton card info when children are not available', () => {
     render(<Slider>{[]}</Slider>);
 
-    const skeletonPoster = screen.getByTestId('skeleton-poster');
+    const skeletonPoster = screen.getByTestId('skeleton-card');
     const skeletonInfo = screen.getByTestId('skeleton-info');
 
     expect(skeletonPoster).toBeInTheDocument();

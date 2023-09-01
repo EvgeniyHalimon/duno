@@ -1,4 +1,4 @@
-import loadingGif from '../assets/anime-confused.gif'
+import loadingGif from '../../assets/anime-confused.gif'
 
 export const Loading = () => {
     return(

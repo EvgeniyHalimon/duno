@@ -24,6 +24,7 @@ export const Search = () => {
         <input 
             type="text" 
             className="search-input"
+            data-testid="search-input"
             onChange={e => handler(e)}
             onKeyDown={(e) => navigateToList(e)}
         />

@@ -17,7 +17,7 @@ export const Switcher = () => {
     }
 
     return(
-        <Box className="switcher">
+        <Box className="switcher" data-testid="switcher">
             <Button
                 onClick={() => { chooseTopic('anime') }}
             >
