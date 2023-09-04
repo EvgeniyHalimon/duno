@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { Head } from './Head';
+import { Home } from './Home.tsx';
 import { store } from "../../store/store";
 
 describe('Home page', () => {
@@ -9,7 +9,7 @@ describe('Home page', () => {
         render(
             <Provider store={store}>
                 <BrowserRouter>
-                <Head/>
+                    <Home />
                 </BrowserRouter>
             </Provider>
         )
@@ -17,10 +17,10 @@ describe('Home page', () => {
         const head = screen.getByTestId("head")
         expect(head).toBeInTheDocument()
 
-        const title = screen.getByTestId("title")
-        expect(title).toBeInTheDocument()
+        const titles = screen.getByTestId("paginated-titles")
+        expect(titles).toBeInTheDocument()
 
-        const slider = screen.getByTestId("slider")
-        expect(slider).toBeInTheDocument()        
+        const slider = screen.getByTestId("skeleton-card")
+        expect(slider).toBeInTheDocument()
     });
 });

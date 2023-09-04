@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { Head } from "../../components/Header/Head";
+import { Head } from "../../components/Head/Head";
 import { RandomTitlesContainer } from "../../components/RandomPaginatedTitles/RandomTitlesContainer";
 import { Titles } from "../../components/Titles/Titles";
 import { getFromStorage, setToStorage } from "../../utils/storage";

@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Pagination } from "@mui/material";
 
-import { PaginatedTitles } from "../components/PaginatedTitles/PaginatedTitles";
-import { fetchPaginatedTitlesByGenre } from "../store/actions/title-action-creators";
-import { useTypesSelector } from "../hooks/useTypesSelector";
-import { getFromStorage } from "../utils/storage";
+import { PaginatedTitles } from "../../components/PaginatedTitles/PaginatedTitles";
+import { fetchPaginatedTitlesByGenre } from "../../store/actions/title-action-creators";
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { getFromStorage } from "../../utils/storage";
 
 
 export const Genre = () => {

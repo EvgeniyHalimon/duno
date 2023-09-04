@@ -27,7 +27,7 @@ export const RandomTitlesContainer = () => {
 
     return (
         <div className="slider-section">
-            <Slider>
+            <Slider data-testid="slider">
                 {randomTitles ? (
                     randomTitles.map((title: ITitle) =>
                         <SliderCardInfo title={title} key={title.url} />

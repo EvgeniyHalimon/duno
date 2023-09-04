@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { CurrentTitle } from "../components/CurrentTitle/CurrentTitle";
-import { fetchCurrentTitle } from "../store/actions/title-action-creators";
-import { useTypesSelector } from "../hooks/useTypesSelector";
-import { getFromStorage } from "../utils/storage";
-import { Loading } from "../components/Loading/Loading";
+import { CurrentTitle } from "../../components/CurrentTitle/CurrentTitle";
+import { fetchCurrentTitle } from "../../store/actions/title-action-creators";
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { getFromStorage } from "../../utils/storage";
+import { Loading } from "../../components/Loading/Loading";
 
-export const TitleContainer = () => {
+export const CertainTitle = () => {
 
     const {id} = useParams()
     const dispatch = useDispatch()

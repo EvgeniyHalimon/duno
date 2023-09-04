@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { Home } from './pages/Home/Home';
-import { SearchResultList } from './pages/SearchList';
+import { SearchResult } from './pages/SearchResult/SearchResult';
 import { Genres } from './pages/Genres/Genres';
-import { Genre } from './pages/Genre';
-import { TitleContainer } from './pages/TitleContainer';
-import { Popular } from './pages/Popular';
+import { Genre } from './pages/Genre/Genre';
+import { CertainTitle } from './pages/CertainTitle/CertainTitle';
+import { Popular } from './pages/Popular/Popular';
 import { Error } from './pages/404/404';
 import { ErrorSearch } from './pages/404/ErrorSearch';
 import { Reviews } from './pages/Reviews/Reviews';
@@ -54,8 +54,8 @@ function App() {
               <Route path='/popular' element={<Popular />} />
               <Route path='/genres/:name' element={<Genre />} />
               <Route path='/genres' element={<Genres />} />
-              <Route path='/search-result-list' element={<SearchResultList />} />
-              <Route path='/title/:id' element={<TitleContainer />} />
+              <Route path='/search-result-list' element={<SearchResult />} />
+              <Route path='/title/:id' element={<CertainTitle />} />
               <Route path='/reviews/:id' element={<Reviews />} />
               <Route path='/title-not-found' element={<ErrorSearch />} />
               <Route path='*' element={<Error />} />

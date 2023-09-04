@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { Head } from './Head';
+import { Head } from './Head.tsx';
 import { store } from "../../store/store";
 
 describe('Head component', () => {

@@ -9,11 +9,11 @@ import { getFromStorage } from "../../utils/storage";
 import { IGenre, ITitle } from "../../types/types";
 import './CurrentTitle.scss'
 
-interface ISliderInfo{
+interface ITitleInfo{
     title: ITitle
 }
 
-export const CurrentTitle: FC<ISliderInfo> = ({title}) => {
+export const CurrentTitle: FC<ITitleInfo> = ({title}) => {
     const dispatch = useDispatch()
     const {titleReviews} = useTypesSelector(state => state.title)
     
