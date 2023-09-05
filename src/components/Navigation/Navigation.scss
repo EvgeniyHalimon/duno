@@ -1,26 +1,24 @@
-.navigation{
+.navigation {
+  display: flex;
   list-style-type: none;
-  padding-left: 10px;
+  padding: 0 20px;
+  color: white;
+  gap: 15px;
 
-  &-link{
+  &-link {
     text-decoration: none;
     font-size: clamp(20px, 25px, 30px);
+    color: inherit;
+    transition: color 0.3s ease; 
 
-    &:visited{
+    &:visited {
       color: inherit;
     }
 
-    &:hover{
-      color: #2496FF;
+    &:hover {
+      color: #2496ff;
     }
   }
-}
-
-.sidebar{
-  padding-right: 20px;
-  border-right: 1px solid #2496FF;
-  flex-grow: 0 !important;
-  -webkit-box-flex: 1 !important;
 }
 
 .active{
@@ -37,6 +35,6 @@
   .sidebar{
     padding: 0;
     border-right: none;
-    border-bottom: 1px solid #2496FF;
+    border-bottom: 1px solid #424257;
   }
 }

@@ -4,7 +4,7 @@ import { isTitleFlag } from '../../store/actions/title-action-creators';
 
 import { setToStorage } from "../../utils/storage";
 
-export const Switcher: React.FC = () => {
+export const Switcher = () => {
     const dispatch = useDispatch()
 
     function chooseTopic(string: string){
@@ -17,7 +17,7 @@ export const Switcher: React.FC = () => {
     }
 
     return(
-        <Box className="switcher">
+        <Box className="switcher" data-testid="switcher">
             <Button
                 onClick={() => { chooseTopic('anime') }}
             >

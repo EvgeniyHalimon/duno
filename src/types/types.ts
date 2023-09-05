@@ -80,5 +80,6 @@ export interface IReview{
         username: string,
         images: IImages
     },
-    scores: IScore
+    scores: IScore,
+    score: number
 }

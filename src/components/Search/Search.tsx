@@ -2,7 +2,7 @@ import {useState} from "react";
 import { useNavigate } from "react-router";
 import { setToStorage } from "../../utils/storage";
 
-export const Search: React.FC = () => {
+export const Search = () => {
     const navigate = useNavigate()
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -24,6 +24,7 @@ export const Search: React.FC = () => {
         <input 
             type="text" 
             className="search-input"
+            data-testid="search-input"
             onChange={e => handler(e)}
             onKeyDown={(e) => navigateToList(e)}
         />

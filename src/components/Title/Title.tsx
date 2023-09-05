@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import { getScoreColor } from "../../utils/getColor";
@@ -8,11 +9,11 @@ interface IPaganatedTitle{
     title?: ITitle
 }
 
-export const Title: React.FC<IPaganatedTitle> = ({title}) => {
+export const Title: FC<IPaganatedTitle> = ({title}) => {
 
     const score: any = title?.score || title?.scored
     return(
-        <Link className="titles-item" to={`/title/${title?.mal_id}`} key={title?.url}>     
+        <Link className="titles-item" to={`/title/${title?.mal_id}`} key={title?.url} data-testid='title'>     
                 <img className="title-poster" src={title?.images?.webp.image_url} alt={`${title?.title}-Poster`} />
                 <div className="title-info">
                     <p className="info">{title?.title} / {title?.title_japanese}</p> 

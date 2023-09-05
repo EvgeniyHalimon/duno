@@ -2,23 +2,18 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Pagination } from "@mui/material";
 
-import { PaginatedTitles } from './PaginatedTitles/PaginatedTitles';
-import { useTypesSelector } from "../hooks/useTypesSelector";
-import { fetchPaginatedTitles, isTitleFlag, setCurrentTitlePage } from "../store/actions/title-action-creators";
-import { getFromStorage } from "../utils/storage";
+import { PaginatedTitles } from '../PaginatedTitles/PaginatedTitles';
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { fetchPaginatedTitles, setCurrentTitlePage } from "../../store/actions/title-action-creators";
+import { getFromStorage } from "../../utils/storage";
 
-export const Titles: React.FC = () => {
+export const Titles = () => {
     const dispatch = useDispatch()
     const {paginatedTitles, lastTitlePage, currentTitlePage, isTitle} = useTypesSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 
     useEffect(() => {
-        if(topic === 'anime'){
-            dispatch(isTitleFlag('anime'))
-        } else if(topic === 'manga'){
-            dispatch(isTitleFlag('manga'))
-        }
         dispatch(fetchPaginatedTitles(currentTitlePage))
     },[currentTitlePage, topic, isTitle])
 
@@ -32,6 +27,7 @@ export const Titles: React.FC = () => {
                 defaultPage={1}
                 color="primary"
                 onChange={(e, value) => dispatch(setCurrentTitlePage(value))}
+                data-testid="pagination"
             />
         </>
     )

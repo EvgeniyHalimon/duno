@@ -5,7 +5,7 @@
 .review-list{
     &-title{
         text-align: center;
-        border-bottom: 1px solid #2496FF;
+        border-bottom: 1px solid #424257;
         margin: 0;
         padding: 20px;
     }
@@ -13,7 +13,7 @@
 
 .review{
     display: flex;
-    border-bottom: 2px solid #2496FF;
+    border-bottom: 2px solid #424257;
     padding: 20px;
 
     &-block{
@@ -47,12 +47,13 @@
 
 .user{
     z-index: 9;
+    
     &-image{
-        width: 100%;
+        width: 50px;
     }
 
     &-username{
-
+        width: 150px;
     }
 }
 

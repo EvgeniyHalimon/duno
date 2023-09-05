@@ -1,13 +1,13 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useRef, useState, FC } from "react";
 
-import {Loading} from "../Loading";
+import { SkeletonCardInfo } from "../SkeletonCardInfo/SkeletonCardInfo";
 import './Slider.scss'
 
 interface ISlider{
     children: ReactElement[]
 }
 
-export const Slider: React.FC<ISlider> = ({children}) => {
+export const Slider: FC<ISlider> = ({children}) => {
     const [index, setIndex] = useState(0)
     const timeoutRef:any = useRef(null)
 
@@ -32,9 +32,9 @@ export const Slider: React.FC<ISlider> = ({children}) => {
     },[index])
 
     return(
-        sliderPages ? 
+        sliderPages !== 0 ? 
         <>
-            <div className="slide-show">
+            <div className="slide-show" data-testid="slider">
                 <div
                     className="slide-show-slider"
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
@@ -48,10 +48,11 @@ export const Slider: React.FC<ISlider> = ({children}) => {
                         key={idx}
                         className={`slide-show-dot${index === idx ? " active" : ""}`}
                         onClick={() => { setIndex(idx) }}
+                        data-testid="slide-dot"
                     >
                     </div>
                 ))}
             </div>
-        </> : <Loading/>
+        </> : <SkeletonCardInfo/>
     )
 }

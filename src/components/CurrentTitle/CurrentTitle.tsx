@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, FC } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { Navigation } from "../Navigation/Navigation";
 import { fetchTitleReviews } from "../../store/actions/title-action-creators";
 import { useTypesSelector } from "../../hooks/useTypesSelector";
 import { getScoreColor } from "../../utils/getColor";
@@ -10,11 +9,11 @@ import { getFromStorage } from "../../utils/storage";
 import { IGenre, ITitle } from "../../types/types";
 import './CurrentTitle.scss'
 
-interface ISliderInfo{
+interface ITitleInfo{
     title: ITitle
 }
 
-export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
+export const CurrentTitle: FC<ITitleInfo> = ({title}) => {
     const dispatch = useDispatch()
     const {titleReviews} = useTypesSelector(state => state.title)
     
@@ -40,7 +39,6 @@ export const CurrentTitle: React.FC<ISliderInfo> = ({title}) => {
     
     return(
         <div className="current-title-wrapper">
-            <Navigation />
             <div
                 className="title"
             >

@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { CurrentTitle } from "../components/CurrentTitle/CurrentTitle";
-import { fetchCurrentTitle } from "../store/actions/title-action-creators";
-import { useTypesSelector } from "../hooks/useTypesSelector";
-import { getFromStorage } from "../utils/storage";
+import { CurrentTitle } from "../../components/CurrentTitle/CurrentTitle";
+import { fetchCurrentTitle } from "../../store/actions/title-action-creators";
+import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { getFromStorage } from "../../utils/storage";
+import { Loading } from "../../components/Loading/Loading";
 
-export const TitleContainer: React.FC = () => {
+export const CertainTitle = () => {
 
     const {id} = useParams()
     const dispatch = useDispatch()
@@ -21,7 +22,7 @@ export const TitleContainer: React.FC = () => {
     },[topic, id])
 
     if(!currentTitle){
-        return <h1>Loading..</h1> 
+        return <Loading/> 
     }
 
     return(

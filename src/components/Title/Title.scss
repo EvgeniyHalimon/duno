@@ -1,7 +1,6 @@
 .titles-item{
   padding: 20px;
-  border: 1px solid #2496FF;
-  margin: 0 10px 20px 0;
+  border: 1px solid #424257;
   width: 250px;
   border-radius: 20px;
   background: linear-gradient(180deg, #303035, #1D1D28);
@@ -50,10 +49,4 @@
 .title-poster{
   display: flex;
   margin: 0 auto 10px auto;
-}
-
-@media screen and (max-width:625px) {
-  .titles-item{
-    margin-right: 0;
-  }
 }
