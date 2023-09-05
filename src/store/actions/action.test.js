@@ -4,7 +4,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './title-action-creators';
 import { TitleActionTypes } from '../action-types/title-action-types';
-import moxios from 'moxios'
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -192,22 +191,14 @@ const initialState = {
 
 describe('fetchPopularTitle action', () => {
 
-    beforeEach(() => {
-        moxios.install();
-    });
-
-    afterEach(() => {
-        moxios.uninstall();
-    });
+    
 
     it('should fetch popular titles and dispatch the correct actions', () => {
         const page = 1;
         const mockLastVisiblePage = 5;
         const mockTopic = 'anime';
 
-        moxios.stubRequest('popular', {
-            response: mockPopularTitles,
-        });
+        
 
         const store = mockStore(initialState);
 
