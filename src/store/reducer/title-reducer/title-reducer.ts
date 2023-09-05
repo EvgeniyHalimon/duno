@@ -19,7 +19,7 @@ const initialState: IInitialStateTitle = {
     titleReviews: []
 }
 
-const updateAnimes = (state = initialState, action: TitleAction) => {
+const updateTitles = (state = initialState, action: TitleAction) => {
     switch(action.type){
         case TitleActionTypes.SET_TITLES:
             return{
@@ -136,4 +136,4 @@ const updateAnimes = (state = initialState, action: TitleAction) => {
     }
 }
 
-export default updateAnimes
+export default updateTitles
