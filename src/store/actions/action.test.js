@@ -1,21 +1,24 @@
+/* eslint-disable jest/valid-expect-in-promise */
+/* eslint-disable testing-library/await-async-utils */
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './title-action-creators';
 import { TitleActionTypes } from '../action-types/title-action-types';
-import * as fetchFunctions from '../../utils/axiosGet.ts'
-import { store } from '../store.ts'
+import moxios from 'moxios'
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-jest.mock('../../utils/axiosGet.ts', () => ({
-    fetchAnimeData: {
-        fetchPopularAnime: jest.fn(),
-    },
-    fetchMangaData: {
-        fetchPopularManga: jest.fn(),
-    },
-}));
+describe('title action creators', () => {
+    it('should create an action to SET_IS_TITLE', () => {
+        const data = 'anime';
+        const expectedAction = {
+            type: TitleActionTypes.SET_IS_TITLE,
+            payload: data
+        };
+        expect(actions.isTitleFlag(data)).toEqual(expectedAction);
+    });
+});
 
 const mockPopularTitles = [
     {
@@ -170,43 +173,53 @@ const mockPopularTitles = [
     },
 ];
 
-/* describe('fetchPopularTitle action', () => {
-    
+const initialState = {
+    titles: [],
+    randomTitles: [],
+    titleError: false,
+    paginatedTitles: [],
+    lastTitlePage: 1,
+    isTitle: 'anime',
+    titleSearchResult: [],
+    searchTitleValue: "Berserk",
+    titleGenres: [],
+    titleByGenre: [],
+    currentTitle: null,
+    currentTitlePage: 1,
+    popularTitle: [],
+    titleReviews: []
+}
+
+describe('fetchPopularTitle action', () => {
+
+    beforeEach(() => {
+        moxios.install();
+    });
+
+    afterEach(() => {
+        moxios.uninstall();
+    });
+
     it('should fetch popular titles and dispatch the correct actions', () => {
         const page = 1;
-        const mockPopularTitlesData = mockPopularTitles;
         const mockLastVisiblePage = 5;
         const mockTopic = 'anime';
 
-        fetchFunctions.fetchAnimeData.fetchPopularAnime.mockResolvedValueOnce({
-            data: {
-                lastTitlePage: mockLastVisiblePage,
-                popularTitle: mockPopularTitlesData
-            },
+        moxios.stubRequest('popular', {
+            response: mockPopularTitles,
         });
 
+        const store = mockStore(initialState);
+
         const expectedActions = [
-            { type: TitleActionTypes.SET_POPULAR_TITLE, payload: mockPopularTitlesData },
+            { type: TitleActionTypes.SET_POPULAR_TITLE, payload: mockPopularTitles },
             { type: TitleActionTypes.SET_LAST_TITLE_PAGE, payload: mockLastVisiblePage },
             { type: TitleActionTypes.SET_IS_TITLE, payload: mockTopic },
         ];
-        
-        store.dispatch(actions.fetchPopularTitle(page));
-        console.log("🚀 ~ file: action.test.js:198 ~ it ~ store.dispatch(actions.fetchPopularTitle(page));:", store.dispatch(actions.fetchPopularTitle(page)))
 
-        const dispatchedActions = store.getState();
-        console.log("🚀 ~ file: action.test.js:200 ~ it ~ dispatchedActions:", dispatchedActions)
-        expect(dispatchedActions).toEqual(expectedActions);
-    });
-}); */
-
-describe('title action creators', () => {
-    it('should create an action to SET_IS_TITLE', () => {
-        const data = 'anime';
-        const expectedAction = {
-            type: TitleActionTypes.SET_IS_TITLE,
-            payload: data
-        };
-        expect(actions.isTitleFlag(data)).toEqual(expectedAction);
+        store.dispatch(actions.fetchPopularTitle(page)).then(() => {
+            console.log("🚀 ~ file: action.test.js:233 ~ awaitstore.dispatch ~ store.getActions():", store.getActions())
+            expect(store.getActions()).toEqual(expectedActions);
+        });
     });
 });
