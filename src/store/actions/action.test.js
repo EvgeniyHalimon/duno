@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import * as actions from './title-action-creators';
 import { TitleActionTypes } from '../action-types/title-action-types';
 import { fetchAnimeData, fetchMangaData } from '../../utils/fetch';
-import { mockPopularTitles } from './mockDataForTests';
+import { mockTitles, singleTitle } from './mockDataForTests';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -38,9 +38,43 @@ describe('title action creators', () => {
         };
         expect(actions.isTitleFlag(data)).toEqual(expectedAction);
     });
+
+    it('should create an action to SET_TITLES', () => {
+        const expectedAction = {
+            type: TitleActionTypes.SET_TITLES,
+            payload: singleTitle
+        };
+        expect(actions.setTitles(singleTitle)).toEqual(expectedAction);
+    });
+
+    it('should create an action to SET_RANDOM_TITLES', () => {
+        const expectedAction = {
+            type: TitleActionTypes.SET_RANDOM_TITLES,
+            payload: mockTitles
+        };
+        expect(actions.setRandomTitles(mockTitles)).toEqual(expectedAction);
+    });
+
+    it('should create an action to SET_PAGINATED_TITLES', () => {
+        const expectedAction = {
+            type: TitleActionTypes.SET_PAGINATED_TITLES,
+            payload: mockTitles
+        };
+        expect(actions.setPaginatedTitles(mockTitles)).toEqual(expectedAction);
+        expect(actions.setPaginatedTitles([])).toEqual({...expectedAction, payload: []});
+    });
+
+    it('should create an action to SET_LAST_TITLE_PAGE', () => {
+        const lastPage = 33
+        const expectedAction = {
+            type: TitleActionTypes.SET_LAST_TITLE_PAGE,
+            payload: lastPage
+        };
+        expect(actions.setLastTitlePage(lastPage)).toEqual(expectedAction);
+    });
 });
 
-describe('fetchPopularTitle action', () => {
+describe('fetchPopularTitle', () => {
     beforeEach(() => {
         Storage.prototype.getItem = jest.fn()
     })
@@ -49,7 +83,7 @@ describe('fetchPopularTitle action', () => {
         Storage.prototype.getItem.mockRestore()
     });
 
-    it('should fetch popular anime titles and dispatch the correct actions', async () => {
+    it('should fetchPopularTitle with anime flag and dispatch the correct actions', async () => {
         const page = 1;
         const mockLastVisiblePage = 5;
         const mockTopic = 'anime';
@@ -61,30 +95,30 @@ describe('fetchPopularTitle action', () => {
                 pagination: {
                     last_visible_page: mockLastVisiblePage,
                 },
-                data: mockPopularTitles
+                data: mockTitles
             }
         }
 
-        const mockFunction = fetchAnimeData.fetchPopularAnime.mockResolvedValue(response);
+        const animeMockFunction = fetchAnimeData.fetchPopularAnime.mockResolvedValue(response);
 
-        const mockFn = fetchMangaData.fetchPopularManga.mockResolvedValue(response)
+        const mangaMockFunction = fetchMangaData.fetchPopularManga.mockResolvedValue(response)
 
         Storage.prototype.getItem.mockReturnValue(mockTopic)
 
         const expectedActions = [
-            { type: TitleActionTypes.SET_POPULAR_TITLE, payload: mockPopularTitles },
+            { type: TitleActionTypes.SET_POPULAR_TITLE, payload: mockTitles },
             { type: TitleActionTypes.SET_LAST_TITLE_PAGE, payload: mockLastVisiblePage },
             { type: TitleActionTypes.SET_IS_TITLE, payload: mockTopic },
         ];
 
         await store.dispatch(actions.fetchPopularTitle(page))
         expect(store.getActions()).toEqual(expectedActions);
-        expect(mockFunction).toHaveBeenCalled();
-        expect(mockFn).not.toHaveBeenCalled();
-        expect(mockFunction).toHaveBeenCalledWith(page);
+        expect(animeMockFunction).toHaveBeenCalled();
+        expect(mangaMockFunction).not.toHaveBeenCalled();
+        expect(animeMockFunction).toHaveBeenCalledWith(page);
     });
 
-    it('should fetch popular manga titles and dispatch the correct actions', async () => {
+    it('should fetchPopularTitle with manga flag and dispatch the correct actions', async () => {
         const page = 1;
         const mockLastVisiblePage = 5;
         const mockTopic = 'manga';
@@ -96,30 +130,30 @@ describe('fetchPopularTitle action', () => {
                 pagination: {
                     last_visible_page: mockLastVisiblePage,
                 },
-                data: mockPopularTitles
+                data: mockTitles
             }
         }
 
-        const mockFn = fetchMangaData.fetchPopularManga.mockResolvedValue(response)
+        const mangaMockFunction = fetchMangaData.fetchPopularManga.mockResolvedValue(response)
 
-        const mockFunction = fetchAnimeData.fetchPopularAnime.mockResolvedValue(response);
+        const animeMockFunction = fetchAnimeData.fetchPopularAnime.mockResolvedValue(response);
 
         Storage.prototype.getItem.mockReturnValue(mockTopic)
 
         const expectedActions = [
-            { type: TitleActionTypes.SET_POPULAR_TITLE, payload: mockPopularTitles },
+            { type: TitleActionTypes.SET_POPULAR_TITLE, payload: mockTitles },
             { type: TitleActionTypes.SET_LAST_TITLE_PAGE, payload: mockLastVisiblePage },
             { type: TitleActionTypes.SET_IS_TITLE, payload: mockTopic },
         ];
 
         await store.dispatch(actions.fetchPopularTitle(page))
         expect(store.getActions()).toEqual(expectedActions);
-        expect(mockFunction).not.toHaveBeenCalled();
-        expect(mockFn).toHaveBeenCalled();
-        expect(mockFn).toHaveBeenCalledWith(page);
+        expect(animeMockFunction).not.toHaveBeenCalled();
+        expect(mangaMockFunction).toHaveBeenCalled();
+        expect(mangaMockFunction).toHaveBeenCalledWith(page);
     });
 
-    it('should throws error', async () => {
+    it('should throws error in fetchPopularTitle', async () => {
         const page = '1';
         const mockTopic = 'anime';
         const store = mockStore(initialState);

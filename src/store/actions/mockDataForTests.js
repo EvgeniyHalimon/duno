@@ -1,4 +1,4 @@
-export const mockPopularTitles = [
+export const mockTitles = [
     {
         url: 'https://example.com/title1',
         title: 'Title 1',
@@ -150,3 +150,34 @@ export const mockPopularTitles = [
         mal_id: 98765,
     },
 ];
+
+export const singleTitle = {
+    url: 'https://example.com/title1',
+    title: 'Title 1',
+    type: 'Anime',
+    score: '8.5',
+    rank: 1,
+    synopsis: 'Synopsis for Title 1',
+    images: {
+        webp: {
+            image_url: '',
+            large_image_url: undefined
+        }
+    },
+    aired: null,
+    genres: [
+        {
+            mal_id: 1,
+            name: 'Action',
+        },
+        {
+            mal_id: 2,
+            name: 'Adventure',
+        },
+    ],
+    duration: '24 min per episode',
+    episodes: 12,
+    rating: 'PG-13',
+    status: 'Finished Airing',
+    mal_id: 12345,
+}
