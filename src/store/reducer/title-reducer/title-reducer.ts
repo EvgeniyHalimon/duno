@@ -2,7 +2,7 @@ import { IInitialStateTitle } from "../../../types/types";
 import { TitleActionTypes } from "../../action-types/title-action-types";
 import { TitleAction } from "./types";
 
-const initialState: IInitialStateTitle = {
+export const initialState: IInitialStateTitle = {
     titles: [],
     randomTitles: [],
     titleError: false,

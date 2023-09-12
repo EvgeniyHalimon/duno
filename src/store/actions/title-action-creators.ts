@@ -36,6 +36,7 @@ export const setPaginatedTitles = (data: ITitle | []) => {
 }
 
 export const setLastTitlePage = (number: number) => {
+    console.log("🚀 ~ file: title-action-creators.ts:39 ~ setLastTitlePage ~ number:", number)
     return{
         type: TitleActionTypes.SET_LAST_TITLE_PAGE,
         payload: number
