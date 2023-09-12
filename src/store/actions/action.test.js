@@ -12,30 +12,22 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 jest.mock('../../utils/fetch')
-//reuse mocks
+
 const expectedError = [{
     payload: true,
     type: "SET_TITLE_ERROR",
 }]
 
 describe('title action creators', () => {
-    let store
-    beforeEach(() => {
-        store = mockStore(initialState);
-    })
-
-    afterEach(() => {
-        store.clearActions()
-    });
     it.each([
-        { type: TitleActionTypes.SET_IS_TITLE, payload: 'anime', action: actions.isTitleFlag},
-        { type: TitleActionTypes.SET_TITLES, payload: singleTitle, action: actions.setTitles},
-        { type: TitleActionTypes.SET_RANDOM_TITLES, payload: mockTitles, action: actions.setRandomTitles},
-        { type: TitleActionTypes.SET_LAST_TITLE_PAGE, payload: [33], action: actions.setLastTitlePage},
-        { type: TitleActionTypes.SET_PAGINATED_TITLES, payload: mockTitles, action: actions.setPaginatedTitles},
-        { type: TitleActionTypes.SET_PAGINATED_TITLES, payload: [], action: actions.setPaginatedTitles},
+        { type: TitleActionTypes.SET_IS_TITLE, payload: 'anime', action: actions.isTitleFlag('anime')},
+        { type: TitleActionTypes.SET_TITLES, payload: singleTitle, action: actions.setTitles(singleTitle)},
+        { type: TitleActionTypes.SET_RANDOM_TITLES, payload: mockTitles, action: actions.setRandomTitles(mockTitles)},
+        { type: TitleActionTypes.SET_LAST_TITLE_PAGE, payload: 33, action: actions.setLastTitlePage(33)},
+        { type: TitleActionTypes.SET_PAGINATED_TITLES, payload: mockTitles, action: actions.setPaginatedTitles(mockTitles)},
+        { type: TitleActionTypes.SET_PAGINATED_TITLES, payload: [], action: actions.setPaginatedTitles([])},
     ])('should create an action to $type', ({ type, payload, action }) => {
-        expect(action(payload)).toEqual({type, payload});
+        expect(action).toEqual({type, payload});
     });
 });
 
@@ -70,7 +62,6 @@ describe('fetchPopularTitle', () => {
 
     afterEach(() => {
         Storage.prototype.getItem.mockRestore()
-        store.clearActions()
     });
 
     it.each([
