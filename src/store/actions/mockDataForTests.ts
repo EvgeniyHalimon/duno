@@ -1,4 +1,6 @@
-export const mockTitles = [
+import { ITitle } from "../../types/types";
+
+export const mockTitles: ITitle[] = [
     {
         url: 'https://example.com/title1',
         title: 'Title 1',
@@ -151,7 +153,7 @@ export const mockTitles = [
     },
 ];
 
-export const singleTitle = {
+export const singleTitle: ITitle = {
     url: 'https://example.com/title1',
     title: 'Title 1',
     type: 'Anime',

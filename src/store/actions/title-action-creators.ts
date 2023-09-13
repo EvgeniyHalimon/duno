@@ -7,7 +7,7 @@ import { fetchAnimeData } from "../../utils/fetch";
 import { IGenreData, IReview } from './../../types/types';
 import { ITitle } from "../../types/types";
 
-export const setTitles = (data: ITitle) => {
+export const setTitles = (data: ITitle[]) => {
     return{
         type: TitleActionTypes.SET_TITLES,
         payload: data
@@ -28,7 +28,7 @@ export const setRandomTitles = (data: ITitle[]) => {
     }
 }
 
-export const setPaginatedTitles = (data: ITitle | []) => {
+export const setPaginatedTitles = (data: ITitle[] | []) => {
     return{
         type: TitleActionTypes.SET_PAGINATED_TITLES,
         payload: data
@@ -36,7 +36,6 @@ export const setPaginatedTitles = (data: ITitle | []) => {
 }
 
 export const setLastTitlePage = (number: number) => {
-    console.log("🚀 ~ file: title-action-creators.ts:39 ~ setLastTitlePage ~ number:", number)
     return{
         type: TitleActionTypes.SET_LAST_TITLE_PAGE,
         payload: number
