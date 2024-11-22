@@ -5,7 +5,7 @@ import { Pagination } from '@mui/material';
 import { PaginatedTitles } from '../../components/PaginatedTitles/PaginatedTitles';
 import { fetchPaginatedTitlesByGenre } from '../../store/actions/title-action-creators';
 import { useAppDispatch, useTypedSelector } from '../../hooks';
-import { getFromStorage } from '../../utils/storage';
+import { getFromStorage } from '../../utils';
 
 export const Genre = () => {
   const dispatch = useAppDispatch();

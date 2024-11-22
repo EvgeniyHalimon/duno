@@ -6,7 +6,7 @@ import {
   fetchRandomTitle,
   isTitleFlag,
 } from '../../store/actions/title-action-creators';
-import { getFromStorage } from '../../utils/storage';
+import { getFromStorage } from '../../utils';
 import { ITitle } from '../../types/types';
 import { SkeletonCardInfo } from '../SkeletonCardInfo/SkeletonCardInfo';
 import './RandomPaginatedTitles.scss';

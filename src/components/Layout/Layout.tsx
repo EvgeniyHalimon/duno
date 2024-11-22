@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { useEffect } from 'react';
 
 import { Navigation } from '../../components/Navigation/Navigation';
-import { getFromStorage, setToStorage } from '../../utils/storage';
+import { getFromStorage, setToStorage } from '../../utils';
 import { useTypedSelector } from '../../hooks';
 import { Outlet } from 'react-router-dom';
 import './Layout.scss';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { setToStorage } from '../../utils/storage';
+import { setToStorage } from '../../utils';
 
 export const Search = () => {
   const navigate = useNavigate();

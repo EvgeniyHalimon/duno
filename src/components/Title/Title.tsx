@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getScoreColor } from '../../utils/getColor';
+import { getScoreColor } from '../../utils';
 import { IGenre, ITitle } from '../../types/types';
 import './Title.scss';
 
@@ -16,8 +16,7 @@ export const Title: FC<IPaganatedTitle> = ({ title }) => {
       className="titles-item"
       to={`/title/${title?.mal_id}`}
       key={title?.url}
-      data-testid="title"
-    >
+      data-testid="title">
       <img
         className="title-poster"
         src={title?.images?.webp.image_url}

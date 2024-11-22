@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getScoreColor } from '../../utils/getColor';
+import { getScoreColor } from '../../utils';
 import { ITitle } from '../../types/types';
 import './SliderCardInfo.scss';
 

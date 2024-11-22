@@ -6,7 +6,7 @@ import {
   fetchTitleGenres,
   setCleanUpGenres,
 } from '../../store/actions/title-action-creators';
-import { getFromStorage } from '../../utils/storage';
+import { getFromStorage } from '../../utils';
 import { IGenreData } from '../../types/types';
 import './Genres.scss';
 
@@ -53,8 +53,7 @@ export const Genres = () => {
               <Link
                 to={`/genres/${genre.mal_id}`}
                 className="genre-name-link"
-                data-testid={`genre-link-${genre.mal_id}`}
-              >
+                data-testid={`genre-link-${genre.mal_id}`}>
                 <h3 className="heading" data-testid="genre-name">
                   {genre.name}
                   <sub>({genre.count})</sub>

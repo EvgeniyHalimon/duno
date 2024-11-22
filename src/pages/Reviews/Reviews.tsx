@@ -6,7 +6,7 @@ import {
   fetchCurrentTitle,
   fetchTitleReviews,
 } from '../../store/actions/title-action-creators';
-import { getFromStorage } from '../../utils/storage';
+import { getFromStorage } from '../../utils';
 import { IReview } from '../../types/types';
 import './Reviews.scss';
 

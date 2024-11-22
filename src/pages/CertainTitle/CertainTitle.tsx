@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { CurrentTitle } from '../../components/CurrentTitle/CurrentTitle';
 import { fetchCurrentTitle } from '../../store/actions/title-action-creators';
 
-import { getFromStorage } from '../../utils/storage';
+import { getFromStorage } from '../../utils';
 import { Loading } from '../../components/Loading/Loading';
 import { useAppDispatch, useTypedSelector } from '../../hooks';
 

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Search } from './Search';
 import { useNavigate } from 'react-router';
-import { setToStorage } from '../../utils/storage';
+import { setToStorage } from '../../utils';
 
 jest.mock('react-router');
 jest.mock('../../utils/storage');

@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Switcher } from './Switcher';
 import { useDispatch } from 'react-redux';
 import { isTitleFlag } from '../../store/actions/title-action-creators';
-import { setToStorage } from '../../utils/storage';
+import { setToStorage } from '../../utils';
 
 jest.mock('react-redux');
 jest.mock('../../utils/storage');

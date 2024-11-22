@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { fetchTitleReviews } from '../../store/actions/title-action-creators';
 import { useAppDispatch, useTypedSelector } from '../../hooks';
-import { getScoreColor } from '../../utils/getColor';
-import { getFromStorage } from '../../utils/storage';
+import { getFromStorage, getScoreColor } from '../../utils';
 import { IGenre, ITitle } from '../../types/types';
 import './CurrentTitle.scss';
 

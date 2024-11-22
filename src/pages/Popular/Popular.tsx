@@ -5,7 +5,7 @@ import { PaginatedTitles } from '../../components/PaginatedTitles/PaginatedTitle
 import { Loading } from '../../components/Loading/Loading';
 import { fetchPopularTitle } from '../../store/actions/title-action-creators';
 import { useAppDispatch, useTypedSelector } from '../../hooks';
-import { getFromStorage } from '../../utils/storage';
+import { getFromStorage } from '../../utils';
 
 export const Popular = () => {
   const dispatch = useAppDispatch();

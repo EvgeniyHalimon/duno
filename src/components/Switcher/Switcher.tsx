@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import { isTitleFlag } from '../../store/actions/title-action-creators';
 
-import { setToStorage } from '../../utils/storage';
+import { setToStorage } from '../../utils';
 import { useAppDispatch } from '../../hooks';
 
 export const Switcher = () => {
@@ -20,15 +20,13 @@ export const Switcher = () => {
       <Button
         onClick={() => {
           chooseTopic('anime');
-        }}
-      >
+        }}>
         <p className="topic">Anime</p>
       </Button>
       <Button
         onClick={() => {
           chooseTopic('manga');
-        }}
-      >
+        }}>
         <p className="topic">Manga</p>
       </Button>
     </Box>
