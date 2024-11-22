@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import './404.scss';
 
-export const Error = () => {
+export const ErrorPage = () => {
   const navigate = useNavigate();
 
   return (

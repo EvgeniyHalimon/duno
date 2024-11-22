@@ -1,6 +1,5 @@
 export const getFromStorage = (key: string): string | null => {
-  const topic: string | null = localStorage.getItem(key);
-  return topic;
+  return localStorage.getItem(key);
 };
 
 export const setToStorage = (key: string, value: string): void => {

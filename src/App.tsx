@@ -1,46 +1,19 @@
-import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
-import { Home } from './pages/Home/Home';
-import { SearchResult } from './pages/SearchResult/SearchResult';
-import { Genres } from './pages/Genres/Genres';
-import { Genre } from './pages/Genre/Genre';
-import { CertainTitle } from './pages/CertainTitle/CertainTitle';
-import { Popular } from './pages/Popular/Popular';
-import { Error } from './pages/404/404';
-import { ErrorSearch } from './pages/404/ErrorSearch';
-import { Reviews } from './pages/Reviews/Reviews';
-import { store } from './store/store';
+import {
+  Home,
+  Popular,
+  Genre,
+  Genres,
+  SearchResult,
+  CertainTitle,
+  Reviews,
+  ErrorSearch,
+  ErrorPage,
+} from './pages';
 import { Layout } from './components/Layout/Layout';
-
-const theme = createTheme({
-  spacing: 5,
-  components: {
-    MuiPagination: {
-      styleOverrides: {
-        ul: {
-          justifyContent: 'center',
-          paddingBottom: '20px !important',
-        },
-      },
-    },
-    MuiButtonBase: {
-      styleOverrides: {
-        root: {
-          color: 'white !important',
-        },
-      },
-    },
-    MuiPaginationItem: {
-      styleOverrides: {
-        root: {
-          color: 'white !important',
-        },
-      },
-    },
-  },
-});
+import { theme } from './MuiTheme';
 
 function App() {
   return (
@@ -56,7 +29,7 @@ function App() {
             <Route path="/title/:id" element={<CertainTitle />} />
             <Route path="/reviews/:id" element={<Reviews />} />
             <Route path="/title-not-found" element={<ErrorSearch />} />
-            <Route path="*" element={<Error />} />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
