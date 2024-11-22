@@ -1,4 +1,4 @@
-.slide{
+.slide {
   display: inline-block;
   width: 99%;
   border-radius: 25px;
@@ -6,9 +6,9 @@
   overflow: hidden;
   margin-right: 12px;
   white-space: initial;
-  background: linear-gradient(180deg, #303035, #1D1D28);
+  background: linear-gradient(180deg, #303035, #1d1d28);
 
-  &-item{
+  &-item {
     display: flex;
     align-items: center;
     height: 360px;
@@ -16,122 +16,122 @@
     color: inherit;
     padding: 20px;
 
-    & p{
+    & p {
       margin-right: 5px;
     }
   }
-  
-  &-info{
+
+  &-info {
     color: white;
-    .info{
+    .info {
       margin: 0 0 10px 0;
-      &:last-child{
+      &:last-child {
         margin: 0;
       }
     }
   }
-  
-  &-genres{
+
+  &-genres {
     display: flex;
 
-    & p{
+    & p {
       margin-right: 5px;
       margin-bottom: 5px;
       margin-top: 5px;
       font-size: 12px;
     }
-    
-    & p:last-child{
+
+    & p:last-child {
       margin-right: 0px;
     }
   }
 
-  &-name{
+  &-name {
     border: 1px solid #424257;
     background-color: rgba(70, 169, 214, 0.5);
     border-radius: 5px;
     padding: 0px 6px;
   }
 
-  &-poster{
+  &-poster {
     margin-right: 20px;
   }
-  
-  &-synopsis{
+
+  &-synopsis {
     word-wrap: break-word;
-    &-link{
+    &-link {
       font-size: 10px;
     }
   }
 }
 
-@media screen and (min-width: 1800px){
-  .slide{
+@media screen and (min-width: 1800px) {
+  .slide {
     margin-right: 14px;
   }
 }
 
-@media screen and (max-width: 1800px){
-  .slide{
+@media screen and (max-width: 1800px) {
+  .slide {
     margin-right: 13px;
   }
 }
 
-@media screen and (max-width: 1200px){
-  .slide{
+@media screen and (max-width: 1200px) {
+  .slide {
     margin-right: 11px;
   }
 }
 
-@media screen and (max-width: 1000px){
-  .slide{
+@media screen and (max-width: 1000px) {
+  .slide {
     width: 98%;
     margin-right: 14px;
 
-    &-synopsis{
+    &-synopsis {
       display: none;
     }
   }
 }
 
-@media screen and (max-width: 700px){
-  .slide{
+@media screen and (max-width: 700px) {
+  .slide {
     text-align: center;
     margin-right: 12px;
-    &-item{
+    &-item {
       display: block;
       height: 100%;
     }
-    &-genres{
+    &-genres {
       justify-content: center;
     }
-    &-poster{
+    &-poster {
       margin-right: 0;
     }
   }
 }
 
-@media screen and (max-width: 700px){
-  .slide{
+@media screen and (max-width: 700px) {
+  .slide {
     margin-right: 11px;
   }
 }
 
-@media screen and (max-width: 550px){
-  .slide{
+@media screen and (max-width: 550px) {
+  .slide {
     width: 97%;
     margin-right: 13px;
   }
 }
 
-@media screen and (max-width: 430px){
-  .slide{
+@media screen and (max-width: 430px) {
+  .slide {
     margin-right: 10px;
   }
 }
 
-@media screen and (max-width: 350px){
-  .slide{
+@media screen and (max-width: 350px) {
+  .slide {
     margin-right: 8px;
   }
 }

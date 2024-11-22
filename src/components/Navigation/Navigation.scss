@@ -9,7 +9,7 @@
     text-decoration: none;
     font-size: clamp(20px, 25px, 30px);
     color: inherit;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 
     &:visited {
       color: inherit;
@@ -21,18 +21,18 @@
   }
 }
 
-.active{
-  color: #2496FF !important;
+.active {
+  color: #2496ff !important;
   text-decoration: line-through;
 }
 
-@media screen and (max-width: 1200px){
-  .navigation{
+@media screen and (max-width: 1200px) {
+  .navigation {
     display: flex;
     justify-content: space-around;
   }
 
-  .sidebar{
+  .sidebar {
     padding: 0;
     border-right: none;
     border-bottom: 1px solid #424257;

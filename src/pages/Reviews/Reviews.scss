@@ -1,129 +1,130 @@
-.review-wrapper{
-    display: flex;
+.review-wrapper {
+  display: flex;
 }
 
-.review-list{
-    &-title{
-        text-align: center;
-        border-bottom: 1px solid #424257;
-        margin: 0;
-        padding: 20px;
-    }
-}
-
-.review{
-    display: flex;
-    border-bottom: 2px solid #424257;
+.review-list {
+  &-title {
+    text-align: center;
+    border-bottom: 1px solid #424257;
+    margin: 0;
     padding: 20px;
-
-    &-block{
-        padding-left: 20px;
-
-        &-text, &-quantity{
-            margin: 0 0 20px 0;
-        }
-
-        &-score{
-            display: flex;
-
-            & p{
-                margin: 0 10px 0 0;
-            }
-
-            & p:last-child{
-                margin-right: 0px;
-            }
-        }
-    }
-    
-    &:last-child{
-        border: none;
-    }
-
-    &-title{
-        margin-left: 20px;
-    }
+  }
 }
 
-.user{
-    z-index: 9;
-    
-    &-image{
-        width: 50px;
+.review {
+  display: flex;
+  border-bottom: 2px solid #424257;
+  padding: 20px;
+
+  &-block {
+    padding-left: 20px;
+
+    &-text,
+    &-quantity {
+      margin: 0 0 20px 0;
     }
 
-    &-username{
-        width: 150px;
+    &-score {
+      display: flex;
+
+      & p {
+        margin: 0 10px 0 0;
+      }
+
+      & p:last-child {
+        margin-right: 0px;
+      }
     }
+  }
+
+  &:last-child {
+    border: none;
+  }
+
+  &-title {
+    margin-left: 20px;
+  }
 }
 
-.anchor{
-    position: fixed;
-    color:#2496FF;
-    text-decoration: none;
-    top: 95%;
-    right: 95%;
-    width: 60px;
-    height: 20px;
-    font-size: 40px;
+.user {
+  z-index: 9;
 
-    .anchor:visited{
-        color: inherit;
-    }
+  &-image {
+    width: 50px;
+  }
+
+  &-username {
+    width: 150px;
+  }
+}
+
+.anchor {
+  position: fixed;
+  color: #2496ff;
+  text-decoration: none;
+  top: 95%;
+  right: 95%;
+  width: 60px;
+  height: 20px;
+  font-size: 40px;
+
+  .anchor:visited {
+    color: inherit;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .review-wrapper{
-        display: block;
-    }
+  .review-wrapper {
+    display: block;
+  }
 
-    .anchor{
-        top: 92%;
-        right: 93%;
-    }
+  .anchor {
+    top: 92%;
+    right: 93%;
+  }
 }
 
 @media screen and (max-width: 850px) {
-    .anchor{
-        right: 91%;
-    }
+  .anchor {
+    right: 91%;
+  }
 }
 
 @media screen and (max-width: 700px) {
-    .anchor{
-        right: 89%;
-    }
+  .anchor {
+    right: 89%;
+  }
 }
 
 @media screen and (max-width: 525px) {
-    .anchor{
-        right: 86%;
-    }
+  .anchor {
+    right: 86%;
+  }
 }
 
 @media screen and (max-width: 500px) {
-    .review{
-        display: block;
-    }
+  .review {
+    display: block;
+  }
 
-    .user{
-        text-align: center;
-        &-image{
-            width: 50%;
-        }
+  .user {
+    text-align: center;
+    &-image {
+      width: 50%;
     }
+  }
 
-    .review-block-text{
-        padding-left: 0;
-    }
+  .review-block-text {
+    padding-left: 0;
+  }
 
-    .review-block-score{
-        display: block;
-    }
+  .review-block-score {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .anchor{
-        right: 82%;
-    }
+  .anchor {
+    right: 82%;
+  }
 }

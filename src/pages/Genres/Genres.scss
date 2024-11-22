@@ -1,40 +1,40 @@
-.genre-list{
+.genre-list {
   display: flex;
   flex-wrap: wrap;
   padding: 0 25px;
 }
 
-.genre-name{
+.genre-name {
   list-style-type: none;
   cursor: pointer;
   margin: 0 10px 5px 0;
   padding: 5px;
   border-radius: 10px;
   border: 1px solid white;
-  background: linear-gradient(180deg, #303035, #1D1D28);
+  background: linear-gradient(180deg, #303035, #1d1d28);
 
-  &-link{
+  &-link {
     color: white;
     text-decoration: none;
-    &:visited{
+    &:visited {
       color: inherit;
     }
   }
 }
 
-.genres-name{
+.genres-name {
   border: 1px solid #424257;
   background-color: rgba(70, 169, 214, 0.5);
   border-radius: 5px;
   padding: 0px 6px;
 }
 
-.heading{
+.heading {
   margin: 0;
 }
 
 @media screen and (max-width: 768px) {
-  .genre-name{
+  .genre-name {
     margin: 0 5px 5px 0;
     font-size: 14px;
     padding: 3px;
@@ -42,11 +42,11 @@
 }
 
 @media screen and (max-width: 425px) {
-  .genre-name{
+  .genre-name {
     font-size: 12px;
   }
 
-  .genre-list{
+  .genre-list {
     padding: 0 4px;
   }
 }

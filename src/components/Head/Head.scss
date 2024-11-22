@@ -1,4 +1,4 @@
-.header{
+.header {
   border-bottom: 1px solid #424257;
   display: flex;
   align-items: center;
@@ -6,26 +6,26 @@
   height: 100px;
 }
 
-.switcher{
+.switcher {
   display: flex;
 }
 
-.topic{
+.topic {
   font-size: 18px;
   margin: 0;
-  color: #2496FF;
+  color: #2496ff;
 }
 
 @media screen and (max-width: 600px) {
-  .header{
+  .header {
     flex-direction: column-reverse;
   }
 
-  .switcher{
+  .switcher {
     padding: 5px;
   }
 
-  .search-input{
+  .search-input {
     width: 98%;
   }
 }

@@ -1,18 +1,18 @@
-.slide-show{
+.slide-show {
   margin: 0 auto;
   overflow: hidden;
   width: 81%;
 
-  &-slider{
+  &-slider {
     white-space: nowrap;
     transition: ease 1000ms;
   }
-  
-  &-dots{
+
+  &-dots {
     text-align: center;
   }
-  
-  &-dot{
+
+  &-dot {
     display: inline-block;
     height: 13px;
     width: 63px;
@@ -21,11 +21,11 @@
     margin: 15px 7px 0px;
     background-color: #444444;
 
-    &.active{
+    &.active {
       background-color: #76767a;
     }
   }
-  &-loader{
+  &-loader {
     height: 479px;
   }
 }
