@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { Reviews } from "./Reviews";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import {
     fetchCurrentTitle,
     fetchTitleReviews,
@@ -32,7 +32,7 @@ describe("Reviews component", () => {
     };
 
     beforeEach(() => {
-        dispatch.mockReturnValue(jest.fn());
+        useAppDispatch.mockReturnValue(jest.fn());
         useTypedSelector.mockReturnValue({
             titleReviews: mockReviews,
             currentTitle: mockTitle,
@@ -79,7 +79,7 @@ describe("Reviews component", () => {
             </MemoryRouter>
         );
 
-        expect(dispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
-        expect(dispatch()).toHaveBeenCalledWith(fetchCurrentTitle(1));
+        expect(useAppDispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
+        expect(useAppDispatch()).toHaveBeenCalledWith(fetchCurrentTitle(1));
     });
 });

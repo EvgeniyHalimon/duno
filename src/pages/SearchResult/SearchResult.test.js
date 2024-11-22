@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { SearchResult } from './SearchResult';
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchTitleSearch } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
@@ -73,7 +73,7 @@ describe('SearchResult page', () => {
     ];
 
     beforeEach(() => {
-        dispatch.mockReturnValue(jest.fn());
+        useAppDispatch.mockReturnValue(jest.fn());
         useTypedSelector.mockReturnValue({ titleSearchResult: mockSearchResults, lastTitlePage: 3 });
     });
 
@@ -114,6 +114,6 @@ describe('SearchResult page', () => {
             </MemoryRouter>
         );
 
-        expect(dispatch()).toHaveBeenCalledWith(fetchTitleSearch('Action', 1));
+        expect(useAppDispatch()).toHaveBeenCalledWith(fetchTitleSearch('Action', 1));
     });
 });

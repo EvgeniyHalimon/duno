@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchTitleGenres, setCleanUpGenres } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { IGenreData } from "../../types/types";
 import './Genres.scss'
 
 export const Genres = () => {
-    
+    const dispatch = useAppDispatch()
     const { titleGenres, isTitle } = useTypedSelector(state => state.title)
 
     const topic = getFromStorage('topic')

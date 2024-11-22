@@ -4,11 +4,11 @@ import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "../../components/PaginatedTitles/PaginatedTitles";
 import { Loading } from "../../components/Loading/Loading";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchTitleSearch } from "../../store/actions/title-action-creators";
 
 export const SearchResult = () => {
-    
+    const dispatch = useAppDispatch()
     const [currentPage, setCurrentPage] = useState(1)
     const [searchParams, setSearchParams] = useSearchParams()
     const {titleSearchResult, lastTitlePage} = useTypedSelector(state => state.title)

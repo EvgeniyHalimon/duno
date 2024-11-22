@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { CertainTitle } from './CertainTitle';
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchCurrentTitle } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
@@ -32,7 +32,7 @@ describe('CertainTitle component', () => {
   };
 
   beforeEach(() => {
-    dispatch.mockReturnValue(jest.fn());
+    useAppDispatch.mockReturnValue(jest.fn());
   });
 
   it('renders CertainTitle when CurrentTitle is available', () => {
@@ -72,6 +72,6 @@ describe('CertainTitle component', () => {
       </MemoryRouter>
     );
 
-    expect(dispatch()).toHaveBeenCalledWith(fetchCurrentTitle(id));
+    expect(useAppDispatch()).toHaveBeenCalledWith(fetchCurrentTitle(id));
   });
 });

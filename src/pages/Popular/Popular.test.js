@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { Popular } from './Popular';
-import { useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchPopularTitle } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
@@ -73,7 +73,7 @@ describe('Popular page', () => {
     ];
 
     beforeEach(() => {
-        dispatch.mockReturnValue(jest.fn());
+        useAppDispatch.mockReturnValue(jest.fn());
         useTypedSelector.mockReturnValue({ popularTitle: mockPopularTitles, lastTitlePage: 3 });
     });
 
@@ -113,6 +113,6 @@ describe('Popular page', () => {
             </MemoryRouter>
         );
 
-        expect(dispatch()).toHaveBeenCalledWith(fetchPopularTitle(1));
+        expect(useAppDispatch()).toHaveBeenCalledWith(fetchPopularTitle(1));
     });
 });

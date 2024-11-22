@@ -1,9 +1,8 @@
 import { useEffect, FC } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 import { fetchTitleReviews } from "../../store/actions/title-action-creators";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { getScoreColor } from "../../utils/getColor";
 import { getFromStorage } from "../../utils/storage";
 import { IGenre, ITitle } from "../../types/types";
@@ -14,7 +13,7 @@ interface ITitleInfo{
 }
 
 export const CurrentTitle: FC<ITitleInfo> = ({title}) => {
-    
+    const dispatch = useAppDispatch()
     const {titleReviews} = useTypedSelector(state => state.title)
     
     const topic = getFromStorage('topic')

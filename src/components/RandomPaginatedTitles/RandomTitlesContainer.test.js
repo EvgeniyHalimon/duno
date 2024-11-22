@@ -1,8 +1,7 @@
 /* eslint-disable testing-library/no-wait-for-multiple-assertions */
 import { render, screen, waitFor } from "@testing-library/react";
 import { RandomTitlesContainer } from "./RandomTitlesContainer";
-import { useDispatch } from "react-redux";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchRandomTitle, isTitleFlag } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { BrowserRouter } from 'react-router-dom';
@@ -14,8 +13,8 @@ jest.mock("../../utils/storage");
 
 describe("RandomTitlesContainer", () => {
     beforeEach(() => {
-        useDispatch.mockReturnValue(jest.fn());
-        useDispatch.mockClear();
+        useAppDispatch.mockReturnValue(jest.fn());
+        useAppDispatch.mockClear();
         useTypedSelector.mockClear();
         fetchRandomTitle.mockClear();
         isTitleFlag.mockClear();

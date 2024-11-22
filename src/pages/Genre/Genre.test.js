@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { Genre } from './Genre';
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchPaginatedTitlesByGenre } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
@@ -73,7 +73,7 @@ describe('Genre page', () => {
   ];
 
   beforeEach(() => {
-    dispatch.mockReturnValue(jest.fn());
+    useAppDispatch.mockReturnValue(jest.fn());
     useTypedSelector.mockReturnValue({ titleByGenre: mockTitles, lastTitlePage: 3 });
   });
 
@@ -115,6 +115,6 @@ describe('Genre page', () => {
       </MemoryRouter>
     );
 
-    expect(dispatch()).toHaveBeenCalledWith(fetchPaginatedTitlesByGenre('Action', 1));
+    expect(useAppDispatch()).toHaveBeenCalledWith(fetchPaginatedTitlesByGenre('Action', 1));
   });
 });

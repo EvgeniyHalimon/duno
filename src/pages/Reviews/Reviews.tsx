@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchCurrentTitle, fetchTitleReviews } from '../../store/actions/title-action-creators';
 import { getFromStorage } from '../../utils/storage';
 import { IReview } from '../../types/types';
@@ -9,7 +9,7 @@ import './Reviews.scss';
 
 export const Reviews = () => {
     const {id} = useParams()
-    
+    const dispatch = useAppDispatch()
 
     const topic = getFromStorage('topic') as string;
     const {titleReviews, currentTitle} = useTypedSelector(state => state.title)

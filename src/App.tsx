@@ -46,7 +46,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Provider store={store}>
+      
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
@@ -62,7 +62,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </Provider>
+     
     </ThemeProvider>
   );
 }

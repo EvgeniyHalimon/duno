@@ -4,12 +4,12 @@ import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "../../components/PaginatedTitles/PaginatedTitles";
 import { fetchPaginatedTitlesByGenre } from "../../store/actions/title-action-creators";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { getFromStorage } from "../../utils/storage";
 
 
 export const Genre = () => {
-    
+    const dispatch = useAppDispatch()
     const {name} = useParams()
     const [currentPage, setCurrentPage] = useState(1)
 

@@ -4,11 +4,11 @@ import { Pagination } from "@mui/material";
 import { PaginatedTitles } from "../../components/PaginatedTitles/PaginatedTitles";
 import { Loading } from "../../components/Loading/Loading";
 import { fetchPopularTitle } from "../../store/actions/title-action-creators";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { getFromStorage } from "../../utils/storage";
 
 export const Popular = () => {
-    
+    const dispatch = useAppDispatch()
     const [currentPage, setCurrentPage] = useState(1)
     const {popularTitle, lastTitlePage, isTitle} = useTypedSelector(state => state.title)
 

@@ -6,10 +6,10 @@ import { fetchCurrentTitle } from "../../store/actions/title-action-creators";
 
 import { getFromStorage } from "../../utils/storage";
 import { Loading } from "../../components/Loading/Loading";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 
 export const CertainTitle = () => {
-
+    const dispatch = useAppDispatch()
     const {id} = useParams()
 
     const {currentTitle} = useTypedSelector(state => state.title) 

@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { CurrentTitle } from "./CurrentTitle";
 import { fetchTitleReviews } from "../../store/actions/title-action-creators";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 
 jest.mock("react-redux");
 jest.mock("../../hooks/useTypedSelector");
@@ -33,7 +33,7 @@ describe("CurrentTitle component", () => {
   const mockTitleReviews = [{ id: 1, text: "Review 1" }, { id: 2, text: "Review 2" }];
 
   beforeEach(() => {
-    dispatch.mockReturnValue(jest.fn());
+    useAppDispatch.mockReturnValue(jest.fn());
     useTypedSelector.mockReturnValue({ titleReviews: mockTitleReviews });
   });
 
@@ -61,7 +61,7 @@ describe("CurrentTitle component", () => {
       </MemoryRouter>
     );
 
-    expect(dispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
+    expect(useAppDispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
   });
 
   it("displays correct number of reviews in the link", () => {

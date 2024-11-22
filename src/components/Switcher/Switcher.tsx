@@ -2,10 +2,10 @@ import { Box, Button } from '@mui/material';
 import { isTitleFlag } from '../../store/actions/title-action-creators';
 
 import { setToStorage } from "../../utils/storage";
-import { dispatch } from '../../hooks';
+import { useAppDispatch } from '../../hooks';
 
 export const Switcher = () => {
-    
+    const dispatch = useAppDispatch()
     const chooseTopic = (string: string) => {
         setToStorage("topic", string)
         if(string === 'anime'){

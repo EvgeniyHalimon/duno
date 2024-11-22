@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { SliderCardInfo } from "../SliderCardInfo/SliderCardInfo";
 import { Slider } from "../Slider/Slider";
-import { dispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from "../../hooks";
 import { fetchRandomTitle, isTitleFlag } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { ITitle } from "../../types/types";
@@ -9,7 +9,7 @@ import { SkeletonCardInfo } from "../SkeletonCardInfo/SkeletonCardInfo";
 import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer = () => {
-    
+    const dispatch = useAppDispatch()
     const { randomTitles, isTitle } = useTypedSelector(state => state.title)
 
     const topic = getFromStorage('topic')
