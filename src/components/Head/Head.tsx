@@ -1,7 +1,6 @@
 import { Box } from '@mui/system';
 
-import { Search } from '../Search/Search';
-import { Switcher } from '../Switcher/Switcher';
+import { Search, Switcher } from '..';
 import './Head.scss';
 
 export const Head = () => {

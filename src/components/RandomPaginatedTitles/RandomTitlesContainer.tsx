@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { SliderCardInfo } from '../SliderCardInfo/SliderCardInfo';
-import { Slider } from '../Slider/Slider';
+
+import { SkeletonCardInfo, Slider, SliderCardInfo } from '..';
 import { useAppDispatch, useTypedSelector } from '../../hooks';
 import {
   fetchRandomTitle,
@@ -8,7 +8,6 @@ import {
 } from '../../store/actions/title-action-creators';
 import { getFromStorage } from '../../utils';
 import { ITitle } from '../../types/types';
-import { SkeletonCardInfo } from '../SkeletonCardInfo/SkeletonCardInfo';
 import './RandomPaginatedTitles.scss';
 
 export const RandomTitlesContainer = () => {

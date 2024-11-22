@@ -1,6 +1,6 @@
 import './SkeletonTitle.scss';
 
-const SkeletonTitle = () => {
+export const SkeletonTitle = () => {
   return (
     <div className="skeleton" data-testid="skeleton-title">
       <div className="skeleton-poster"></div>
@@ -19,5 +19,3 @@ const SkeletonTitle = () => {
     </div>
   );
 };
-
-export default SkeletonTitle;

@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 import { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 
-import { Navigation } from '../../components/Navigation/Navigation';
+import { Navigation } from '..';
 import { getFromStorage, setToStorage } from '../../utils';
 import { useTypedSelector } from '../../hooks';
-import { Outlet } from 'react-router-dom';
 import './Layout.scss';
 
 export const Layout = () => {

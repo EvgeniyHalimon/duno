@@ -5,11 +5,11 @@ import { getScoreColor } from '../../utils';
 import { IGenre, ITitle } from '../../types/types';
 import './Title.scss';
 
-interface IPaganatedTitle {
+interface IPaginatedTitle {
   title?: ITitle;
 }
 
-export const Title: FC<IPaganatedTitle> = ({ title }) => {
+export const Title: FC<IPaginatedTitle> = ({ title }) => {
   const score: any = title?.score || title?.scored;
   return (
     <Link

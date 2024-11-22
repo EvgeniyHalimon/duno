@@ -6,14 +6,14 @@ export const Search = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
 
-  function navigateToList(e: any) {
+  const navigateToList = (e: any) => {
     if (e.key === 'Enter') {
       navigate({
         pathname: '/search-result-list',
         search: `?search=${searchTerm}`,
       });
     }
-  }
+  };
 
   const handler = (e: any) => {
     setSearchTerm(e.target.value);

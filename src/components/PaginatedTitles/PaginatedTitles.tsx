@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Title } from '../Title/Title';
+
+import { SkeletonTitle, Title } from '..';
 import { ITitle } from '../../types/types';
-import SkeletonTitle from '../SkeletonTitle/SkeletonTitle';
 import './PaginatedTitles.scss';
 
 interface IPaginatedTitles {

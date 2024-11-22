@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useRef, useState, FC } from 'react';
 
-import { SkeletonCardInfo } from '../SkeletonCardInfo/SkeletonCardInfo';
+import { SkeletonCardInfo } from '..';
 import './Slider.scss';
 
 interface ISlider {
@@ -11,11 +11,11 @@ export const Slider: FC<ISlider> = ({ children }) => {
   const [index, setIndex] = useState(0);
   const timeoutRef: any = useRef(null);
 
-  function resetTimeout() {
+  const resetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-  }
+  };
 
   const sliderPages = children.length;
 
@@ -36,8 +36,7 @@ export const Slider: FC<ISlider> = ({ children }) => {
       <div className="slide-show" data-testid="slider">
         <div
           className="slide-show-slider"
-          style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}
-        >
+          style={{ transform: `translate3d(${-index * 100}%, 0, 0` }}>
           {children}
         </div>
       </div>
@@ -51,8 +50,7 @@ export const Slider: FC<ISlider> = ({ children }) => {
               onClick={() => {
                 setIndex(idx);
               }}
-              data-testid="slide-dot"
-            ></div>
+              data-testid="slide-dot"></div>
           ))}
       </div>
     </>

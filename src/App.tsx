@@ -12,7 +12,7 @@ import {
   ErrorSearch,
   ErrorPage,
 } from './pages';
-import { Layout } from './components/Layout/Layout';
+import { Layout } from './components';
 import { theme } from './MuiTheme';
 
 function App() {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Pagination } from '@mui/material';
 
-import { PaginatedTitles } from '../PaginatedTitles/PaginatedTitles';
+import { PaginatedTitles } from '..';
 import { useAppDispatch, useTypedSelector } from '../../hooks';
 import {
   fetchPaginatedTitles,
