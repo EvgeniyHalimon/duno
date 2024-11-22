@@ -1,34 +1,40 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import { Genres } from "./Genres";
-import { useAppDispatch, useTypedSelector } from "../../hooks";
-import { fetchTitleGenres, setCleanUpGenres } from "../../store/actions/title-action-creators";
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { Genres } from './Genres';
+import { useAppDispatch, useTypedSelector } from '../../hooks';
+import {
+  fetchTitleGenres,
+  setCleanUpGenres,
+} from '../../store/actions/title-action-creators';
 
-jest.mock("react-redux");
-jest.mock("../../hooks/useTypedSelector");
-jest.mock("../../store/actions/title-action-creators");
+jest.mock('react-redux');
+jest.mock('../../hooks/useTypedSelector');
+jest.mock('../../store/actions/title-action-creators');
 
-describe("Genres component", () => {
+describe('Genres component', () => {
   const mockGenres = [
-    { mal_id: 1, name: "Action", count: 10, url: "/genres/1" },
-    { mal_id: 2, name: "Adventure", count: 5, url: "/genres/2" },
+    { mal_id: 1, name: 'Action', count: 10, url: '/genres/1' },
+    { mal_id: 2, name: 'Adventure', count: 5, url: '/genres/2' },
   ];
 
   beforeEach(() => {
     useAppDispatch.mockReturnValue(jest.fn());
-    useTypedSelector.mockReturnValue({ titleGenres: mockGenres, isTitle: false });
+    useTypedSelector.mockReturnValue({
+      titleGenres: mockGenres,
+      isTitle: false,
+    });
   });
 
-  it("renders a list of genres", () => {
+  it('renders a list of genres', () => {
     render(
       <MemoryRouter>
         <Genres />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    expect(screen.getAllByTestId("genre-name")).toHaveLength(mockGenres.length);
+    expect(screen.getAllByTestId('genre-name')).toHaveLength(mockGenres.length);
 
-    const genreNames = screen.getAllByTestId("genre-name");
+    const genreNames = screen.getAllByTestId('genre-name');
 
     expect(genreNames).toHaveLength(mockGenres.length);
 
@@ -39,24 +45,24 @@ describe("Genres component", () => {
       expect(genreName).toHaveTextContent(regex);
 
       const genreLink = screen.getByTestId(`genre-link-${genre.mal_id}`);
-      expect(genreLink).toHaveAttribute("href", genre.url);
+      expect(genreLink).toHaveAttribute('href', genre.url);
     });
   });
-  it("dispatches fetchTitleGenres on component mount", () => {
+  it('dispatches fetchTitleGenres on component mount', () => {
     render(
       <MemoryRouter>
         <Genres />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(useAppDispatch()).toHaveBeenCalledWith(fetchTitleGenres());
   });
 
-  it("dispatches setCleanUpGenres on component unmount", () => {
+  it('dispatches setCleanUpGenres on component unmount', () => {
     const { unmount } = render(
       <MemoryRouter>
         <Genres />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     unmount();

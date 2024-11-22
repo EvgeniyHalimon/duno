@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { Title } from './Title'; 
+import { Title } from './Title';
 
 const mockTitle = {
   mal_id: 1,
@@ -11,7 +11,10 @@ const mockTitle = {
   },
   aired: { string: 'Jan 2023' },
   type: 'TV',
-  genres: [{ mal_id: 1, name: 'Genre 1' }, { mal_id: 2, name: 'Genre 2' }],
+  genres: [
+    { mal_id: 1, name: 'Genre 1' },
+    { mal_id: 2, name: 'Genre 2' },
+  ],
   score: 8.0,
   rank: 1,
 };
@@ -21,13 +24,15 @@ describe('Title component', () => {
     render(
       <BrowserRouter>
         <Title title={mockTitle} />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const titleElement = screen.getByTestId('title');
     expect(titleElement).toBeInTheDocument();
 
-    expect(screen.getByText(/Mock Title \/ モックタイトル/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Mock Title \/ モックタイトル/),
+    ).toBeInTheDocument();
     expect(screen.getByText(/Jan 2023/)).toBeInTheDocument();
     expect(screen.getByText(/TV/)).toBeInTheDocument();
 

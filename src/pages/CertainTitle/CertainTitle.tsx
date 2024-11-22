@@ -1,30 +1,28 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { CurrentTitle } from "../../components/CurrentTitle/CurrentTitle";
-import { fetchCurrentTitle } from "../../store/actions/title-action-creators";
+import { CurrentTitle } from '../../components/CurrentTitle/CurrentTitle';
+import { fetchCurrentTitle } from '../../store/actions/title-action-creators';
 
-import { getFromStorage } from "../../utils/storage";
-import { Loading } from "../../components/Loading/Loading";
-import { useAppDispatch, useTypedSelector } from "../../hooks";
+import { getFromStorage } from '../../utils/storage';
+import { Loading } from '../../components/Loading/Loading';
+import { useAppDispatch, useTypedSelector } from '../../hooks';
 
 export const CertainTitle = () => {
-    const dispatch = useAppDispatch()
-    const {id} = useParams()
+  const dispatch = useAppDispatch();
+  const { id } = useParams();
 
-    const {currentTitle} = useTypedSelector(state => state.title) 
-    
-    const topic = getFromStorage('topic')
+  const { currentTitle } = useTypedSelector((state) => state.title);
 
-    useEffect(() => {
-        dispatch(fetchCurrentTitle(id))
-    },[topic, id])
+  const topic = getFromStorage('topic');
 
-    if(!currentTitle){
-        return <Loading/> 
-    }
+  useEffect(() => {
+    dispatch(fetchCurrentTitle(id));
+  }, [topic, id]);
 
-    return(
-        <CurrentTitle title={currentTitle}/>
-    )
-}
+  if (!currentTitle) {
+    return <Loading />;
+  }
+
+  return <CurrentTitle title={currentTitle} />;
+};

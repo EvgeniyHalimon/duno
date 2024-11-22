@@ -1,2 +1,2 @@
-export * from './redux-hooks'
-export * from './useDebounce'
+export * from './redux-hooks';
+export * from './useDebounce';

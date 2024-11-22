@@ -7,7 +7,7 @@ describe('Navigation component', () => {
     render(
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const homeLink = screen.getByText('HOME');
@@ -23,7 +23,7 @@ describe('Navigation component', () => {
     render(
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const homeLink = screen.getByText('HOME');
@@ -39,7 +39,7 @@ describe('Navigation component', () => {
     render(
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const homeLink = screen.getByText('HOME');
@@ -53,7 +53,7 @@ describe('Navigation component', () => {
     render(
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const popularLink = screen.getByText('POPULAR');
@@ -67,7 +67,7 @@ describe('Navigation component', () => {
     render(
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const genresLink = screen.getByText('GENRES');

@@ -1,38 +1,38 @@
 # Commit rules
 
-
 ## Types
+
 ## API relevant changes
 
-- [x] ***feat*** : Commits, that adds a new feature
-- [x] ***fix*** : Commits, that fixes a bug
+- [x] **_feat_** : Commits, that adds a new feature
+- [x] **_fix_** : Commits, that fixes a bug
 
-- [x] ***refactor*** : Commits, that rewrite/restructure your code, however does not change any behaviour
+- [x] **_refactor_** : Commits, that rewrite/restructure your code, however does not change any behaviour
 
-- [x] ***perf*** : Commits are special 'refactor' commits, that improves performance
+- [x] **_perf_** : Commits are special 'refactor' commits, that improves performance
 
-- [x] ***style*** : Commits, that do not affect the meaning (white-space, formatting, missing semi-colons, etc)
+- [x] **_style_** : Commits, that do not affect the meaning (white-space, formatting, missing semi-colons, etc)
 
-- [x] ***test*** : Commits, that add missing tests or correcting existing tests
+- [x] **_test_** : Commits, that add missing tests or correcting existing tests
 
-- [x] ***docs*** : Commits, that affect documentation only
+- [x] **_docs_** : Commits, that affect documentation only
 
-- [x] ***build*** : Commits, that affect build components like build tool, ci pipeline, dependencies, project version, ...
+- [x] **_build_** : Commits, that affect build components like build tool, ci pipeline, dependencies, project version, ...
 
-- [x] ***ops*** : Commits, that affect operational components like infrastructure, deployment, backup, recovery, ...
+- [x] **_ops_** : Commits, that affect operational components like infrastructure, deployment, backup, recovery, ...
 
-- [x] ***chore*** : Miscellaneous commits e.g. modifying '.gitignore'
-
+- [x] **_chore_** : Miscellaneous commits e.g. modifying '.gitignore'
 
 ### Scopes
+
 The **scope** provides additional contextual information.
 
 Is an optional part of the format
 Allowed Scopes depends on the specific project
 Don't use issue identifiers as scopes
 
-
 ### Subject
+
 The **subject** contains a succinct description of the change.
 
 Is a mandatory part of the format

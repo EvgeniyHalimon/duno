@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { CertainTitle } from './CertainTitle';
-import { useAppDispatch, useTypedSelector } from "../../hooks";
+import { useAppDispatch, useTypedSelector } from '../../hooks';
 import { fetchCurrentTitle } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
@@ -12,22 +12,25 @@ jest.mock('../../store/actions/title-action-creators');
 describe('CertainTitle component', () => {
   const mockTitle = {
     mal_id: 1,
-    title: "Example Title",
-    title_japanese: "Japanese Title",
-    rating: "PG-13",
-    type: "TV",
-    aired: { string: "Jan 2022" },
-    published: { string: "2022" },
+    title: 'Example Title',
+    title_japanese: 'Japanese Title',
+    rating: 'PG-13',
+    type: 'TV',
+    aired: { string: 'Jan 2022' },
+    published: { string: '2022' },
     rank: 1,
-    status: "Airing",
+    status: 'Airing',
     score: 8.5,
     scored_by: 1000,
-    genres: [{ mal_id: 1, name: "Action" }, { mal_id: 2, name: "Adventure" }],
-    synopsis: "Synopsis of the title",
-    duration: "24 min per ep",
+    genres: [
+      { mal_id: 1, name: 'Action' },
+      { mal_id: 2, name: 'Adventure' },
+    ],
+    synopsis: 'Synopsis of the title',
+    duration: '24 min per ep',
     episodes: 12,
     images: {
-      webp: { large_image_url: "example-image-url" },
+      webp: { large_image_url: 'example-image-url' },
     },
   };
 
@@ -42,10 +45,12 @@ describe('CertainTitle component', () => {
         <Routes>
           <Route path="/title/:id" element={<CertainTitle />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    expect(screen.getByText('Example Title / Japanese Title')).toBeInTheDocument();
+    expect(
+      screen.getByText('Example Title / Japanese Title'),
+    ).toBeInTheDocument();
   });
 
   it('renders Loading when CertainTitle is not available', () => {
@@ -55,7 +60,7 @@ describe('CertainTitle component', () => {
         <Routes>
           <Route path="/title/:id" element={<CertainTitle />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByTestId('loading-gif')).toBeInTheDocument();
@@ -69,7 +74,7 @@ describe('CertainTitle component', () => {
         <Routes>
           <Route path="/title/:id" element={<CertainTitle />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(useAppDispatch()).toHaveBeenCalledWith(fetchCurrentTitle(id));

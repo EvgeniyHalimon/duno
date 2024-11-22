@@ -1,14 +1,14 @@
-import { Box } from "@mui/system";
+import { Box } from '@mui/system';
 
-import { Search } from "../Search/Search";
+import { Search } from '../Search/Search';
 import { Switcher } from '../Switcher/Switcher';
-import './Head.scss'
+import './Head.scss';
 
 export const Head = () => {
-    return(
-        <Box className="header" data-testid="head">
-            <Switcher/>
-            <Search/>
-        </Box>
-    )
-}
+  return (
+    <Box className="header" data-testid="head">
+      <Switcher />
+      <Search />
+    </Box>
+  );
+};

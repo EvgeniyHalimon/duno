@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { Slider } from './Slider'; 
+import { Slider } from './Slider';
 
 describe('Slider component', () => {
   it('renders children and controls correctly', () => {
@@ -40,8 +40,8 @@ describe('Slider component', () => {
     expect(screen.getByText(children[0].props.children)).toBeInTheDocument();
 
     act(() => {
-      jest.advanceTimersByTime(10000)
-    })
+      jest.advanceTimersByTime(10000);
+    });
 
     expect(screen.getByText(children[1].props.children)).toBeInTheDocument();
 
@@ -56,5 +56,5 @@ describe('Slider component', () => {
 
     expect(skeletonPoster).toBeInTheDocument();
     expect(skeletonInfo).toBeInTheDocument();
-  })
-})
+  });
+});

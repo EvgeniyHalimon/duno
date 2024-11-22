@@ -16,8 +16,8 @@ describe('PaginatedTitles component', () => {
         images: {
           webp: {
             image_url: '',
-            large_image_url: undefined
-          }
+            large_image_url: undefined,
+          },
         },
         aired: null,
         genres: [
@@ -46,8 +46,8 @@ describe('PaginatedTitles component', () => {
         images: {
           webp: {
             image_url: '',
-            large_image_url: undefined
-          }
+            large_image_url: undefined,
+          },
         },
         aired: null,
         genres: [
@@ -70,10 +70,10 @@ describe('PaginatedTitles component', () => {
     const { getAllByTestId } = render(
       <BrowserRouter>
         <PaginatedTitles paginatedTitles={mockTitles} />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
-    const titleElements = getAllByTestId('title'); 
+    const titleElements = getAllByTestId('title');
 
     expect(titleElements).toHaveLength(mockTitles.length);
   });
