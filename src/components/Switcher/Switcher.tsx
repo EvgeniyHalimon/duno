@@ -17,16 +17,10 @@ export const Switcher = () => {
 
   return (
     <Box className="switcher" data-testid="switcher">
-      <Button
-        onClick={() => {
-          chooseTopic('anime');
-        }}>
+      <Button onClick={() => chooseTopic('anime')}>
         <p className="topic">Anime</p>
       </Button>
-      <Button
-        onClick={() => {
-          chooseTopic('manga');
-        }}>
+      <Button onClick={() => chooseTopic('manga')}>
         <p className="topic">Manga</p>
       </Button>
     </Box>
