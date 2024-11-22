@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { Popular } from './Popular';
-import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { useTypedSelector } from "../../hooks";
 import { fetchPopularTitle } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
-jest.mock('../../hooks/useTypesSelector');
+jest.mock('../../hooks/useTypedSelector');
 jest.mock('../../store/actions/title-action-creators');
 
 describe('Popular page', () => {
@@ -74,8 +73,8 @@ describe('Popular page', () => {
     ];
 
     beforeEach(() => {
-        useDispatch.mockReturnValue(jest.fn());
-        useTypesSelector.mockReturnValue({ popularTitle: mockPopularTitles, lastTitlePage: 3 });
+        dispatch.mockReturnValue(jest.fn());
+        useTypedSelector.mockReturnValue({ popularTitle: mockPopularTitles, lastTitlePage: 3 });
     });
 
     it('renders the list of popular titles', () => {
@@ -114,6 +113,6 @@ describe('Popular page', () => {
             </MemoryRouter>
         );
 
-        expect(useDispatch()).toHaveBeenCalledWith(fetchPopularTitle(1));
+        expect(dispatch()).toHaveBeenCalledWith(fetchPopularTitle(1));
     });
 });

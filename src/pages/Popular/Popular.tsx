@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from "../../components/PaginatedTitles/PaginatedTitles";
 import { Loading } from "../../components/Loading/Loading";
 import { fetchPopularTitle } from "../../store/actions/title-action-creators";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import { getFromStorage } from "../../utils/storage";
 
 export const Popular = () => {
-    const dispatch = useDispatch()
+    
     const [currentPage, setCurrentPage] = useState(1)
-    const {popularTitle, lastTitlePage, isTitle} = useTypesSelector(state => state.title)
+    const {popularTitle, lastTitlePage, isTitle} = useTypedSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 

@@ -1,8 +1,7 @@
 import {useEffect} from 'react';
-import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchCurrentTitle, fetchTitleReviews } from '../../store/actions/title-action-creators';
 import { getFromStorage } from '../../utils/storage';
 import { IReview } from '../../types/types';
@@ -10,10 +9,10 @@ import './Reviews.scss';
 
 export const Reviews = () => {
     const {id} = useParams()
-    const dispatch = useDispatch()
+    
 
     const topic = getFromStorage('topic') as string;
-    const {titleReviews, currentTitle} = useTypesSelector(state => state.title)
+    const {titleReviews, currentTitle} = useTypedSelector(state => state.title)
 
     useEffect(() => {
         dispatch(fetchTitleReviews(Number(id)))

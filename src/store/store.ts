@@ -1,12 +1,14 @@
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import { thunk, ThunkMiddleware } from "redux-thunk";
 
 import reducer from "./reducer/reducer";
-import updateTitles from './reducer/title-reducer/title-reducer';
 
-export const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
+export const store = configureStore({
+  reducer, 
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk as unknown  as ThunkMiddleware),
+  devTools: process.env.NODE_ENV !== "production",
+});
 
-export type RootState = {
-    title: ReturnType<typeof updateTitles>,
-}
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;

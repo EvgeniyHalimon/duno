@@ -1,13 +1,12 @@
 import { Box, Button } from '@mui/material';
-import { useDispatch } from 'react-redux';
 import { isTitleFlag } from '../../store/actions/title-action-creators';
 
 import { setToStorage } from "../../utils/storage";
+import { dispatch } from '../../hooks';
 
 export const Switcher = () => {
-    const dispatch = useDispatch()
-
-    function chooseTopic(string: string){
+    
+    const chooseTopic = (string: string) => {
         setToStorage("topic", string)
         if(string === 'anime'){
             dispatch(isTitleFlag('anime'))

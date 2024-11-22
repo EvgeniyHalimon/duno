@@ -2,13 +2,13 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { RandomTitlesContainer } from "./RandomTitlesContainer";
 import { useDispatch } from "react-redux";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchRandomTitle, isTitleFlag } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { BrowserRouter } from 'react-router-dom';
 
 jest.mock("react-redux");
-jest.mock("../../hooks/useTypesSelector");
+jest.mock("../../hooks/useTypedSelector");
 jest.mock("../../store/actions/title-action-creators");
 jest.mock("../../utils/storage");
 
@@ -16,14 +16,14 @@ describe("RandomTitlesContainer", () => {
     beforeEach(() => {
         useDispatch.mockReturnValue(jest.fn());
         useDispatch.mockClear();
-        useTypesSelector.mockClear();
+        useTypedSelector.mockClear();
         fetchRandomTitle.mockClear();
         isTitleFlag.mockClear();
         getFromStorage.mockClear();
     });
 
     test("renders with random titles", async () => {
-        useTypesSelector.mockReturnValue({
+        useTypedSelector.mockReturnValue({
             randomTitles: [
                 {
                     mal_id: 1,
@@ -72,7 +72,7 @@ describe("RandomTitlesContainer", () => {
     });
 
     test("renders with skeleton cards when no random titles", async () => {
-        useTypesSelector.mockReturnValue({
+        useTypedSelector.mockReturnValue({
             randomTitles: null,
             isTitle: true,
         });
@@ -93,7 +93,7 @@ describe("RandomTitlesContainer", () => {
     test("dispatches correct actions based on storage value", async () => {
         getFromStorage.mockReturnValue("anime");
 
-        useTypesSelector.mockReturnValue({
+        useTypedSelector.mockReturnValue({
             randomTitles: [
                 {
                     mal_id: 1,

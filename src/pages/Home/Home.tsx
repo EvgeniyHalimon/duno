@@ -4,7 +4,7 @@ import { Head } from "../../components/Head/Head";
 import { RandomTitlesContainer } from "../../components/RandomPaginatedTitles/RandomTitlesContainer";
 import { Titles } from "../../components/Titles/Titles";
 import { getFromStorage, setToStorage } from "../../utils/storage";
-import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { useTypedSelector } from "../../hooks";
 import './Home.scss';
 
 export const Home = () => {
@@ -13,7 +13,7 @@ export const Home = () => {
         setToStorage('topic', 'anime')
     }
 
-    const { isTitle } = useTypesSelector(state => state.title)
+    const { isTitle } = useTypedSelector(state => state.title)
 
     useEffect(() => {
     }, [isTitle])

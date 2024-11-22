@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import { Navigation } from "../../components/Navigation/Navigation";
 import { getFromStorage, setToStorage } from "../../utils/storage";
-import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { useTypedSelector } from "../../hooks";
 import { Outlet } from 'react-router-dom';
 import './Layout.scss';
 
@@ -13,7 +13,7 @@ export const Layout = () => {
         setToStorage('topic', 'anime')
     }
    
-    const {isTitle} = useTypesSelector(state => state.title)
+    const {isTitle} = useTypedSelector(state => state.title)
 
     useEffect(() => {
     },[isTitle])

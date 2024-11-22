@@ -1,16 +1,15 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchTitleGenres, setCleanUpGenres } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { IGenreData } from "../../types/types";
 import './Genres.scss'
 
 export const Genres = () => {
-    const dispatch = useDispatch()
-    const { titleGenres, isTitle } = useTypesSelector(state => state.title)
+    
+    const { titleGenres, isTitle } = useTypedSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 
@@ -18,9 +17,9 @@ export const Genres = () => {
         if (!accumulator[genre.mal_id]) {
             accumulator[genre.mal_id] = {
                 mal_id: genre.mal_id,
-                name: genre.name as string,
-                count: genre.count as number,
-                url: genre.url as string,
+                name: genre.name,
+                count: genre.count,
+                url: genre.url,
             };
         }
         return accumulator;

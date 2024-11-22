@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { fetchTitleReviews } from "../../store/actions/title-action-creators";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import { getScoreColor } from "../../utils/getColor";
 import { getFromStorage } from "../../utils/storage";
 import { IGenre, ITitle } from "../../types/types";
@@ -14,8 +14,8 @@ interface ITitleInfo{
 }
 
 export const CurrentTitle: FC<ITitleInfo> = ({title}) => {
-    const dispatch = useDispatch()
-    const {titleReviews} = useTypesSelector(state => state.title)
+    
+    const {titleReviews} = useTypedSelector(state => state.title)
     
     const topic = getFromStorage('topic')
     const isAnime = topic === 'anime'

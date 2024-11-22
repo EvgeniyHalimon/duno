@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { CurrentTitle } from "./CurrentTitle";
 import { fetchTitleReviews } from "../../store/actions/title-action-creators";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 
 jest.mock("react-redux");
-jest.mock("../../hooks/useTypesSelector");
+jest.mock("../../hooks/useTypedSelector");
 jest.mock("../../store/actions/title-action-creators");
 
 describe("CurrentTitle component", () => {
@@ -34,8 +33,8 @@ describe("CurrentTitle component", () => {
   const mockTitleReviews = [{ id: 1, text: "Review 1" }, { id: 2, text: "Review 2" }];
 
   beforeEach(() => {
-    useDispatch.mockReturnValue(jest.fn());
-    useTypesSelector.mockReturnValue({ titleReviews: mockTitleReviews });
+    dispatch.mockReturnValue(jest.fn());
+    useTypedSelector.mockReturnValue({ titleReviews: mockTitleReviews });
   });
 
   it("renders title information", () => {
@@ -62,7 +61,7 @@ describe("CurrentTitle component", () => {
       </MemoryRouter>
     );
 
-    expect(useDispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
+    expect(dispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
   });
 
   it("displays correct number of reviews in the link", () => {

@@ -1,15 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { Reviews } from "./Reviews";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import {
     fetchCurrentTitle,
     fetchTitleReviews,
 } from "../../store/actions/title-action-creators";
 
 jest.mock("react-redux");
-jest.mock("../../hooks/useTypesSelector");
+jest.mock("../../hooks/useTypedSelector");
 jest.mock("../../store/actions/title-action-creators");
 
 describe("Reviews component", () => {
@@ -33,8 +32,8 @@ describe("Reviews component", () => {
     };
 
     beforeEach(() => {
-        useDispatch.mockReturnValue(jest.fn());
-        useTypesSelector.mockReturnValue({
+        dispatch.mockReturnValue(jest.fn());
+        useTypedSelector.mockReturnValue({
             titleReviews: mockReviews,
             currentTitle: mockTitle,
         });
@@ -58,7 +57,7 @@ describe("Reviews component", () => {
     });
 
     it("renders 'No reviews yet' message", () => {
-        useTypesSelector.mockReturnValue({ titleReviews: [], currentTitle: mockTitle });
+        useTypedSelector.mockReturnValue({ titleReviews: [], currentTitle: mockTitle });
 
         render(
             <MemoryRouter initialEntries={["/reviews/1"]}>
@@ -80,7 +79,7 @@ describe("Reviews component", () => {
             </MemoryRouter>
         );
 
-        expect(useDispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
-        expect(useDispatch()).toHaveBeenCalledWith(fetchCurrentTitle(1));
+        expect(dispatch()).toHaveBeenCalledWith(fetchTitleReviews(1));
+        expect(dispatch()).toHaveBeenCalledWith(fetchCurrentTitle(1));
     });
 });

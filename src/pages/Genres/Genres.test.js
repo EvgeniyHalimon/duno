@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { Genres } from "./Genres";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchTitleGenres, setCleanUpGenres } from "../../store/actions/title-action-creators";
 
 jest.mock("react-redux");
-jest.mock("../../hooks/useTypesSelector");
+jest.mock("../../hooks/useTypedSelector");
 jest.mock("../../store/actions/title-action-creators");
 
 describe("Genres component", () => {
@@ -16,8 +15,8 @@ describe("Genres component", () => {
   ];
 
   beforeEach(() => {
-    useDispatch.mockReturnValue(jest.fn());
-    useTypesSelector.mockReturnValue({ titleGenres: mockGenres, isTitle: false });
+    dispatch.mockReturnValue(jest.fn());
+    useTypedSelector.mockReturnValue({ titleGenres: mockGenres, isTitle: false });
   });
 
   it("renders a list of genres", () => {
@@ -50,7 +49,7 @@ describe("Genres component", () => {
       </MemoryRouter>
     );
 
-    expect(useDispatch()).toHaveBeenCalledWith(fetchTitleGenres());
+    expect(dispatch()).toHaveBeenCalledWith(fetchTitleGenres());
   });
 
   it("dispatches setCleanUpGenres on component unmount", () => {
@@ -62,6 +61,6 @@ describe("Genres component", () => {
 
     unmount();
 
-    expect(useDispatch()).toHaveBeenCalledWith(setCleanUpGenres());
+    expect(dispatch()).toHaveBeenCalledWith(setCleanUpGenres());
   });
 });

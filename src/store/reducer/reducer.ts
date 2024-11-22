@@ -1,9 +1,8 @@
-import { combineReducers } from "redux";
-
+import { combineReducers } from "@reduxjs/toolkit";
 import updateTitles from "./title-reducer/title-reducer";
 
-const reducer = combineReducers({
-    title: updateTitles
-})
+const rootReducer = combineReducers({
+  title: updateTitles,
+});
 
-export default reducer
+export default rootReducer;

@@ -1,15 +1,14 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Pagination } from "@mui/material";
 
 import { PaginatedTitles } from '../PaginatedTitles/PaginatedTitles';
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchPaginatedTitles, setCurrentTitlePage } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 
 export const Titles = () => {
-    const dispatch = useDispatch()
-    const {paginatedTitles, lastTitlePage, currentTitlePage, isTitle} = useTypesSelector(state => state.title)
+    
+    const {paginatedTitles, lastTitlePage, currentTitlePage, isTitle} = useTypedSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 

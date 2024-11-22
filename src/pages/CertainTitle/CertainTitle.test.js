@@ -1,13 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { CertainTitle } from './CertainTitle';
-import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchCurrentTitle } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
-jest.mock('../../hooks/useTypesSelector');
+jest.mock('../../hooks/useTypedSelector');
 jest.mock('../../store/actions/title-action-creators');
 
 describe('CertainTitle component', () => {
@@ -33,11 +32,11 @@ describe('CertainTitle component', () => {
   };
 
   beforeEach(() => {
-    useDispatch.mockReturnValue(jest.fn());
+    dispatch.mockReturnValue(jest.fn());
   });
 
   it('renders CertainTitle when CurrentTitle is available', () => {
-    useTypesSelector.mockReturnValue({ currentTitle: mockTitle });
+    useTypedSelector.mockReturnValue({ currentTitle: mockTitle });
     render(
       <MemoryRouter initialEntries={['/title/1']}>
         <Routes>
@@ -50,7 +49,7 @@ describe('CertainTitle component', () => {
   });
 
   it('renders Loading when CertainTitle is not available', () => {
-    useTypesSelector.mockReturnValue({ currentTitle: null });
+    useTypedSelector.mockReturnValue({ currentTitle: null });
     render(
       <MemoryRouter initialEntries={['/title/1']}>
         <Routes>
@@ -64,7 +63,7 @@ describe('CertainTitle component', () => {
 
   it('dispatches fetchCurrentTitle with the correct id on component mount', () => {
     const id = '1';
-    useTypesSelector.mockReturnValue({ currentTitle: null });
+    useTypedSelector.mockReturnValue({ currentTitle: null });
     render(
       <MemoryRouter initialEntries={['/title/1']}>
         <Routes>
@@ -73,6 +72,6 @@ describe('CertainTitle component', () => {
       </MemoryRouter>
     );
 
-    expect(useDispatch()).toHaveBeenCalledWith(fetchCurrentTitle(id));
+    expect(dispatch()).toHaveBeenCalledWith(fetchCurrentTitle(id));
   });
 });

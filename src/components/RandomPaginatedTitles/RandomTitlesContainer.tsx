@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-
 import { SliderCardInfo } from "../SliderCardInfo/SliderCardInfo";
 import { Slider } from "../Slider/Slider";
-import { useTypesSelector } from "../../hooks/useTypesSelector";
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchRandomTitle, isTitleFlag } from "../../store/actions/title-action-creators";
 import { getFromStorage } from "../../utils/storage";
 import { ITitle } from "../../types/types";
-import './RandomPaginatedTitles.scss'
 import { SkeletonCardInfo } from "../SkeletonCardInfo/SkeletonCardInfo";
+import './RandomPaginatedTitles.scss'
 
 export const RandomTitlesContainer = () => {
-    const dispatch = useDispatch()
-    const { randomTitles, isTitle } = useTypesSelector(state => state.title)
+    
+    const { randomTitles, isTitle } = useTypedSelector(state => state.title)
 
     const topic = getFromStorage('topic')
 

@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { SearchResult } from './SearchResult';
-import { useTypesSelector } from '../../hooks/useTypesSelector';
+import { dispatch, useTypedSelector } from "../../hooks";
 import { fetchTitleSearch } from '../../store/actions/title-action-creators';
 
 jest.mock('react-redux');
-jest.mock('../../hooks/useTypesSelector');
+jest.mock('../../hooks/useTypedSelector');
 jest.mock('../../store/actions/title-action-creators');
 
 describe('SearchResult page', () => {
@@ -74,8 +73,8 @@ describe('SearchResult page', () => {
     ];
 
     beforeEach(() => {
-        useDispatch.mockReturnValue(jest.fn());
-        useTypesSelector.mockReturnValue({ titleSearchResult: mockSearchResults, lastTitlePage: 3 });
+        dispatch.mockReturnValue(jest.fn());
+        useTypedSelector.mockReturnValue({ titleSearchResult: mockSearchResults, lastTitlePage: 3 });
     });
 
     it('renders the list of search results', () => {
@@ -115,6 +114,6 @@ describe('SearchResult page', () => {
             </MemoryRouter>
         );
 
-        expect(useDispatch()).toHaveBeenCalledWith(fetchTitleSearch('Action', 1));
+        expect(dispatch()).toHaveBeenCalledWith(fetchTitleSearch('Action', 1));
     });
 });
