@@ -53,7 +53,7 @@ export const CurrentTitle: FC<ITitleInfo> = ({title}) => {
                         <p>Status: {title.status}</p>
                         <p
                             style={{color: getScoreColor(score)}}
-                        >{titleScore === null ? null : `Score: ${getScoreColor(score)}`}</p>
+                        >{titleScore === null ? null : `Score: ${score}`}</p>
                         <p>{title.scored_by === null ? null : `Scored by: ${title.scored_by} users`} </p>
                         <div className="title-genres">
                             {title.genres?.map((genre: IGenre) => <p className="title-name" key={genre.mal_id}>{genre.name}</p>)}
